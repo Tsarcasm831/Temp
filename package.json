@@ -1,0 +1,10 @@
+{
+  "name": "naruto-rpg-battle",
+  "version": "0.001.279",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "echo \"Open index.html in a modern browser\" && exit 0"
+  }
+}
+
