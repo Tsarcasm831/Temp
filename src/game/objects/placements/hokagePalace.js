@@ -4,7 +4,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { createHokagePalace } from '../houses/HokagePalace.js';
 
 /* @tweakable grid label where the Hokage Palace is placed */
-const HOKAGE_PALACE_LABEL = 'LB117';
+const HOKAGE_PALACE_LABEL = 'LB122';
 
 /* @tweakable toggle: when true, place only a reconstruction marker instead of the full palace */
 const HOKAGE_PLACE_MARKER_ONLY = false;
@@ -44,7 +44,7 @@ const HOKAGE_SNAP_TO_GRID = true;
 /* @tweakable size of one grid cell in world units */
 const GRID_CELL_SIZE_UNITS = 5;
 /* @tweakable how many grid cells to move the office south (+Z) after snapping */
-const HOKAGE_MOVE_SOUTH_GRIDS = 20;
+const HOKAGE_MOVE_SOUTH_GRIDS = 0;
 
 // Place the Hokage Palace at a grid label.
 // Returns the created THREE.Group or null on failure.
