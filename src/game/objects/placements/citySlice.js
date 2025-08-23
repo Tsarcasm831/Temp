@@ -6,6 +6,24 @@ import { WORLD_SIZE } from '/src/scene/terrain.js';
 const DEFAULT_ROADS = [];
 const DEFAULT_DISTRICTS = {};
 const MODEL = null;
+// precomputed road segments and district polygons
+const roadSegments = [];
+let districtPolys = [], districtCentroids = [];
+
+/* @tweakable when true, enforce district containment for slice buildings */
+const CITY_SLICE_DISTRICT_ENFORCE = true;
+/* @tweakable nudge step size (world units) toward nearest district */
+const CITY_SLICE_DISTRICT_NUDGE_STEP = 6;
+/* @tweakable max nudge iterations per building */
+const CITY_SLICE_DISTRICT_MAX_ATTEMPTS = 40;
+/* @tweakable drop buildings failing district containment */
+const CITY_SLICE_DISTRICT_DROP_IF_FAIL = true;
+
+/* @tweakable road avoidance factors (defaults match town placement) */
+const CITY_SLICE_ROAD_AVOID_SIZE_FACTOR = 0.25;
+const CITY_SLICE_ROAD_AVOID_STEP = 5;
+const CITY_SLICE_ROAD_AVOID_MAX_ATTEMPTS = 24;
+const CITY_SLICE_ROAD_SEG_INTERSECT_SHORTCIRCUIT = true;
 
 /* @tweakable origin position for the City Slice (world units) */
 const CITY_SLICE_ORIGIN = new THREE.Vector3(300, 0, 300);
@@ -40,6 +58,35 @@ export function placeCitySlice(scene, objectGrid, settings) {
       colliderMinHalf: CITY_SLICE_COLLIDER_MIN_HALF,
       colliderDebug: CITY_SLICE_COLLIDER_DEBUG
     });
+
+    // Build district polygon/centroid sets from live map (if available)
+    const live = (window.__konohaMapModel?.MODEL ?? window.__konohaMapModel) || MODEL;
+    districtPolys = [];
+    districtCentroids = [];
+    const districts = live?.districts || DEFAULT_DISTRICTS;
+    for (const d of Object.values(districts)) {
+      if (!Array.isArray(d.points) || d.points.length < 3) continue;
+      const poly = d.points.map(([px, py]) => ({
+        x: (px / 100) * WORLD_SIZE - WORLD_SIZE / 2,
+        z: (py / 100) * WORLD_SIZE - WORLD_SIZE / 2
+      }));
+      districtPolys.push(poly);
+      const c = { x: 0, z: 0 };
+      poly.forEach(p => { c.x += p.x; c.z += p.z; });
+      districtCentroids.push({ x: c.x / poly.length, z: c.z / poly.length });
+    }
+
+    // Enforce full containment for each slice building
+    if (CITY_SLICE_DISTRICT_ENFORCE && districtPolys.length > 0) {
+      group.children.forEach(b => {
+        if (b.userData?.collider) return; // skip collider proxies
+        if (!buildingFullyInsideAnyDistrict(b)) {
+          if (!nudgeTowardNearestDistrict(b) || !buildingFullyInsideAnyDistrict(b)) {
+            if (CITY_SLICE_DISTRICT_DROP_IF_FAIL) { b.removeFromParent?.(); }
+          }
+        }
+      });
+    }
 
     return group;
   } catch (e) {
@@ -127,10 +174,37 @@ function isInsideAnyDistrict(worldPos) {
   }
   return false;
 }
+function buildingFullyInsideAnyDistrict(building) {
+  if (districtPolys.length === 0) return true;
+  const obb = getBuildingOBB(building);
+  if (building.userData?.round && building.userData?.roundRadius) {
+    const R = building.userData.roundRadius;
+    const samples = 12;
+    for (let k = 0; k < districtPolys.length; k++) {
+      let ok = true;
+      for (let i = 0; i < samples && ok; i++) {
+        const a = (i / samples) * Math.PI * 2;
+        const x = obb.center.x + Math.cos(a) * R;
+        const z = obb.center.z + Math.sin(a) * R;
+        ok = ok && pointInPolyXZ({ x, z }, districtPolys[k]);
+      }
+      if (ok) return true;
+    }
+    return false;
+  }
+  const c = obb.center, hx = obb.hx, hz = obb.hz, a = obb.rotY;
+  const cos = Math.cos(a), sin = Math.sin(a);
+  const local = [[-hx,-hz],[hx,-hz],[hx,hz],[-hx,hz]].map(([x,z]) => ({
+    x: c.x + x*cos - z*sin,
+    z: c.z + x*sin + z*cos
+  }));
+  return districtPolys.some(poly => local.every(p => pointInPolyXZ(p, poly)));
+}
+
 function nudgeTowardNearestDistrict(building) {
   if (!CITY_SLICE_DISTRICT_ENFORCE || districtCentroids.length === 0) return true;
+  if (buildingFullyInsideAnyDistrict(building)) return true;
   const obb = getBuildingOBB(building);
-  if (isInsideAnyDistrict(obb.center)) return true;
   // find nearest centroid
   let best = districtCentroids[0], bestD2 = Infinity;
   for (const c of districtCentroids) {
@@ -142,7 +216,7 @@ function nudgeTowardNearestDistrict(building) {
   const orig = building.position.clone();
   for (let k = 1; k <= CITY_SLICE_DISTRICT_MAX_ATTEMPTS; k++) {
     building.position.addScaledVector(dir, step);
-    if (isInsideAnyDistrict(getBuildingOBB(building).center)) return true;
+    if (buildingFullyInsideAnyDistrict(building)) return true;
   }
   building.position.copy(orig);
   return false;
