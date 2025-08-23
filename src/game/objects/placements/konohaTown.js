@@ -7,6 +7,8 @@ import { addGreenBuildings } from '../../../components/game/objects/buildings.gr
 import { addDarkBuildings } from '../../../components/game/objects/buildings.dark.js';
 /* @tweakable world-size used to convert map percent coords to world units (keep in sync with terrain.js) */
 import { WORLD_SIZE } from '/src/scene/terrain.js';
+// Fallback district data when a live /map model isn't available
+import { DEFAULT_MODEL as FALLBACK_MODEL } from '../../../../map/defaults/full-default-model.js';
 /* @tweakable fallback road list when /map is unavailable (empty = no avoidance from map roads) */
 const DEFAULT_ROADS = [];
 // Building palette and helpers extracted into separate module
@@ -37,8 +39,6 @@ const DISTRICT_REQUIRE_MAP = true;
 const DISTRICT_NUDGE_MAX_ATTEMPTS = 40;
 /* @tweakable when true, remove buildings that cannot be placed inside any district after nudging */
 const DISTRICT_DROP_IF_FAIL = true;
-/* @tweakable module path for the live map model providing districts */
-const MAP_MODEL_PATH = '/map/model.js';
 
 // Build a cluster of Konoha town buildings and add them to the scene.
 // Returns the group representing the town or null on failure.
@@ -62,10 +62,17 @@ export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.
     townGroup.position.copy(origin);
     scene.add(townGroup);
 
-    // Require live districts; if unavailable, skip spawning entirely
-    const liveMap = (window.__konohaMapModel?.MODEL ?? window.__konohaMapModel) || null;
+    // Require districts; if unavailable, fall back to built-in defaults
+    let liveMap = (window.__konohaMapModel?.MODEL ?? window.__konohaMapModel) || null;
+    if (!liveMap || !liveMap.districts || Object.keys(liveMap.districts).length === 0) {
+      liveMap = FALLBACK_MODEL;
+    }
     const liveDistricts = liveMap?.districts;
-    if (DISTRICT_ENFORCEMENT_ENABLED && DISTRICT_REQUIRE_MAP && (!liveDistricts || Object.keys(liveDistricts).length === 0)) {
+    if (
+      DISTRICT_ENFORCEMENT_ENABLED &&
+      DISTRICT_REQUIRE_MAP &&
+      (!liveDistricts || Object.keys(liveDistricts).length === 0)
+    ) {
       scene.remove(townGroup);
       return null;
     }
