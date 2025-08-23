@@ -166,19 +166,28 @@ export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.
       if (districtPolys.length === 0) return !DISTRICT_REQUIRE_MAP;
       const obb = getBuildingOBB(building);
       if (building.userData?.round && building.userData?.roundRadius) {
-        const R = building.userData.roundRadius; const samples = 12;
+        const scl = building.scale;
+        const avg = (Math.abs(scl.x) + Math.abs(scl.z)) * 0.5;
+        const R = building.userData.roundRadius * avg;
+        const samples = 12;
         for (let k = 0; k < districtPolys.length; k++) {
           let ok = true;
           for (let i = 0; i < samples && ok; i++) {
-            const a = (i / samples) * Math.PI * 2; const x = obb.center.x + Math.cos(a) * R; const z = obb.center.z + Math.sin(a) * R;
+            const a = (i / samples) * Math.PI * 2;
+            const x = obb.center.x + Math.cos(a) * R;
+            const z = obb.center.z + Math.sin(a) * R;
             ok = ok && pointInPolyXZ({ x, z }, districtPolys[k]);
           }
           if (ok) return true;
         }
         return false;
       }
-      const c = obb.center, hx = obb.hx, hz = obb.hz, a = obb.rotY; const cos = Math.cos(a), sin = Math.sin(a);
-      const local = [[-hx,-hz],[hx,-hz],[hx,hz],[-hx,hz]].map(([x,z])=>({ x: c.x + x*cos - z*sin, z: c.z + x*sin + z*cos }));
+      const c = obb.center, hx = obb.hx, hz = obb.hz, a = obb.rotY;
+      const cos = Math.cos(a), sin = Math.sin(a);
+      const local = [[-hx,-hz],[hx,-hz],[hx,hz],[-hx,hz]].map(([x,z])=>({
+        x: c.x + x*cos - z*sin,
+        z: c.z + x*sin + z*cos
+      }));
       return districtPolys.some(poly => local.every(p => pointInPolyXZ(p, poly)));
     }
 
@@ -188,9 +197,15 @@ export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.
       const box = new THREE.Box3().setFromObject(building);
       const center = new THREE.Vector3(), size = new THREE.Vector3();
       box.getCenter(center); box.getSize(size);
-      const quat = new THREE.Quaternion(); building.getWorldQuaternion(quat);
+      const quat = new THREE.Quaternion();
+      building.getWorldQuaternion(quat);
       const eulerY = new THREE.Euler().setFromQuaternion(quat, 'YXZ').y;
-      return { center: { x: center.x, z: center.z }, hx: Math.max(1, size.x/2), hz: Math.max(1, size.z/2), rotY: eulerY };
+      return {
+        center: { x: center.x, z: center.z },
+        hx: Math.max(2, size.x / 2),
+        hz: Math.max(2, size.z / 2),
+        rotY: eulerY
+      };
     }
 
     // 2D helpers for segment vs OBB distance (projected on XZ)
