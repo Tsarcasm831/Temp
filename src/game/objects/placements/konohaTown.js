@@ -32,7 +32,7 @@ const DISTRICT_ENFORCEMENT_ENABLED = true;
 /* @tweakable nudge step size (world units) when pulling a building toward the nearest district */
 const DISTRICT_NUDGE_STEP_UNITS = 6;
 /* @tweakable when true, require live /map districts to place any town buildings at all */
-const DISTRICT_REQUIRE_MAP = false;
+const DISTRICT_REQUIRE_MAP = true;
 /* @tweakable maximum number of nudge iterations per building before giving up */
 const DISTRICT_NUDGE_MAX_ATTEMPTS = 40;
 /* @tweakable when true, remove buildings that cannot be placed inside any district after nudging */
@@ -120,12 +120,14 @@ export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.
       return inside;
     };
     const isInsideAnyDistrict = (p) => {
-      if (!DISTRICT_ENFORCEMENT_ENABLED || districtPolys.length === 0) return true;
+      if (!DISTRICT_ENFORCEMENT_ENABLED) return true;
+      if (districtPolys.length === 0) return !DISTRICT_REQUIRE_MAP;
       for (let k = 0; k < districtPolys.length; k++) if (pointInPolyXZ(p, districtPolys[k])) return true;
       return false;
     };
     const nudgeTowardNearestDistrict = (building) => {
-      if (!DISTRICT_ENFORCEMENT_ENABLED || districtPolys.length === 0) return true;
+      if (!DISTRICT_ENFORCEMENT_ENABLED) return true;
+      if (districtPolys.length === 0) return !DISTRICT_REQUIRE_MAP;
       // compute current OBB center
       building.updateWorldMatrix(true, true);
       const box = new THREE.Box3().setFromObject(building);
@@ -153,7 +155,8 @@ export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.
 
     // NEW: require full containment: all OBB corners (or circle samples) must lie inside a single district
     function buildingFullyInsideAnyDistrict(building) {
-      if (!DISTRICT_ENFORCEMENT_ENABLED || districtPolys.length === 0) return true;
+      if (!DISTRICT_ENFORCEMENT_ENABLED) return true;
+      if (districtPolys.length === 0) return !DISTRICT_REQUIRE_MAP;
       const obb = getBuildingOBB(building);
       if (building.userData?.round && building.userData?.roundRadius) {
         const R = building.userData.roundRadius; const samples = 12;
