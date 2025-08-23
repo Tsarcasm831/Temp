@@ -80,7 +80,7 @@ const CITY_SLICE_COLLIDER_MIN_HALF = 2;
 /* @tweakable attach a tiny debug marker to each collider center */
 const CITY_SLICE_COLLIDER_DEBUG = false;
 /* @tweakable require live /map districts to place any city-slice buildings */
-const CITY_SLICE_REQUIRE_DISTRICTS = true;
+const CITY_SLICE_REQUIRE_DISTRICTS = false;
 
 /**
  * Buildings-module style API: add the 30-building city slice into a given parent group (e.g., "town"),
@@ -143,6 +143,22 @@ export function addCitySliceBuildings(
     const pts = obbCorners(obb);
     return districtPolys.some(poly => pts.every(p => pointInPoly(p, poly)));
   };
+
+  function getBuildingOBB(building) {
+    const box = new THREE.Box3().setFromObject(building);
+    const center = new THREE.Vector3();
+    const size = new THREE.Vector3();
+    box.getCenter(center);
+    box.getSize(size);
+    const quat = new THREE.Quaternion();
+    building.getWorldQuaternion(quat);
+    const euler = new THREE.Euler().setFromQuaternion(quat, 'YXZ');
+    const hxRaw = Math.max(0.0001, size.x / 2);
+    const hzRaw = Math.max(0.0001, size.z / 2);
+    const hx = Math.max(colliderMinHalf, hxRaw + colliderPadding);
+    const hz = Math.max(colliderMinHalf, hzRaw + colliderPadding);
+    return { center: { x: center.x, z: center.z }, hx, hz, rotY: euler.y };
+  }
 
   let idx = 0;
   for (let r = 0; r < rows; r++) {
