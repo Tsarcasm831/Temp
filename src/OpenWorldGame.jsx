@@ -15,7 +15,7 @@ import ChangelogPanel from "./components/UI/ChangelogPanel.jsx";
 import ErrorBoundary from "./components/UI/ErrorBoundary.jsx";
 import { MobileControls } from "./components/UI/MobileControls.jsx";
 import CreditsPanel from "./components/UI/CreditsPanel.jsx";
-import AnimationsPanel from "./components/UI/AnimationsPanel.jsx";
+import KakashiAnimationsModal from "./components/UI/KakashiAnimationsModal.jsx";
 import { changelogData } from "./components/UI/ChangelogPanel.jsx";
 import PauseMenu from "./components/UI/PauseMenu.jsx";
 const VERSION_PREFIX = "v";
@@ -201,7 +201,7 @@ const OpenWorldGame = () => {
       lineNumber: 71,
       columnNumber: 21
     }),
-    gameState === "Playing" && showAnimations && /* @__PURE__ */ jsxDEV(ErrorBoundary, { children: /* @__PURE__ */ jsxDEV(AnimationsPanel, { playerRef, onClose: () => setShowAnimations(false) }, void 0, false, {
+    gameState === "Playing" && showAnimations && /* @__PURE__ */ jsxDEV(ErrorBoundary, { children: /* @__PURE__ */ jsxDEV(KakashiAnimationsModal, { onClose: () => setShowAnimations(false) }, void 0, false, {
       fileName: "<stdin>",
       lineNumber: 72,
       columnNumber: 51
