@@ -334,7 +334,8 @@ export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.
     };
 
     townGroup.children.forEach(colorGroup => {
-      colorGroup.children?.forEach(building => {
+      const buildings = [...(colorGroup.children || [])];
+      buildings.forEach(building => {
         ensureNotOnRoad(building);
         // NEW: enforce full district containment (nudge then drop if still failing)
         if (DISTRICT_ENFORCEMENT_ENABLED && districtPolys.length > 0) {
