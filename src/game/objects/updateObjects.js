@@ -33,7 +33,6 @@ import { createCentralWallWithGate } from './walls/centralWall.js';
 import { placeHokagePalace } from './placements/hokagePalace.js';
 import { placeHokageMonument } from './placements/hokageMonument.js';
 import { placeIchiraku } from './placements/ichiraku.js';
-import { placeKonohaTown } from './placements/konohaTown.js';
 import { placeKonohaGates } from './placements/konohaGates.js';
 import { placeCitySlice } from './placements/citySlice.js';
 import { WALL_RADIUS } from '../player/movement/constants.js';
@@ -133,9 +132,6 @@ export function updateObjects(scene, currentObjects, settings) {
 
   const ichiraku = placeIchiraku(scene, objectGrid, worldSize, settings);
   if (ichiraku) renderObjects.push(ichiraku);
-
-  const town = placeKonohaTown(scene, objectGrid, settings);
-  if (town) renderObjects.push(town);
 
   const citySlice = placeCitySlice(scene, objectGrid, settings);
   if (citySlice) renderObjects.push(citySlice);
