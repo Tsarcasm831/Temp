@@ -40,6 +40,15 @@ const DISTRICT_NUDGE_MAX_ATTEMPTS = 40;
 /* @tweakable when true, remove buildings that cannot be placed inside any district after nudging */
 const DISTRICT_DROP_IF_FAIL = true;
 
+/* @tweakable enable collider proxies for Konoha town buildings */
+const KONOHA_TOWN_COLLIDERS_ENABLED = true;
+/* @tweakable extra padding added to collider half-extents (world units) */
+const KONOHA_TOWN_COLLIDER_PADDING = 0.5;
+/* @tweakable minimum collider half-extent (world units) */
+const KONOHA_TOWN_COLLIDER_MIN_HALF = 1;
+/* @tweakable attach a small debug marker to collider centers */
+const KONOHA_TOWN_COLLIDER_DEBUG = false;
+
 // Build a cluster of Konoha town buildings and add them to the scene.
 // Returns the group representing the town or null on failure.
 export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.Vector3(-320, 0, -220)) {
@@ -290,6 +299,8 @@ export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.
     }
 
     const addObbProxy = (building) => {
+      if (!KONOHA_TOWN_COLLIDERS_ENABLED || !objectGrid) return;
+
       // Ensure world matrices reflect current parent scale/transform
       building.updateWorldMatrix(true, false);
 
@@ -308,18 +319,21 @@ export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.
       const proxy = new THREE.Object3D();
       proxy.position.set(center.x, 0, center.z);
 
-      // For round buildings, scale the stored radius by world scale (uniform assumed)
       if (building.userData?.round && building.userData?.roundRadius) {
         const scl = new THREE.Vector3();
         building.matrixWorld.decompose(new THREE.Vector3(), new THREE.Quaternion(), scl);
         const avgXZ = (Math.abs(scl.x) + Math.abs(scl.z)) * 0.5;
+        const r = building.userData.roundRadius * avgXZ + KONOHA_TOWN_COLLIDER_PADDING;
         proxy.userData.collider = {
           type: 'sphere',
-          radius: building.userData.roundRadius * avgXZ
+          center: { x: center.x, z: center.z },
+          radius: Math.max(KONOHA_TOWN_COLLIDER_MIN_HALF, r)
         };
       } else {
-        const hx = Math.max(2, size.x / 2);
-        const hz = Math.max(2, size.z / 2);
+        const hxRaw = Math.max(0.0001, size.x / 2);
+        const hzRaw = Math.max(0.0001, size.z / 2);
+        const hx = Math.max(KONOHA_TOWN_COLLIDER_MIN_HALF, hxRaw + KONOHA_TOWN_COLLIDER_PADDING);
+        const hz = Math.max(KONOHA_TOWN_COLLIDER_MIN_HALF, hzRaw + KONOHA_TOWN_COLLIDER_PADDING);
         proxy.userData.collider = {
           type: 'obb',
           center: { x: center.x, z: center.z },
@@ -330,7 +344,17 @@ export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.
 
       proxy.userData.label = building.name || 'House';
       objectGrid.add(proxy);
-      scene.add(proxy);
+      townGroup.add(proxy);
+
+      if (KONOHA_TOWN_COLLIDER_DEBUG) {
+        const dbg = new THREE.Mesh(
+          new THREE.SphereGeometry(0.6, 10, 10),
+          new THREE.MeshBasicMaterial({ color: 0xffaa00 })
+        );
+        dbg.position.copy(proxy.position);
+        dbg.userData = { skipMinimap: true };
+        townGroup.add(dbg);
+      }
     };
 
     townGroup.children.forEach(colorGroup => {
