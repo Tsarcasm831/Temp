@@ -8,7 +8,6 @@ import { addDarkBuildings } from '../../../components/game/objects/buildings.dar
 /* @tweakable world-size used to convert map percent coords to world units (keep in sync with terrain.js) */
 import { WORLD_SIZE } from '/src/scene/terrain.js';
 // Fallback district data when a live /map model isn't available
-import { DEFAULT_MODEL as FALLBACK_MODEL } from '../../../../map/defaults/full-default-model.js';
 /* @tweakable fallback road list when /map is unavailable (empty = no avoidance from map roads) */
 const DEFAULT_ROADS = [];
 // Building palette and helpers extracted into separate module
@@ -71,11 +70,8 @@ export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.
     townGroup.position.copy(origin);
     scene.add(townGroup);
 
-    // Require districts; if unavailable, fall back to built-in defaults
+    // Require district data from the live /map model
     let liveMap = (window.__konohaMapModel?.MODEL ?? window.__konohaMapModel) || null;
-    if (!liveMap || !liveMap.districts || Object.keys(liveMap.districts).length === 0) {
-      liveMap = FALLBACK_MODEL;
-    }
     const liveDistricts = liveMap?.districts;
     if (
       DISTRICT_ENFORCEMENT_ENABLED &&
@@ -175,7 +171,8 @@ export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.
       if (districtPolys.length === 0) return !DISTRICT_REQUIRE_MAP;
       const obb = getBuildingOBB(building);
       if (building.userData?.round && building.userData?.roundRadius) {
-        const scl = building.scale;
+        const scl = new THREE.Vector3();
+        building.getWorldScale(scl);
         const avg = (Math.abs(scl.x) + Math.abs(scl.z)) * 0.5;
         const R = building.userData.roundRadius * avg;
         const samples = 12;
@@ -204,15 +201,25 @@ export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.
     function getBuildingOBB(building) {
       building.updateWorldMatrix(true, true);
       const box = new THREE.Box3().setFromObject(building);
-      const center = new THREE.Vector3(), size = new THREE.Vector3();
-      box.getCenter(center); box.getSize(size);
+      const center = new THREE.Vector3(); box.getCenter(center);
       const quat = new THREE.Quaternion();
       building.getWorldQuaternion(quat);
       const eulerY = new THREE.Euler().setFromQuaternion(quat, 'YXZ').y;
+      const scl = new THREE.Vector3();
+      building.getWorldScale(scl);
+
+      let hx, hz;
+      if (building.userData?.footprint) {
+        hx = (building.userData.footprint.w * Math.abs(scl.x)) / 2;
+        hz = (building.userData.footprint.d * Math.abs(scl.z)) / 2;
+      } else {
+        const size = new THREE.Vector3(); box.getSize(size);
+        hx = size.x / 2; hz = size.z / 2;
+      }
       return {
         center: { x: center.x, z: center.z },
-        hx: Math.max(2, size.x / 2),
-        hz: Math.max(2, size.z / 2),
+        hx: Math.max(2, hx),
+        hz: Math.max(2, hz),
         rotY: eulerY
       };
     }
@@ -307,37 +314,43 @@ export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.
       // Compute world-space bounding box (includes scaling and rotation)
       const box = new THREE.Box3().setFromObject(building);
       const center = new THREE.Vector3();
-      const size = new THREE.Vector3();
       box.getCenter(center);
-      box.getSize(size);
 
       // World rotation (Y) for OBB orientation
       const quat = new THREE.Quaternion();
       building.getWorldQuaternion(quat);
       const euler = new THREE.Euler().setFromQuaternion(quat, 'YXZ');
+      const scl = new THREE.Vector3();
+      building.getWorldScale(scl);
 
       const proxy = new THREE.Object3D();
       proxy.position.set(center.x, 0, center.z);
 
       if (building.userData?.round && building.userData?.roundRadius) {
-        const scl = new THREE.Vector3();
-        building.matrixWorld.decompose(new THREE.Vector3(), new THREE.Quaternion(), scl);
         const avgXZ = (Math.abs(scl.x) + Math.abs(scl.z)) * 0.5;
         const r = building.userData.roundRadius * avgXZ + KONOHA_TOWN_COLLIDER_PADDING;
-        const proxy = new THREE.Object3D();
-        proxy.position.set(center.x, 0, center.z);
-        proxy.userData.collider = {
+        const roundProxy = new THREE.Object3D();
+        roundProxy.position.set(center.x, 0, center.z);
+        roundProxy.userData.collider = {
           type: 'sphere',
           center: { x: center.x, z: center.z },
           radius: Math.max(KONOHA_TOWN_COLLIDER_MIN_HALF, r)
         };
-        proxy.userData.label = building.name || 'House';
-        objectGrid.add(proxy);
-        scene.add(proxy);
+        roundProxy.userData.label = building.name || 'House';
+        objectGrid.add(roundProxy);
+        scene.add(roundProxy);
         return;
       } else {
-        const hxRaw = Math.max(0.0001, size.x / 2);
-        const hzRaw = Math.max(0.0001, size.z / 2);
+        let hxRaw, hzRaw;
+        if (building.userData?.footprint) {
+          hxRaw = (building.userData.footprint.w * Math.abs(scl.x)) / 2;
+          hzRaw = (building.userData.footprint.d * Math.abs(scl.z)) / 2;
+        } else {
+          const size = new THREE.Vector3();
+          box.getSize(size);
+          hxRaw = size.x / 2;
+          hzRaw = size.z / 2;
+        }
         const hx = Math.max(KONOHA_TOWN_COLLIDER_MIN_HALF, hxRaw + KONOHA_TOWN_COLLIDER_PADDING);
         const hz = Math.max(KONOHA_TOWN_COLLIDER_MIN_HALF, hzRaw + KONOHA_TOWN_COLLIDER_PADDING);
         proxy.userData.collider = {

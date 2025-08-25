@@ -172,6 +172,8 @@ export function createKonohaBuildingKit(settings) {
         s.rotation.y = Math.PI/2;
         details.add(s);
       }
+      // expose footprint dimensions for collision helpers
+      B.userData.footprint = { w, d };
     } else {
       const radius = Math.max(w, d) * 0.45;
       for (let f=0; f<floors; f++) {
@@ -198,6 +200,7 @@ export function createKonohaBuildingKit(settings) {
       // Mark as round and store collider radius for placement
       B.userData.round = true;
       B.userData.roundRadius = radius;
+      B.userData.footprint = { w: radius * 2, d: radius * 2 };
     }
 
     B.position.set(...position);
