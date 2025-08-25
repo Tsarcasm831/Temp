@@ -1,9 +1,20 @@
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import * as THREE from 'three';
 
+const ANIMATION_PATH_PREFIX = 'https://www.lordtsarcasm.com/bucket/Naruto/LandofFire/Kakashi_Jonin/';
 export const DEFAULT_ANIMATION = 'idle11';
 
-// Load every animation so the modal and player can access the full set.
+// NEW: Load only a minimal set of clips needed for gameplay to reduce lag
+const ESSENTIAL_ANIMATION_FILES = [
+    'Animation_Idle_11_withSkin.glb',
+    'Animation_Walking_withSkin.glb',
+    'Animation_RunFast_withSkin.glb',
+    'Animation_Running_withSkin.glb',
+    'Animation_Regular_Jump_withSkin.glb',
+    'Animation_Fall1_withSkin.glb',
+    'Animation_Punch_Combo_1_withSkin.glb',
+    'Animation_Roll_Dodge_withSkin.glb'
+];
 
 /**
  * Parses a clean, camelCase animation name from a GLB file URL.
@@ -31,7 +42,7 @@ function getAnimationName(url) {
 /**
  * Loads all player animations from the JSON file.
  * This function loads the GLB files, extracts animation clips, and one model with skin.
- * Every animation is fetched so the Kakashi animations modal can present the full set.
+ * Optimized to load only essential animations to avoid heavy CPU/GPU usage and memory spikes.
  * @returns {Promise<{model: THREE.Group, animations: Object}>} A promise that resolves with the player model and an object containing all animation clips.
  */
 export async function loadPlayerAssets() {
@@ -44,11 +55,21 @@ export async function loadPlayerAssets() {
         throw new Error("No animation files found in JSON.");
     }
 
+    // Filter URLs to essential files only
+    const essentialUrls = animationUrls.filter(url =>
+        ESSENTIAL_ANIMATION_FILES.some(name => url.endsWith(name))
+    );
+
+    if (essentialUrls.length === 0) {
+        // Fallback to at least idle if filter failed
+        const idle = animationUrls.find(u => u.includes('Animation_Idle_11_withSkin.glb'));
+        if (idle) essentialUrls.push(idle);
+    }
+    
     let model = null;
     const animations = {};
 
-    // Load every animation file listed in the JSON
-    const assetPromises = animationUrls.map(url => {
+    const assetPromises = essentialUrls.map(url => {
         return new Promise((resolve, reject) => {
             loader.load(
                 url,
@@ -65,8 +86,8 @@ export async function loadPlayerAssets() {
     const loadedAssets = (await Promise.all(assetPromises)).filter(a => a);
 
     // Find the default animation to get the model from
-    const defaultAssetUrl = animationUrls.find(url => getAnimationName(url) === DEFAULT_ANIMATION)
-        || animationUrls[0];
+    const defaultAssetUrl = essentialUrls.find(url => getAnimationName(url) === DEFAULT_ANIMATION)
+        || essentialUrls[0];
     const defaultAsset = loadedAssets.find(a => a.url === defaultAssetUrl) || loadedAssets[0];
 
     if (defaultAsset) {

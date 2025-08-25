@@ -65,6 +65,47 @@ export function resolveCollisions(newPos, playerRadius, objectGrid) {
         return false;
     }
 
+    // NEW: resolve circle (player) vs polygon (XZ) using SAT-like pushout
+    function resolveCirclePolygon(center, radius, polygon) {
+        if (!polygon || polygon.length < 3) return false;
+        // point-in-polygon test (ray cast on XZ)
+        const pointInPoly = (p, poly) => {
+            let inside = false;
+            for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+                const a = poly[i], b = poly[j];
+                const intersect = ((a.z > p.z) !== (b.z > p.z)) &&
+                    (p.x < ((b.x - a.x) * (p.z - a.z)) / ((b.z - a.z) || 1e-9) + a.x);
+                if (intersect) inside = !inside;
+            }
+            return inside;
+        };
+        const inside = pointInPoly(center, polygon);
+        // Find closest point on polygon (edge-wise) to the circle center
+        let bestD2 = Infinity;
+        let bestPx = 0, bestPz = 0;
+        for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+            const ax = polygon[j].x, az = polygon[j].z;
+            const bx = polygon[i].x, bz = polygon[i].z;
+            const vx = bx - ax, vz = bz - az;
+            const wx = center.x - ax, wz = center.z - az;
+            const len2 = Math.max(1e-8, vx*vx + vz*vz);
+            const t = Math.max(0, Math.min(1, (wx*vx + wz*vz) / len2));
+            const px = ax + vx * t, pz = az + vz * t;
+            const dx = center.x - px, dz = center.z - pz;
+            const d2 = dx*dx + dz*dz;
+            if (d2 < bestD2) { bestD2 = d2; bestPx = px; bestPz = pz; }
+        }
+        if (!inside && bestD2 >= radius * radius) return false; // no overlap when fully outside
+
+        const dist = Math.max(1e-6, Math.sqrt(bestD2));
+        const nx = (center.x - bestPx) / dist;
+        const nz = (center.z - bestPz) / dist;
+        const push = inside ? (radius + 1e-3) + dist : (radius - dist);
+        center.x += nx * push;
+        center.z += nz * push;
+        return true;
+    }
+
     // Iteratively resolve to avoid deep penetration
     for (let iter = 0; iter < 3; iter++) {
         let adjusted = false;
@@ -138,6 +179,10 @@ export function resolveCollisions(newPos, playerRadius, objectGrid) {
                     rotationY: col.rotationY ?? 0
                 };
                 if (resolveOBB(newPos, obb)) {
+                    adjusted = true;
+                }
+            } else if (col.type === 'polygon' && Array.isArray(col.points)) {
+                if (resolveCirclePolygon(newPos, playerRadius, col.points)) {
                     adjusted = true;
                 }
             }

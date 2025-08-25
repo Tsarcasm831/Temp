@@ -19,6 +19,8 @@ import { buildOriginals } from "./citySlice.originals.js";
 import { buildMore } from "./citySlice.more.js";
 /* @tweakable world-size used for map percent→world conversions */
 import { WORLD_SIZE } from "/src/scene/terrain.js";
+/* NEW: static import for default map model to avoid top-level await */
+import { DEFAULT_MODEL as MAP_DEFAULT_MODEL } from "/map/defaults/full-default-model.js";
 
 export function addKonohaCitySlice(target, opts = {}) {
   const {
@@ -80,7 +82,7 @@ const CITY_SLICE_COLLIDER_MIN_HALF = 2;
 /* @tweakable attach a tiny debug marker to each collider center */
 const CITY_SLICE_COLLIDER_DEBUG = false;
 /* @tweakable require live /map districts to place any city-slice buildings */
-const CITY_SLICE_REQUIRE_DISTRICTS = false;
+const CITY_SLICE_REQUIRE_DISTRICTS = true;
 
 /**
  * Buildings-module style API: add the 30-building city slice into a given parent group (e.g., "town"),
@@ -121,12 +123,24 @@ export function addCitySliceBuildings(
   const Z0 = oz - (rows - 1) * spacingZ / 2;
 
   // NEW: constrain to districts if live map model is present
-  const liveModel = (window.__konohaMapModel?.MODEL ?? window.__konohaMapModel)?.districts;
-  const districtPolys = liveModel
-    ? Object.values(liveModel).filter(d=>Array.isArray(d.points)&&d.points.length>=3)
+  // Use live model when present; fall back to defaults when missing/empty
+  const liveModelAll = (window.__konohaMapModel?.MODEL ?? window.__konohaMapModel);
+  const fallbackAll = MAP_DEFAULT_MODEL;
+  const useModel = (liveModelAll && Object.keys(liveModelAll?.districts || {}).length > 0) ? liveModelAll : fallbackAll;
+  const districtPolys = useModel?.districts
+    ? Object.values(useModel.districts).filter(d=>Array.isArray(d.points)&&d.points.length>=3)
         .map(d=>d.points.map(([px,py])=>({ x:(px/100)*WORLD_SIZE - WORLD_SIZE/2, z:(py/100)*WORLD_SIZE - WORLD_SIZE/2 })))
     : null;
-  const pointInPoly = (p, poly) => { let inside=false; for(let i=0,j=poly.length-1;i<poly.length;j=i++){ const a=poly[i],b=poly[j]; const inter=((a.z>p.z)!==(b.z>p.z)) && (p.x < (b.x-a.x)*(p.z-a.z)/((b.z-a.z)||1e-9)+a.x); if(inter) inside=!inside;} return inside; };
+  const pointInPoly = (p, poly) => {
+    let inside = false;
+    for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+      const a = poly[i], b = poly[j];
+      const intersects = ((a.z > p.z) !== (b.z > p.z)) &&
+        (p.x < ( (b.x - a.x) * (p.z - a.z) / ((b.z - a.z) || 1e-9) + a.x ));
+      if (intersects) inside = !inside;
+    }
+    return inside;
+  };
   const insideAnyDistrict = (p) => {
     if (!districtPolys || districtPolys.length === 0) return !CITY_SLICE_REQUIRE_DISTRICTS ? true : false;
     return districtPolys.some(poly=>pointInPoly(p,poly));
@@ -182,45 +196,59 @@ export function addCitySliceBuildings(
   // Colliders (OBB from world Box3)
   if (collidersEnabled && objectGrid) {
     group.children.forEach((building) => {
-      building.updateWorldMatrix(true, false);
-      const box = new THREE.Box3().setFromObject(building);
-      const center = new THREE.Vector3();
-      const size = new THREE.Vector3();
-      box.getCenter(center);
-      box.getSize(size);
-
-      const quat = new THREE.Quaternion();
-      building.getWorldQuaternion(quat);
-      const euler = new THREE.Euler().setFromQuaternion(quat, 'YXZ');
-
-      const proxy = new THREE.Object3D();
-      proxy.position.set(center.x, 0, center.z);
-
-      const hxRaw = Math.max(0.0001, size.x / 2);
-      const hzRaw = Math.max(0.0001, size.z / 2);
-      const hx = Math.max(colliderMinHalf, hxRaw + colliderPadding);
-      const hz = Math.max(colliderMinHalf, hzRaw + colliderPadding);
-
-      proxy.userData = {
-        label: building.name || 'SliceBuilding',
-        collider: {
-          type: 'obb',
-          center: { x: center.x, z: center.z },
-          halfExtents: { x: hx, z: hz },
-          rotationY: euler.y
+      // Build precise polygon collider from merged mesh bounds (projected XZ convex hull)
+      const pts = [];
+      const tempBox = new THREE.Box3();
+      const corner = new THREE.Vector3();
+      building.traverse((m) => {
+        if (!m.isMesh || !m.geometry) return;
+        const g = m.geometry;
+        if (!g.boundingBox) g.computeBoundingBox();
+        const bb = g.boundingBox;
+        for (let xi = 0; xi <= 1; xi++) {
+          for (let yi = 0; yi <= 1; yi++) {
+            for (let zi = 0; zi <= 1; zi++) {
+              corner.set(
+                xi ? bb.max.x : bb.min.x,
+                yi ? bb.max.y : bb.min.y,
+                zi ? bb.max.z : bb.min.z
+              ).applyMatrix4(m.matrixWorld);
+              pts.push({ x: corner.x, z: corner.z });
+            }
+          }
         }
-      };
-      objectGrid.add(proxy);
-      group.add(proxy);
-
-      if (colliderDebug) {
-        const dbg = new THREE.Mesh(
-          new THREE.SphereGeometry(0.6, 10, 10),
-          new THREE.MeshBasicMaterial({ color: 0xffaa00 })
-        );
-        dbg.position.copy(proxy.position);
-        dbg.userData = { skipMinimap: true };
-        group.add(dbg);
+      });
+      // Convex hull (monotonic chain) on XZ
+      const hull = (() => {
+        const arr = pts.slice().sort((a, b) => (a.x === b.x ? a.z - b.z : a.x - b.x));
+        const cross = (o, a, b) => (a.x - o.x) * (b.z - o.z) - (a.z - o.z) * (b.x - o.x);
+        const lower = [];
+        for (const p of arr) { while (lower.length >= 2 && cross(lower[lower.length-2], lower[lower.length-1], p) <= 0) lower.pop(); lower.push(p); }
+        const upper = [];
+        for (let i = arr.length - 1; i >= 0; i--) { const p = arr[i]; while (upper.length >= 2 && cross(upper[upper.length-2], upper[upper.length-1], p) <= 0) upper.pop(); upper.push(p); }
+        upper.pop(); lower.pop(); return lower.concat(upper);
+      })();
+      if (hull.length >= 3) {
+        // Centroid for proxy position
+        const cx = hull.reduce((s,p)=>s+p.x,0)/hull.length;
+        const cz = hull.reduce((s,p)=>s+p.z,0)/hull.length;
+        const proxy = new THREE.Object3D();
+        proxy.position.set(cx, 0, cz);
+        proxy.userData = {
+          label: building.name || 'SliceBuilding',
+          collider: { type: 'polygon', points: hull }
+        };
+        objectGrid.add(proxy);
+        group.add(proxy);
+        if (colliderDebug) {
+          const dbg = new THREE.Mesh(
+            new THREE.SphereGeometry(0.6, 10, 10),
+            new THREE.MeshBasicMaterial({ color: 0xffaa00 })
+          );
+          dbg.position.copy(proxy.position);
+          dbg.userData = { skipMinimap: true };
+          group.add(dbg);
+        }
       }
     });
   }

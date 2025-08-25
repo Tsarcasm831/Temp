@@ -46,7 +46,7 @@ export const usePlayerControls = ({ setShowCharacter, setShowInventory, setShowW
                         if (key !== 'i') setShowInventory(false);
                         if (key !== 'm') setShowWorldMap(false);
                         if (key !== 'p') setShowSettings(false);
-                        if (key !== 'y') setShowAnimations(false);
+                        if (key !== 'b') setShowAnimations(false);
                     } else if (isOpen && gameState !== 'Playing' && key !== 'p') {
                         // In main menu, only allow settings to open
                         return false;
@@ -68,9 +68,9 @@ export const usePlayerControls = ({ setShowCharacter, setShowInventory, setShowW
                 case 'KeyP':
                     togglePanel(setShowSettings, 'p');
                     break;
-                case 'KeyY':
+                case 'KeyB':
                     if (gameState === 'Playing' && setShowAnimations) {
-                        togglePanel(setShowAnimations, 'y');
+                        togglePanel(setShowAnimations, 'b');
                     }
                     break;
                 case 'KeyG':

@@ -305,37 +305,52 @@ export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.
       building.getWorldQuaternion(quat);
       const euler = new THREE.Euler().setFromQuaternion(quat, 'YXZ');
 
-      const proxy = new THREE.Object3D();
-      proxy.position.set(center.x, 0, center.z);
-
-      // For round buildings, scale the stored radius by world scale (uniform assumed)
       if (building.userData?.round && building.userData?.roundRadius) {
         const scl = new THREE.Vector3();
         building.matrixWorld.decompose(new THREE.Vector3(), new THREE.Quaternion(), scl);
         const avgXZ = (Math.abs(scl.x) + Math.abs(scl.z)) * 0.5;
+        const proxy = new THREE.Object3D();
+        proxy.position.set(center.x, 0, center.z);
         proxy.userData.collider = {
           type: 'sphere',
           radius: building.userData.roundRadius * avgXZ
         };
+        proxy.userData.label = building.name || 'House';
+        objectGrid.add(proxy);
+        scene.add(proxy);
+        return;
       } else {
-        const hx = Math.max(2, size.x / 2);
-        const hz = Math.max(2, size.z / 2);
-        proxy.userData.collider = {
-          type: 'obb',
-          center: { x: center.x, z: center.z },
-          halfExtents: { x: hx, z: hz },
-          rotationY: euler.y
-        };
+        // Replace broad convex hull with per-mesh OBBs to match shapes exactly (skip roofs/details)
+        const SKIP = new Set(['roof','details']);
+        building.traverse((m) => {
+          if (!m.isMesh || !m.geometry) return;
+          let p = m.parent, drop = false; while (p) { if (SKIP.has(p.name)) { drop = true; break; } p = p.parent; }
+          if (drop) return;
+          const g = m.geometry; if (!g.boundingBox) g.computeBoundingBox();
+          const bb = g.boundingBox;
+          const localCenter = new THREE.Vector3(
+            (bb.min.x + bb.max.x) / 2, (bb.min.y + bb.max.y) / 2, (bb.min.z + bb.max.z) / 2
+          );
+          const worldCenter = localCenter.clone().applyMatrix4(m.matrixWorld);
+          const scl = new THREE.Vector3(); m.matrixWorld.decompose(new THREE.Vector3(), new THREE.Quaternion(), scl);
+          const hx = Math.max(0.5, (bb.max.x - bb.min.x) * Math.abs(scl.x) / 2);
+          const hz = Math.max(0.5, (bb.max.z - bb.min.z) * Math.abs(scl.z) / 2);
+          if (hx < 1 || hz < 1) return; // ignore tiny bits
+          const quat = new THREE.Quaternion(); m.getWorldQuaternion(quat);
+          const rotY = new THREE.Euler().setFromQuaternion(quat, 'YXZ').y;
+          const proxy = new THREE.Object3D();
+          proxy.position.set(worldCenter.x, 0, worldCenter.z);
+          proxy.userData.collider = { type: 'obb', center: { x: worldCenter.x, z: worldCenter.z }, halfExtents: { x: hx, z: hz }, rotationY: rotY };
+          proxy.userData.label = building.name || 'House';
+          objectGrid.add(proxy);
+          scene.add(proxy);
+        });
+        return;
       }
-
-      proxy.userData.label = building.name || 'House';
-      objectGrid.add(proxy);
-      scene.add(proxy);
     };
 
     townGroup.children.forEach(colorGroup => {
-      const buildings = [...(colorGroup.children || [])];
-      buildings.forEach(building => {
+      colorGroup.children?.forEach(building => {
         ensureNotOnRoad(building);
         // NEW: enforce full district containment (nudge then drop if still failing)
         if (DISTRICT_ENFORCEMENT_ENABLED && districtPolys.length > 0) {

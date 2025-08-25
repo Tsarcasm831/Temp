@@ -46,6 +46,9 @@ const GRID_CELL_SIZE_UNITS = 5;
 /* @tweakable how many grid cells to move the office south (+Z) after snapping */
 const HOKAGE_MOVE_SOUTH_GRIDS = 20;
 
+// @tweakable: disable all Hokage Office GLB colliders (removes any blocking around the office)
+const HOKAGE_GLB_ENABLE_COLLIDERS = false;
+
 // Place the Hokage Palace at a grid label.
 // Returns the created THREE.Group or null on failure.
 export function placeHokagePalace(scene, objectGrid, worldSize, settings, label = HOKAGE_PALACE_LABEL) {
@@ -67,8 +70,8 @@ export function placeHokagePalace(scene, objectGrid, worldSize, settings, label 
       scene.add(group);
       // Temporary broad collider until GLB loads
       const temp = new THREE.Object3D(); temp.position.set(pos.x, 0, pos.z);
-      temp.userData = { label: 'Hokage Office', collider: { type: 'sphere', radius: 120 } };
-      scene.add(temp); objectGrid.add(temp);
+      temp.userData = { label: 'Hokage Office', collider: HOKAGE_GLB_ENABLE_COLLIDERS ? { type: 'sphere', radius: 120 } : null };
+      if (HOKAGE_GLB_ENABLE_COLLIDERS) { scene.add(temp); objectGrid.add(temp); }
       const loader = new GLTFLoader();
       loader.load(HOKAGE_GLB_PATH, (gltf) => {
         const model = gltf.scene || gltf.scenes?.[0]; if (!model) return;
@@ -78,23 +81,43 @@ export function placeHokagePalace(scene, objectGrid, worldSize, settings, label 
         model.traverse(n => { if (n.isMesh) { n.castShadow = !!(HOKAGE_GLB_SHADOWS && settings.shadows); n.receiveShadow = !!settings.shadows; }});
         group.add(model); // Precise OBB colliders from meshes
         try {
-          const proxies = []; let count = 0;
-          const worldQuat = new THREE.Quaternion(); group.getWorldQuaternion(worldQuat);
-          const rotY = new THREE.Euler().setFromQuaternion(worldQuat, 'YXZ').y;
-          model.traverse(n => {
-            if (count >= HOKAGE_GLB_MAX_OBBS || !n?.isMesh) return;
-            const box = new THREE.Box3().setFromObject(n); if (box.isEmpty()) return;
-            const c = new THREE.Vector3(), s = new THREE.Vector3(); box.getCenter(c); box.getSize(s);
-            const hx = s.x/2, hz = s.z/2; if (Math.min(hx, hz) < HOKAGE_GLB_MIN_HALF) return;
-            const p = new THREE.Object3D(); p.position.set(c.x, 0, c.z);
-            p.userData = { label: 'Hokage Office (part)', collider: { type:'obb', center:{x:c.x,z:c.z}, halfExtents:{ x: hx + HOKAGE_GLB_OBB_PADDING, z: hz + HOKAGE_GLB_OBB_PADDING }, rotationY: rotY } };
-            proxies.push(p); count++;
-          });
-          proxies.forEach(p => { scene.add(p); objectGrid.add(p); });
-          // Remove temp collider after precise OBBs added
-          temp.userData.collider = null;
+          if (HOKAGE_GLB_ENABLE_COLLIDERS) {
+            const proxies = []; let count = 0;
+            const worldQuat = new THREE.Quaternion(); group.getWorldQuaternion(worldQuat);
+            const rotY = new THREE.Euler().setFromQuaternion(worldQuat, 'YXZ').y;
+            model.traverse(n => {
+              if (count >= HOKAGE_GLB_MAX_OBBS || !n?.isMesh) return;
+              const box = new THREE.Box3().setFromObject(n); if (box.isEmpty()) return;
+              const c = new THREE.Vector3(), s = new THREE.Vector3(); box.getCenter(c); box.getSize(s);
+              const hx = s.x/2, hz = s.z/2; if (Math.min(hx, hz) < HOKAGE_GLB_MIN_HALF) return;
+              const p = new THREE.Object3D(); p.position.set(c.x, 0, c.z);
+              p.userData = { label: 'Hokage Office (part)', collider: { type:'obb', center:{x:c.x,z:c.z}, halfExtents:{ x: hx + HOKAGE_GLB_OBB_PADDING, z: hz + HOKAGE_GLB_OBB_PADDING }, rotationY: rotY } };
+              proxies.push(p); count++;
+            });
+            proxies.forEach(p => { scene.add(p); objectGrid.add(p); });
+            // Remove temp collider after precise OBBs added
+            temp.userData.collider = null;
+          }
         } catch (e) { /* non-fatal */ }
       }, undefined, () => { /* load failed: keep temp, fall back next tick? */ });
+
+      // Add tooltip proxies at LB122 and LC122 so the label shows when the player is at those grid cells
+      try {
+        const labels = ['LB122', 'LC122'];
+        labels.forEach((lab) => {
+          const { i, j } = parseGridLabel(lab);
+          const p = posForCell(i, j, worldSize);
+          const proxy = new THREE.Object3D();
+          proxy.position.set(p.x, 0, p.z);
+          proxy.userData = {
+            label: 'Hokage Office',
+            collider: { type: 'sphere', radius: 5 }
+          };
+          scene.add(proxy);
+          objectGrid.add(proxy);
+        });
+      } catch (_) {}
+
       return group;
     }
 

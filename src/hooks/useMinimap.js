@@ -31,7 +31,7 @@ import {
 // Interaction handling moved to a dedicated hook
 import { useMinimapInteractions } from './useMinimapInteractions.js';
 
-export const useMinimap = ({ playerRef, worldObjects, zoomRef }) => {
+export const useMinimap = ({ playerRef, worldObjects, zoomRef, options = {} }) => {
     const animationFrameId = useRef();
     const minimapCanvasRef = useRef();
     const worldMinimapCanvasRef = useRef(null);
@@ -43,11 +43,12 @@ export const useMinimap = ({ playerRef, worldObjects, zoomRef }) => {
     const districtRef = useRef();
     const roadRef = useRef();
 
+    const initialSize = Math.max(64, Math.min(256, options.size ?? 128));
     const [minimapState, setMinimapState] = useState({
-        left: window.innerWidth - 16 - 128,
+        left: window.innerWidth - 16 - initialSize,
         top: 16,
-        width: 128,
-        height: 128,
+        width: initialSize,
+        height: initialSize,
     });
 
     // Hook managing drag/resize interactions
@@ -243,7 +244,7 @@ export const useMinimap = ({ playerRef, worldObjects, zoomRef }) => {
                             const xi = pts[i][0], yi = pts[i][1];
                             const xj = pts[j][0], yj = pts[j][1];
                             const intersect = ((yi > py) !== (yj > py)) &&
-                              (x < (xj - xi) * (py - yi) / ((yj - yi) || 1e-9) + xi);
+                              (px < (xj - xi) * (py - yi) / ((yj - yi) || 1e-9) + xi);
                             if (intersect) inside = !inside;
                         }
                         return inside;
@@ -331,18 +332,20 @@ export const useMinimap = ({ playerRef, worldObjects, zoomRef }) => {
                          ctx.fillRect(0, 0, canvas.width, canvas.height);
                     }
                     
-                    // Grid overlay
-                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
-                    ctx.lineWidth = 0.5;
-                    for(let i = 0; i < 8; i++) {
-                        ctx.beginPath();
-                        ctx.moveTo(i * canvas.width/8, 0);
-                        ctx.lineTo(i * canvas.width/8, canvas.height);
-                        ctx.stroke();
-                        ctx.beginPath();
-                        ctx.moveTo(0, i * canvas.height/8);
-                        ctx.lineTo(canvas.width, i * canvas.height/8);
-                        ctx.stroke();
+                    // Grid overlay (toggleable)
+                    if (options.showGrid) {
+                        ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+                        ctx.lineWidth = 0.5;
+                        for(let i = 0; i < 8; i++) {
+                            ctx.beginPath();
+                            ctx.moveTo(i * canvas.width/8, 0);
+                            ctx.lineTo(i * canvas.width/8, canvas.height);
+                            ctx.stroke();
+                            ctx.beginPath();
+                            ctx.moveTo(0, i * canvas.height/8);
+                            ctx.lineTo(canvas.width, i * canvas.height/8);
+                            ctx.stroke();
+                        }
                     }
 
                     const halfCanvas = canvas.width / 2;
@@ -385,7 +388,7 @@ export const useMinimap = ({ playerRef, worldObjects, zoomRef }) => {
                 cancelAnimationFrame(animationFrameId.current);
             }
         };
-    }, [playerRef, worldObjects, minimapState.width, minimapState.height, zoomRef]);
+    }, [playerRef, worldObjects, minimapState.width, minimapState.height, zoomRef, options.size]);
     
     return { minimapState, minimapCanvasRef, posXRef, posZRef, zoomLevelRef, biomeRef, handleInteractionStart,
         // NEW: expose refs
