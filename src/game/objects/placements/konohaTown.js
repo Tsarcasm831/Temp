@@ -361,33 +361,6 @@ export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.
         dbg.userData = { skipMinimap: true };
         townGroup.add(dbg);
       }
-        // Replace broad convex hull with per-mesh OBBs to match shapes exactly (skip roofs/details)
-        const SKIP = new Set(['roof','details']);
-        building.traverse((m) => {
-          if (!m.isMesh || !m.geometry) return;
-          let p = m.parent, drop = false; while (p) { if (SKIP.has(p.name)) { drop = true; break; } p = p.parent; }
-          if (drop) return;
-          const g = m.geometry; if (!g.boundingBox) g.computeBoundingBox();
-          const bb = g.boundingBox;
-          const localCenter = new THREE.Vector3(
-            (bb.min.x + bb.max.x) / 2, (bb.min.y + bb.max.y) / 2, (bb.min.z + bb.max.z) / 2
-          );
-          const worldCenter = localCenter.clone().applyMatrix4(m.matrixWorld);
-          const scl = new THREE.Vector3(); m.matrixWorld.decompose(new THREE.Vector3(), new THREE.Quaternion(), scl);
-          const hx = Math.max(0.5, (bb.max.x - bb.min.x) * Math.abs(scl.x) / 2);
-          const hz = Math.max(0.5, (bb.max.z - bb.min.z) * Math.abs(scl.z) / 2);
-          if (hx < 1 || hz < 1) return; // ignore tiny bits
-          const quat = new THREE.Quaternion(); m.getWorldQuaternion(quat);
-          const rotY = new THREE.Euler().setFromQuaternion(quat, 'YXZ').y;
-          const proxy = new THREE.Object3D();
-          proxy.position.set(worldCenter.x, 0, worldCenter.z);
-          proxy.userData.collider = { type: 'obb', center: { x: worldCenter.x, z: worldCenter.z }, halfExtents: { x: hx, z: hz }, rotationY: rotY };
-          proxy.userData.label = building.name || 'House';
-          objectGrid.add(proxy);
-          scene.add(proxy);
-        });
-        return;
-      }
     };
 
     townGroup.children.forEach(colorGroup => {
