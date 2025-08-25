@@ -258,6 +258,173 @@ const SettingsPanel = ({ settings, setSettings, onClose }) => {
         fileName: "<stdin>",
         lineNumber: 118,
         columnNumber: 17
+      }),
+      /* @__PURE__ */ jsxDEV("h3", { className: "text-yellow-300 font-bold text-md pt-4 border-t border-gray-700", children: "Minimap" }, void 0, false, {
+        fileName: "<stdin>",
+        lineNumber: 123,
+        columnNumber: 17
+      }),
+      /* @__PURE__ */ jsxDEV("div", { className: "flex justify-between items-center", children: [
+        /* @__PURE__ */ jsxDEV("label", { htmlFor: "minimap-enabled", children: "Show Minimap" }, void 0, false, {
+          fileName: "<stdin>",
+          lineNumber: 125,
+          columnNumber: 21
+        }),
+        /* @__PURE__ */ jsxDEV(
+          "input",
+          {
+            type: "checkbox",
+            id: "minimap-enabled",
+            checked: settings.minimap?.enabled ?? true,
+            onChange: (e) => setSettings((prev) => ({
+              ...prev,
+              minimap: { ...prev.minimap || {}, enabled: e.target.checked }
+            })),
+            className: "form-checkbox h-5 w-5 text-yellow-500 bg-gray-700 border-gray-500 rounded focus:ring-yellow-500"
+          },
+          void 0,
+          false,
+          {
+            fileName: "<stdin>",
+            lineNumber: 126,
+            columnNumber: 21
+          }
+        )
+      ] }, void 0, true, {
+        fileName: "<stdin>",
+        lineNumber: 124,
+        columnNumber: 17
+      }),
+      /* @__PURE__ */ jsxDEV("div", { className: "flex justify-between items-center", children: [
+        /* @__PURE__ */ jsxDEV("label", { htmlFor: "minimap-grid", children: "Show Grid" }, void 0, false, {
+          fileName: "<stdin>",
+          lineNumber: 138,
+          columnNumber: 21
+        }),
+        /* @__PURE__ */ jsxDEV(
+          "input",
+          {
+            type: "checkbox",
+            id: "minimap-grid",
+            checked: settings.minimap?.showGrid ?? true,
+            onChange: (e) => setSettings((prev) => ({
+              ...prev,
+              minimap: { ...prev.minimap || {}, showGrid: e.target.checked }
+            })),
+            className: "form-checkbox h-5 w-5 text-yellow-500 bg-gray-700 border-gray-500 rounded focus:ring-yellow-500"
+          },
+          void 0,
+          false,
+          {
+            fileName: "<stdin>",
+            lineNumber: 139,
+            columnNumber: 21
+          }
+        )
+      ] }, void 0, true, {
+        fileName: "<stdin>",
+        lineNumber: 137,
+        columnNumber: 17
+      }),
+      /* @__PURE__ */ jsxDEV("div", { className: "flex justify-between items-center", children: [
+        /* @__PURE__ */ jsxDEV("label", { htmlFor: "minimap-info", children: "Show Info (coords/biome/district/road)" }, void 0, false, {
+          fileName: "<stdin>",
+          lineNumber: 151,
+          columnNumber: 21
+        }),
+        /* @__PURE__ */ jsxDEV(
+          "input",
+          {
+            type: "checkbox",
+            id: "minimap-info",
+            checked: settings.minimap?.showInfo ?? true,
+            onChange: (e) => setSettings((prev) => ({
+              ...prev,
+              minimap: { ...prev.minimap || {}, showInfo: e.target.checked }
+            })),
+            className: "form-checkbox h-5 w-5 text-yellow-500 bg-gray-700 border-gray-500 rounded focus:ring-yellow-500"
+          },
+          void 0,
+          false,
+          {
+            fileName: "<stdin>",
+            lineNumber: 152,
+            columnNumber: 21
+          }
+        )
+      ] }, void 0, true, {
+        fileName: "<stdin>",
+        lineNumber: 150,
+        columnNumber: 17
+      }),
+      /* @__PURE__ */ jsxDEV("div", { children: [
+        /* @__PURE__ */ jsxDEV("label", { className: "block mb-2", children: "Minimap Size" }, void 0, false, {
+          fileName: "<stdin>",
+          lineNumber: 164,
+          columnNumber: 21
+        }),
+        /* @__PURE__ */ jsxDEV("div", { className: "grid grid-cols-4 gap-2", children: [96, 128, 160, 192].map((sz) => /* @__PURE__ */ jsxDEV(
+          "button",
+          {
+            onClick: () => setSettings((prev) => ({
+              ...prev,
+              minimap: { ...prev.minimap || {}, size: sz }
+            })),
+            className: `px-2 py-1 rounded text-sm ${(settings.minimap?.size ?? 128) === sz ? "bg-yellow-500 text-black" : "bg-gray-700 hover:bg-gray-600"}`,
+            children: [
+              sz,
+              "px"
+            ]
+          },
+          sz,
+          true,
+          {
+            fileName: "<stdin>",
+            lineNumber: 167,
+            columnNumber: 29
+          }
+        )) }, void 0, false, {
+          fileName: "<stdin>",
+          lineNumber: 165,
+          columnNumber: 21
+        })
+      ] }, void 0, true, {
+        fileName: "<stdin>",
+        lineNumber: 163,
+        columnNumber: 17
+      }),
+      /* @__PURE__ */ jsxDEV("div", { children: [
+        /* @__PURE__ */ jsxDEV("label", { className: "block mb-2", children: "Minimap Opacity" }, void 0, false, {
+          fileName: "<stdin>",
+          lineNumber: 181,
+          columnNumber: 21
+        }),
+        /* @__PURE__ */ jsxDEV(
+          "input",
+          {
+            type: "range",
+            min: "0.4",
+            max: "1",
+            step: "0.05",
+            value: settings.minimap?.opacity ?? 0.9,
+            onChange: (e) => setSettings((prev) => ({
+              ...prev,
+              minimap: { ...prev.minimap || {}, opacity: parseFloat(e.target.value) }
+            })),
+            className: "w-full accent-yellow-500"
+          },
+          void 0,
+          false,
+          {
+            fileName: "<stdin>",
+            lineNumber: 182,
+            columnNumber: 21
+          }
+        )
+      ] }, void 0, true, {
+        fileName: "<stdin>",
+        lineNumber: 180,
+        columnNumber: 17
       })
     ] }, void 0, true, {
       fileName: "<stdin>",

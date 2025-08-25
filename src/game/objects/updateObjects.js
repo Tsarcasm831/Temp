@@ -26,7 +26,7 @@ const CUSTOM_WALL_COLOR = 0xbfbfbf;
 /* @tweakable enable targeted removal of specific Hokage Office instances by grid label */
 const HOKAGE_OFFICE_CLEANUP_ENABLED = true;
 /* @tweakable labels to remove Hokage Office from (e.g., duplicates/strays) */
-const HOKAGE_OFFICE_BLOCKED_LABELS = ['KM301'];
+const HOKAGE_OFFICE_BLOCKED_LABELS = ['KM300'];
 /* @tweakable removal radius (world units) around the label center to match office parts/colliders */
 const HOKAGE_OFFICE_CLEANUP_RADIUS = 280;
 import { createCentralWallWithGate } from './walls/centralWall.js';

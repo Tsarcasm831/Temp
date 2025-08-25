@@ -4,8 +4,17 @@ const CACHE_NAME = 'game-assets-v1';
 // This will hold the list of all asset URLs to be downloaded.
 let allAssetUrls = [];
 
-// Cache every available Kakashi animation so the modal can display them all
-// and the files are available offline.
+// NEW: Only cache a minimal set of essential animation clips to avoid huge downloads
+const ESSENTIAL_ANIMATION_MATCHES = [
+    'Animation_Idle_11_withSkin.glb',
+    'Animation_Walking_withSkin.glb',
+    'Animation_RunFast_withSkin.glb',
+    'Animation_Running_withSkin.glb',
+    'Animation_Regular_Jump_withSkin.glb',
+    'Animation_Fall1_withSkin.glb',
+    'Animation_Punch_Combo_1_withSkin.glb',
+    'Animation_Roll_Dodge_withSkin.glb'
+];
 
 // NEW: Local image assets to precache during the first loading screen
 const IMAGE_ASSETS = [
@@ -60,6 +69,13 @@ export async function initializeAssetLoader() {
     
     // Flatten the array of arrays into a single array of URLs
     let urls = urlArrays.flat();
+
+    // NEW: Filter to only essential animations to dramatically reduce bandwidth and memory
+    if (urls && urls.length) {
+        urls = urls.filter(url =>
+            ESSENTIAL_ANIMATION_MATCHES.some(match => url.includes(match))
+        );
+    }
 
     // Remove duplicates
     allAssetUrls = [...new Set(urls)];

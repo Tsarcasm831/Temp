@@ -2,6 +2,8 @@ import * as THREE from 'three';
 import { addCitySliceBuildings } from '../../../components/game/objects/citySlice.js';
 // @tweakable world-size for map percent→world conversion (must match terrain.js)
 import { WORLD_SIZE } from '/src/scene/terrain.js';
+/* NEW: static import for default map model to avoid await in non-async fn */
+import { DEFAULT_MODEL as MAP_DEFAULT_MODEL } from '/map/defaults/full-default-model.js';
 // @tweakable fallbacks when /map directory is unavailable
 const DEFAULT_ROADS = [];
 const DEFAULT_DISTRICTS = {};
@@ -60,7 +62,7 @@ export function placeCitySlice(scene, objectGrid, settings) {
     });
 
     // Build district polygon/centroid sets from live map (if available)
-    const live = (window.__konohaMapModel?.MODEL ?? window.__konohaMapModel) || MODEL;
+    const live = (window.__konohaMapModel?.MODEL ?? window.__konohaMapModel) || MODEL || MAP_DEFAULT_MODEL;
     districtPolys = [];
     districtCentroids = [];
     const districts = live?.districts || DEFAULT_DISTRICTS;
@@ -86,6 +88,8 @@ export function placeCitySlice(scene, objectGrid, settings) {
           }
         }
       });
+      // IMPORTANT: rebuild colliders now that buildings may have moved/been removed
+      rebuildSliceColliders(group, objectGrid);
     }
 
     return group;
@@ -220,4 +224,69 @@ function nudgeTowardNearestDistrict(building) {
   }
   building.position.copy(orig);
   return false;
+}
+
+// Rebuild precise polygon colliders for current buildings,
+// neutralizing any stale proxies that were created before nudging.
+function rebuildSliceColliders(group, objectGrid) {
+  // neutralize existing proxies (keep them invisible and without colliders)
+  group.children.forEach(ch => {
+    if (ch?.userData?.collider) {
+      ch.userData.collider = null;
+      ch.visible = false;
+    }
+  });
+
+  const pts = [];
+  const corner = new THREE.Vector3();
+
+  const makeHull = (points) => {
+    const arr = points.slice().sort((a, b) => (a.x === b.x ? a.z - b.z : a.x - b.x));
+    const cross = (o, a, b) => (a.x - o.x) * (b.z - o.z) - (a.z - o.z) * (b.x - o.x);
+    const lower = [];
+    for (const p of arr) { while (lower.length >= 2 && cross(lower[lower.length-2], lower[lower.length-1], p) <= 0) lower.pop(); lower.push(p); }
+    const upper = [];
+    for (let i = arr.length - 1; i >= 0; i--) { const p = arr[i]; while (upper.length >= 2 && cross(upper[upper.length-2], upper[upper.length-1], p) <= 0) upper.pop(); upper.push(p); }
+    upper.pop(); lower.pop(); return lower.concat(upper);
+  };
+
+  group.children.forEach(building => {
+    if (building?.userData?.collider) return; // skip any left-over proxies
+    if (!building?.traverse) return;
+
+    pts.length = 0;
+    building.updateWorldMatrix(true, true);
+    building.traverse(m => {
+      if (!m.isMesh || !m.geometry) return;
+      const g = m.geometry;
+      if (!g.boundingBox) g.computeBoundingBox();
+      const bb = g.boundingBox;
+      for (let xi = 0; xi <= 1; xi++) {
+        for (let yi = 0; yi <= 1; yi++) {
+          for (let zi = 0; zi <= 1; zi++) {
+            corner.set(
+              xi ? bb.max.x : bb.min.x,
+              yi ? bb.max.y : bb.min.y,
+              zi ? bb.max.z : bb.min.z
+            ).applyMatrix4(m.matrixWorld);
+            pts.push({ x: corner.x, z: corner.z });
+          }
+        }
+      }
+    });
+
+    const hull = makeHull(pts);
+    if (hull.length >= 3) {
+      const cx = hull.reduce((s,p)=>s+p.x,0)/hull.length;
+      const cz = hull.reduce((s,p)=>s+p.z,0)/hull.length;
+      const proxy = new THREE.Object3D();
+      proxy.position.set(cx, 0, cz);
+      proxy.userData = {
+        label: building.name || 'SliceBuilding',
+        collider: { type: 'polygon', points: hull }
+      };
+      objectGrid.add(proxy);
+      group.add(proxy);
+    }
+  });
 }

@@ -5,7 +5,7 @@ import { PlayerInfo } from "./hud/PlayerInfo.jsx";
 import { ControlsInfo } from "./hud/ControlsInfo.jsx";
 import { Minimap } from "./hud/Minimap.jsx";
 import { Compass } from "./hud/Compass.jsx";
-const HUDComponent = ({ playerStats, playerRef, worldObjects, zoomRef }) => {
+const HUDComponent = ({ playerStats, playerRef, worldObjects, zoomRef, settings }) => {
   const [showControlsInfo, setShowControlsInfo] = useState(true);
   useEffect(() => {
     const t = setTimeout(() => setShowControlsInfo(false), 1e4);
@@ -34,7 +34,7 @@ const HUDComponent = ({ playerStats, playerRef, worldObjects, zoomRef }) => {
     /* Compass in top-center */
     jsxDEV(Compass, { playerRef }, void 0, false, { fileName: "<stdin>", lineNumber: 15, columnNumber: 13 }),
     /* Minimap pinned to top-right */
-    jsxDEV(Minimap, { playerRef, worldObjects, zoomRef }, void 0, false, { fileName: "<stdin>", lineNumber: 18, columnNumber: 13 })
+    jsxDEV(Minimap, { playerRef, worldObjects, zoomRef, minimapSettings: settings?.minimap }, void 0, false, { fileName: "<stdin>", lineNumber: 18, columnNumber: 13 })
   ] }, void 0, true, { fileName: "<stdin>", lineNumber: 8, columnNumber: 9 });
 };
 HUDComponent.propTypes = {

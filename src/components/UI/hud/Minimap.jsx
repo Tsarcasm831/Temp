@@ -1,7 +1,11 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
 import React from "react";
 import { useMinimap } from "../../../hooks/useMinimap.js";
-const Minimap = ({ playerRef, worldObjects, zoomRef }) => {
+const Minimap = ({ playerRef, worldObjects, zoomRef, minimapSettings }) => {
+  const opts = {
+    size: minimapSettings?.size ?? 128,
+    showGrid: minimapSettings?.showGrid ?? true
+  };
   const {
     minimapState,
     minimapCanvasRef,
@@ -11,7 +15,8 @@ const Minimap = ({ playerRef, worldObjects, zoomRef }) => {
     biomeRef,
     districtRef,
     roadRef
-  } = useMinimap({ playerRef, worldObjects, zoomRef });
+  } = useMinimap({ playerRef, worldObjects, zoomRef, options: opts });
+  if (minimapSettings && minimapSettings.enabled === false) return null;
   return /* @__PURE__ */ jsxDEV(
     "div",
     {
@@ -19,7 +24,8 @@ const Minimap = ({ playerRef, worldObjects, zoomRef }) => {
         position: "absolute",
         right: "16px",
         top: "16px",
-        width: `${minimapState.width}px`
+        width: `${minimapState.width}px`,
+        opacity: minimapSettings?.opacity ?? 0.9
       },
       className: "z-10 flex flex-col shadow-2xl pointer-events-auto",
       children: [
@@ -30,7 +36,7 @@ const Minimap = ({ playerRef, worldObjects, zoomRef }) => {
             className: "bg-black bg-opacity-70 border-2 border-b-0 border-gray-600 rounded-t overflow-hidden relative",
             children: /* @__PURE__ */ jsxDEV("canvas", { ref: minimapCanvasRef, width: minimapState.width, height: minimapState.height, className: "w-full h-full" }, void 0, false, {
               fileName: "<stdin>",
-              lineNumber: 31,
+              lineNumber: 38,
               columnNumber: 17
             })
           },
@@ -38,45 +44,45 @@ const Minimap = ({ playerRef, worldObjects, zoomRef }) => {
           false,
           {
             fileName: "<stdin>",
-            lineNumber: 27,
+            lineNumber: 34,
             columnNumber: 13
           }
         ),
-        /* @__PURE__ */ jsxDEV("div", { className: "bg-black bg-opacity-70 text-white p-2 rounded-b text-sm border-2 border-t-0 border-gray-600", children: [
+        (minimapSettings?.showInfo ?? true) && /* @__PURE__ */ jsxDEV("div", { className: "bg-black bg-opacity-70 text-white p-2 rounded-b text-sm border-2 border-t-0 border-gray-600", children: [
           /* @__PURE__ */ jsxDEV("div", { ref: posXRef, children: "X: 0" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 36,
+            lineNumber: 44,
             columnNumber: 17
           }),
           /* @__PURE__ */ jsxDEV("div", { ref: posZRef, children: "Z: 0" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 37,
+            lineNumber: 45,
             columnNumber: 17
           }),
           /* @__PURE__ */ jsxDEV("div", { ref: zoomLevelRef, children: "Zoom Level: 1" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 38,
+            lineNumber: 46,
             columnNumber: 17
           }),
           /* @__PURE__ */ jsxDEV("div", { ref: biomeRef, children: "Biome: Unknown" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 39,
+            lineNumber: 47,
             columnNumber: 17
           }),
           /* @__PURE__ */ jsxDEV("div", { ref: districtRef, children: "District: Unknown" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 40,
+            lineNumber: 48,
             columnNumber: 17
           }),
           /* @__PURE__ */ jsxDEV("div", { ref: roadRef, children: "Road: \u2013" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 41,
+            lineNumber: 49,
             columnNumber: 17
           })
         ] }, void 0, true, {
           fileName: "<stdin>",
-          lineNumber: 35,
-          columnNumber: 13
+          lineNumber: 43,
+          columnNumber: 15
         })
       ]
     },
@@ -84,7 +90,7 @@ const Minimap = ({ playerRef, worldObjects, zoomRef }) => {
     true,
     {
       fileName: "<stdin>",
-      lineNumber: 17,
+      lineNumber: 23,
       columnNumber: 9
     }
   );

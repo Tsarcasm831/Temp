@@ -15,7 +15,7 @@ import ChangelogPanel from "./components/UI/ChangelogPanel.jsx";
 import ErrorBoundary from "./components/UI/ErrorBoundary.jsx";
 import { MobileControls } from "./components/UI/MobileControls.jsx";
 import CreditsPanel from "./components/UI/CreditsPanel.jsx";
-import KakashiAnimationsModal from "./components/UI/KakashiAnimationsModal.jsx";
+import AnimationsPanel from "./components/UI/AnimationsPanel.jsx";
 import { changelogData } from "./components/UI/ChangelogPanel.jsx";
 import PauseMenu from "./components/UI/PauseMenu.jsx";
 const VERSION_PREFIX = "v";
@@ -44,7 +44,9 @@ const OpenWorldGame = () => {
     objectDensity: "medium",
     fpsLimit: "60 FPS",
     // Lower default render scale for better FPS; adjustable in Settings
-    maxPixelRatio: 1
+    maxPixelRatio: 1,
+    // Minimap settings
+    minimap: { enabled: true, showGrid: true, showInfo: true, opacity: 0.9, size: 128 }
   });
   const [showCharacter, setShowCharacter] = useState(false);
   const [showInventory, setShowInventory] = useState(false);
@@ -109,7 +111,7 @@ const OpenWorldGame = () => {
       lineNumber: 61,
       columnNumber: 27
     }),
-    gameState === "Playing" && /* @__PURE__ */ jsxDEV(ErrorBoundary, { children: /* @__PURE__ */ jsxDEV(HUD, { playerStats, playerRef, worldObjects, zoomRef }, void 0, false, {
+    gameState === "Playing" && /* @__PURE__ */ jsxDEV(ErrorBoundary, { children: /* @__PURE__ */ jsxDEV(HUD, { playerStats, playerRef, worldObjects, zoomRef, settings }, void 0, false, {
       fileName: "<stdin>",
       lineNumber: 63,
       columnNumber: 38
@@ -201,7 +203,7 @@ const OpenWorldGame = () => {
       lineNumber: 71,
       columnNumber: 21
     }),
-    gameState === "Playing" && showAnimations && /* @__PURE__ */ jsxDEV(ErrorBoundary, { children: /* @__PURE__ */ jsxDEV(KakashiAnimationsModal, { onClose: () => setShowAnimations(false) }, void 0, false, {
+    gameState === "Playing" && showAnimations && /* @__PURE__ */ jsxDEV(ErrorBoundary, { children: /* @__PURE__ */ jsxDEV(AnimationsPanel, { playerRef, onClose: () => setShowAnimations(false) }, void 0, false, {
       fileName: "<stdin>",
       lineNumber: 72,
       columnNumber: 51
