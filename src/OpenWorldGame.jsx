@@ -16,6 +16,7 @@ import ErrorBoundary from "./components/UI/ErrorBoundary.jsx";
 import { MobileControls } from "./components/UI/MobileControls.jsx";
 import CreditsPanel from "./components/UI/CreditsPanel.jsx";
 import AnimationsPanel from "./components/UI/AnimationsPanel.jsx";
+import KakashiAnimationsModal from "./components/UI/KakashiAnimationsModal.jsx";
 import { changelogData } from "./components/UI/ChangelogPanel.jsx";
 import PauseMenu from "./components/UI/PauseMenu.jsx";
 import HokageOfficeModal from "./components/UI/HokageOfficeModal.jsx";
@@ -57,6 +58,7 @@ const OpenWorldGame = () => {
   const [showMobileControls, setShowMobileControls] = useState(false);
   const [showCredits, setShowCredits] = useState(false);
   const [showAnimations, setShowAnimations] = useState(false);
+  const [showKakashi, setShowKakashi] = useState(false);
   const [showPauseMenu, setShowPauseMenu] = useState(false);
   const [showHokageOffice, setShowHokageOffice] = useState(false);
   const uiState = {
@@ -66,6 +68,7 @@ const OpenWorldGame = () => {
     setShowSettings,
     setShowMobileControls,
     setShowAnimations,
+    setShowKakashi,
     gameState,
     setSettings,
     /* NEW: expose pause setter to controls */
@@ -221,6 +224,15 @@ const OpenWorldGame = () => {
       fileName: "<stdin>",
       lineNumber: 72,
       columnNumber: 34
+    }),
+    gameState === "Playing" && showKakashi && /* @__PURE__ */ jsxDEV(ErrorBoundary, { children: /* @__PURE__ */ jsxDEV(KakashiAnimationsModal, { onClose: () => setShowKakashi(false) }, void 0, false, {
+      fileName: "<stdin>",
+      lineNumber: 73,
+      columnNumber: 56
+    }) }, void 0, false, {
+      fileName: "<stdin>",
+      lineNumber: 73,
+      columnNumber: 39
     }),
     /* NEW: Hokage Office Modal */
     gameState === "Playing" && showHokageOffice && /* @__PURE__ */ jsxDEV(HokageOfficeModal, { onClose: () => {
