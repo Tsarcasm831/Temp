@@ -19,6 +19,7 @@ import AnimationsPanel from "./components/UI/AnimationsPanel.jsx";
 import { changelogData } from "./components/UI/ChangelogPanel.jsx";
 import PauseMenu from "./components/UI/PauseMenu.jsx";
 import HokageOfficeModal from "./components/UI/HokageOfficeModal.jsx";
+import JutsuModal from "./components/UI/JutsuModal.jsx";
 const VERSION_PREFIX = "v";
 const OVERRIDE_VERSION = null;
 const OpenWorldGame = () => {
@@ -59,6 +60,7 @@ const OpenWorldGame = () => {
   const [showAnimations, setShowAnimations] = useState(false);
   const [showPauseMenu, setShowPauseMenu] = useState(false);
   const [showHokageOffice, setShowHokageOffice] = useState(false);
+  const [showJutsuModal, setShowJutsuModal] = useState(false);
   const uiState = {
     setShowCharacter,
     setShowInventory,
@@ -66,6 +68,7 @@ const OpenWorldGame = () => {
     setShowSettings,
     setShowMobileControls,
     setShowAnimations,
+    setShowJutsuModal,
     gameState,
     setSettings,
     /* NEW: expose pause setter to controls */
@@ -221,6 +224,15 @@ const OpenWorldGame = () => {
       fileName: "<stdin>",
       lineNumber: 72,
       columnNumber: 34
+    }),
+    gameState === "Playing" && showJutsuModal && /* @__PURE__ */ jsxDEV(ErrorBoundary, { children: /* @__PURE__ */ jsxDEV(JutsuModal, { onClose: () => setShowJutsuModal(false) }, void 0, false, {
+      fileName: "<stdin>",
+      lineNumber: 73,
+      columnNumber: 56
+    }) }, void 0, false, {
+      fileName: "<stdin>",
+      lineNumber: 73,
+      columnNumber: 39
     }),
     /* NEW: Hokage Office Modal */
     gameState === "Playing" && showHokageOffice && /* @__PURE__ */ jsxDEV(HokageOfficeModal, { onClose: () => {

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export const usePlayerControls = ({ setShowCharacter, setShowInventory, setShowWorldMap, setShowSettings, setShowMobileControls, setShowAnimations, gameState, setSettings, setShowPause }) => {
+export const usePlayerControls = ({ setShowCharacter, setShowInventory, setShowWorldMap, setShowSettings, setShowMobileControls, setShowAnimations, setShowJutsuModal, gameState, setSettings, setShowPause }) => {
     const keysRef = useRef({});
 
     useEffect(() => {
@@ -32,6 +32,7 @@ export const usePlayerControls = ({ setShowCharacter, setShowInventory, setShowW
                 setShowCharacter(false);
                 setShowInventory(false);
                 setShowWorldMap(false);
+                if (typeof setShowJutsuModal === 'function') setShowJutsuModal(false);
                 if (gameState === 'Playing') { // Only close settings in-game with Esc
                     setShowSettings(false);
                     setShowAnimations(false);
@@ -47,6 +48,7 @@ export const usePlayerControls = ({ setShowCharacter, setShowInventory, setShowW
                         if (key !== 'm') setShowWorldMap(false);
                         if (key !== 'p') setShowSettings(false);
                         if (key !== 'b') setShowAnimations(false);
+                        if (key !== 'j' && typeof setShowJutsuModal === 'function') setShowJutsuModal(false);
                     } else if (isOpen && gameState !== 'Playing' && key !== 'p') {
                         // In main menu, only allow settings to open
                         return false;
@@ -71,6 +73,11 @@ export const usePlayerControls = ({ setShowCharacter, setShowInventory, setShowW
                 case 'KeyB':
                     if (gameState === 'Playing' && setShowAnimations) {
                         togglePanel(setShowAnimations, 'b');
+                    }
+                    break;
+                case 'KeyJ':
+                    if (gameState === 'Playing' && typeof setShowJutsuModal === 'function') {
+                        togglePanel(setShowJutsuModal, 'j');
                     }
                     break;
                 case 'KeyG':
