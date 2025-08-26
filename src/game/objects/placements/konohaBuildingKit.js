@@ -1,6 +1,9 @@
 import * as THREE from 'three';
 
-export function createKonohaBuildingKit(settings) {
+// Allow calls without a settings object by falling back to an empty one.
+// This prevents runtime errors when `settings` is undefined and building
+// helpers attempt to access properties such as `settings.shadows`.
+export function createKonohaBuildingKit(settings = {}) {
   const KPalette = {
     plaster: 0xe8efc9,
     trim: 0xb7c097,

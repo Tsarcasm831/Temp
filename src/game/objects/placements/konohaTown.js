@@ -43,8 +43,11 @@ export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.
     townGroup.position.copy(origin);
     scene.add(townGroup);
 
-    // Require district data from the live /map model
-    let liveMap = (window.__konohaMapModel?.MODEL ?? window.__konohaMapModel) || null;
+    // Require district data from the live /map model. Guard against the
+    // absence of `window` (e.g. during server-side rendering) by falling back
+    // to the global object when necessary.
+    const w = typeof window !== 'undefined' ? window : globalThis;
+    let liveMap = (w.__konohaMapModel?.MODEL ?? w.__konohaMapModel) || null;
     const liveDistricts = liveMap?.districts;
     if (
       DISTRICT_ENFORCEMENT_ENABLED &&
