@@ -5,7 +5,7 @@ const MAP_BUTTON_LABEL = "Map Editor";
 const MAP_MODAL_WIDTH_PCT = 98;
 const MAP_MODAL_HEIGHT_PCT = 98;
 const MAP_MODAL_BACKDROP_OPACITY = 0.6;
-const MAP_EDITOR_ENABLED = false;
+const MAP_EDITOR_ENABLED = true;
 const MainMenu = ({ onStart, onOptions, onChangelog, onCredits, version }) => {
   const [showMapModal, setShowMapModal] = React.useState(false);
   React.useEffect(() => {

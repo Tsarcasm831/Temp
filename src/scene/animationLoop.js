@@ -141,6 +141,13 @@ export function startAnimationLoop({
 
         if (!playerRef.current || !cameraRef.current || !rendererRef.current || !sceneRef.current || !objectGridRef.current) return;
 
+        // Early pause: freeze updates when a modal requests a pause
+        if (window.__gamePaused) {
+            setPrompt('', false);
+            rendererRef.current.render(sceneRef.current, cameraRef.current);
+            return;
+        }
+
         // Handle first-person toggle (V)
         if (keysRef.current['ToggleFirstPerson']) {
             keysRef.current['ToggleFirstPerson'] = false;

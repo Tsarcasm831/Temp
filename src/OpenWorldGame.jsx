@@ -18,6 +18,7 @@ import CreditsPanel from "./components/UI/CreditsPanel.jsx";
 import AnimationsPanel from "./components/UI/AnimationsPanel.jsx";
 import { changelogData } from "./components/UI/ChangelogPanel.jsx";
 import PauseMenu from "./components/UI/PauseMenu.jsx";
+import HokageOfficeModal from "./components/UI/HokageOfficeModal.jsx";
 const VERSION_PREFIX = "v";
 const OVERRIDE_VERSION = null;
 const OpenWorldGame = () => {
@@ -57,6 +58,7 @@ const OpenWorldGame = () => {
   const [showCredits, setShowCredits] = useState(false);
   const [showAnimations, setShowAnimations] = useState(false);
   const [showPauseMenu, setShowPauseMenu] = useState(false);
+  const [showHokageOffice, setShowHokageOffice] = useState(false);
   const uiState = {
     setShowCharacter,
     setShowInventory,
@@ -73,6 +75,14 @@ const OpenWorldGame = () => {
   const joystickRef = useRef(null);
   const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
   const { playerRef, zoomRef, cameraOrbitRef, cameraPitchRef } = useThreeScene({ mountRef, keysRef, joystickRef, setPlayerPosition, settings, setWorldObjects, isPlaying: gameState === "Playing", onReady: useCallback(() => setGameReady(true), []) });
+  useEffect(() => {
+    const open = () => {
+      window.__gamePaused = true;
+      setShowHokageOffice(true);
+    };
+    window.addEventListener("open-hokage-office", open);
+    return () => window.removeEventListener("open-hokage-office", open);
+  }, []);
   const handleStartGame = async () => {
     setGameReady(false);
     setGameState("Loading");
@@ -211,7 +221,12 @@ const OpenWorldGame = () => {
       fileName: "<stdin>",
       lineNumber: 72,
       columnNumber: 34
-    })
+    }),
+    /* NEW: Hokage Office Modal */
+    gameState === "Playing" && showHokageOffice && /* @__PURE__ */ jsxDEV(HokageOfficeModal, { onClose: () => {
+      window.__gamePaused = false;
+      setShowHokageOffice(false);
+    } }, void 0, false)
   ] }, void 0, true, {
     fileName: "<stdin>",
     lineNumber: 52,

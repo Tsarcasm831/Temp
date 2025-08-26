@@ -9,7 +9,7 @@ const getToggle = (id, def=true) => { const el = document.getElementById(id); re
 
 export function drawAll(){
   drawGrass(); drawForest(); drawMountains();
-  drawRoads(); drawRivers(); drawDistricts(); drawWalls(); drawPOI(); drawHandles(); updateForm();
+  drawRoads(); drawDistricts(); drawWalls(); drawPOI(); drawHandles(); updateForm();
 }
 
 function drawDistricts(){
@@ -67,13 +67,7 @@ function drawRoads(){
 function drawRivers(){
   const layer = document.getElementById('riverLayer');
   clear(layer);
-  if(!getToggle('toggleRivers') || !Array.isArray(MODEL.rivers)) return;
-  for(let i=0;i<MODEL.rivers.length;i++){
-    const rv=MODEL.rivers[i];
-    const d=rv.points.map(p=>[p[0]*W/100,p[1]*H/100].join(',')).join(' ');
-    const pl=mk('polyline',{class:'river',points:d,strokeWidth:rv.width||7});
-    layer.append(pl);
-  }
+  return; // rivers removed
 }
 
 function drawGrass(){

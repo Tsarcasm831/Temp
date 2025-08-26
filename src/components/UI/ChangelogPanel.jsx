@@ -1,8 +1,9 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
 import React from "react";
-const LATEST_VERSION = "0.001.279";
-const LATEST_DATE = "2025-08-22";
+const LATEST_VERSION = "0.001.288";
+const LATEST_DATE = "2025-08-26";
 const LATEST_CHANGES = [
+  "Version bump to 0.001.288.",
   "Map/Districts: Fixed undefined __roadsCache and made live-map loading resilient; districts render even if /map is missing.",
   "World/Buildings: Reworked placement to require full district containment; restored visibility with graceful fallback when no districts are present.",
   "City Slice: Added district-constrained placement and OBB collider registration; honors road-avoidance and live map polygons.",
@@ -77,7 +78,7 @@ const ChangelogPanel = ({ onClose }) => {
     /* @__PURE__ */ jsxDEV("div", { className: "bg-gray-700 px-4 py-2 rounded-t-lg border-b border-gray-600 flex justify-between items-center", children: [
       /* @__PURE__ */ jsxDEV("h2", { className: "text-yellow-400 font-bold text-lg", children: "Changelog" }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 85,
+        lineNumber: 86,
         columnNumber: 17
       }),
       /* @__PURE__ */ jsxDEV(
@@ -91,18 +92,18 @@ const ChangelogPanel = ({ onClose }) => {
         false,
         {
           fileName: "<stdin>",
-          lineNumber: 86,
+          lineNumber: 87,
           columnNumber: 17
         }
       )
     ] }, void 0, true, {
       fileName: "<stdin>",
-      lineNumber: 84,
+      lineNumber: 85,
       columnNumber: 13
     }),
     /* @__PURE__ */ jsxDEV("div", { className: "px-4 pt-2 text-xs text-gray-300", children: "by Lord Tsarcasm" }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 94,
+      lineNumber: 95,
       columnNumber: 13
     }),
     /* @__PURE__ */ jsxDEV("div", { className: "p-4 space-y-4 max-h-[80vh] overflow-y-auto", children: changelogData.map((entry) => /* @__PURE__ */ jsxDEV("div", { className: "bg-gray-900 p-3 rounded-lg border border-gray-700", children: [
@@ -112,40 +113,40 @@ const ChangelogPanel = ({ onClose }) => {
           entry.version
         ] }, void 0, true, {
           fileName: "<stdin>",
-          lineNumber: 100,
+          lineNumber: 101,
           columnNumber: 30
         }),
         /* @__PURE__ */ jsxDEV("p", { className: "text-xs text-gray-400", children: entry.date }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 101,
+          lineNumber: 102,
           columnNumber: 30
         })
       ] }, void 0, true, {
         fileName: "<stdin>",
-        lineNumber: 99,
+        lineNumber: 100,
         columnNumber: 25
       }),
       /* @__PURE__ */ jsxDEV("ul", { className: "list-disc list-inside text-sm space-y-1 text-gray-300", children: entry.changes.map((change, index) => /* @__PURE__ */ jsxDEV("li", { children: change }, index, false, {
         fileName: "<stdin>",
-        lineNumber: 106,
+        lineNumber: 107,
         columnNumber: 33
       })) }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 104,
+        lineNumber: 105,
         columnNumber: 25
       })
     ] }, entry.version, true, {
       fileName: "<stdin>",
-      lineNumber: 98,
+      lineNumber: 99,
       columnNumber: 21
     })) }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 96,
+      lineNumber: 97,
       columnNumber: 13
     })
   ] }, void 0, true, {
     fileName: "<stdin>",
-    lineNumber: 82,
+    lineNumber: 83,
     columnNumber: 9
   });
 };

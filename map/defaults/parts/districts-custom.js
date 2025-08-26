@@ -64,7 +64,7 @@ export const DEFAULT_DISTRICTS = {
     "desc": "Emergency wards, chakra treatment floors, surgical theatres, blood bank, and rooftop messenger posts.",
     "tags": ["medical"],
     "points": [
-      [65.23,46.61],[66.08,52.28],[71.37,52.28],[72.21,45.05]
+      [65.07,46.61],[65.99,52.76],[71.71,52.83],[72.21,45.05]
     ]
   },
   "district-7": {
@@ -73,8 +73,9 @@ export const DEFAULT_DISTRICTS = {
     "desc": "Interrogation wing, analysis rooms, evidence vaults. Restricted access; pairs with mission intel.",
     "tags": ["security","administration"],
     "points": [
-      [74.01,44.83],[73.06,44.83],[72.21,52.17],[87.23,52.39],[82.58,48.72],[76.87,49.5]
-    ]
+      [74.01,44.83],[73.06,44.83],[72.09,52.71],[87.9,52.62],[87.85,48.05],[76.87,49.5]
+    ],
+    "color": "#22d3ee"
   },
   "district-8": {
     "id": "district-8",
@@ -83,15 +84,6 @@ export const DEFAULT_DISTRICTS = {
     "tags": ["security"],
     "points": [
       [52.96,40.27],[53.17,47.16],[55.29,47.16],[55.5,50.28],[62.48,50.28]
-    ]
-  },
-  "district-9": {
-    "id": "district-9",
-    "name": "Foundation (Root) Sublevels",
-    "desc": "Decommissioned underground training and storage levels once used by Root. Marked restricted/defunct.",
-    "tags": ["security","historic","restricted"],
-    "points": [
-      [64.91,52.73],[53.91,52.5],[53.38,51.61],[53.38,50.06],[55.29,50.06],[55.39,50.61],[63.12,50.5]
     ]
   },
   "district-10": {
@@ -238,6 +230,16 @@ export const DEFAULT_DISTRICTS = {
       [39.85,53.73],[42.28,57.51],[39.21,61.07],[36.78,61.62],[35.4,60.73]
     ]
   },
+  "district-26": {
+    "id": "district-26",
+    "name": "Barrier Team & Sensor Corps HQ",
+    "desc": "Barrier control hall, sensor dojo, and roof pylons for village-wide seals.",
+    "tags": ["security","research"],
+    "points": [
+      [34.66,61.51],[35.84,62.3],[33.92,64.76],[34.64,69.09],[31.83,65.76]
+    ],
+    "color": "#22d3ee"
+  },
   "district-27": {
     "id": "district-27",
     "name": "Orphanage & Relief House",
@@ -280,8 +282,9 @@ export const DEFAULT_DISTRICTS = {
     "desc": "Sealed arsenals and ration warehouses with messenger-hawk lofts.",
     "tags": ["infrastructure","security"],
     "points": [
-      [46.3,80.09],[53.17,86.76],[53.17,83.76],[51.59,83.54],[51.48,81.31],[52.86,81.09],[52.86,72.75]
-    ]
+      [40.32,85.68],[53.28,88.38],[53.17,83.76],[51.59,83.54],[51.48,81.31],[52.86,81.09],[52.86,72.75]
+    ],
+    "color": "#22d3ee"
   },
   "district-32": {
     "id": "district-32",
@@ -316,7 +319,7 @@ export const DEFAULT_DISTRICTS = {
     "desc": "Inspection offices, barracks, stables, and courier post at the west gate.",
     "tags": ["security","infrastructure"],
     "points": [
-      [36.25,69.52],[37.41,70.97],[52.86,71.41],[52.75,64.4],[51.69,64.18],[46.09,64.96],[45.56,67.19]
+      [35.16,69.56],[36.77,71.14],[52.86,71.41],[52.75,64.4],[51.69,64.18],[46.09,64.96],[44.57,67.61]
     ]
   },
   "district-36": {
@@ -346,16 +349,6 @@ export const DEFAULT_DISTRICTS = {
       [77.39,53.39],[77.71,56.62],[80.36,57.17],[81.1,59.29],[87.13,53.17],[83.21,53.39],[83.21,54.73],[81.41,54.95],[80.89,53.5]
     ]
   },
-  "district-39": {
-    "id": "district-39",
-    "name": "Zoo & Aviary",
-    "desc": "Small shinobi-creature enclosures and messenger-bird aviary linked to nearby parks.",
-    "tags": ["park","civic","education"],
-    "points": [
-      [81.52,61.96],[83.38,61.02],[82.79,59.29],[87.34,54.51],[86.39,61.62],[82.67,70.78],[79.72,68.63],[81.94,65.29]
-    ],
-    "color": "#22d3ee"
-  },
   "Yamanaka": {
     "id": "Yamanaka",
     "name": "Yamanaka District",
@@ -383,13 +376,13 @@ export const DEFAULT_DISTRICTS = {
     ],
     "color": "#22d3ee"
   },
-  "district-26": {
-    "id": "district-26",
-    "name": "Barrier Team & Sensor Corps HQ",
-    "desc": "Barrier control hall, sensor dojo, and roof pylons for village-wide seals.",
-    "tags": ["security","research"],
+  "district-39": {
+    "id": "district-39",
+    "name": "Zoo & Aviary",
+    "desc": "Small shinobi-creature enclosures and messenger-bird aviary linked to nearby parks.",
+    "tags": ["park","civic","education"],
     "points": [
-      [34.66,61.51],[36.6,62.88],[34.92,65.02],[35.28,69.2],[31.83,65.76]
+      [81.52,61.96],[83.38,61.02],[82.79,59.29],[87.34,54.51],[86.39,61.62],[82.67,70.78],[79.72,68.63],[81.94,65.29]
     ],
     "color": "#22d3ee"
   },
@@ -401,5 +394,41 @@ export const DEFAULT_DISTRICTS = {
     "points": [
       [63.54,35.82],[65.13,45.83],[73.27,43.94],[71.68,40.04],[82.4,31.26],[80.81,28.38],[67.77,37.37],[64.7,35.26]
     ]
+  },
+  "residential1": {
+    "id": "residential1",
+    "name": "residential1",
+    "desc": "",
+    "points": [[25.96,28.23],[30.54,30.18],[39.46,20.21],[35.22,19.75],[30.87,22.75]]
+  },
+  "residential2": {
+    "id": "residential2",
+    "name": "residential2",
+    "desc": "",
+    "points": [[37.41,23.53],[44.89,27.43],[45.55,26.77],[44.45,25.65],[46.39,23.46],[47.86,24.5],[49.69,23.15],[46.68,22.07],[45.91,22.8],[43.24,21.95],[43.24,19.49],[40.93,19.79],[41,21.3],[39.98,21.84],[38.22,22.34]]
+  },
+  "residential3": {
+    "id": "residential3",
+    "name": "residential3",
+    "desc": "",
+    "points": [[54.46,22.39],[59.59,27.16],[58.53,23.11],[60.02,15.48],[59.04,15.17],[58.79,17.09],[58.32,18.2],[57.9,19.23],[57.09,20.3],[56.24,21.14]]
+  },
+  "residential4": {
+    "id": "residential4",
+    "name": "residential4",
+    "desc": "",
+    "points": [[47.55,19.81],[47.59,21.95],[49.75,22.97],[52.21,23.02],[53.83,22.21],[55.9,20.97],[57.81,18.74],[56.67,18.47],[56.5,17.67],[55.27,17.89],[55.1,18.87],[54.59,19.85],[53.53,20.79],[52.38,21.41],[50.52,21.59],[49.8,20.83]]
+  },
+  "residential5": {
+    "id": "residential5",
+    "name": "residential5",
+    "desc": "",
+    "points": [[35.74,68.89],[34.5,67.63],[34.12,65.37],[35.26,63.5],[36.46,62.5],[37.66,63.5],[38.09,63.5],[38.28,62.9],[39.28,61.99],[41.34,59.88],[44.88,59.18],[48.99,60.13],[49.9,61.14],[51.82,61.89],[51.53,64.11],[46.08,64.66],[44.35,67.43]]
+  },
+  "residential6": {
+    "id": "residential6",
+    "name": "residential6",
+    "desc": "",
+    "points": [[63.58,62.7],[62.63,62.29],[62.24,61.43],[62.5,60.03],[63.32,57.9],[63.92,56.09],[65.43,54.28],[66.55,53.87],[67.45,54.1],[68.49,54.69],[68.83,55.32],[69.3,55.82],[69.39,56.59],[69.26,57.13],[68.57,57.77],[67.54,57.86],[66.68,58.49],[65.99,58.85],[65.21,61.34],[64.87,62.25],[64.18,62.66]]
   }
 };

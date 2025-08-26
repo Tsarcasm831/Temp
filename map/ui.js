@@ -2,7 +2,7 @@ import { svg, $, W, H } from './constants.js';
 import { MODEL, state } from './model.js';
 import { download, autosave } from './utils.js';
 import { drawAll } from './render.js';
-import { dumpJSON, buildExportSVG } from './export-utils.js';
+import { dumpJSON, buildExportSVG, buildDefaultModelJS } from './export-utils.js';
 import { canvasDown, finishDrawing, cancelDrawing, select } from './interactions.js';
 
 function wireUI(){
@@ -123,19 +123,57 @@ function wireUI(){
     const svgStr = buildExportSVG();
     download('konoha-overlay.svg', svgStr, 'image/svg+xml');
   });
+  const btnJs = document.getElementById('downloadJsModel');
+  if(btnJs){ btnJs.addEventListener('click', ()=>{
+    const js = buildDefaultModelJS();
+    download('full-default-model.js', js, 'application/javascript');
+  });}
+  const btnSaveDef = document.getElementById('saveAsDefault');
+  if(btnSaveDef){
+    btnSaveDef.addEventListener('click', ()=>{
+      const obj = {
+        districts: MODEL.districts || {},
+        roads: MODEL.roads || [],
+        poi: MODEL.poi || [],
+        walls: MODEL.walls || [],
+        rivers: MODEL.rivers || [],
+        grass: MODEL.grass || [],
+        forest: MODEL.forest || [],
+        mountains: MODEL.mountains || []
+      };
+      try{
+        localStorage.setItem('konoha-default-model', JSON.stringify(obj));
+        alert('Saved current map as the default. Reload to use it.');
+      }catch(e){
+        alert('Failed to save default (storage full or blocked).');
+      }
+    });
+  }
   document.getElementById('importFile').addEventListener('change',async (e)=>{
     const file=e.target.files[0]; if(!file) return;
     const text=await file.text();
     try{
       const data=JSON.parse(text);
-      if(!state.locks?.districtsLocked) MODEL.districts = data.districts || MODEL.districts;
-      MODEL.roads = data.roads || MODEL.roads || [];
-      if(!state.locks?.poiLocked) MODEL.poi = data.poi || MODEL.poi;
-      // handle terrain split format (and fallback to top-level for compatibility)
+      // new split format support (with backward compatibility)
+      const districts = data.districts ?? MODEL.districts;
+      const roads = data.roads ?? [];
+      const poi = data.poi ?? MODEL.poi;
+      const walls = data.walls ?? [];
+      const rivers = data.rivers ?? data.river ?? []; // accept legacy typo if any
       const terrain = data.terrain || {};
-      MODEL.grass = Array.isArray(terrain.grass) ? terrain.grass : (data.grass || MODEL.grass || []);
-      MODEL.forest = Array.isArray(terrain.forest) ? terrain.forest : (data.forest || MODEL.forest || []);
-      MODEL.mountains = Array.isArray(terrain.mountains) ? terrain.mountains : (data.mountains || MODEL.mountains || []);
+      const grass = terrain.grass ?? data.grass ?? MODEL.grass ?? [];
+      const forest = terrain.forest ?? data.forest ?? MODEL.forest ?? [];
+      const mountains = terrain.mountains ?? data.mountains ?? MODEL.mountains ?? [];
+
+      if(!state.locks?.districtsLocked) MODEL.districts = districts;
+      MODEL.roads = roads;
+      if(!state.locks?.poiLocked) MODEL.poi = poi;
+      MODEL.walls = walls;
+      MODEL.rivers = rivers;
+      MODEL.grass = grass;
+      MODEL.forest = forest;
+      MODEL.mountains = mountains;
+
       drawAll(); dumpJSON(); autosave(MODEL);
     }catch(err){ alert('Invalid JSON'); }
   });
@@ -144,12 +182,9 @@ function wireUI(){
     try{
       const data=JSON.parse(txt);
       if(!state.locks?.districtsLocked) MODEL.districts=data.districts||MODEL.districts;
-      MODEL.roads=data.roads||MODEL.roads||[];
+      MODEL.roads=data.roads||[];
       if(!state.locks?.poiLocked) MODEL.poi=data.poi||MODEL.poi;
-      const terrain = data.terrain || {};
-      MODEL.grass = Array.isArray(terrain.grass) ? terrain.grass : (data.grass || MODEL.grass || []);
-      MODEL.forest = Array.isArray(terrain.forest) ? terrain.forest : (data.forest || MODEL.forest || []);
-      MODEL.mountains = Array.isArray(terrain.mountains) ? terrain.mountains : (data.mountains || MODEL.mountains || []);
+      MODEL.walls=data.walls||[];
       drawAll(); dumpJSON();
     } catch { alert('Autosave corrupt'); }
   });
@@ -232,10 +267,40 @@ function onWheelZoom(e){
   setViewBox({ x:nx, y:ny, w:newW, h:newH });
 }
 
+function updatePieceView(){
+  const sel = document.getElementById('viewPiece');
+  const ta = document.getElementById('piece');
+  if(!sel || !ta) return;
+  const key = sel.value;
+  const src = key==='districts' ? MODEL.districts
+            : key==='roads' ? MODEL.roads
+            : key==='poi' ? MODEL.poi
+            : key==='walls' ? MODEL.walls
+            : key==='rivers' ? MODEL.rivers
+            : key==='forest' ? MODEL.forest
+            : key==='grass' ? MODEL.grass
+            : key==='mountains' ? MODEL.mountains
+            : {};
+  ta.value = JSON.stringify(src ?? {}, null, 2);
+}
+
 export function initUI(){
   wireUI();
   document.body.dataset.mode=state.mode;
   // Ensure starting at max zoom-out
   setViewBox({ x:0, y:0, w:W, h:H });
   drawAll(); dumpJSON(); updateBrushPanel();
+  // piece analyzer wiring
+  const vp=document.getElementById('viewPiece');
+  const cp=document.getElementById('copyPiece');
+  if(vp){ vp.addEventListener('change', updatePieceView); }
+  if(cp){ cp.addEventListener('click', async ()=>{
+    const txt = (document.getElementById('piece')||{}).value || '';
+    try{ await navigator.clipboard.writeText(txt); }catch{
+      const ta=document.createElement('textarea'); ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); } finally{ document.body.removeChild(ta); }
+    }
+  });}
+  window.addEventListener('json:updated', updatePieceView);
+  updatePieceView();
 }

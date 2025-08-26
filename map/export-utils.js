@@ -3,17 +3,33 @@ import { MODEL } from './model.js';
 import { out } from './constants.js';
 
 export function dumpJSON(){
-  const payload = {
-    districts: MODEL.districts,
-    roads: MODEL.roads,
-    poi: MODEL.poi,
+  // split export into separate sections + terrain grouping
+  const data = {
+    meta: {
+      counts: {
+        districts: Object.keys(MODEL.districts||{}).length,
+        roads: (MODEL.roads||[]).length,
+        poi: (MODEL.poi||[]).length,
+        walls: (MODEL.walls||[]).length,
+        rivers: 0,
+        grass: (MODEL.grass||[]).length,
+        forest: (MODEL.forest||[]).length,
+        mountains: (MODEL.mountains||[]).length
+      }
+    },
+    districts: MODEL.districts || {},
+    roads: MODEL.roads || [],
+    poi: MODEL.poi || [],
+    walls: MODEL.walls || [],
+    rivers: [],
     terrain: {
       grass: MODEL.grass || [],
       forest: MODEL.forest || [],
       mountains: MODEL.mountains || []
     }
   };
-  out.value = JSON.stringify(payload, null, 2);
+  out.value = JSON.stringify(data,null,2);
+  window.dispatchEvent(new CustomEvent('json:updated'));
 }
 
 export function buildExportSVG(){
@@ -62,4 +78,18 @@ ${dPolys}
 ${dWalls}
 ${dPins}
 </svg>`;
+}
+
+export function buildDefaultModelJS(){
+  const obj = {
+    districts: MODEL.districts || {},
+    roads: MODEL.roads || [],
+    poi: MODEL.poi || [],
+    walls: MODEL.walls || [],
+    rivers: [],
+    grass: MODEL.grass || [],
+    forest: MODEL.forest || [],
+    mountains: MODEL.mountains || []
+  };
+  return `export const DEFAULT_MODEL = ${JSON.stringify(obj, null, 2)};\n`;
 }

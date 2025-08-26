@@ -178,6 +178,8 @@
         <button id="copyJson">Copy JSON</button>
         <button id="downloadJson" class="primary">Download JSON</button>
         <button id="exportSvg">Export SVG Overlay</button>
+        <button id="downloadJsModel">Download JS Default</button>
+        <button id="saveAsDefault">Save as Default</button>
       </div>
       <div class="row">
         <input type="file" id="importFile" accept="application/json">
@@ -185,6 +187,23 @@
         <button id="clearAll">Clear All</button>
       </div>
       <textarea id="json" readonly></textarea>
+      <!-- Piece Analyzer -->
+      <div class="row">
+        <label>View piece
+          <select id="viewPiece">
+            <option value="districts">districts</option>
+            <option value="roads">roads</option>
+            <option value="poi">poi</option>
+            <option value="walls">walls</option>
+            <option value="rivers">rivers</option>
+            <option value="forest">forest</option>
+            <option value="grass">grass</option>
+            <option value="mountains">mountains</option>
+          </select>
+        </label>
+        <button id="copyPiece">Copy Piece</button>
+      </div>
+      <textarea id="piece" readonly></textarea>
     </fieldset>
 
     <p style="opacity:.65">Shortcuts: <b>E</b> toggle Edit, <b>H</b> hide panel.</p>

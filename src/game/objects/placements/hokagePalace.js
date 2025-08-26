@@ -111,7 +111,12 @@ export function placeHokagePalace(scene, objectGrid, worldSize, settings, label 
           proxy.position.set(p.x, 0, p.z);
           proxy.userData = {
             label: 'Hokage Office',
-            collider: { type: 'sphere', radius: 5 }
+            collider: { type: 'sphere', radius: 5 },
+            onInteract: () => {
+              try {
+                window.dispatchEvent(new CustomEvent('open-hokage-office'));
+              } catch (_) {}
+            }
           };
           scene.add(proxy);
           objectGrid.add(proxy);

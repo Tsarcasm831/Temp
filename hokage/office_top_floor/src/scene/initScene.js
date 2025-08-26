@@ -122,6 +122,9 @@ export function initScene(mountEl, onLockedChange){
           if (nearest){
             nearest.open = !nearest.open;
             nearest.target = nearest.open ? nearest.openDir * Math.PI*0.7 : 0;
+            if (nearest === state.doors[0] && nearest.open) {
+              try { window.parent?.postMessage({ type: 'openHokageInterior' }, '*'); } catch {}
+            }
             nearest.autoCloseAt = nearest.open ? performance.now() + 4500 : 0;
           }
         }

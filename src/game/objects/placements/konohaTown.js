@@ -33,7 +33,7 @@ const DISTRICT_ENFORCEMENT_ENABLED = true;
 /* @tweakable nudge step size (world units) when pulling a building toward the nearest district */
 const DISTRICT_NUDGE_STEP_UNITS = 6;
 /* @tweakable when true, require live /map districts to place any town buildings at all */
-const DISTRICT_REQUIRE_MAP = true;
+const DISTRICT_REQUIRE_MAP = false;
 /* @tweakable maximum number of nudge iterations per building before giving up */
 const DISTRICT_NUDGE_MAX_ATTEMPTS = 40;
 /* @tweakable when true, remove buildings that cannot be placed inside any district after nudging */

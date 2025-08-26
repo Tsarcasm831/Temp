@@ -3,7 +3,7 @@ export const DEFAULT_ROADS = [
     "id": "road-1",
     "name": "",
     "type": "street",
-    "width": 2,
+    "width": 5,
     "points": [
       [18.67, 52.96],
       [87.59, 52.88]
@@ -123,7 +123,7 @@ export const DEFAULT_ROADS = [
     "id": "road-13",
     "name": "",
     "type": "street",
-    "width": 3,
+    "width": 4,
     "points": [
       [72.54, 44.53],
       [71.84, 52.81]
@@ -175,7 +175,7 @@ export const DEFAULT_ROADS = [
     "id": "road-18",
     "name": "",
     "type": "street",
-    "width": 3,
+    "width": 4,
     "points": [
       [58.9, 62.28],
       [65.51, 53.03]
