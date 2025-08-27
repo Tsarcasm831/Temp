@@ -1,0 +1,883 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kunai Defense Training — MVP</title>
+  <style>
+    :root{
+      --bg:#0e1014; /* deep dusk */
+      --sky:#2a3142; /* dusk sky */
+      --accent:#caa25a; /* tatami gold */
+      --accent2:#f5851e; /* orange tint */
+      --ui:#1a1f2b;
+      --ui2:#131824;
+      --text:#eef2ff;
+      --muted:#a8b0c0;
+      --good:#6ee7b7; --warn:#fbbf24; --bad:#f87171;
+    }
+    html,body{margin:0;padding:0;height:100%;background:var(--bg);color:var(--text);font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"}
+    #wrap{display:grid;place-items:center;height:100%;}
+    #stage{position:relative;max-width:960px;width:100vw;height:100dvh;max-height:540px;aspect-ratio:16/9;border:2px solid #222;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+    canvas{width:100%;height:100%;display:block;background:linear-gradient(0deg,var(--sky),#131720 65%,#10141b)}
+    /* UI overlay panels */
+    .panel{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(10,12,18,.86),rgba(10,12,18,.92));backdrop-filter:saturate(1.1) blur(2px)}
+    .panel.show{display:flex}
+    .card{background:linear-gradient(180deg,var(--ui),var(--ui2));border:1px solid #2a3246;border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,.5);padding:18px;max-width:820px;width:92%}
+    .title{font-size:1.8rem;font-weight:800;letter-spacing:.5px;margin:0 0 12px}
+    .subtitle{color:var(--muted);margin:-4px 0 12px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    button{cursor:pointer;background:linear-gradient(180deg,#1f2636,#171c2a);border:1px solid #334;border-radius:12px;color:var(--text);padding:10px 14px;font-weight:700}
+    button.primary{background:linear-gradient(180deg,#f5922a,#de7a12);border-color:#b8620c;color:#220;}
+    button.ghost{background:transparent;border-color:#2b3347}
+    button.locked{opacity:.6;position:relative}
+    button.locked::after{content:"🔒";position:absolute;right:8px;top:6px;opacity:.9}
+    .small{font-size:.85rem;opacity:.9}
+    .muted{color:var(--muted)}
+    .list{display:grid;gap:8px}
+    .pill{display:inline-flex;align-items:center;gap:6px;border:1px solid #2e364a;border-radius:999px;padding:6px 10px;background:#141925}
+    .bar{height:10px;background:#0d1220;border:1px solid #2a3246;border-radius:999px;overflow:hidden}
+    .bar > i{display:block;height:100%;background:linear-gradient(90deg,#2dd4bf,#22d3ee)}
+    .footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px;color:var(--muted);font-size:.9rem}
+    /* Mobile controls */
+    #mobile{position:absolute;inset:auto 0 0 0;padding:10px;display:none;gap:8px;align-items:flex-end;justify-content:space-between;pointer-events:none}
+    .mcol{display:flex;gap:8px}
+    .mcol button{pointer-events:auto}
+    .mkey{width:62px;height:62px;border-radius:14px}
+    .mkey.big{width:90px;height:90px;font-size:1.2rem}
+    .mkey.small{width:54px;height:54px}
+    @media (max-width: 860px){#mobile{display:flex}}
+    /* Tooltip */
+    .tip{position:relative}
+    .tip:hover::after{content:attr(data-tip);position:absolute;left:0;bottom:110%;background:#0b0f1a;border:1px solid #2b3347;color:#cfe3ff;padding:6px 8px;border-radius:8px;white-space:nowrap;font-size:.8rem}
+    /* Credits / links */
+    a{color:#8ddcff;text-decoration:none}
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div id="stage">
+      <canvas id="game" width="960" height="540" aria-label="Kunai Defense Training"></canvas>
+
+      <!-- HTML-based UI Panels (easier to iterate than drawing menus on canvas) -->
+      <section id="menu" class="panel show" aria-live="polite">
+        <div class="card">
+          <h1 class="title">Kunai Defense Training</h1>
+          <p class="subtitle">Survive under the practice dome. Learn the patterns. Come back stronger.</p>
+          <div class="grid">
+            <div>
+              <div class="list">
+                <button id="btnPlay" class="primary">▶ Play (Endless)</button>
+                <div class="row">
+                  <button id="btnDrills" class="locked tip" data-tip="Drills: Spiral, Fan, Barrage, Meteor — coming soon">🌀 Drills</button>
+                  <span class="small muted">Locked</span>
+                </div>
+                <div class="row">
+                  <button id="btnLoadout">🎒 Loadout</button>
+                  <button id="btnOptions">⚙️ Options</button>
+                </div>
+                <div class="row">
+                  <button id="btnChangelog" class="ghost">📜 Changelog</button>
+                  <button id="btnCredits" class="ghost">🤝 Credits</button>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="pill">Daily Tip <span id="tip"></span></div>
+              <div style="margin-top:10px" class="muted small">
+                Controls: <b>A/D</b> or <b>←/→</b> move, <b>Space</b>=Dash, <b>Q/E</b>=Jutsu 1/2, <b>R</b>=Substitute, <b>Esc</b>=Pause
+              </div>
+              <div class="bar" style="margin-top:10px"><i id="progress" style="width:0%"></i></div>
+              <div class="footer">
+                <span>Seed: <b id="seedView">Normal</b></span>
+                <span class="muted">“Survive. Learn. Repeat.”</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="loadout" class="panel" aria-live="polite">
+        <div class="card">
+          <h2 class="title">Loadout</h2>
+          <p class="subtitle">Equip up to two jutsu and one armor. Earn TP by surviving.</p>
+          <div class="row" style="margin-bottom:8px">
+            <div class="pill">TP: <b id="tpView">0</b></div>
+            <div class="pill">Best: <b id="bestView">0.0s</b></div>
+            <div class="pill tip" data-tip="Sandbox launches a low-intensity arena for testing (stub)"><button id="btnSandbox" class="ghost">🧪 Test in Sandbox</button></div>
+          </div>
+          <div class="grid">
+            <div>
+              <h3>Jutsu</h3>
+              <div id="jutsuList" class="list"></div>
+            </div>
+            <div>
+              <h3>Armor</h3>
+              <div id="armorList" class="list"></div>
+            </div>
+          </div>
+          <div class="footer">
+            <div class="row"><button id="btnBack1">← Back</button><button id="btnPlayFromLoadout" class="primary">▶ Play</button></div>
+            <div class="muted small">Locked items show cost/requirements.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="options" class="panel">
+        <div class="card">
+          <h2 class="title">Options</h2>
+          <div class="grid">
+            <div class="list">
+              <label>Music Vol <input id="optMusic" type="range" min="0" max="1" step="0.01" value="0.0"></label>
+              <label>SFX Vol <input id="optSfx" type="range" min="0" max="1" step="0.01" value="0.6"></label>
+              <label><input id="optShake" type="checkbox" checked> Screen Shake</label>
+              <label><input id="optOutline" type="checkbox"> Color-blind Outline</label>
+              <label>Difficulty Seed
+                <select id="optSeed">
+                  <option value="normal">Normal</option>
+                  <option value="hard">Hard</option>
+                  <option value="insane">Insane</option>
+                </select>
+              </label>
+              <label class="tip" data-tip="Touch vibration stub only; hook to native if needed"><input id="optHaptics" type="checkbox"> Mobile Haptics (stub)</label>
+            </div>
+            <div class="list">
+              <h3>Controls (Desktop)</h3>
+              <div class="muted small">Remap stub. Current: A/D or ←/→, Space=Dash, Q/E=Jutsu, R=Substitute, Esc=Pause</div>
+            </div>
+          </div>
+          <div class="footer">
+            <button id="btnBack2">← Back</button>
+            <span class="muted small">Options persist locally.</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="changelog" class="panel">
+        <div class="card">
+          <h2 class="title">Changelog</h2>
+          <div id="log"></div>
+          <div class="footer"><button id="btnBack3">← Back</button><span class="muted small">Rendered from JSON block inside the code.</span></div>
+        </div>
+      </section>
+
+      <section id="credits" class="panel">
+        <div class="card">
+          <h2 class="title">Credits</h2>
+          <ul>
+            <li>Game Design/Code: <b>You</b></li>
+            <li>Concept: Shinobi Training Minigame (fan-project)</li>
+            <li>SFX: placeholder beeps</li>
+          </ul>
+          <p class="muted small">Disclaimer: Naruto-inspired training concept; no copyrighted assets used. Replace this panel with real credits later.</p>
+          <div class="footer"><button id="btnBack4">← Back</button></div>
+        </div>
+      </section>
+
+      <!-- Mobile controls overlay -->
+      <div id="mobile">
+        <div class="mcol">
+          <button id="mLeft" class="mkey">⟵</button>
+          <button id="mRight" class="mkey">⟶</button>
+        </div>
+        <div class="mcol">
+          <button id="mDash" class="mkey big">Dash</button>
+          <button id="mJ1" class="mkey small">J1</button>
+          <button id="mJ2" class="mkey small">J2</button>
+          <button id="mPause" class="mkey small">⏸</button>
+        </div>
+      </div>
+
+      <!-- Coming soon overlay for Drills -->
+      <section id="coming" class="panel">
+        <div class="card">
+          <h2 class="title">Drills</h2>
+          <p class="subtitle">Scripted patterns: Spiral / Fan / Barrage / Meteor</p>
+          <div class="muted">This mode is planned. Buttons are locked for now.</div>
+          <div class="footer"><button id="btnCloseComing">Close</button></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!--
+    ==============================
+    KUNAI DEFENSE TRAINING — SINGLE FILE MVP
+    ==============================
+    - Canvas renderer + DOM overlays for menus
+    - ES-module style architecture bundled inline
+    - Replace placeholder shapes/SFX in AssetKit later
+
+    Performance targets: 60fps desktop / 30–60 mobile
+    QA checklist (manual):
+      - Collisions stable at high density
+      - Dash i-frames consistent
+      - Unlock/save survives refresh
+      - Mobile touch doesn’t block pause
+      - Options persist
+
+    Nice-to-Have Stubs (commented):
+      - Local leaderboards; skins
+      - Elemental projectile variants
+      - Classroom tie-ins unlocking jutsu
+  -->
+
+  <script type="module">
+  /* =============================
+     SECTION: Game Data (JSON)
+     ============================= */
+  const DATA = {
+    jutsu: [
+      { id:"windStep", name:"Wind Step", type:"mobility", chakraCost:15, cooldown:5, duration:3, effects:["dash","speedBuff"], unlocks:{ tp:50, req:"Survive 45s" } },
+      { id:"substitution", name:"Substitution", type:"defense", chakraCost:25, cooldown:12, duration:4, effects:["negateNextHit","decoyKnockback"], unlocks:{ tp:80 } },
+      { id:"chakraGuard", name:"Chakra Guard", type:"shield", chakraCost:20, cooldown:10, duration:2, effects:["frontalDeflect"], unlocks:{ tp:75 } },
+      { id:"timeSlip", name:"Time Slip", type:"control", chakraCost:40, cooldown:18, duration:2.5, effects:["globalSlowProjectiles"], unlocks:{ tp:120, req:"Survive 60s" } },
+      { id:"cloneDecoy", name:"Clone Decoy", type:"control", chakraCost:25, cooldown:14, duration:4, effects:["aggroAttractor"], unlocks:{ tp:90 } },
+      { id:"paperSealBurst", name:"Paper Seal Burst", type:"utility", chakraCost:22, cooldown:12, duration:0.1, effects:["radialKnockback","earlyDetonate"], unlocks:{ tp:95 } }
+    ],
+    armor: [
+      { id:"cloth", name:"Cloth", damageReduction:0, speedMod:0.05, tp:0, default:true },
+      { id:"padded", name:"Padded Vest", damageReduction:0.15, speedMod:-0.05, tp:60 },
+      { id:"reinforced", name:"Reinforced Vest", damageReduction:0.25, speedMod:-0.10, tp:120, dashIframeBonus:0.5 },
+      { id:"chakraWoven", name:"Chakra-woven", damageReduction:0.30, speedMod:-0.05, tp:200, chakraRegen:0.05 }
+    ],
+    changelog: [
+      { v:"0.1.0", date:"2025-08-27", notes:[
+        "Endless mode core loop",
+        "6 jutsu, 4 armor tiers",
+        "Spawner with rows/sine/aimed/random/meteor/elite curve",
+        "Near-miss scoring + style bonuses",
+        "Desktop + mobile inputs",
+        "Local save: TP, unlocks, options, loadout",
+        "Options: volume, shake, outline, seed",
+        "Menus: Main, Loadout, Options, Changelog, Credits"
+      ]}
+    ],
+    tips:[
+      "Heavies cast a long shadow before impact.",
+      "Dash through gaps; don’t outrun the wave.",
+      "Substitution nullifies one hit—arm it early.",
+      "Red-hued elites curve; bait them to one side.",
+      "Guard deflects forward—face the danger.",
+      "Near-misses grant style TP; play brave, not dumb."
+    ]
+  };
+
+  /* =============================
+     SECTION: Save System
+     ============================= */
+  const SAVE_KEY = "kdt_save_v010";
+  const defaults = {
+    tp: 0,
+    best: 0,
+    unlocked: { jutsu: {windStep:true}, armor: {cloth:true} },
+    loadout: { j1:"windStep", j2:null, armor:"cloth" },
+    options: { music:0.0, sfx:0.6, shake:true, outline:false, seed:"normal", haptics:false }
+  };
+  function loadSave(){ try{ return {...structuredClone(defaults), ...JSON.parse(localStorage.getItem(SAVE_KEY)||"{}")}; }catch{return structuredClone(defaults);} }
+  function save(){ localStorage.setItem(SAVE_KEY, JSON.stringify(saveState)); }
+  const saveState = loadSave();
+
+  /* =============================
+     SECTION: Mini Asset Kit (placeholders)
+     - Shapes: basic draw helpers
+     - SFX: WebAudio beeps (replace with real audio later)
+     ============================= */
+  const AssetKit = (()=>{
+    const ctxAudio = new (window.AudioContext||window.webkitAudioContext)();
+    function beep(freq=440, dur=0.08, type="sine", gain=0.15){
+      if (saveState.options.sfx<=0) return;
+      const t = ctxAudio.currentTime;
+      const o = ctxAudio.createOscillator();
+      const g = ctxAudio.createGain();
+      o.type = type; o.frequency.value = freq; o.connect(g); g.connect(ctxAudio.destination);
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(gain*saveState.options.sfx, t+0.01);
+      g.gain.exponentialRampToValueAtTime(0.0001, t+dur);
+      o.start(t); o.stop(t+dur);
+    }
+    const sfx = {
+      hit: ()=>beep(160,0.12,"square",0.22),
+      dash: ()=>beep(720,0.07,"sine",0.12),
+      guard:()=>beep(520,0.10,"sawtooth",0.10),
+      explode:()=>beep(80,0.15,"triangle",0.25),
+      gong:()=>{beep(440,0.15,"sine",0.2); setTimeout(()=>beep(220,0.4,"sine",0.18),60);},
+      ui: ()=>beep(880,0.05,"sine",0.08)
+    };
+    return { sfx };
+  })();
+
+  /* =============================
+     SECTION: Utilities
+     ============================= */
+  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+  const lerp=(a,b,t)=>a+(b-a)*t;
+  const randRange=(a,b)=>a+Math.random()*(b-a);
+  const now=()=>performance.now();
+
+  /* =============================
+     SECTION: Input (keyboard + mobile)
+     ============================= */
+  const Input = { left:false,right:false,dash:false,j1:false,j2:false,sub:false,pause:false, _locks:{} };
+  function key(e,down){
+    const k=e.key.toLowerCase();
+    if(["arrowleft","a"].includes(k)) Input.left=down;
+    if(["arrowright","d"].includes(k)) Input.right=down;
+    if(k===" ") Input.dash=down;
+    if(k==="q") Input.j1=down;
+    if(k==="e") Input.j2=down;
+    if(k==="r" && down) Input.sub=true;
+    if(k==="escape" && down) Input.pause=true;
+  }
+  addEventListener('keydown',e=>key(e,true));
+  addEventListener('keyup',e=>key(e,false));
+  // Mobile buttons
+  const mob = id=>document.getElementById(id);
+  function bindHold(btn, prop){
+    let t; const on=()=>{Input[prop]=true; clearInterval(t); t=setInterval(()=>Input[prop]=true, 50)};
+    const off=()=>{clearInterval(t); Input[prop]=false};
+    btn.addEventListener('touchstart',e=>{e.preventDefault();on()});
+    btn.addEventListener('touchend',e=>{e.preventDefault();off()});
+    btn.addEventListener('mousedown',on); btn.addEventListener('mouseup',off); btn.addEventListener('mouseleave',off);
+  }
+  bindHold(mob('mLeft'),'left'); bindHold(mob('mRight'),'right');
+  bindHold(mob('mJ1'),'j1'); bindHold(mob('mJ2'),'j2');
+  bindHold(mob('mDash'),'dash');
+  mob('mPause').addEventListener('click',()=>{Input.pause=true});
+  // Swipe up = dash
+  {
+    let sx=0,sy=0; const stage=document.getElementById('stage');
+    stage.addEventListener('touchstart',e=>{const t=e.changedTouches[0]; sx=t.clientX; sy=t.clientY;});
+    stage.addEventListener('touchend',e=>{const t=e.changedTouches[0]; const dy=sy-t.clientY; if(dy>40) Input.dash=true;});
+  }
+
+  /* =============================
+     SECTION: Renderer & Camera
+     ============================= */
+  const canvas = document.getElementById('game');
+  const ctx = canvas.getContext('2d');
+  let DPR = Math.max(1, Math.min(2, window.devicePixelRatio||1));
+  function resize(){
+    const w=canvas.clientWidth, h=canvas.clientHeight; canvas.width=w*DPR; canvas.height=h*DPR; ctx.setTransform(DPR,0,0,DPR,0,0);
+  }
+  addEventListener('resize', resize); resize();
+
+  /* =============================
+     SECTION: Game State Machine
+     ============================= */
+  const State = { MENU:0, LOADOUT:1, OPTIONS:2, PLAY:3, PAUSE:4, GAMEOVER:5, CHANGELOG:6, CREDITS:7 };
+  let game={ state:State.MENU, time:0, tierTime:0, volleyTime:0, rngSeed:saveState.options.seed||'normal', paused:false, slowFactor:1 };
+
+  /* =============================
+     SECTION: Entities & Systems
+     - Player
+     - Projectiles with pool
+     - Spawner
+     - JutsuSystem & Armor
+     ============================= */
+  const WORLD={ w:960, h:540, ground:500 };
+
+  // HUD theme colors
+  const COLORS={ hp:'#6ee7b7', chakra:'#60a5fa', cooldown:'#fbbf24', dome:'rgba(202,162,90,0.15)' };
+
+  // Player
+  const player = {
+    x: WORLD.w*0.5, y: WORLD.ground, w:22, h:28, vx:0, ax:0, speed:180, maxSpeed:260,
+    hp:100, maxHp:100, chakra:100, maxChakra:100, chakraRegen:12, iTimer:0,
+    dashCD:0, dashI:0, dashSpeed:540, dashDur:0.16, dashActive:false,
+    style:0, nearMissTimer:0, invFlash:0,
+    j1:null, j2:null, armor:DATA.armor[0],
+    subArmed:false, subTimer:0,
+  };
+
+  // Equip from save
+  function equipFromSave(){
+    const j1=DATA.jutsu.find(j=>j.id===saveState.loadout.j1)||null;
+    const j2=DATA.jutsu.find(j=>j.id===saveState.loadout.j2)||null;
+    const ar=DATA.armor.find(a=>a.id===saveState.loadout.armor)||DATA.armor[0];
+    player.j1=j1; player.j2=j2; player.armor=ar;
+  }
+  equipFromSave();
+
+  // Projectile Pool
+  const PTYPE = { KUNAI:0, SHURIKEN:1, HEAVY:2, PAPER:3, ELITE:4, AOE:5, CLONE:6 };
+  const projectiles=[]; const pool=[];
+  function spawn(p){ const o=pool.pop()||{}; Object.assign(o,{active:true, ...p}); projectiles.push(o); return o; }
+  function resetProjectiles(){ projectiles.length=0; pool.length=0; }
+
+  // Clone registry (for decoys)
+  let clones=[];
+
+  // Spawner with patterns and scaling tiers every ~20s
+  const spawner={ time:0, rate:1.2, accel:0, next:0, tier:0, level:0 };
+  function setSeed(seed){ game.rngSeed=seed; }
+  function tierParams(t){ // returns modifiers for current tier
+    const speedMod = 1 + t*0.12; const density = 1 + t*0.2; const eliteChance = Math.min(0.05 + t*0.03, 0.35);
+    return {speedMod,density,eliteChance,heavyChance:Math.min(0.04+t*0.03,0.35)};
+  }
+
+  // Patterns
+  const Patterns={
+    randomRain(m){ for(let i=0;i<m;i++){ spawnKunai(randRange(20,WORLD.w-20), -30, randRange(160,220)); } },
+    rows(m){ const rows=2+Math.floor(m/8); for(let r=0;r<rows;r++){ const y=-30 - r*40; for(let x=40;x<WORLD.w;x+=40){ spawnKunai(x,y,200);} } },
+    sine(m){ const n=10+Math.floor(m*0.6); const amp=140; const baseV=180; for(let i=0;i<n;i++){ const x= WORLD.w*0.5 + Math.sin((i/3))*amp; spawnKunai(x,-i*24, baseV+ i); } },
+    aimedBurst(m){ const n=8+Math.floor(m*0.4); for(let i=0;i<n;i++){ const x=randRange(20,WORLD.w-20); const t=player.x; const dx=t-x; spawn({type:PTYPE.KUNAI,x,y:-20,w:6,h:18,vy:200,vx:dx*0.25, dmg:14}); } },
+    shurikenBurst(m){ const clusters=3+Math.floor(m/6); for(let c=0;c<clusters;c++){ const cx=randRange(60,WORLD.w-60); for(let k=0;k<5;k++){ spawn({type:PTYPE.SHURIKEN,x:cx+randRange(-20,20),y:-20,w:14,h:14,vy:200+randRange(-20,20),vx:randRange(-70,70),dmg:10,rot:randRange(0,Math.PI)});} } },
+    meteor(m){ const n=Math.min(1+Math.floor(m/10),3); for(let i=0;i<n;i++){ const x=randRange(60,WORLD.w-60); spawnHeavy(x); } AssetKit.sfx.gong(); },
+    eliteCurve(m){ const n=6+Math.floor(m*0.6); for(let i=0;i<n;i++){ const x=randRange(20,WORLD.w-20); spawn({type:PTYPE.ELITE,x,y:-30,w:6,h:18,vy:200,vx:0, curve:randRange(0.5,1.2), dmg:16, color:'#ff6b6b'}); } },
+  };
+
+  function spawnKunai(x,y,vy=200){ spawn({type:PTYPE.KUNAI,x,y,w:6,h:18,vy,dmg:12}); }
+  function spawnHeavy(x){ spawn({type:PTYPE.HEAVY,x,y:-40,w:24,h:24,vy:120,dmg:35,shadowY:WORLD.ground-6, whistle:true}); }
+  function spawnPaper(x){ spawn({type:PTYPE.PAPER,x,y:-28,w:8,h:18,vy:190,dmg:22,armed:false, fuse:1.2}); }
+
+  function waveController(dt){
+    spawner.time += dt; game.tierTime += dt; game.volleyTime += dt;
+    if (game.tierTime>=20){ spawner.tier++; game.tierTime=0; }
+    const t = tierParams(spawner.tier);
+    if (spawner.time>=spawner.next){
+      spawner.time=0; const m = Math.floor(6 * t.density);
+      const pick = Math.random();
+      if(pick<0.25) Patterns.randomRain(m);
+      else if(pick<0.45) Patterns.rows(m);
+      else if(pick<0.63) Patterns.aimedBurst(m);
+      else if(pick<0.80) Patterns.sine(m);
+      else if(pick<0.92) Patterns.shurikenBurst(m);
+      else Patterns.eliteCurve(m);
+      spawner.next = Math.max(0.8, 1.6 - spawner.tier*0.08);
+      // chance to add heavies/papers
+      if(Math.random()<t.heavyChance) Patterns.meteor(1+spawner.tier);
+      if(Math.random()<0.35) for(let i=0;i<2;i++) spawnPaper(randRange(40,WORLD.w-40));
+    }
+    // Boss-style "Volley" every 60s (gong telegraph + mixed spawn)
+    if (game.volleyTime>=60){ game.volleyTime=0; AssetKit.sfx.gong(); Patterns.sine(12); Patterns.aimedBurst(8); }
+  }
+
+  /* =============================
+     SECTION: Jutsu System
+     ============================= */
+  const JutsuSystem = {
+    cooldowns: new Map(),
+    timers: new Map(),
+    use(j){ if(!j) return false; const key=j.id; const cd=this.cooldowns.get(key)||0; if(cd>0) return false; if(player.chakra<j.chakraCost) return false; player.chakra=Math.max(0,player.chakra-j.chakraCost); this.cooldowns.set(key,j.cooldown); this.timers.set(key,j.duration||0); this.apply(j); return true; },
+    tick(dt){ // reduce cooldowns & durations
+      for(const [k,v] of this.cooldowns){ const nv=Math.max(0,v-dt); this.cooldowns.set(k,nv); }
+      for(const [k,v] of this.timers){ const nv=Math.max(0,v-dt); this.timers.set(k,nv); if(nv===0) this.timers.delete(k); }
+    },
+    active(id){ return (this.timers.get(id)||0)>0; },
+    cdLeft(id){ return this.cooldowns.get(id)||0; },
+    apply(j){
+      switch(j.id){
+        case 'windStep': // instant dash + speed buff
+          doDash();
+          player.maxSpeed = 260*1.10; setTimeout(()=>player.maxSpeed=260, (j.duration*1000)|0);
+          break;
+        case 'substitution':
+          player.subArmed=true; player.subTimer=j.duration; break;
+        case 'chakraGuard':
+          // handled in collision: deflect when active
+          AssetKit.sfx.guard();
+          break;
+        case 'timeSlip':
+          game.slowFactor=0.5; setTimeout(()=>game.slowFactor=1, (j.duration*1000)|0); break;
+        case 'cloneDecoy':
+          spawnClone(); break;
+        case 'paperSealBurst':
+          radialPulse(); break;
+      }
+    }
+  };
+
+  function spawnClone(){ const obj={type:PTYPE.CLONE,x:player.x,y:player.y-10,w:18,h:24,hp:20,ttl:4}; clones.push(obj); }
+
+  function radialPulse(){
+    // Knock back nearby projectiles; early detonate papers with reduced AoE
+    AssetKit.sfx.explode();
+    const R=120; const px=player.x, py=player.y-12;
+    for(const p of projectiles){ if(!p.active) continue; const dx=p.x-px, dy=p.y-py; const d=Math.hypot(dx,dy); if(d<R){ const k=(R-d)/R; p.vx=(dx/d||0)*220*k; p.vy=(dy/d||0)*-180*k; if(p.type===PTYPE.PAPER){ p.fuse=0.25; p.armed=true; p.reduced=true; } } }
+  }
+
+  /* =============================
+     SECTION: Movement & Dash
+     ============================= */
+  function doDash(){ if(player.dashCD>0) return; player.dashActive=true; player.dashI = 0.2 + (player.armor.dashIframeBonus||0); player.iTimer = Math.max(player.iTimer, player.dashI); player.dashCD=0.6; player.vx += (Input.left?-1:Input.right?1:(player.vx>=0?1:-1)) * player.dashSpeed; AssetKit.sfx.dash(); }
+
+  /* =============================
+     SECTION: Collision & Damage
+     ============================= */
+  function AABB(a,b){ return Math.abs(a.x-b.x) < (a.w+b.w)*0.5 && Math.abs((a.y-a.h*0.5)-(b.y-b.h*0.5)) < (a.h+b.h)*0.5; }
+  function circleHit(x,y,px,py,r){ const dx=x-px, dy=y-py; return dx*dx+dy*dy <= r*r; }
+
+  function damage(d){
+    if(player.iTimer>0) return false;
+    if(JutsuSystem.active('chakraGuard')){ return false; }
+    if(player.subArmed){ // Substitution triggers
+      player.subArmed=false; player.subTimer=0; AssetKit.sfx.dash();
+      // Place log decoy behind and knockback
+      const log={x:player.x-24,y:player.y-8,w:12,h:24,ttl:0.6};
+      spawn({type:PTYPE.AOE, ...log});
+      for(const p of projectiles){ if(!p.active) continue; const dx=p.x-log.x, dy=p.y-log.y; const d=Math.hypot(dx,dy); if(d<90){ p.vx=(dx/d||0)*-140; p.vy=(dy/d||0)*-120; } }
+      return false; // no damage
+    }
+    const red = 1 - (player.armor.damageReduction||0);
+    const dmg = Math.ceil(d*red);
+    player.hp=Math.max(0, player.hp - dmg);
+    player.iTimer=0.35; player.invFlash=0.15; AssetKit.sfx.hit();
+    if(saveState.options.shake) shakeTimer=0.15;
+    return true;
+  }
+
+  /* =============================
+     SECTION: Game Loop
+     ============================= */
+  let last=now(); let shakeTimer=0, shakeAmt=0;
+  function update(){
+    const t=now(); let dt=(t-last)/1000; last=t; dt=Math.min(0.033, dt); // clamp
+    if(game.state===State.PLAY && !game.paused){
+      step(dt);
+    }
+    draw();
+    requestAnimationFrame(update);
+  }
+
+  function step(dt){
+    // Timers
+    if(player.dashCD>0) player.dashCD-=dt; if(player.iTimer>0) player.iTimer-=dt; if(player.invFlash>0) player.invFlash-=dt; if(player.subTimer>0){player.subTimer-=dt; if(player.subTimer<=0) player.subArmed=false;}
+
+    // Options-driven passive
+    const extraRegen = (player.armor.chakraRegen||0)*20; // scaled
+    player.chakra = clamp(player.chakra + (player.chakraRegen + extraRegen)*dt, 0, player.maxChakra);
+
+    // Input handling
+    const accel = 980; const drag = 8;
+    player.ax = (Input.left?-1:0) + (Input.right?1:0);
+    player.vx += player.ax*accel*dt;
+    // clamp speed with dynamic max
+    const maxV = player.maxSpeed * (1 + (player.armor.speedMod||0));
+    player.vx = clamp(player.vx, -maxV, maxV);
+    // drag when no input
+    if(player.ax===0) player.vx *= (1 - Math.min(drag*dt,1));
+    player.x += player.vx*dt;
+    player.x = clamp(player.x, 16, WORLD.w-16);
+
+    // Dash
+    if(Input.dash){ doDash(); Input.dash=false; }
+    if(player.dashActive){ player.dashActive=false; }
+
+    // Jutsu activations
+    if(Input.j1){ if(JutsuSystem.use(player.j1)) stylePopup("J1: "+(player.j1?.name||'')); Input.j1=false; }
+    if(Input.j2){ if(JutsuSystem.use(player.j2)) stylePopup("J2: "+(player.j2?.name||'')); Input.j2=false; }
+    if(Input.sub){ if(player.j1?.id==='substitution' || player.j2?.id==='substitution'){ JutsuSystem.use({ ...DATA.jutsu.find(j=>j.id==='substitution') }); } Input.sub=false; }
+    if(Input.pause){ togglePause(); Input.pause=false; }
+
+    // Spawner
+    const pdt = dt * (game.slowFactor||1);
+    game.time += dt; waveController(pdt);
+
+    // Projectiles update
+    for(const p of projectiles){ if(!p.active) continue;
+      switch(p.type){
+        case PTYPE.KUNAI: p.y+=p.vy*pdt; p.x+=(p.vx||0)*pdt; break;
+        case PTYPE.SHURIKEN: p.y+=p.vy*pdt; p.x+=p.vx*pdt; p.rot=(p.rot||0)+6*pdt; break;
+        case PTYPE.HEAVY: p.y+=p.vy*pdt; // shadow whistle hint
+          break;
+        case PTYPE.PAPER: if(!p.stuck){ p.y+=p.vy*pdt; if(p.y>=WORLD.ground-12){ p.y=WORLD.ground-12; p.stuck=true; p.armed=true; p.timer=(p.fuse||1.2); } }
+          if(p.armed){ p.timer-=dt; if(p.timer<=0){ // explode
+              spawnExplosion(p.x,p.y, p.reduced?70:110, p.reduced?16:28); p.active=false; AssetKit.sfx.explode(); if(saveState.options.shake) shakeTimer=0.18; }
+          }
+          break;
+        case PTYPE.ELITE: // slight homing curve
+          const target = clones[0]?.x ?? player.x; const dx = target - p.x; p.vx = (p.vx||0) + Math.sign(dx)*(p.curve||0.8)*40*pdt; p.y+=p.vy*pdt; p.x+=p.vx*pdt; break;
+        case PTYPE.AOE:
+          p.ttl-=dt; if(p.ttl<=0) p.active=false; break;
+      }
+      // cull
+      if(p.y>WORLD.h+60 || p.x<-80 || p.x>WORLD.w+80) { p.active=false; pool.push(p); }
+    }
+
+    // Clone decoys
+    for(const c of clones){ c.ttl-=dt; if(c.ttl<=0) c.dead=true; }
+    clones = clones.filter(c=>!c.dead);
+
+    // Collisions
+    for(const p of projectiles){ if(!p.active) continue; if(p.type===PTYPE.AOE||p.type===PTYPE.PAPER&&p.stuck) continue; // handled elsewhere
+      // Near-miss check
+      const dx = Math.abs(p.x-player.x); const dy = Math.abs(p.y-player.y);
+      if(dy<30 && dx<26 && player.iTimer<=0){ // possible hit band
+        // Chakra Guard frontal cone deflect
+        if(JutsuSystem.active('chakraGuard')){
+          // if projectile is in front cone (above player)
+          if(p.y < player.y-8){ p.vy*=-0.6; p.y-=12; p.vx*=0.4; stylePopup('Deflect'); continue; }
+        }
+        // Hit
+        if(AABB({x:player.x,y:player.y,w:player.w,h:player.h},{x:p.x,y:p.y,w:p.w||10,h:p.h||10})){
+          // Heavy shakes more
+          if(p.type===PTYPE.HEAVY && saveState.options.shake) shakeTimer=0.25;
+          const took=damage(p.dmg||12);
+          if(took) p.active=false;
+          continue;
+        }
+      }
+      // near-miss bonus
+      if(dy<18 && Math.abs(dx-26)<2){ player.style++; floatingTexts.push({x:player.x,y:player.y-28,t:'+Style',ttl:0.6}); }
+
+      // Clone absorbs hits
+      for(const c of clones){ if(AABB({x:c.x,y:c.y,w:c.w,h:c.h},{x:p.x,y:p.y,w:p.w||10,h:p.h||10})){ c.hp-=10; p.active=false; if(c.hp<=0) c.dead=true; break; } }
+    }
+
+    // Death
+    if(player.hp<=0){ endRun(); }
+
+    // Cooldowns & timers
+    JutsuSystem.tick(dt);
+
+    // Screen shake decay
+    if(shakeTimer>0){ shakeTimer-=dt; shakeAmt = lerp(shakeAmt, 6, 0.2); } else { shakeAmt = lerp(shakeAmt, 0, 0.2); }
+  }
+
+  /* =============================
+     SECTION: Explosions & VFX
+     ============================= */
+  const effects=[]; const floatingTexts=[];
+  function spawnExplosion(x,y,r,dmg){
+    // AOE damage to player if inside
+    if(circleHit(x,y,player.x,player.y-6,r) && player.iTimer<=0) damage(dmg);
+    effects.push({x,y,r,ttl:0.35});
+  }
+  function stylePopup(t){ floatingTexts.push({x:player.x,y:player.y-30,t,ttl:0.8}); }
+
+  /* =============================
+     SECTION: Draw
+     ============================= */
+  function draw(){
+    // Clear sky gradient handled by CSS; add scene props
+    ctx.save();
+    // parallax ground
+    ctx.fillStyle = '#0c111a'; ctx.fillRect(0, WORLD.ground, WORLD.w, WORLD.h-WORLD.ground);
+    // posts and background silhouettes
+    drawBackground();
+
+    // Apply shake
+    if(shakeAmt>0) ctx.translate((Math.random()-0.5)*shakeAmt, (Math.random()-0.5)*shakeAmt);
+
+    // Dome
+    ctx.fillStyle=COLORS.dome; ctx.beginPath(); ctx.ellipse(WORLD.w/2,WORLD.ground-20, WORLD.w*0.46, WORLD.h*0.65, 0, 0, Math.PI, true); ctx.fill();
+
+    if(game.state===State.PLAY || game.state===State.PAUSE){ drawPlay(); }
+    ctx.restore();
+
+    // Panels visibility toggled by state (menus)
+  }
+
+  function drawBackground(){
+    // silhouettes
+    ctx.fillStyle = '#121826';
+    for(let i=0;i<6;i++){ const x=80+i*140; ctx.fillRect(x, WORLD.ground-48, 16, 48); }
+    // horizon accent
+    const grd=ctx.createLinearGradient(0,WORLD.ground-60,0,WORLD.ground);
+    grd.addColorStop(0,'rgba(245,133,30,0.08)'); grd.addColorStop(1,'rgba(245,133,30,0.0)');
+    ctx.fillStyle=grd; ctx.fillRect(0,WORLD.ground-60,WORLD.w,60);
+  }
+
+  function drawPlay(){
+    // Player
+    drawPlayer();
+    // Projectiles
+    for(const p of projectiles){ if(!p.active) continue; drawProjectile(p); }
+    // Effects
+    for(const e of effects){ e.ttl-=0.016; const a=clamp(e.ttl/0.35,0,1); ctx.fillStyle=`rgba(245,133,30,${0.35*a})`; ctx.beginPath(); ctx.arc(e.x,e.y, e.r*(1.1-a*0.4), 0, Math.PI*2); ctx.fill(); }
+    // Floating texts
+    for(const f of floatingTexts){ f.ttl-=0.016; f.y-=20*0.016; ctx.globalAlpha=Math.max(0,f.ttl/0.8); ctx.fillStyle='#cfe3ff'; ctx.font='14px system-ui'; ctx.textAlign='center'; ctx.fillText(f.t, f.x, f.y); ctx.globalAlpha=1; }
+
+    // HUD
+    drawHUD();
+
+    if(game.paused){ drawPause(); }
+  }
+
+  function drawPlayer(){
+    // Body
+    ctx.save();
+    ctx.translate(player.x, player.y);
+    // shadow
+    ctx.fillStyle='rgba(0,0,0,0.35)'; ctx.beginPath(); ctx.ellipse(0,6,14,5,0,0,Math.PI*2); ctx.fill();
+    // torso
+    ctx.fillStyle='#eab308'; ctx.fillRect(-10,-26,20,24);
+    // head
+    ctx.fillStyle='#cbd5e1'; ctx.fillRect(-8,-40,16,14);
+    // accent sash (tatami)
+    ctx.fillStyle='#b45309'; ctx.fillRect(-10,-16,20,4);
+    // i-frames flicker
+    if(player.iTimer>0 && Math.sin(now()/50)>0) { ctx.globalCompositeOperation='lighter'; ctx.fillStyle='rgba(255,255,255,0.35)'; ctx.fillRect(-12,-42,24,42); ctx.globalCompositeOperation='source-over'; }
+    ctx.restore();
+
+    // Substitution indicator
+    if(player.subArmed){ ctx.strokeStyle='#94a3b8'; ctx.strokeRect(player.x-14, player.y-44, 28, 44); }
+
+    // Clone(s)
+    for(const c of clones){ ctx.fillStyle='rgba(148,163,184,0.5)'; ctx.fillRect(c.x-9,c.y-22,18,24); }
+  }
+
+  function drawProjectile(p){
+    const outline = saveState.options.outline;
+    switch(p.type){
+      case PTYPE.KUNAI:
+        ctx.fillStyle='#8aa0b6'; if(outline){ctx.strokeStyle='#fff';ctx.strokeRect(p.x-3,p.y-9,6,18);} ctx.fillRect(p.x-3,p.y-9,6,18); break;
+      case PTYPE.SHURIKEN:
+        ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot||0); ctx.fillStyle='#94a3b8'; if(outline){ctx.strokeStyle='#fff'; ctx.strokeRect(-7,-7,14,14);} ctx.fillRect(-7,-2,14,4); ctx.fillRect(-2,-7,4,14); ctx.restore(); break;
+      case PTYPE.HEAVY:
+        // shadow telegraph
+        ctx.fillStyle='rgba(0,0,0,0.25)'; ctx.beginPath(); ctx.ellipse(p.x,(p.shadowY||WORLD.ground-8), 18, 6, 0,0,Math.PI*2); ctx.fill();
+        ctx.fillStyle='#7f5539'; ctx.fillRect(p.x-12,p.y-12,24,24); if(outline){ctx.strokeStyle='#fff'; ctx.strokeRect(p.x-12,p.y-12,24,24);} break;
+      case PTYPE.PAPER:
+        ctx.fillStyle='#ef4444'; ctx.fillRect(p.x-4,p.y-9,8,18); if(p.stuck){ ctx.fillStyle='rgba(255,255,255,0.25)'; ctx.fillRect(p.x-6,p.y+10,12,4); }
+        break;
+      case PTYPE.ELITE:
+        ctx.fillStyle=p.color||'#ff6b6b'; ctx.fillRect(p.x-3,p.y-9,6,18); if(outline){ctx.strokeStyle='#fff'; ctx.strokeRect(p.x-3,p.y-9,6,18);} break;
+      case PTYPE.AOE:
+        ctx.fillStyle='rgba(148,163,184,0.6)'; ctx.fillRect(p.x-p.w*0.5,p.y-p.h, p.w, p.h);
+        break;
+    }
+  }
+
+  function drawHUD(){
+    // Bars
+    const pad=10; const bw=220;
+    // HP
+    const hpw = bw*(player.hp/player.maxHp);
+    ctx.fillStyle='#0b0f1a'; ctx.fillRect(pad, pad, bw, 12); ctx.fillStyle=COLORS.hp; ctx.fillRect(pad, pad, hpw, 12); ctx.strokeStyle='#2b3347'; ctx.strokeRect(pad, pad, bw, 12);
+    ctx.fillStyle='#cfe3ff'; ctx.font='12px system-ui'; ctx.fillText('HP', pad+4, pad+10);
+    // Chakra
+    const chw = bw*(player.chakra/player.maxChakra);
+    ctx.fillStyle='#0b0f1a'; ctx.fillRect(pad, pad+18, bw, 12); ctx.fillStyle=COLORS.chakra; ctx.fillRect(pad, pad+18, chw, 12); ctx.strokeStyle='#2b3347'; ctx.strokeRect(pad, pad+18, bw, 12); ctx.fillStyle='#cfe3ff'; ctx.fillText('Chakra', pad+4, pad+28);
+    // Time & style
+    ctx.textAlign='right'; ctx.fillText(`Time ${game.time.toFixed(1)}s  Style ${player.style}`, WORLD.w-10, 18); ctx.textAlign='left';
+    // Jutsu cooldowns
+    const slots=[player.j1, player.j2];
+    for(let i=0;i<2;i++){
+      const j=slots[i]; const x=pad+i*(bw*0.5+12); const y=pad+36; ctx.strokeStyle='#2b3347'; ctx.strokeRect(x,y, bw*0.5, 12);
+      if(j){ const cd=JutsuSystem.cdLeft(j.id); const r=cd>0? (1-cd/j.cooldown):1; ctx.fillStyle= cd>0? '#374151':'#16a34a'; ctx.fillRect(x,y, (bw*0.5)*r, 12); ctx.fillStyle='#cfe3ff'; ctx.fillText(j.name, x+4, y+10); } else { ctx.fillStyle='#475569'; ctx.fillRect(x,y, (bw*0.5), 12); ctx.fillStyle='#94a3b8'; ctx.fillText('Empty', x+4, y+10); }
+    }
+    // Pause hint
+    ctx.fillStyle='#94a3b8'; ctx.fillText('Esc = Pause', WORLD.w-90, WORLD.h-10);
+  }
+
+  function drawPause(){
+    ctx.save(); ctx.globalAlpha=0.8; ctx.fillStyle='#0b0f1a'; ctx.fillRect(WORLD.w/2-120, WORLD.h/2-50, 240, 100); ctx.globalAlpha=1; ctx.strokeStyle='#2b3347'; ctx.strokeRect(WORLD.w/2-120, WORLD.h/2-50, 240, 100);
+    ctx.fillStyle='#cfe3ff'; ctx.font='18px system-ui'; ctx.textAlign='center'; ctx.fillText('Paused', WORLD.w/2, WORLD.h/2-10);
+    ctx.font='12px system-ui'; ctx.fillText('Press Esc to resume', WORLD.w/2, WORLD.h/2+16);
+    ctx.textAlign='left'; ctx.restore();
+  }
+
+  /* =============================
+     SECTION: Run Control (start/end)
+     ============================= */
+  function startRun(){
+    // Reset run state
+    player.hp=100; player.chakra=100; player.style=0; player.iTimer=0; player.vx=0; game.time=0; game.tierTime=0; game.volleyTime=0; game.slowFactor=1; spawner.tier=0; spawner.time=0; spawner.next=0; resetProjectiles(); clones.length=0;
+    JutsuSystem.cooldowns.clear(); JutsuSystem.timers.clear();
+    game.state=State.PLAY; game.paused=false;
+    showPanel(null);
+  }
+  function endRun(){
+    game.state=State.GAMEOVER; game.paused=true; // compute TP
+    const base = Math.floor(game.time);
+    const style = Math.floor(player.style*0.5);
+    const tpGain = Math.max(1, base + style);
+    saveState.tp += tpGain;
+    saveState.best = Math.max(saveState.best||0, game.time);
+    save();
+    // Simple overlay via menu panel
+    showPanel('menu');
+    // Update progress bar + tip to show result
+    document.getElementById('progress').style.width = `${Math.min(100, (game.time/60)*100)}%`;
+    document.getElementById('tip').textContent = `Time ${game.time.toFixed(1)}s • Style ${player.style} • TP +${tpGain}`;
+    AssetKit.sfx.ui();
+  }
+  function togglePause(){ if(game.state!==State.PLAY) return; game.paused=!game.paused; AssetKit.sfx.ui(); }
+
+  /* =============================
+     SECTION: UI Wiring (DOM Panels)
+     ============================= */
+  const $ = sel=>document.querySelector(sel);
+  function showPanel(id){ for(const p of document.querySelectorAll('.panel')) p.classList.remove('show'); if(id) $('#'+id).classList.add('show'); }
+  function updateMenu(){
+    const tip = DATA.tips[(Math.floor(Date.now()/1000))%DATA.tips.length]; $('#tip').textContent=tip; $('#seedView').textContent = saveState.options.seed.replace(/^./,c=>c.toUpperCase());
+  }
+  function fillChangelog(){ const host=$('#log'); host.innerHTML=''; for(const e of DATA.changelog){ const div=document.createElement('div'); div.style.margin='8px 0'; div.innerHTML=`<b>${e.v}</b> <span class="muted small">(${e.date})</span><ul>${e.notes.map(n=>`<li>${n}</li>`).join('')}</ul>`; host.appendChild(div);} }
+
+  // Loadout screen build
+  function renderLoadout(){
+    $('#tpView').textContent = saveState.tp|0; $('#bestView').textContent = (saveState.best||0).toFixed(1)+"s";
+    const jhost=$('#jutsuList'); jhost.innerHTML='';
+    DATA.jutsu.forEach(j=>{
+      const unlocked = saveState.unlocked.jutsu[j.id]||j.id==='windStep';
+      const eq1 = saveState.loadout.j1===j.id; const eq2 = saveState.loadout.j2===j.id;
+      const btn=document.createElement('button'); btn.textContent = `${j.name} (${j.type})`;
+      btn.className = (unlocked?'' : 'locked') + ' tip';
+      btn.dataset.tip = unlocked ? `${j.chakraCost} chakra • CD ${j.cooldown}s • ${j.effects.join(', ')}` : `Cost ${j.unlocks?.tp||'?'} TP${j.unlocks?.req? ' • Req: '+j.unlocks.req : ''}`;
+      if(unlocked){ btn.addEventListener('click',()=>{
+        // Assign to slot 1 if empty else slot 2 else cycle
+        if(!saveState.loadout.j1){ saveState.loadout.j1=j.id; }
+        else if(saveState.loadout.j1!==j.id && !saveState.loadout.j2){ saveState.loadout.j2=j.id; }
+        else if(saveState.loadout.j1===j.id){ saveState.loadout.j1=null; }
+        else if(saveState.loadout.j2===j.id){ saveState.loadout.j2=null; }
+        else { saveState.loadout.j1=j.id; }
+        equipFromSave(); save(); renderLoadout();
+      }); } else { btn.addEventListener('click',()=>{
+        const cost=j.unlocks?.tp||9999; if(saveState.tp>=cost){ saveState.tp-=cost; saveState.unlocked.jutsu[j.id]=true; save(); renderLoadout(); } else { AssetKit.sfx.ui(); }
+      }); }
+      jhost.appendChild(btn);
+      // show slot tags
+      if(eq1||eq2){ const tag=document.createElement('span'); tag.className='small muted'; tag.textContent= eq1? ' • Slot J1' : ' • Slot J2'; jhost.appendChild(tag);}    
+    });
+
+    const ahost=$('#armorList'); ahost.innerHTML='';
+    DATA.armor.forEach(a=>{
+      const unlocked = saveState.unlocked.armor[a.id]||!!a.default;
+      const btn=document.createElement('button'); btn.textContent = `${a.name}`; btn.className=(unlocked?'' : 'locked')+ ' tip'; btn.dataset.tip = unlocked? `${Math.round(a.damageReduction*100)}% DR • Speed ${Math.round(a.speedMod*100)}%` : `Cost ${a.tp} TP`;
+      if(unlocked){ btn.addEventListener('click',()=>{ saveState.loadout.armor=a.id; equipFromSave(); save(); renderLoadout(); }); } else { btn.addEventListener('click',()=>{ if(saveState.tp>=a.tp){ saveState.tp-=a.tp; saveState.unlocked.armor[a.id]=true; save(); renderLoadout(); } else AssetKit.sfx.ui(); }); }
+      ahost.appendChild(btn);
+      if(saveState.loadout.armor===a.id){ const tag=document.createElement('span'); tag.className='small muted'; tag.textContent=' • Equipped'; ahost.appendChild(tag); }
+    });
+  }
+
+  // Options wiring
+  function renderOptions(){
+    $('#optMusic').value=saveState.options.music; $('#optSfx').value=saveState.options.sfx; $('#optShake').checked=!!saveState.options.shake; $('#optOutline').checked=!!saveState.options.outline; $('#optSeed').value=saveState.options.seed; $('#optHaptics').checked=!!saveState.options.haptics;
+  }
+  function bindOptions(){
+    $('#optMusic').addEventListener('input',e=>{saveState.options.music=parseFloat(e.target.value); save();});
+    $('#optSfx').addEventListener('input',e=>{saveState.options.sfx=parseFloat(e.target.value); save();});
+    $('#optShake').addEventListener('change',e=>{saveState.options.shake=e.target.checked; save();});
+    $('#optOutline').addEventListener('change',e=>{saveState.options.outline=e.target.checked; save();});
+    $('#optSeed').addEventListener('change',e=>{saveState.options.seed=e.target.value; setSeed(e.target.value); save();});
+    $('#optHaptics').addEventListener('change',e=>{saveState.options.haptics=e.target.checked; save();});
+  }
+
+  // Buttons
+  $('#btnPlay').addEventListener('click',()=>{ equipFromSave(); startRun(); });
+  $('#btnPlayFromLoadout').addEventListener('click',()=>{ equipFromSave(); startRun(); });
+  $('#btnLoadout').addEventListener('click',()=>{ renderLoadout(); showPanel('loadout'); });
+  $('#btnOptions').addEventListener('click',()=>{ renderOptions(); showPanel('options'); });
+  $('#btnBack1').addEventListener('click',()=>{ showPanel('menu'); updateMenu(); });
+  $('#btnBack2').addEventListener('click',()=>{ showPanel('menu'); updateMenu(); });
+  $('#btnChangelog').addEventListener('click',()=>{ fillChangelog(); showPanel('changelog'); });
+  $('#btnBack3').addEventListener('click',()=>{ showPanel('menu'); updateMenu(); });
+  $('#btnCredits').addEventListener('click',()=>{ showPanel('credits'); });
+  $('#btnBack4').addEventListener('click',()=>{ showPanel('menu'); updateMenu(); });
+  $('#btnSandbox').addEventListener('click',()=>{ // low-intensity arena (stubbed to normal play start)
+    equipFromSave(); startRun(); });
+  $('#btnDrills').addEventListener('click',()=>{ $('#coming').classList.add('show'); });
+  $('#btnCloseComing').addEventListener('click',()=>{ $('#coming').classList.remove('show'); });
+
+  // Init menu
+  updateMenu(); renderOptions(); bindOptions();
+
+  // Start loop
+  requestAnimationFrame(update);
+
+  </script>
+</body>
+</html>
