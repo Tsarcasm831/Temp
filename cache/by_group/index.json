@@ -1,0 +1,13 @@
+{
+  "unique_count": 1474,
+  "counts": {
+    "fire": 78,
+    "water": 132,
+    "wind": 91,
+    "earth": 109,
+    "lightning": 94,
+    "other": 1024
+  },
+  "out_dir": "cache/by_group",
+  "source": "cache/anime_c_clean.json"
+}
