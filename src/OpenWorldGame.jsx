@@ -228,10 +228,7 @@ const OpenWorldGame = () => {
       lineNumber: 72,
       columnNumber: 34
     }),
-
-    gameState === "Playing" && showJutsuModal && /* @__PURE__ */ jsxDEV(ErrorBoundary, { children: /* @__PURE__ */ jsxDEV(JutsuModal, { onClose: () => setShowJutsuModal(false) }, void 0, false, {
     gameState === "Playing" && showKakashi && /* @__PURE__ */ jsxDEV(ErrorBoundary, { children: /* @__PURE__ */ jsxDEV(KakashiAnimationsModal, { onClose: () => setShowKakashi(false) }, void 0, false, {
-
       fileName: "<stdin>",
       lineNumber: 73,
       columnNumber: 56
@@ -244,7 +241,9 @@ const OpenWorldGame = () => {
     gameState === "Playing" && showHokageOffice && /* @__PURE__ */ jsxDEV(HokageOfficeModal, { onClose: () => {
       window.__gamePaused = false;
       setShowHokageOffice(false);
-    } }, void 0, false)
+    } }, void 0, false),
+    /* NEW: Jutsu Modal */
+    gameState === "Playing" && showJutsuModal && /* @__PURE__ */ jsxDEV(ErrorBoundary, { children: /* @__PURE__ */ jsxDEV(JutsuModal, { onClose: () => setShowJutsuModal(false) }, void 0, false) }, void 0, false)
   ] }, void 0, true, {
     fileName: "<stdin>",
     lineNumber: 52,

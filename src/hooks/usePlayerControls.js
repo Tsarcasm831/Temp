@@ -1,8 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-
-export const usePlayerControls = ({ setShowCharacter, setShowInventory, setShowWorldMap, setShowSettings, setShowMobileControls, setShowAnimations, setShowJutsuModal, gameState, setSettings, setShowPause }) => {
-export const usePlayerControls = ({ setShowCharacter, setShowInventory, setShowWorldMap, setShowSettings, setShowMobileControls, setShowAnimations, setShowKakashi, gameState, setSettings, setShowPause }) => {
+export const usePlayerControls = ({ setShowCharacter, setShowInventory, setShowWorldMap, setShowSettings, setShowMobileControls, setShowAnimations, setShowJutsuModal, setShowKakashi, gameState, setSettings, setShowPause }) => {
     const keysRef = useRef({});
 
     useEffect(() => {
@@ -82,6 +80,8 @@ export const usePlayerControls = ({ setShowCharacter, setShowInventory, setShowW
                 case 'KeyJ':
                     if (gameState === 'Playing' && typeof setShowJutsuModal === 'function') {
                         togglePanel(setShowJutsuModal, 'j');
+                    }
+                    break;
                 case 'KeyY':
                     if (gameState === 'Playing' && setShowKakashi) {
                         togglePanel(setShowKakashi, 'y');
@@ -156,7 +156,7 @@ export const usePlayerControls = ({ setShowCharacter, setShowInventory, setShowW
             window.removeEventListener('mousedown', handleMouseDown);
             window.removeEventListener('mouseup', handleMouseUp);
         };
-    }, [setShowCharacter, setShowInventory, setShowWorldMap, setShowSettings, setShowMobileControls, setShowAnimations, gameState, setSettings, setShowPause]);
+    }, [setShowCharacter, setShowInventory, setShowWorldMap, setShowSettings, setShowMobileControls, setShowAnimations, setShowJutsuModal, setShowKakashi, gameState, setSettings, setShowPause]);
 
     return keysRef;
 };

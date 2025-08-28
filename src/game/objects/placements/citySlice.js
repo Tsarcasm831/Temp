@@ -91,12 +91,63 @@ export function placeCitySlice(scene, objectGrid, settings) {
       // IMPORTANT: rebuild colliders now that buildings may have moved/been removed
       rebuildSliceColliders(group, objectGrid);
     }
+    // NEW: ensure at least 4 buildings per district by cloning exemplar buildings
+    if (districtPolys.length > 0) {
+      // Collect non-collider templates to randomize from
+    const templates = group.children.filter(ch => !ch?.userData?.collider);
+    const rand = (arr) => arr[(Math.random() * arr.length) | 0];
+    const getMaxHalf = (obb) => Math.max(obb.hx, obb.hz);
+    const obbRoughOverlap = (a, b) => {
+      const dx = a.center.x - b.center.x, dz = a.center.z - b.center.z;
+      const d = Math.hypot(dx, dz);
+      const thresh = (getMaxHalf(a) + getMaxHalf(b)) * 1.1;
+      return d < thresh;
+    };
 
-    return group;
-  } catch (e) {
-    console.warn('Failed to place city slice:', e);
-    return null;
+    for (let k = 0; k < districtPolys.length; k++) {
+      const poly = districtPolys[k];
+      const centroid = districtCentroids[k];
+      // Existing buildings in this district
+      const existing = group.children.filter(b => !b?.userData?.collider && pointInPolyXZ(b.position, poly));
+      const existingOBBs = existing.map(getBuildingOBB);
+      let have = existing.length;
+      const placed = [];
+
+      // Try to reach 4 per district
+      let attempts = 0;
+      while (have < 4 && attempts < 60 && templates.length > 0) {
+        attempts++;
+        const tpl = rand(templates);
+        const clone = tpl.clone(true);
+        // Random small radial placement around centroid
+        const r = 14 + Math.random() * 18;
+        const a = Math.random() * Math.PI * 2;
+        const px = centroid.x + Math.cos(a) * r;
+        const pz = centroid.z + Math.sin(a) * r;
+        clone.position.set(px, 0, pz);
+        clone.rotation.y = (Math.random() - 0.5) * 0.6;
+        group.add(clone);
+
+        // Road avoidance + containment + non-overlap checks
+        const okRoad = ensureNotOnRoad(clone);
+        const obb = getBuildingOBB(clone);
+        const okInside = buildingFullyInsideAnyDistrict(clone);
+        const okNoOverlap = okRoad && okInside && existingOBBs.every(o => !obbRoughOverlap(obb, o)) && placed.every(o => !obbRoughOverlap(obb, o));
+        if (okNoOverlap) {
+          placed.push(obb);
+          have++;
+        } else {
+          clone.removeFromParent?.();
+        }
+      }
+    }
+    rebuildSliceColliders(group, objectGrid);
   }
+  return group;
+} catch (e) {
+  console.warn('Failed to place city slice:', e);
+  return null;
+}
 }
 
 function pointInPolyXZ(p, poly) {
@@ -121,27 +172,31 @@ function getBuildingOBB(building) {
 }
 
 function segSegIntersect2D(p1, p2, q1, q2) {
-  const o=(a,b,c)=>Math.sign((b.z-a.z)*(c.x-b.x)-(b.x-a.x)*(c.z-b.z));
-  const o1=o(p1,p2,q1), o2=o(p1,p2,q2), o3=o(q1,q2,p1), o4=o(q1,q2,p2);
-  return (o1!==o2)&&(o3!==o4);
+  const o = (a, b, c) => Math.sign((b.z - a.z) * (c.x - b.x) - (b.x - a.x) * (c.z - b.z));
+  const o1 = o(p1, p2, q1), o2 = o(p1, p2, q2), o3 = o(q1, q2, p1), o4 = o(q1, q2, p2);
+  return (o1 !== o2) && (o3 !== o4);
 }
 function distanceSegAABB_Local(p0, p1, hx, hz) {
-  const inside=(p)=>Math.abs(p.x)<=hx&&Math.abs(p.z)<=hz;
-  if (inside(p0)||inside(p1)) return 0;
+  const inside = (p) => Math.abs(p.x) <= hx && Math.abs(p.z) <= hz;
+  if (inside(p0) || inside(p1)) return 0;
   if (CITY_SLICE_ROAD_SEG_INTERSECT_SHORTCIRCUIT) {
-    const v=[{x:-hx,z:-hz},{x:hx,z:-hz},{x:hx,z:hz},{x:-hx,z:hz}];
-    for(let i=0;i<4;i++) if (segSegIntersect2D(p0,p1,v[i],v[(i+1)%4])) return 0;
+    const v = [{ x: -hx, z: -hz }, { x: hx, z: -hz }, { x: hx, z: hz }, { x: -hx, z: hz }];
+    for (let i = 0; i < 4; i++) if (segSegIntersect2D(p0, p1, v[i], v[(i + 1) % 4])) return 0;
   }
-  const dPAABB=(p)=>Math.hypot(Math.max(0,Math.abs(p.x)-hx), Math.max(0,Math.abs(p.z)-hz));
-  let best=Math.min(dPAABB(p0), dPAABB(p1));
-  const verts=[{x:-hx,z:-hz},{x:hx,z:-hz},{x:hx,z:hz},{x:-hx,z:hz}];
-  const vx=p1.x-p0.x,vz=p1.z-p0.z,len2=Math.max(1e-8,vx*vx+vz*vz);
-  for(const v of verts){ const t=Math.max(0,Math.min(1,((v.x-p0.x)*vx+(v.z-p0.z)*vz)/len2)); const cx=p0.x+vx*t,cz=p0.z+vz*t; best=Math.min(best,Math.hypot(v.x-cx,v.z-cz)); }
+  const dPAABB = (p) => Math.hypot(Math.max(0, Math.abs(p.x) - hx), Math.max(0, Math.abs(p.z) - hz));
+  let best = Math.min(dPAABB(p0), dPAABB(p1));
+  const verts = [{ x: -hx, z: -hz }, { x: hx, z: -hz }, { x: hx, z: hz }, { x: -hx, z: hz }];
+  const vx = p1.x - p0.x, vz = p1.z - p0.z, len2 = Math.max(1e-8, vx * vx + vz * vz);
+  for (const v of verts) {
+    const t = Math.max(0, Math.min(1, ((v.x - p0.x) * vx + (v.z - p0.z) * vz) / len2));
+    const cx = p0.x + vx * t, cz = p0.z + vz * t;
+    best = Math.min(best, Math.hypot(v.x - cx, v.z - cz));
+  }
   return best;
 }
 function distanceSegOBB2D(seg, obb) {
-  const c=obb.center, a=-obb.rotY, cos=Math.cos(a), sin=Math.sin(a);
-  const toLocal=({x,z})=>({ x:(x-c.x)*cos-(z-c.z)*sin, z:(x-c.x)*sin+(z-c.z)*cos });
+  const c = obb.center, a = -obb.rotY, cos = Math.cos(a), sin = Math.sin(a);
+  const toLocal = ({ x, z }) => ({ x: (x - c.x) * cos - (z - c.z) * sin, z: (x - c.x) * sin + (z - c.z) * cos });
   return distanceSegAABB_Local(toLocal(seg.a), toLocal(seg.b), obb.hx, obb.hz);
 }
 
@@ -161,10 +216,10 @@ function ensureNotOnRoad(building) {
   const orig = building.position.clone();
   const obb0 = getBuildingOBB(building);
   if (!obbOverlapsAnyRoad(obb0)) return true;
-  const dirs = [[1,0],[-1,0],[0,1],[0,-1],[1,1],[-1,1],[1,-1],[-1,-1]];
+  const dirs = [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [-1, 1], [1, -1], [-1, -1]];
   for (let k = 1; k <= CITY_SLICE_ROAD_AVOID_MAX_ATTEMPTS; k++) {
     for (let d = 0; d < dirs.length; d++) {
-      building.position.set(orig.x + dirs[d][0]*localStep*k, orig.y, orig.z + dirs[d][1]*localStep*k);
+      building.position.set(orig.x + dirs[d][0] * localStep * k, orig.y, orig.z + dirs[d][1] * localStep * k);
       if (!obbOverlapsAnyRoad(getBuildingOBB(building))) return true;
     }
   }
@@ -198,9 +253,9 @@ function buildingFullyInsideAnyDistrict(building) {
   }
   const c = obb.center, hx = obb.hx, hz = obb.hz, a = obb.rotY;
   const cos = Math.cos(a), sin = Math.sin(a);
-  const local = [[-hx,-hz],[hx,-hz],[hx,hz],[-hx,hz]].map(([x,z]) => ({
-    x: c.x + x*cos - z*sin,
-    z: c.z + x*sin + z*cos
+  const local = [[-hx, -hz], [hx, -hz], [hx, hz], [-hx, hz]].map(([x, z]) => ({
+    x: c.x + x * cos - z * sin,
+    z: c.z + x * sin + z * cos
   }));
   return districtPolys.some(poly => local.every(p => pointInPolyXZ(p, poly)));
 }
@@ -212,7 +267,7 @@ function nudgeTowardNearestDistrict(building) {
   // find nearest centroid
   let best = districtCentroids[0], bestD2 = Infinity;
   for (const c of districtCentroids) {
-    const dx = c.x - obb.center.x, dz = c.z - obb.center.z, d2 = dx*dx + dz*dz;
+    const dx = c.x - obb.center.x, dz = c.z - obb.center.z, d2 = dx * dx + dz * dz;
     if (d2 < bestD2) { bestD2 = d2; best = c; }
   }
   const step = CITY_SLICE_DISTRICT_NUDGE_STEP / CITY_SLICE_SCALE;
@@ -244,9 +299,9 @@ function rebuildSliceColliders(group, objectGrid) {
     const arr = points.slice().sort((a, b) => (a.x === b.x ? a.z - b.z : a.x - b.x));
     const cross = (o, a, b) => (a.x - o.x) * (b.z - o.z) - (a.z - o.z) * (b.x - o.x);
     const lower = [];
-    for (const p of arr) { while (lower.length >= 2 && cross(lower[lower.length-2], lower[lower.length-1], p) <= 0) lower.pop(); lower.push(p); }
+    for (const p of arr) { while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], p) <= 0) lower.pop(); lower.push(p); }
     const upper = [];
-    for (let i = arr.length - 1; i >= 0; i--) { const p = arr[i]; while (upper.length >= 2 && cross(upper[upper.length-2], upper[upper.length-1], p) <= 0) upper.pop(); upper.push(p); }
+    for (let i = arr.length - 1; i >= 0; i--) { const p = arr[i]; while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], p) <= 0) upper.pop(); upper.push(p); }
     upper.pop(); lower.pop(); return lower.concat(upper);
   };
 
@@ -277,8 +332,8 @@ function rebuildSliceColliders(group, objectGrid) {
 
     const hull = makeHull(pts);
     if (hull.length >= 3) {
-      const cx = hull.reduce((s,p)=>s+p.x,0)/hull.length;
-      const cz = hull.reduce((s,p)=>s+p.z,0)/hull.length;
+      const cx = hull.reduce((s, p) => s + p.x, 0) / hull.length;
+      const cz = hull.reduce((s, p) => s + p.z, 0) / hull.length;
       const proxy = new THREE.Object3D();
       proxy.position.set(cx, 0, cz);
       proxy.userData = {

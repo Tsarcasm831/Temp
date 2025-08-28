@@ -39,29 +39,15 @@ export function addObbProxy(building, { scene, objectGrid, townGroup }) {
     scene.add(roundProxy);
     return;
   } else {
-    let hxRaw, hzRaw;
-    if (building.userData?.footprint) {
-      hxRaw = (building.userData.footprint.w * Math.abs(scl.x)) / 2;
-      hzRaw = (building.userData.footprint.d * Math.abs(scl.z)) / 2;
-    } else {
-      const size = new THREE.Vector3();
-      box.getSize(size);
-      hxRaw = size.x / 2;
-      hzRaw = size.z / 2;
-    }
-    const hx = Math.max(KONOHA_TOWN_COLLIDER_MIN_HALF, hxRaw + KONOHA_TOWN_COLLIDER_PADDING);
-    const hz = Math.max(KONOHA_TOWN_COLLIDER_MIN_HALF, hzRaw + KONOHA_TOWN_COLLIDER_PADDING);
-    proxy.userData.collider = {
-      type: 'obb',
-      center: { x: center.x, z: center.z },
-      halfExtents: { x: hx, z: hz },
-      rotationY: euler.y
-    };
+    // replace OBB with precise polygon footprint per-building
+    const pts = getFootprintPolygon(building);
+    proxy.userData.collider = { type: 'polygon', points: pts };
   }
 
   proxy.userData.label = building.name || 'House';
   objectGrid.add(proxy);
-  townGroup.add(proxy);
+  // Add to scene to keep proxy in world-space (avoid parent transforms offsetting it)
+  scene.add(proxy);
 
   if (KONOHA_TOWN_COLLIDER_DEBUG) {
     const dbg = new THREE.Mesh(
@@ -70,6 +56,39 @@ export function addObbProxy(building, { scene, objectGrid, townGroup }) {
     );
     dbg.position.copy(proxy.position);
     dbg.userData = { skipMinimap: true };
-    townGroup.add(dbg);
+    scene.add(dbg);
   }
+}
+
+// NEW: precise world-space footprint (convex hull of projected vertices)
+export function getFootprintPolygon(root) {
+  const pts = [];
+  const v = new THREE.Vector3();
+  root.updateWorldMatrix(true, true);
+  root.traverse((m) => {
+    if (!m.isMesh || !m.geometry) return;
+    const pos = m.geometry.attributes?.position;
+    if (!pos) return;
+    for (let i = 0; i < pos.count; i++) {
+      v.set(pos.getX(i), pos.getY(i), pos.getZ(i)).applyMatrix4(m.matrixWorld);
+      pts.push({ x: v.x, z: v.z });
+    }
+  });
+  if (pts.length < 3) {
+    const box = new THREE.Box3().setFromObject(root);
+    const min = box.min, max = box.max;
+    return [
+      { x: min.x, z: min.z }, { x: max.x, z: min.z },
+      { x: max.x, z: max.z }, { x: min.x, z: max.z }
+    ];
+  }
+  // Monotone chain convex hull on XZ
+  const arr = pts.sort((a, b) => (a.x === b.x ? a.z - b.z : a.x - b.x));
+  const cross = (o, a, b) => (a.x - o.x) * (b.z - o.z) - (a.z - o.z) * (b.x - o.x);
+  const lower = [];
+  for (const p of arr) { while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], p) <= 0) lower.pop(); lower.push(p); }
+  const upper = [];
+  for (let i = arr.length - 1; i >= 0; i--) { const p = arr[i]; while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], p) <= 0) upper.pop(); upper.push(p); }
+  upper.pop(); lower.pop();
+  return lower.concat(upper);
 }

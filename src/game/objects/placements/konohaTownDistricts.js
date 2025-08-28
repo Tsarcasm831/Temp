@@ -9,6 +9,7 @@ import {
   KONOHA_TOWN_SCALE
 } from './konohaTownConfig.js';
 import { getBuildingOBB } from './konohaTownRoads.js';
+import { getFootprintPolygon } from './konohaTownColliders.js';
 
 export function buildDistrictSets(model) {
   const districtPolys = [];
@@ -71,32 +72,15 @@ export function nudgeTowardNearestDistrict(building, districtPolys, districtCent
 }
 
 export function buildingFullyInsideAnyDistrict(building, districtPolys) {
-  if (!DISTRICT_ENFORCEMENT_ENABLED) return true;
-  if (districtPolys.length === 0) return !DISTRICT_REQUIRE_MAP;
-  const obb = getBuildingOBB(building);
-  if (building.userData?.round && building.userData?.roundRadius) {
-    const scl = new THREE.Vector3();
-    building.getWorldScale(scl);
-    const avg = (Math.abs(scl.x) + Math.abs(scl.z)) * 0.5;
-    const R = building.userData.roundRadius * avg;
-    const samples = 12;
-    for (let k = 0; k < districtPolys.length; k++) {
-      let ok = true;
-      for (let i = 0; i < samples && ok; i++) {
-        const a = (i / samples) * Math.PI * 2;
-        const x = obb.center.x + Math.cos(a) * R;
-        const z = obb.center.z + Math.sin(a) * R;
-        ok = ok && pointInPolyXZ({ x, z }, districtPolys[k]);
-      }
-      if (ok) return true;
+  if (!DISTRICT_ENFORCEMENT_ENABLED) return true; if (districtPolys.length===0) return !DISTRICT_REQUIRE_MAP;
+  const hull = getFootprintPolygon(building);
+  const pip=(p,poly)=>{ let s=false; for(let i=0,j=poly.length-1;i<poly.length;j=i++){ const a=poly[i],b=poly[j]; const t=((a.z>p.z)!==(b.z>p.z))&&(p.x<((b.x-a.x)*(p.z-a.z))/((b.z-a.z)||1e-9)+a.x); if(t)s=!s;} return s; };
+  const segI=(p1,p2,q1,q2)=>{ const o=(a,b,c)=>((b.z-a.z)*(c.x-b.x)-(b.x-a.x)*(c.z-b.z)); const s1=o(p1,p2,q1),s2=o(p1,p2,q2),s3=o(q1,q2,p1),s4=o(q1,q2,p2); return ((s1>0)!==(s2>0)) && ((s3>0)!==(s4>0)); };
+  return districtPolys.some(poly=>{
+    if(!hull.every(p=>pip(p,poly))) return false;
+    for(let i=0;i<hull.length;i++){ const a=hull[i],b=hull[(i+1)%hull.length];
+      for(let j=0;j<poly.length;j++){ const c=poly[j],d=poly[(j+1)%poly.length]; if(segI(a,b,c,d)) return false; }
     }
-    return false;
-  }
-  const c = obb.center, hx = obb.hx, hz = obb.hz, a = obb.rotY;
-  const cos = Math.cos(a), sin = Math.sin(a);
-  const local = [[-hx,-hz],[hx,-hz],[hx,hz],[-hx,hz]].map(([x,z])=>({
-    x: c.x + x*cos - z*sin,
-    z: c.z + x*sin + z*cos
-  }));
-  return districtPolys.some(poly => local.every(p => pointInPolyXZ(p, poly)));
+    return true;
+  });
 }

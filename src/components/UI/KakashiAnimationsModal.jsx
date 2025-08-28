@@ -72,7 +72,7 @@ const KakashiAnimationsModal = ({ onClose }) => {
       columnNumber: 5
     }),
     /* @__PURE__ */ jsxDEV("div", { className: "relative bg-gray-900 text-white border-2 border-yellow-600 rounded-xl shadow-2xl overflow-hidden w-[90vw] max-w-[900px] h-[80vh] flex", role: "dialog", "aria-modal": "true", children: [
-      /* @__PURE__ */ jsxDEV("div", { className: "w-1/3 overflow-y-auto p-4 space-y-2", children: animations.map((url) => /* @__PURE__ */ jsxDEV("button", { onClick: () => setCurrentUrl(url), className: "block w-full text-left px-3 py-2 rounded hover:bg-gray-800 truncate", title: url, children: url.substring(url.lastIndexOf('/') + 1) }, url, false, {
+      /* @__PURE__ */ jsxDEV("div", { className: "w-1/3 overflow-y-auto p-4 space-y-2", children: animations.map((url) => /* @__PURE__ */ jsxDEV("button", { onClick: () => setCurrentUrl(url), className: "block w-full text-left px-3 py-2 rounded hover:bg-gray-800 truncate", title: url, children: url.substring(url.lastIndexOf("/") + 1) }, url, false, {
         fileName: "<stdin>",
         lineNumber: 75,
         columnNumber: 13
@@ -86,7 +86,7 @@ const KakashiAnimationsModal = ({ onClose }) => {
         lineNumber: 79,
         columnNumber: 9
       }),
-      /* @__PURE__ */ jsxDEV("button", { onClick: onClose, className: "absolute top-2 right-2 text-red-400 hover:text-red-300 text-2xl font-bold", "aria-label": "Close", title: "Close", children: "\u00D7" }, void 0, false, {
+      /* @__PURE__ */ jsxDEV("button", { onClick: onClose, className: "absolute top-2 right-2 text-red-400 hover:text-red-300 text-2xl font-bold", "aria-label": "Close", title: "Close", children: "\xD7" }, void 0, false, {
         fileName: "<stdin>",
         lineNumber: 80,
         columnNumber: 9

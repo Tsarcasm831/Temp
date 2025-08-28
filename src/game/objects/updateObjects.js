@@ -37,6 +37,8 @@ import { placeKonohaGates } from './placements/konohaGates.js';
 import { placeCitySlice } from './placements/citySlice.js';
 import { WALL_RADIUS } from '../player/movement/constants.js';
 import { parseGridLabel, posForCell } from './utils/gridLabel.js';
+import * as THREE from 'three';
+import { placeKonohaTown } from './placements/konohaTown.js';
 
 // Build all world objects and return { objects, grid }
 export function updateObjects(scene, currentObjects, settings) {
@@ -135,6 +137,9 @@ export function updateObjects(scene, currentObjects, settings) {
 
   const citySlice = placeCitySlice(scene, objectGrid, settings);
   if (citySlice) renderObjects.push(citySlice);
+
+  const konohaTown = placeKonohaTown(scene, objectGrid, settings);
+  if (konohaTown) renderObjects.push(konohaTown);
 
   // NEW: remove only the Hokage Office instance/colliders near specific grid labels (e.g., KM300)
   if (HOKAGE_OFFICE_CLEANUP_ENABLED && Array.isArray(HOKAGE_OFFICE_BLOCKED_LABELS)) {

@@ -16,6 +16,14 @@ export function resetPlayerState() {
     shadowCastingObjects.clear();
 }
 
+function gridLabelToWorld(label, worldSize, cellSize = 5) {
+    const [, letters, numStr] = label.match(/^([A-Z]+)(\d+)$/i) || [];
+    const L = letters.toUpperCase(); let idx = 0;
+    for (let k = 0; k < L.length; k++) idx = idx * 26 + (L.charCodeAt(k) - 64);
+    const i = idx - 1, j = parseInt(numStr, 10) - 1, n = Math.floor(worldSize / cellSize);
+    return { x: (i - n / 2) * cellSize + cellSize / 2, z: (j - n / 2) * cellSize + cellSize / 2 };
+}
+
 /**
  * Creates the player object, loads its assets, and adds it to the scene.
  * @param {THREE.Scene} scene - The main scene.
@@ -25,8 +33,9 @@ export function resetPlayerState() {
  */
 export function createPlayer(scene, settings, onReady) {
     const player = new THREE.Group();
-    // Spawn the player at x: 0, z: 0 (ground level y will be managed by movement)
-    player.position.set(0, 0, 0);
+    // Spawn the player at grid LF315 (center of that cell)
+    const { x, z } = gridLabelToWorld('LF315', WORLD_SIZE, 5);
+    player.position.set(x, 0, z);
 
     // Add custom properties for physics and state
     player.userData.velocity = new THREE.Vector3(0, 0, 0);

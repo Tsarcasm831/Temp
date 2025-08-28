@@ -20,6 +20,8 @@ import {
   nudgeTowardNearestDistrict
 } from './konohaTownDistricts.js';
 import { addObbProxy } from './konohaTownColliders.js';
+/* NEW: fallback to default map model when live map is missing/empty */
+import { DEFAULT_MODEL as MAP_DEFAULT_MODEL } from '/map/defaults/full-default-model.js';
 
 // Build a cluster of Konoha town buildings and add them to the scene.
 // Returns the group representing the town or null on failure.
@@ -47,7 +49,9 @@ export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.
     // absence of `window` (e.g. during server-side rendering) by falling back
     // to the global object when necessary.
     const w = typeof window !== 'undefined' ? window : globalThis;
-    let liveMap = (w.__konohaMapModel?.MODEL ?? w.__konohaMapModel) || null;
+    const liveMapAll = (w.__konohaMapModel?.MODEL ?? w.__konohaMapModel) || null;
+    const hasLiveDistricts = liveMapAll && Object.keys(liveMapAll?.districts || {}).length > 0;
+    const liveMap = hasLiveDistricts ? liveMapAll : MAP_DEFAULT_MODEL;
     const liveDistricts = liveMap?.districts;
     if (
       DISTRICT_ENFORCEMENT_ENABLED &&
@@ -59,7 +63,9 @@ export function placeKonohaTown(scene, objectGrid, settings, origin = new THREE.
     }
 
     const roadSegments = buildRoadSegments();
-    const { districtPolys, districtCentroids } = DISTRICT_ENFORCEMENT_ENABLED ? buildDistrictSets(liveMap) : { districtPolys: [], districtCentroids: [] };
+    const { districtPolys, districtCentroids } = DISTRICT_ENFORCEMENT_ENABLED
+      ? buildDistrictSets(liveMap)
+      : { districtPolys: [], districtCentroids: [] };
 
     townGroup.children.forEach(colorGroup => {
       colorGroup.children?.forEach(building => {
