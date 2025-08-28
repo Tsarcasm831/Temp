@@ -22,7 +22,7 @@ const HOKAGE_ROTATE_Y = 0;
 /* @tweakable when true, use the GLB office model instead of the procedural palace */
 const HOKAGE_USE_GLB = true;
 /* @tweakable path to the Hokage Office GLB model */
-const HOKAGE_GLB_PATH = '/src/assets/hokage_office.glb';
+const HOKAGE_GLB_PATH = '../../assets/hokage_office.glb';
 /* @tweakable model uniform scale applied after loading */
 const HOKAGE_GLB_SCALE = 24;
 /* @tweakable additional Y-axis rotation (radians) applied to the loaded model */

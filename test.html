@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Kitbash City — Small Multicolor Buildings (≤3 floors) with Collisions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  html,body { margin:0; height:100%; background:#0b0f14; color:#cbd5e1; font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+  #hud { position:fixed; left:12px; top:12px; padding:10px 12px; background:rgba(0,0,0,.45); border:1px solid rgba(255,255,255,.08); border-radius:10px; line-height:1.35 }
+  #hud b { color:#fff; }
+  canvas { display:block; }
+</style>
+</head>
+<body>
+<div id="hud">
+  <div><b>Kitbash City</b> – small Naruto-style town blocks</div>
+  <div>• <b>Space</b>: regenerate • <b>C</b>: next palette • <b>R</b>: recolor • <b>Drag</b>: orbit • <b>Wheel</b>: zoom</div>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.161.0/build/three.module.js",
+    "three/examples/": "https://unpkg.com/three@0.161.0/examples/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+
+/* ---------- RNG ---------- */
+function Lcg(seed=123456789){ let s=seed>>>0; return ()=> (s=(1664525*s+1013904223)>>>0, (s>>>0)/4294967296); }
+
+/* ---------- Palettes ---------- */
+const PALETTES = [
+  { name:"Konoha Day", roof:["#d24a2e","#ff8a00","#f4d03f","#ff5d73"], wall:["#dde4e9","#f3efe6","#e8f0f2","#f7efe1"], trim:["#345","#465","#674"], win:"#88d8ff" },
+  { name:"Leaf At Dusk", roof:["#cf3c3c","#f07f2f","#dcbc3d","#4cae50"], wall:["#ebe7de","#e9efe6","#e7e7f2","#f2e8de"], trim:["#233","#454","#664"], win:"#a6e3ff" },
+  { name:"Festival", roof:["#ff3b3b","#ff6f00","#ffd000","#36c46b","#00bcd4"], wall:["#fff0e5","#f2f6f7","#f9f6ef","#f3f0f6"], trim:["#314","#443","#553","#224"], win:"#bcefff" },
+  { name:"Muted Clay", roof:["#b04a34","#c06e3b","#c7a23a","#6d9e4e"], wall:["#e8e2d9","#ebe8e0","#e1e7e5","#efe9db"], trim:["#3a3a3a","#4b463f","#5b4d3f","#2b3b3b"], win:"#9ad8ff" },
+];
+let paletteIndex = 0;
+const pick = (arr, rnd=Math.random)=> arr[(arr.length*rnd())|0];
+
+/* ---------- Geometry cache ---------- */
+const GCache = { box:new Map(), cyl:new Map() };
+const getBox=(w,h,d)=>{const k=`${w}|${h}|${d}`; if(!GCache.box.has(k)) GCache.box.set(k,new THREE.BoxGeometry(w,h,d)); return GCache.box.get(k);}
+const getCyl=(r,h,s=16)=>{const k=`${r}|${h}|${s}`; if(!GCache.cyl.has(k)) GCache.cyl.set(k,new THREE.CylinderGeometry(r,r,h,s)); return GCache.cyl.get(k);}
+
+/* ---------- Materials ---------- */
+function makeMats(pal){
+  const mk=(col,em=0)=>new THREE.MeshStandardMaterial({color:col,roughness:.9,metalness:.05,emissiveIntensity:.55,emissive:em?new THREE.Color(em):0});
+  return {
+    wall: mk(pick(pal.wall)),
+    trim: mk(pick(pal.trim)),
+    roof: mk(pick(pal.roof)),
+    roofAlt: mk(pick(pal.roof)),
+    // OPAQUE windows + depthWrite so they don't “float” via z-sort
+    window: new THREE.MeshStandardMaterial({
+      color: pal.win, emissive: pal.win, emissiveIntensity: 0.7,
+      roughness: 0.15, metalness: 0.05,
+      transparent: false, depthWrite: true, depthTest: true,
+      polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1
+    }),
+    dark: mk("#2a2f36"),
+  };
+}
+const tagRole=(mesh,role)=> (mesh.userData.role=role, mesh);
+
+/* ---------- Kit primitives (windows sit slightly OUTSIDE the wall) ---------- */
+const Kit = {
+// --- REPLACE WHOLE METHOD ---
+rectLevel({w,d,h=1.35,inset=0.02,mats, margins}){
+  const M = Object.assign({ left:0.18, right:0.18, front:0.18, back:0.18 }, margins||{});
+
+  const level=new THREE.Group();
+  const wBody=w*(1-inset), dBody=d*(1-inset);
+
+  const body=new THREE.Mesh(getBox(wBody,h,dBody),mats.wall); 
+  tagRole(body,"wall");
+  body.castShadow=body.receiveShadow=true;
+  level.add(body);
+
+  if(h>0.9){
+    const bandH=0.24, y=0.32*h, dd=0.01, eps=0.0015;
+
+    // FRONT/BACK → run along X, cropped by left/right margins
+    const x0 = -wBody/2 + M.left, x1 =  wBody/2 - M.right;
+    const fbLen = Math.max(0.2, x1 - x0);
+    const fbTiles = Math.max(1, Math.floor(fbLen/0.26));
+    const fbW = fbLen / fbTiles;
+    for(const sign of [-1,1]){
+      const z = sign*(dBody/2 + dd/2 + eps);
+      for(let i=0;i<fbTiles;i++){
+        const x = x0 + (i+0.5)*fbW;
+        const win = new THREE.Mesh(getBox(fbW, bandH, dd), mats.window);
+        tagRole(win,"window");
+        win.position.set(x, y, z);
+        level.add(win);
+      }
+    }
+
+    // LEFT/RIGHT → run along Z, cropped by back/front margins
+    const z0 = -dBody/2 + M.back, z1 = dBody/2 - M.front;
+    const lrLen = Math.max(0.2, z1 - z0);
+    const lrTiles = Math.max(1, Math.floor(lrLen/0.26));
+    const lrW = lrLen / lrTiles;
+    for(const sign of [-1,1]){
+      const x = sign*(wBody/2 + dd/2 + eps);
+      for(let i=0;i<lrTiles;i++){
+        const z = z0 + (i+0.5)*lrW;
+        const win = new THREE.Mesh(getBox(lrW, bandH, dd), mats.window);
+        tagRole(win,"window");
+        win.rotation.y = Math.PI/2;
+        win.position.set(x, y, z);
+        level.add(win);
+      }
+    }
+  }
+
+  const belt=new THREE.Mesh(getBox(wBody*0.99,0.06,dBody*0.99),mats.trim); 
+  tagRole(belt,"trim");
+  belt.position.y=h/2+0.03; 
+  belt.castShadow=belt.receiveShadow=true; 
+  level.add(belt);
+
+  level.userData.size={w,d,h,wBody,dBody};
+  return level;
+}
+,
+  cylLevel({r,h=1.35,mats,sides=14}){
+    const level=new THREE.Group();
+    const bodyR = r*(1-0.02);
+    const body=new THREE.Mesh(getCyl(bodyR,h,sides),mats.wall); tagRole(body,"wall");
+    body.castShadow=body.receiveShadow=true; level.add(body);
+
+    if(h>0.9){
+      const windows=12, dd=0.01, eps=0.0015;
+      const ringR = bodyR + dd/2 + eps; // OUTSIDE the wall
+      for(let i=0;i<windows;i++){
+        const a=i/windows*Math.PI*2;
+        const tile=new THREE.Mesh(getBox(0.22,0.26,dd),mats.window); tagRole(tile,"window");
+        tile.position.set(Math.cos(a)*ringR, 0.32*h, Math.sin(a)*ringR);
+        tile.lookAt(0, tile.position.y, 0);
+        level.add(tile);
+      }
+    }
+    const belt=new THREE.Mesh(getCyl(bodyR*0.99,0.06,sides),mats.trim); tagRole(belt,"trim");
+    belt.position.y=h/2+0.03; level.add(belt);
+    level.userData.size={r,h,bodyR};
+    return level;
+  },
+
+  flatRoof({w,d,th=0.12,mats}){
+    const g=new THREE.Group();
+    const deck=new THREE.Mesh(getBox(w,th,d),mats.roof); tagRole(deck,"roof");
+    deck.position.y=th/2; deck.castShadow=deck.receiveShadow=true; g.add(deck);
+    const para=new THREE.Mesh(getBox(w*0.96,0.18,d*0.96),mats.roofAlt); tagRole(para,"roof");
+    para.position.y=th+0.09; g.add(para); return g;
+  },
+
+  hipRoof({w,d,h=0.55,mats}){
+    const g=new THREE.Group();
+    const slab1=new THREE.Mesh(getBox(w,0.08,d),mats.roof); tagRole(slab1,"roof");
+    const slab2=slab1.clone(); slab1.position.y=h*0.3; slab2.position.y=h*0.6;
+    g.add(slab1,slab2); return g;
+  },
+
+  coneRoof({r,h=0.7,mats,sides=12}){
+    const g=new THREE.Group();
+    const cone=new THREE.Mesh(new THREE.ConeGeometry(r*1.02,h,sides),mats.roof); tagRole(cone,"roof");
+    cone.position.y=h*0.5; cone.castShadow=cone.receiveShadow=true; g.add(cone); return g;
+  },
+
+  posts({w,d,h=0.6,mats,spacing=0.9}){
+    const g=new THREE.Group(); const r=0.06;
+    const gridX=Math.max(2,Math.floor(w/spacing)), gridZ=Math.max(2,Math.floor(d/spacing));
+    for(let ix=0;ix<gridX;ix++) for(let iz=0;iz<gridZ;iz++){
+      const x=-w/2 + (ix/(gridX-1))*w, z=-d/2 + (iz/(gridZ-1))*d;
+      const post=new THREE.Mesh(getCyl(r,h,10),mats.trim); tagRole(post,"trim");
+      post.position.set(x,h/2,z); g.add(post);
+    }
+    return g;
+  },
+  awning({w,d=0.5,th=0.06,mats}){ const g=new THREE.Group(); const plate=new THREE.Mesh(getBox(w,th,d),mats.roofAlt); tagRole(plate,"roof"); plate.position.y=th/2; g.add(plate); return g; },
+};
+
+/* ---------- Helpers ---------- */
+function recolorGroup(group, pal){
+  group.traverse(o=>{
+    if(o.isMesh && o.userData.role){
+      const role=o.userData.role, mat=o.material;
+      if(role==="window"){ mat.color.set(pal.win); mat.emissive.set(pal.win); }
+      else if(role==="roof"){ mat.color.set(pick(pal.roof)); }
+      else if(role==="trim"){ mat.color.set(pick(pal.trim)); }
+      else if(role==="wall"){ mat.color.set(pick(pal.wall)); }
+      mat.needsUpdate=true;
+    }
+  });
+  group.userData.paletteName=pal.name;
+}
+function footprintRadius(obj){
+  obj.updateMatrixWorld(true);
+  const box=new THREE.Box3().setFromObject(obj);
+  const s=box.getSize(new THREE.Vector3());
+  return 0.5*Math.hypot(s.x,s.z) + 0.30;
+}
+
+/* ---------- Building factory (old + 6 new designs) ---------- */
+function makeBuilding(rng, pal){
+  const mats=makeMats(pal);
+  const g=new THREE.Group();
+  const design = pick(["rect","rect","L","cyl","oct","courtyard","twinBridge","stilt","terraced","drumOnBox","boxOnDrum"], rng);
+
+  const baseW=2.0+rng()*2.5, baseD=1.8+rng()*2.2, baseR=1.2+rng()*1.3;
+  const levelH=0.95+rng()*0.45;
+  let y=0;
+
+  function rectFloors(n=1, w=baseW, d=baseD){
+    for(let i=0;i<n;i++){
+      const shrink=1 - i*0.08 - rng()*0.04;
+      const lv=Kit.rectLevel({w:w*shrink,d:d*shrink,h:levelH,mats});
+      lv.position.y=y+levelH/2; g.add(lv); y+=levelH;
+      if(i===0 && design==="L"){
+        const arm=Kit.rectLevel({w:w*0.6,d:d*0.5,h:levelH*0.9,mats});
+        arm.position.set(-w*0.3, levelH*0.45, d*0.25); lv.add(arm);
+      }
+    }
+    const last=g.children[g.children.length-1].userData.size;
+    const roofType=pick(["flat","hip","flat","hip"], rng);
+    const roof=(roofType==="flat") ? Kit.flatRoof({w:last.w*1.02,d:last.d*1.02,mats})
+                                   : Kit.hipRoof({w:last.w*1.02,d:last.d*1.02,mats});
+    roof.position.y=y; g.add(roof);
+  }
+  function roundFloors(n=1, r=baseR, sides=14){
+    for(let i=0;i<n;i++){
+      const shrink=1 - i*0.08 - rng()*0.04;
+      const lv=Kit.cylLevel({r:r*shrink,h:levelH,mats,sides});
+      lv.position.y=y+levelH/2; g.add(lv); y+=levelH;
+    }
+    const last=g.children[g.children.length-1].userData.size;
+    const roof=Kit.coneRoof({r:last.r*1.02, h:0.55+0.25*(n===1?1.25:1), mats, sides});
+    roof.position.y=y; g.add(roof);
+  }
+
+  switch(design){
+    case "rect": rectFloors(1 + (rng()<0.6?1:0)); break;
+    case "L":    rectFloors(1 + (rng()<0.5?1:0)); break;
+    case "cyl":  roundFloors(1 + (rng()<0.6?1:0), baseR, 14); break;
+    case "oct":  roundFloors(1 + (rng()<0.5?1:0), baseR, 8); break;
+    case "courtyard": {
+      const w=baseW*1.35, d=baseD*1.35, gap=0.9;
+      const wings=[{x:0,z:-(d-gap)/2,w,d:0.6},{x:0,z:(d-gap)/2,w,d:0.6},{x:-(w-gap)/2,z:0,w:0.6,d},{x:(w-gap)/2,z:0,w:0.6,d}];
+      const floors=1 + (rng()<0.5?1:0);
+      for(let f=0;f<floors;f++){
+        const h=levelH*(1-f*0.06);
+        for(const seg of wings){ const lv=Kit.rectLevel({w:seg.w,d:seg.d,h,mats}); lv.position.set(seg.x, y+h/2, seg.z); g.add(lv); }
+        y+=h;
+      }
+      const roof=Kit.flatRoof({w:w*0.9,d:d*0.9,mats}); roof.position.y=y; g.add(roof);
+      break;
+    }
+    case "twinBridge": {
+      const s=0.75;
+      const left=Kit.rectLevel({w:baseW,d:baseD,h:levelH,mats});
+      const right=Kit.rectLevel({w:baseW*s,d:baseD*s,h:levelH,mats});
+      left.position.set(-baseW*0.8,levelH/2,0); right.position.set(baseW*0.8,levelH/2,0);
+      g.add(left,right); y=levelH;
+      const bridge=new THREE.Mesh(getBox(baseW*0.9,0.08,0.6),mats.roofAlt); tagRole(bridge,"roof"); bridge.position.set(0,y+0.15,0); g.add(bridge);
+      const roofL=Kit.flatRoof({w:baseW*1.02,d:baseD*1.02,mats}); roofL.position.set(-baseW*0.8,y,0);
+      const roofR=Kit.hipRoof({w:baseW*s*1.02,d:baseD*s*1.02,mats}); roofR.position.set(baseW*0.8,y,0);
+      g.add(roofL,roofR);
+      break;
+    }
+    case "stilt": {
+      const w=baseW*1.15, d=baseD*1.1;
+      const posts=Kit.posts({w,d,h:0.6,mats}); g.add(posts);
+      const lv=Kit.rectLevel({w,d,h:levelH,mats}); lv.position.y=0.6+levelH/2; g.add(lv); y=0.6+levelH;
+      const aw=Kit.awning({w:w*0.9,d:0.7,mats}); aw.position.set(0,0.6+0.9,d/2+0.01); g.add(aw);
+      const roof=Kit.hipRoof({w:w*1.02,d:d*1.02,mats}); roof.position.y=y; g.add(roof);
+      break;
+    }
+    case "terraced": {
+      const n=2+(rng()<0.4?1:0);
+      for(let i=0;i<n;i++){
+        const w=baseW*(1-i*0.12), d=baseD*(1-i*0.06);
+        const lv=Kit.rectLevel({w,d,h:levelH*0.95,mats});
+        lv.position.set(0,y+(levelH*0.95)/2,i*0.35); g.add(lv); y+=levelH*0.95;
+        if(i<n-1){ const aw=Kit.awning({w,d:0.7,mats}); aw.position.set(0,y-0.15,i*0.35 + d/2 + 0.01); g.add(aw); }
+      }
+      const last=g.children[g.children.length-1].userData.size;
+      const roof=Kit.flatRoof({w:last.w*1.02,d:last.d*1.02,mats}); roof.position.y=y; g.add(roof);
+      break;
+    }
+    case "drumOnBox": {
+      const base=Kit.rectLevel({w:baseW*1.15,d:baseD*1.15,h:levelH,mats});
+      base.position.y=levelH/2; g.add(base); y=levelH;
+      const drum=Kit.cylLevel({r:baseR*0.95,h:levelH*0.95,mats,sides:12});
+      drum.position.y=y+(levelH*0.95)/2; g.add(drum); y+=levelH*0.95;
+      const roof=Kit.coneRoof({r:(baseR*0.95)*1.02,h:0.7,mats,sides:12}); roof.position.y=y; g.add(roof);
+      break;
+    }
+    case "boxOnDrum": {
+      const drum=Kit.cylLevel({r:baseR*1.05,h:levelH,mats,sides:14});
+      drum.position.y=levelH/2; g.add(drum); y=levelH;
+      const top=Kit.rectLevel({w:baseW*0.95,d:baseD*0.9,h:levelH*0.9,mats});
+      top.position.y=y+(levelH*0.9)/2; g.add(top); y+=levelH*0.9;
+      const roof=Kit.hipRoof({w:top.userData.size.w*1.02,d:top.userData.size.d*1.02,mats}); roof.position.y=y; g.add(roof);
+      break;
+    }
+  }
+
+  // plinth + door
+  const box3=new THREE.Box3().setFromObject(g);
+  const size=box3.getSize(new THREE.Vector3());
+  const plinth=new THREE.Mesh(getBox(size.x*1.02,0.06,size.z*1.02),mats.dark);
+  plinth.position.y=0.03; plinth.receiveShadow=true; g.add(plinth);
+  const door=new THREE.Mesh(getBox(0.5,0.75,0.05),mats.trim); tagRole(door,"trim");
+  door.position.set(0,0.38,-size.z/2 + 0.05); g.add(door);
+
+  g.rotation.y=(Math.random()*Math.PI*2);
+  g.userData={ isBuilding:true, recolor:(p)=>recolorGroup(g,p), paletteName:pal.name };
+  g.userData.radius=footprintRadius(g);
+  return g;
+}
+
+/* ---------- World ---------- */
+const renderer=new THREE.WebGLRenderer({antialias:true});
+renderer.outputColorSpace=THREE.SRGBColorSpace;
+renderer.setPixelRatio(Math.min(2, window.devicePixelRatio||1));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled=true;
+document.body.appendChild(renderer.domElement);
+
+const scene=new THREE.Scene();
+scene.background=new THREE.Color("#0b0f14");
+const camera=new THREE.PerspectiveCamera(55, window.innerWidth/window.innerHeight, 0.1, 500);
+camera.position.set(10,9,12);
+const controls=new OrbitControls(camera, renderer.domElement);
+controls.target.set(0,0.6,0); controls.enableDamping=true; controls.maxPolarAngle=Math.PI*0.49;
+controls.minDistance=4; controls.maxDistance=50;
+
+/* Lights, ground, streets */
+scene.add(new THREE.HemisphereLight("#e7f2ff","#203040",0.65));
+const dir=new THREE.DirectionalLight("#ffffff",0.9); dir.position.set(8,12,6); dir.castShadow=true;
+dir.shadow.mapSize.set(2048,2048);
+dir.shadow.camera.left=-18; dir.shadow.camera.right=18; dir.shadow.camera.top=14; dir.shadow.camera.bottom=-14;
+scene.add(dir);
+const ground=new THREE.Mesh(new THREE.CircleGeometry(28,64), new THREE.MeshStandardMaterial({color:"#1e293b",roughness:1}));
+ground.rotation.x=-Math.PI/2; ground.receiveShadow=true; scene.add(ground);
+const streetMat=new THREE.MeshStandardMaterial({color:"#0f172a",roughness:1});
+for(let i=0;i<8;i++){ const seg=new THREE.Mesh(new THREE.BoxGeometry(0.6,0.02,26),streetMat); seg.position.y=0.01; seg.rotation.y=i*Math.PI/8; scene.add(seg); }
+
+/* ---------- Collision-aware placement ---------- */
+function placeCity(seed=Date.now()){
+  const toRemove=[]; scene.traverse(o=>{ if(o.userData && o.userData.isBuilding) toRemove.push(o); });
+  toRemove.forEach(o=>scene.remove(o));
+
+  const rng=Lcg(seed); const pal=PALETTES[paletteIndex % PALETTES.length];
+  const buildings=[]; const triesPer=40; const count=60;
+  const Rmin=3.2, Rmax=24.5;
+
+  for(let i=0;i<count;i++){
+    const clonePrev = i>6 && (rng()<0.3);
+    let bld;
+    if(clonePrev && buildings.length){
+      const src=buildings[(rng()*Math.min(buildings.length,20))|0].clone(true);
+      src.traverse(o=>{ if(o.isMesh) o.material=o.material.clone(); });
+      bld=src; recolorGroup(bld,pal);
+      bld.userData.radius=footprintRadius(bld);
+      bld.userData.isBuilding=true;
+    }else{
+      bld=makeBuilding(rng,pal); bld.userData.isBuilding=true;
+    }
+    let placed=false;
+    for(let t=0;t<triesPer;t++){
+      const r=Math.sqrt(rng())*(Rmax-Rmin)+Rmin, a=rng()*Math.PI*2;
+      const x=Math.cos(a)*r, z=Math.sin(a)*r;
+      const ok=buildings.every(o=>{
+        const dx=o.position.x-x, dz=o.position.z-z;
+        const minDist=o.userData.radius + bld.userData.radius + 0.35;
+        return (dx*dx+dz*dz) >= (minDist*minDist);
+      });
+      if(ok){ bld.position.set(x,0,z); buildings.push(bld); scene.add(bld); placed=true; break; }
+    }
+    if(!placed){ /* crowd skip */ }
+  }
+}
+
+/* ---------- Loop & controls ---------- */
+let seed=(Math.random()*1e9)|0;
+placeCity(seed);
+addEventListener('resize', ()=>{ renderer.setSize(innerWidth, innerHeight); camera.aspect=innerWidth/innerHeight; camera.updateProjectionMatrix(); });
+addEventListener('keydown', (e)=>{
+  if(e.code==='Space'){ seed=(Math.random()*1e9)|0; placeCity(seed); }
+  if(e.key==='c' || e.key==='C'){ paletteIndex=(paletteIndex+1)%PALETTES.length; placeCity(seed); }
+  if(e.key==='r' || e.key==='R'){ paletteIndex=(paletteIndex+1)%PALETTES.length; const pal=PALETTES[paletteIndex];
+    scene.traverse(o=>{ if(o.userData&&o.userData.isBuilding&&o.userData.recolor){ o.userData.recolor(pal); }});
+  }
+});
+(function animate(){ requestAnimationFrame(animate); controls.update(); renderer.render(scene,camera); })();
+</script>
+</body>
+</html>

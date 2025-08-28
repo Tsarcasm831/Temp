@@ -165,7 +165,7 @@ const MobileControls = ({ joystickRef, keysRef, zoomRef, cameraOrbitRef, cameraP
         className: `px-3 py-2 rounded-full border-2 shadow-lg text-sm ${visible ? "bg-black/70 text-white border-gray-400" : "bg-yellow-500 text-black border-yellow-300"}`,
         "aria-label": "Toggle mobile controls",
         title: "Toggle controls",
-        children: visible ? "Hide Controls" : "Show Controls"
+        children: visible ? "Hide Controls" : "Mobile Controls"
       },
       void 0,
       false,
@@ -307,28 +307,7 @@ const MobileControls = ({ joystickRef, keysRef, zoomRef, cameraOrbitRef, cameraP
       fileName: "<stdin>",
       lineNumber: 193,
       columnNumber: 9
-    }) : /* @__PURE__ */ jsxDEV("div", { className: "absolute bottom-6 right-6 z-20", children: /* @__PURE__ */ jsxDEV(
-      "button",
-      {
-        onTouchStart: () => setVisible(true),
-        onMouseDown: () => setVisible(true),
-        className: "px-3 py-2 rounded-full bg-black/60 text-white border border-gray-400 text-sm shadow-lg",
-        "aria-label": "Show mobile controls",
-        title: "Show controls",
-        children: "Controls"
-      },
-      void 0,
-      false,
-      {
-        fileName: "<stdin>",
-        lineNumber: 248,
-        columnNumber: 11
-      }
-    ) }, void 0, false, {
-      fileName: "<stdin>",
-      lineNumber: 247,
-      columnNumber: 9
-    })
+    }) : null
   ] }, void 0, true, {
     fileName: "<stdin>",
     lineNumber: 173,

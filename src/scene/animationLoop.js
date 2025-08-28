@@ -103,20 +103,100 @@ export function startAnimationLoop({
 
     function findNearestInteractable(playerPosition) {
         if (!objectGridRef.current) return null;
-        const nearby = objectGridRef.current.getObjectsNear(playerPosition, interactionDistance + 5) || [];
+        // Use an expanded radius so objects with far centers but nearby collider edges are included
+        const nearby = objectGridRef.current.getObjectsNear(playerPosition, interactionDistance + 80) || [];
+
+        // Geometry helpers for collider-distance checks
+        const pointInPolyXZ = (p, poly) => {
+            let inside = false;
+            for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+                const a = poly[i], b = poly[j];
+                const intersect = ((a.z > p.z) !== (b.z > p.z)) &&
+                    (p.x < ((b.x - a.x) * (p.z - a.z)) / ((b.z - a.z) || 1e-9) + a.x);
+                if (intersect) inside = !inside;
+            }
+            return inside;
+        };
+        const distPointSeg2 = (px, pz, ax, az, bx, bz) => {
+            const vx = bx - ax, vz = bz - az;
+            const wx = px - ax, wz = pz - az;
+            const len2 = Math.max(1e-8, vx * vx + vz * vz);
+            const t = Math.max(0, Math.min(1, (wx * vx + wz * vz) / len2));
+            const cx = ax + vx * t, cz = az + vz * t;
+            const dx = px - cx, dz = pz - cz;
+            return dx * dx + dz * dz;
+        };
+        const distToPolygonBorder = (p, poly) => {
+            if (!Array.isArray(poly) || poly.length < 3) return Infinity;
+            if (pointInPolyXZ(p, poly)) return 0;
+            let bestD2 = Infinity;
+            for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+                const a = poly[j], b = poly[i];
+                const d2 = distPointSeg2(p.x, p.z, a.x, a.z, b.x, b.z);
+                if (d2 < bestD2) bestD2 = d2;
+            }
+            return Math.sqrt(bestD2);
+        };
+        const distToAABB = (p, cx, cz, hx, hz) => {
+            const dx = Math.max(0, Math.abs(p.x - cx) - Math.max(0.0001, hx));
+            const dz = Math.max(0, Math.abs(p.z - cz) - Math.max(0.0001, hz));
+            return Math.hypot(dx, dz);
+        };
+        const distToOBB = (p, cx, cz, hx, hz, rotY) => {
+            const cos = Math.cos(-rotY || 0), sin = Math.sin(-rotY || 0);
+            const lx = (p.x - cx) * cos - (p.z - cz) * sin;
+            const lz = (p.x - cx) * sin + (p.z - cz) * cos;
+            return distToAABB({ x: lx, z: lz }, 0, 0, hx, hz);
+        };
+        const distToSphereBorder = (p, cx, cz, r) => {
+            const dx = p.x - cx, dz = p.z - cz;
+            return Math.max(0, Math.hypot(dx, dz) - Math.max(0, r));
+        };
+
         let best = null;
-        let bestD2 = Infinity;
+        let bestDist = Infinity;
         for (let i = 0; i < nearby.length; i++) {
             const o = nearby[i];
             if (!o || !o.position) continue;
-            // Skip objects without an active collider if required (prevents picking placeholder proxies)
-            if (INTERACT_REQUIRE_COLLIDER && !o.userData?.collider) continue;
-            const dx = o.position.x - playerPosition.x;
-            const dz = o.position.z - playerPosition.z;
-            const d2 = dx * dx + dz * dz;
-            if (d2 <= interactionDistance * interactionDistance && d2 < bestD2) {
+            const col = o.userData?.collider;
+            if (INTERACT_REQUIRE_COLLIDER && !col) continue;
+
+            let d = Infinity;
+            if (col) {
+                if (col.type === 'polygon' && Array.isArray(col.points)) {
+                    d = distToPolygonBorder(playerPosition, col.points);
+                } else if (col.type === 'obb' || col.type === 'orientedBox') {
+                    const cx = col.center?.x ?? o.position.x;
+                    const cz = col.center?.z ?? o.position.z;
+                    const hx = col.halfExtents?.x ?? 1;
+                    const hz = col.halfExtents?.z ?? 1;
+                    const a = col.rotationY ?? 0;
+                    d = distToOBB(playerPosition, cx, cz, hx, hz, a);
+                } else if (col.type === 'aabb') {
+                    const cx = col.center?.x ?? o.position.x;
+                    const cz = col.center?.z ?? o.position.z;
+                    const hx = col.halfExtents?.x ?? 8;
+                    const hz = col.halfExtents?.z ?? 6;
+                    d = distToAABB(playerPosition, cx, cz, hx, hz);
+                } else if (col.type === 'sphere') {
+                    const cx = o.position.x, cz = o.position.z;
+                    d = distToSphereBorder(playerPosition, cx, cz, col.radius || 0);
+                } else {
+                    // Unknown collider: fall back to center distance
+                    const dx = o.position.x - playerPosition.x;
+                    const dz = o.position.z - playerPosition.z;
+                    d = Math.hypot(dx, dz);
+                }
+            } else {
+                // No collider: use center distance (legacy)
+                const dx = o.position.x - playerPosition.x;
+                const dz = o.position.z - playerPosition.z;
+                d = Math.hypot(dx, dz);
+            }
+
+            if (d <= interactionDistance && d < bestDist) {
                 best = o;
-                bestD2 = d2;
+                bestDist = d;
             }
         }
         return best;

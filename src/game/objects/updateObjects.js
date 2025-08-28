@@ -1,5 +1,5 @@
 // @tweakable base path anchor for terrain imports (change only if your host serves /src under a different root)
-import { WORLD_SIZE as WORLD_SIZE_CONST } from '/src/scene/terrain.js';
+import { WORLD_SIZE as WORLD_SIZE_CONST } from '../../scene/terrain.js';
 import { ObjectGrid } from './grid.js';
 // @tweakable master switch to spawn legacy central wall geometry and colliders
 const ENABLE_WALLS = false;
@@ -38,7 +38,6 @@ import { placeCitySlice } from './placements/citySlice.js';
 import { WALL_RADIUS } from '../player/movement/constants.js';
 import { parseGridLabel, posForCell } from './utils/gridLabel.js';
 import * as THREE from 'three';
-import { placeKonohaTown } from './placements/konohaTown.js';
 
 // Build all world objects and return { objects, grid }
 export function updateObjects(scene, currentObjects, settings) {
@@ -138,8 +137,7 @@ export function updateObjects(scene, currentObjects, settings) {
   const citySlice = placeCitySlice(scene, objectGrid, settings);
   if (citySlice) renderObjects.push(citySlice);
 
-  const konohaTown = placeKonohaTown(scene, objectGrid, settings);
-  if (konohaTown) renderObjects.push(konohaTown);
+  // KonohaTown buildings removed
 
   // NEW: remove only the Hokage Office instance/colliders near specific grid labels (e.g., KM300)
   if (HOKAGE_OFFICE_CLEANUP_ENABLED && Array.isArray(HOKAGE_OFFICE_BLOCKED_LABELS)) {

@@ -1,51 +1,25 @@
+var __defProp = Object.defineProperty;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
 import { jsxDEV } from "react/jsx-dev-runtime";
 import React from "react";
 class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
+  constructor() {
+    super(...arguments);
+    __publicField(this, "state", { hasError: false, error: null });
   }
-  static getDerivedStateFromError() {
-    return { hasError: true };
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
   }
   componentDidCatch(error, info) {
-    console.error("UI ErrorBoundary caught an error:", error, info);
+    console.error("UI ErrorBoundary:", error, info);
   }
   render() {
-    if (this.state.hasError) {
-      return /* @__PURE__ */ jsxDEV("div", { className: "fixed top-4 right-4 bg-red-700 text-white p-3 rounded shadow-lg z-50", children: [
-        /* @__PURE__ */ jsxDEV("div", { className: "font-bold", children: "Something went wrong." }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 22,
-          columnNumber: 11
-        }, this),
-        /* @__PURE__ */ jsxDEV("div", { className: "text-sm opacity-80", children: "One of the UI panels failed to render." }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 23,
-          columnNumber: 11
-        }, this),
-        /* @__PURE__ */ jsxDEV(
-          "button",
-          {
-            className: "mt-2 px-3 py-1 bg-red-800 rounded hover:bg-red-900",
-            onClick: () => this.setState({ hasError: false }),
-            children: "Dismiss"
-          },
-          void 0,
-          false,
-          {
-            fileName: "<stdin>",
-            lineNumber: 24,
-            columnNumber: 11
-          },
-          this
-        )
-      ] }, void 0, true, {
-        fileName: "<stdin>",
-        lineNumber: 21,
-        columnNumber: 9
-      }, this);
-    }
+    if (this.state.hasError) return /* @__PURE__ */ jsxDEV("div", { style: { padding: 16, background: "#111", color: "#fff", border: "2px solid #b91c1c", borderRadius: 8 }, children: "Something went wrong." }, void 0, false, {
+      fileName: "<stdin>",
+      lineNumber: 8,
+      columnNumber: 37
+    }, this);
     return this.props.children;
   }
 }

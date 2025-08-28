@@ -1,4 +1,4 @@
-import { svg, $, W, H } from './constants.js';
+﻿import { svg, $, W, H } from './constants.js';
 import { MODEL, state } from './model.js';
 import { download, autosave } from './utils.js';
 import { drawAll } from './render.js';
@@ -230,7 +230,7 @@ function wireUI(){
 function migrateDefaults(){
   /* force all districts to sequential residential ids/names each load */
   const nd={}, list=Object.values(MODEL.districts); let n=1;
-  for(const d of list){ const id=`residential${n++}`; nd[id]={...d, id, name:id, desc:''}; }
+  for(const d of list){ const id=`residential${n++}`; nd[id]={...d, id, name: null, desc: null}; }
   MODEL.districts = nd;
 }
 

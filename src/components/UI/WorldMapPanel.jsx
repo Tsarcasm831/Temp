@@ -1,8 +1,8 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
 import React, { useEffect, useRef, useState } from "react";
-import { WORLD_SIZE } from "/src/scene/terrain.js";
+import { WORLD_SIZE } from "../../scene/terrain.js";
 import { drawRoads, drawRiver, drawDistricts, drawWalls } from "../../components/game/objects/konoha_roads.js";
-import { getBiomeAt, getTerrainTextureForBiome, TEXTURE_WORLD_UNITS, TILE_SIZE } from "/src/scene/terrain.js";
+import { getBiomeAt, getTerrainTextureForBiome, TEXTURE_WORLD_UNITS, TILE_SIZE } from "../../scene/terrain.js";
 const WORLD_MAP_INITIAL_ZOOM = 1;
 const WORLD_MAP_MIN_ZOOM = 0.2;
 const WORLD_MAP_MAX_ZOOM = 20;

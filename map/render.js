@@ -21,7 +21,8 @@ function drawDistricts(){
     const pts=d.points.map(([x,y])=>[x*W/100,y*H/100].join(',')).join(' ');
     const col = d.color || '#22d3ee';
     const poly=mk('polygon',{class:'district '+(isSelected('district',k)?'selected':''),'data-id':k,points:pts, style:`--dist-stroke:${col};--dist-fill:${col}55`});
-    poly.addEventListener('mouseenter',e=>showTip(e,{name:d.name,desc:d.desc}));
+    // Pass id fallback (use object id if present, else dictionary key)
+    poly.addEventListener('mouseenter',e=>showTip(e,{name:d.name,desc:d.desc,id:(d.id??k)}));
     poly.addEventListener('mousemove',moveTip);
     poly.addEventListener('mouseleave',hideTip);
     poly.addEventListener('mousedown',e=>{

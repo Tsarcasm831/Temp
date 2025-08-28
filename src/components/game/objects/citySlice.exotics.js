@@ -215,10 +215,82 @@ export function createExotics(THREE, kit) {
   }
   const cornerPagoda = ({w=90,d=66,tiers=3, roofColor=Palette.roofOrange}={}) => pagoda({w,d,tiers,roofColor,plaster:"A"});
 
+  // NEW: Five original and unique buildings
+  function spiralTower({w=56,d=56,floors=4, roofColor=Palette.roofBlue, plaster="B"}={}){
+    const grp=new THREE.Group();
+    let Y=0, W=w, D=d;
+    const rotStep=0.28;
+    for(let i=0;i<floors;i++){
+      const L=rectLevel({w:W,d:D,h:16,plaster});
+      L.position.y=Y; L.rotation.y=i*rotStep; grp.add(L);
+      belt(grp, W*0.98, D*0.98, Y+1.2, 3, Palette.brick);
+      Y += 16; W*=0.9; D*=0.9;
+    }
+    const cap=gableRoof(Math.max(W,D)+6, Math.min(W,D)+6, roofColor); cap.position.y=Y+1.6; grp.add(cap);
+    return grp;
+  }
+  function lotusPavilion({r=24, petals=8, roofColor=Palette.roofTeal, plaster="A"}={}){
+    const grp=new THREE.Group();
+    const base=cyl(r,6,M.band,petals); base.position.y=3; grp.add(base);
+    const core=cyl(r*0.7,14,plaster==="B"?M.plasterB:plaster==="C"?M.plasterC:M.plasterA,petals); core.position.y=7+7; grp.add(core);
+    // petal cones around
+    for(let i=0;i<petals;i++){
+      const a=(i/petals)*Math.PI*2;
+      const pet=cone(r*0.35, r*0.6, M.roof(roofColor), 22);
+      pet.position.set(Math.cos(a)*r*0.92, 9, Math.sin(a)*r*0.92);
+      pet.lookAt(0, 9, 0); // face inward, slight tilt comes from lookAt
+      grp.add(pet);
+    }
+    const crown=domeRoof(r*0.62, roofColor); crown.position.y=20; grp.add(crown);
+    return grp;
+  }
+  function fanRoofHall({w=96,d=44, roofColor=Palette.roofOrange, plaster="C"}={}){
+    const grp=new THREE.Group();
+    const L=rectLevel({w,d,h:18,plaster}); L.position.y=0; grp.add(L);
+    const main=gableRoof(w+6,d+6,roofColor); main.position.y=19.2; grp.add(main);
+    // fan out two small hips front/back
+    const s=hipRoof(w*0.6, d*0.5, roofColor);
+    const sF=s.clone(); sF.position.set(0, 19.8, d/2+2.2); grp.add(sF);
+    const sB=s.clone(); sB.position.set(0, 19.8, -d/2-2.2); grp.add(sB);
+    addUpturnedCorners(sF, w*0.6, d*0.5, 0.5, 10);
+    addUpturnedCorners(sB, w*0.6, d*0.5, 0.5, 10);
+    return grp;
+  }
+  function skyBridgeTowers({w=40,d=36,h=22, gap=64, roofColor=Palette.roofSea, plaster="B"}={}){
+    const grp=new THREE.Group();
+    const left=new THREE.Group(), right=new THREE.Group();
+    for(let i=0;i<3;i++){
+      const L=rectLevel({w,d,h:18,plaster:i%2?"A":plaster}); L.position.y=i*18; left.add(L);
+      const R=rectLevel({w,d,h:18,plaster:i%2?"A":plaster}); R.position.y=i*18; right.add(R);
+    }
+    const capL=coneRoof(Math.min(w,d)*0.7, roofColor); capL.position.y=3*18+2; left.add(capL);
+    const capR=coneRoof(Math.min(w,d)*0.7, roofColor); capR.position.y=3*18+2; right.add(capR);
+    left.position.x=-gap/2 - w/2; right.position.x=gap/2 + w/2; grp.add(left); grp.add(right);
+    // Bridges at two heights
+    const deck1=box(gap,3, d*0.4, M.wood); deck1.position.set(0, 18+8, 0); grp.add(deck1);
+    const deck2=box(gap,3, d*0.4, M.wood); deck2.position.set(0, 18*2+8, 0); grp.add(deck2);
+    return grp;
+  }
+  function tieredGardenHouse({w=90,d=60, tiers=3, roofColor=Palette.roofClay, plaster="A"}={}){
+    const grp=new THREE.Group();
+    let W=w, D=d, Y=0;
+    for(let i=0;i<tiers;i++){
+      const L=rectLevel({w:W,d:D,h:18,plaster}); L.position.y=Y; grp.add(L);
+      // garden deck on south side
+      const deck=box(W*0.8,2,8,M.wood); deck.position.set(0, Y+18+1, D/2+5); grp.add(deck);
+      const planter=box(W*0.78,4,2,M.band); planter.position.set(0, Y+18+3, D/2+9); grp.add(planter);
+      Y+=20; W*=0.88; D*=0.9;
+    }
+    const roof=hipRoof(W+6, D+6, roofColor); roof.position.y=Y+1.4; addUpturnedCorners(roof,W+6,D+6,0.5,10); grp.add(roof);
+    return grp;
+  }
+
   return {
     drumTower, pagoda, terrace, bathhouse, gatehouse, libraryTower,
     octagonTower, hexPavilion, stupa, teaHouseStilts, marketHall, bellPavilion,
     siheyuan, twinBridge, toriiGateComplex, barrelHall, karahafuHall,
-    drumPagodaHybrid, tallWatchtower, cornerPagoda
+    drumPagodaHybrid, tallWatchtower, cornerPagoda,
+    // new
+    spiralTower, lotusPavilion, fanRoofHall, skyBridgeTowers, tieredGardenHouse
   };
 }

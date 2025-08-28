@@ -1,444 +1,379 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
 import React from "react";
-const SettingsPanel = ({ settings, setSettings, onClose }) => {
-  const handleSettingChange = (setting, value) => {
-    setSettings((prev) => ({ ...prev, [setting]: value }));
-  };
-  return /* @__PURE__ */ jsxDEV("div", { className: "fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 bg-opacity-98 border-2 border-gray-600 rounded-lg shadow-2xl z-50 w-[90vw] max-w-[420px] max-h-[80vh] overflow-y-auto text-white", children: [
-    /* @__PURE__ */ jsxDEV("div", { className: "bg-gray-700 px-4 py-2 rounded-t-lg border-b border-gray-600 flex justify-between items-center", children: [
-      /* @__PURE__ */ jsxDEV("h2", { className: "text-yellow-400 font-bold text-lg", children: "Settings" }, void 0, false, {
-        fileName: "<stdin>",
-        lineNumber: 12,
-        columnNumber: 17
-      }),
-      /* @__PURE__ */ jsxDEV(
-        "button",
-        {
-          onClick: onClose,
-          className: "text-red-400 hover:text-red-300 text-xl font-bold w-10 h-10 -mr-2 flex items-center justify-center",
-          children: "\xD7"
-        },
-        void 0,
-        false,
-        {
-          fileName: "<stdin>",
-          lineNumber: 13,
-          columnNumber: 17
-        }
-      )
-    ] }, void 0, true, {
+const Label = ({ children }) => /* @__PURE__ */ jsxDEV("label", { className: "text-sm text-gray-200", children }, void 0, false, {
+  fileName: "<stdin>",
+  lineNumber: 3,
+  columnNumber: 33
+});
+const Row = ({ children }) => /* @__PURE__ */ jsxDEV("div", { className: "flex items-center justify-between py-2", children }, void 0, false, {
+  fileName: "<stdin>",
+  lineNumber: 4,
+  columnNumber: 31
+});
+const Select = (props) => /* @__PURE__ */ jsxDEV("select", { ...props, className: "bg-black/60 border border-gray-600 text-white px-2 py-1 rounded ml-3" }, void 0, false, {
+  fileName: "<stdin>",
+  lineNumber: 5,
+  columnNumber: 27
+});
+const Input = (props) => /* @__PURE__ */ jsxDEV("input", { ...props, className: "bg-black/60 border border-gray-600 text-white px-2 py-1 rounded ml-3 w-24" }, void 0, false, {
+  fileName: "<stdin>",
+  lineNumber: 6,
+  columnNumber: 26
+});
+function SettingsPanel({ settings, setSettings, onClose }) {
+  const s = settings || {};
+  const mm = s.minimap || {};
+  const update = (patch) => setSettings({ ...s, ...patch });
+  const updateMM = (patch) => update({ minimap: { ...mm, ...patch } });
+  return /* @__PURE__ */ jsxDEV("div", { className: "fixed inset-0 z-50 flex items-center justify-center", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "absolute inset-0 bg-black/60", onClick: onClose }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 11,
-      columnNumber: 13
-    }),
-    /* @__PURE__ */ jsxDEV("div", { className: "p-4 space-y-4", children: [
-      /* @__PURE__ */ jsxDEV("h3", { className: "text-yellow-300 font-bold text-md", children: "Graphics" }, void 0, false, {
-        fileName: "<stdin>",
-        lineNumber: 22,
-        columnNumber: 17
-      }),
-      /* @__PURE__ */ jsxDEV("div", { className: "flex justify-between items-center", children: [
-        /* @__PURE__ */ jsxDEV("label", { htmlFor: "shadows-toggle", children: "Enable Shadows" }, void 0, false, {
+      lineNumber: 16,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "relative w-full max-w-xl bg-black text-white border border-gray-700 rounded-xl shadow-2xl p-6", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "flex items-center justify-between mb-4", children: [
+        /* @__PURE__ */ jsxDEV("h2", { className: "text-lg font-semibold", children: "Settings" }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 24,
-          columnNumber: 21
-        }),
-        /* @__PURE__ */ jsxDEV(
-          "input",
-          {
-            type: "checkbox",
-            id: "shadows-toggle",
-            checked: settings.shadows,
-            onChange: (e) => handleSettingChange("shadows", e.target.checked),
-            className: "form-checkbox h-5 w-5 text-yellow-500 bg-gray-700 border-gray-500 rounded focus:ring-yellow-500"
-          },
-          void 0,
-          false,
-          {
+          lineNumber: 19,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("button", { onClick: onClose, className: "px-3 py-1 rounded bg-white/10 hover:bg-white/20 border border-gray-600", children: "Close" }, void 0, false, {
+          fileName: "<stdin>",
+          lineNumber: 20,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "<stdin>",
+        lineNumber: 18,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "space-y-4", children: [
+        /* @__PURE__ */ jsxDEV("section", { children: [
+          /* @__PURE__ */ jsxDEV("h3", { className: "text-md font-semibold mb-2 text-gray-300", children: "Graphics" }, void 0, false, {
             fileName: "<stdin>",
             lineNumber: 25,
-            columnNumber: 21
-          }
-        )
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(Row, { children: [
+            /* @__PURE__ */ jsxDEV(Label, { children: "Shadows" }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 27,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV("input", { type: "checkbox", checked: !!s.shadows, onChange: (e) => update({ shadows: e.target.checked }) }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 28,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "<stdin>",
+            lineNumber: 26,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(Row, { children: [
+            /* @__PURE__ */ jsxDEV(Label, { children: "Shadow Quality" }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 31,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(Select, { value: s.shadowQuality || "low", onChange: (e) => update({ shadowQuality: e.target.value }), children: [
+              /* @__PURE__ */ jsxDEV("option", { value: "low", children: "Low" }, void 0, false, {
+                fileName: "<stdin>",
+                lineNumber: 33,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV("option", { value: "medium", children: "Medium" }, void 0, false, {
+                fileName: "<stdin>",
+                lineNumber: 34,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV("option", { value: "high", children: "High" }, void 0, false, {
+                fileName: "<stdin>",
+                lineNumber: 35,
+                columnNumber: 17
+              }, this)
+            ] }, void 0, true, {
+              fileName: "<stdin>",
+              lineNumber: 32,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "<stdin>",
+            lineNumber: 30,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(Row, { children: [
+            /* @__PURE__ */ jsxDEV(Label, { children: "Antialiasing" }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 39,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV("input", { type: "checkbox", checked: !!s.antialiasing, onChange: (e) => update({ antialiasing: e.target.checked }) }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 40,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "<stdin>",
+            lineNumber: 38,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(Row, { children: [
+            /* @__PURE__ */ jsxDEV(Label, { children: "World Grid" }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 43,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV("input", { type: "checkbox", checked: !!s.grid, onChange: (e) => update({ grid: e.target.checked }) }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 44,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "<stdin>",
+            lineNumber: 42,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(Row, { children: [
+            /* @__PURE__ */ jsxDEV(Label, { children: "Object Density" }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 47,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(Select, { value: s.objectDensity || "medium", onChange: (e) => update({ objectDensity: e.target.value }), children: [
+              /* @__PURE__ */ jsxDEV("option", { value: "low", children: "Low" }, void 0, false, {
+                fileName: "<stdin>",
+                lineNumber: 49,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV("option", { value: "medium", children: "Medium" }, void 0, false, {
+                fileName: "<stdin>",
+                lineNumber: 50,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV("option", { value: "high", children: "High" }, void 0, false, {
+                fileName: "<stdin>",
+                lineNumber: 51,
+                columnNumber: 17
+              }, this)
+            ] }, void 0, true, {
+              fileName: "<stdin>",
+              lineNumber: 48,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "<stdin>",
+            lineNumber: 46,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(Row, { children: [
+            /* @__PURE__ */ jsxDEV(Label, { children: "FPS Limit" }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 55,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(Select, { value: s.fpsLimit || "60 FPS", onChange: (e) => update({ fpsLimit: e.target.value }), children: [
+              /* @__PURE__ */ jsxDEV("option", { value: "30 FPS", children: "30 FPS" }, void 0, false, {
+                fileName: "<stdin>",
+                lineNumber: 57,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV("option", { value: "60 FPS", children: "60 FPS" }, void 0, false, {
+                fileName: "<stdin>",
+                lineNumber: 58,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV("option", { value: "120 FPS", children: "120 FPS" }, void 0, false, {
+                fileName: "<stdin>",
+                lineNumber: 59,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV("option", { value: "Unlimited", children: "Unlimited" }, void 0, false, {
+                fileName: "<stdin>",
+                lineNumber: 60,
+                columnNumber: 17
+              }, this)
+            ] }, void 0, true, {
+              fileName: "<stdin>",
+              lineNumber: 56,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "<stdin>",
+            lineNumber: 54,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(Row, { children: [
+            /* @__PURE__ */ jsxDEV(Label, { children: "Render Scale" }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 64,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(
+              Input,
+              {
+                type: "number",
+                step: "0.1",
+                min: "0.5",
+                max: "2",
+                value: s.maxPixelRatio ?? 1,
+                onChange: (e) => update({ maxPixelRatio: Math.max(0.5, Math.min(2, parseFloat(e.target.value) || 1)) })
+              },
+              void 0,
+              false,
+              {
+                fileName: "<stdin>",
+                lineNumber: 65,
+                columnNumber: 15
+              },
+              this
+            )
+          ] }, void 0, true, {
+            fileName: "<stdin>",
+            lineNumber: 63,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "<stdin>",
+          lineNumber: 24,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("section", { children: [
+          /* @__PURE__ */ jsxDEV("h3", { className: "text-md font-semibold mb-2 text-gray-300", children: "Minimap" }, void 0, false, {
+            fileName: "<stdin>",
+            lineNumber: 71,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(Row, { children: [
+            /* @__PURE__ */ jsxDEV(Label, { children: "Enabled" }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 73,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV("input", { type: "checkbox", checked: !!mm.enabled, onChange: (e) => updateMM({ enabled: e.target.checked }) }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 74,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "<stdin>",
+            lineNumber: 72,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(Row, { children: [
+            /* @__PURE__ */ jsxDEV(Label, { children: "Show Grid" }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 77,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV("input", { type: "checkbox", checked: !!mm.showGrid, onChange: (e) => updateMM({ showGrid: e.target.checked }) }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 78,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "<stdin>",
+            lineNumber: 76,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(Row, { children: [
+            /* @__PURE__ */ jsxDEV(Label, { children: "Show Info" }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 81,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV("input", { type: "checkbox", checked: !!mm.showInfo, onChange: (e) => updateMM({ showInfo: e.target.checked }) }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 82,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "<stdin>",
+            lineNumber: 80,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(Row, { children: [
+            /* @__PURE__ */ jsxDEV(Label, { children: "Opacity" }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 85,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(
+              Input,
+              {
+                type: "range",
+                min: "0.4",
+                max: "1",
+                step: "0.05",
+                value: mm.opacity ?? 0.9,
+                onChange: (e) => updateMM({ opacity: parseFloat(e.target.value) })
+              },
+              void 0,
+              false,
+              {
+                fileName: "<stdin>",
+                lineNumber: 86,
+                columnNumber: 15
+              },
+              this
+            )
+          ] }, void 0, true, {
+            fileName: "<stdin>",
+            lineNumber: 84,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(Row, { children: [
+            /* @__PURE__ */ jsxDEV(Label, { children: "Size" }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 90,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(
+              Input,
+              {
+                type: "number",
+                min: "64",
+                max: "256",
+                step: "16",
+                value: mm.size ?? 128,
+                onChange: (e) => updateMM({ size: Math.max(64, Math.min(256, parseInt(e.target.value) || 128)) })
+              },
+              void 0,
+              false,
+              {
+                fileName: "<stdin>",
+                lineNumber: 91,
+                columnNumber: 15
+              },
+              this
+            )
+          ] }, void 0, true, {
+            fileName: "<stdin>",
+            lineNumber: 89,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "<stdin>",
+          lineNumber: 70,
+          columnNumber: 11
+        }, this)
       ] }, void 0, true, {
         fileName: "<stdin>",
         lineNumber: 23,
-        columnNumber: 17
-      }),
-      settings.shadows && /* @__PURE__ */ jsxDEV("div", { children: [
-        /* @__PURE__ */ jsxDEV("label", { className: "block mb-2", children: "Shadow Quality" }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 35,
-          columnNumber: 25
-        }),
-        /* @__PURE__ */ jsxDEV("div", { className: "flex justify-between", children: ["Low", "Medium", "High"].map((level) => /* @__PURE__ */ jsxDEV(
-          "button",
-          {
-            onClick: () => handleSettingChange("shadowQuality", level.toLowerCase()),
-            className: `px-4 py-1 rounded text-sm ${settings.shadowQuality === level.toLowerCase() ? "bg-yellow-500 text-black" : "bg-gray-700 hover:bg-gray-600"}`,
-            children: level
-          },
-          level,
-          false,
-          {
-            fileName: "<stdin>",
-            lineNumber: 38,
-            columnNumber: 33
-          }
-        )) }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 36,
-          columnNumber: 25
-        })
-      ] }, void 0, true, {
-        fileName: "<stdin>",
-        lineNumber: 34,
-        columnNumber: 21
-      }),
-      /* @__PURE__ */ jsxDEV("div", { className: "flex justify-between items-center", children: [
-        /* @__PURE__ */ jsxDEV("label", { htmlFor: "antialias-toggle", children: "Antialiasing (reloads renderer)" }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 50,
-          columnNumber: 21
-        }),
-        /* @__PURE__ */ jsxDEV(
-          "input",
-          {
-            type: "checkbox",
-            id: "antialias-toggle",
-            checked: settings.antialiasing,
-            onChange: (e) => handleSettingChange("antialiasing", e.target.checked),
-            className: "form-checkbox h-5 w-5 text-yellow-500 bg-gray-700 border-gray-500 rounded focus:ring-yellow-500"
-          },
-          void 0,
-          false,
-          {
-            fileName: "<stdin>",
-            lineNumber: 51,
-            columnNumber: 21
-          }
-        )
-      ] }, void 0, true, {
-        fileName: "<stdin>",
-        lineNumber: 49,
-        columnNumber: 17
-      }),
-      /* @__PURE__ */ jsxDEV("div", { className: "flex justify-between items-center", children: [
-        /* @__PURE__ */ jsxDEV("label", { htmlFor: "grid-toggle", children: "Show Grid" }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 60,
-          columnNumber: 21
-        }),
-        /* @__PURE__ */ jsxDEV(
-          "input",
-          {
-            type: "checkbox",
-            id: "grid-toggle",
-            checked: settings.grid,
-            onChange: (e) => handleSettingChange("grid", e.target.checked),
-            className: "form-checkbox h-5 w-5 text-yellow-500 bg-gray-700 border-gray-500 rounded focus:ring-yellow-500"
-          },
-          void 0,
-          false,
-          {
-            fileName: "<stdin>",
-            lineNumber: 61,
-            columnNumber: 21
-          }
-        )
-      ] }, void 0, true, {
-        fileName: "<stdin>",
-        lineNumber: 59,
-        columnNumber: 17
-      }),
-      /* @__PURE__ */ jsxDEV("div", { children: [
-        /* @__PURE__ */ jsxDEV("label", { className: "block mb-2", children: "Render Scale" }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 71,
-          columnNumber: 21
-        }),
-        /* @__PURE__ */ jsxDEV("div", { className: "grid grid-cols-4 gap-2", children: [0.75, 1, 1.25, 1.5].map((scale) => /* @__PURE__ */ jsxDEV(
-          "button",
-          {
-            onClick: () => handleSettingChange("maxPixelRatio", scale),
-            className: `px-2 py-1 rounded text-sm ${settings.maxPixelRatio === scale ? "bg-yellow-500 text-black" : "bg-gray-700 hover:bg-gray-600"}`,
-            title: `Limit rendering to ${scale}\xD7 device pixel ratio`,
-            children: [
-              scale,
-              "\xD7"
-            ]
-          },
-          scale,
-          true,
-          {
-            fileName: "<stdin>",
-            lineNumber: 74,
-            columnNumber: 29
-          }
-        )) }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 72,
-          columnNumber: 21
-        }),
-        /* @__PURE__ */ jsxDEV("div", { className: "text-xs text-gray-400 mt-1", children: "Lower values improve performance on high-DPI screens." }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 84,
-          columnNumber: 21
-        })
-      ] }, void 0, true, {
-        fileName: "<stdin>",
-        lineNumber: 70,
-        columnNumber: 17
-      }),
-      /* @__PURE__ */ jsxDEV("div", { children: [
-        /* @__PURE__ */ jsxDEV("label", { className: "block mb-2", children: "Object Density" }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 89,
-          columnNumber: 21
-        }),
-        /* @__PURE__ */ jsxDEV("div", { className: "flex justify-between", children: ["Low", "Medium", "High"].map((level) => /* @__PURE__ */ jsxDEV(
-          "button",
-          {
-            onClick: () => handleSettingChange("objectDensity", level.toLowerCase()),
-            className: `px-4 py-1 rounded text-sm ${settings.objectDensity === level.toLowerCase() ? "bg-yellow-500 text-black" : "bg-gray-700 hover:bg-gray-600"}`,
-            children: level
-          },
-          level,
-          false,
-          {
-            fileName: "<stdin>",
-            lineNumber: 92,
-            columnNumber: 30
-          }
-        )) }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 90,
-          columnNumber: 21
-        })
-      ] }, void 0, true, {
-        fileName: "<stdin>",
-        lineNumber: 88,
-        columnNumber: 17
-      }),
-      /* @__PURE__ */ jsxDEV("div", { children: [
-        /* @__PURE__ */ jsxDEV("label", { className: "block mb-2", children: "Framerate Limit" }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 104,
-          columnNumber: 21
-        }),
-        /* @__PURE__ */ jsxDEV("div", { className: "flex justify-between", children: ["Unlimited", "60 FPS", "30 FPS"].map((level) => /* @__PURE__ */ jsxDEV(
-          "button",
-          {
-            onClick: () => handleSettingChange("fpsLimit", level),
-            className: `px-4 py-1 rounded text-sm ${settings.fpsLimit === level ? "bg-yellow-500 text-black" : "bg-gray-700 hover:bg-gray-600"}`,
-            children: level
-          },
-          level,
-          false,
-          {
-            fileName: "<stdin>",
-            lineNumber: 107,
-            columnNumber: 30
-          }
-        )) }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 105,
-          columnNumber: 21
-        })
-      ] }, void 0, true, {
-        fileName: "<stdin>",
-        lineNumber: 103,
-        columnNumber: 17
-      }),
-      /* @__PURE__ */ jsxDEV("div", { className: "text-xs text-gray-400 pt-2 border-t border-gray-700", children: /* @__PURE__ */ jsxDEV("p", { children: "Reducing graphics settings can improve performance on less powerful devices." }, void 0, false, {
-        fileName: "<stdin>",
-        lineNumber: 119,
-        columnNumber: 21
-      }) }, void 0, false, {
-        fileName: "<stdin>",
-        lineNumber: 118,
-        columnNumber: 17
-      }),
-      /* @__PURE__ */ jsxDEV("h3", { className: "text-yellow-300 font-bold text-md pt-4 border-t border-gray-700", children: "Minimap" }, void 0, false, {
-        fileName: "<stdin>",
-        lineNumber: 123,
-        columnNumber: 17
-      }),
-      /* @__PURE__ */ jsxDEV("div", { className: "flex justify-between items-center", children: [
-        /* @__PURE__ */ jsxDEV("label", { htmlFor: "minimap-enabled", children: "Show Minimap" }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 125,
-          columnNumber: 21
-        }),
-        /* @__PURE__ */ jsxDEV(
-          "input",
-          {
-            type: "checkbox",
-            id: "minimap-enabled",
-            checked: settings.minimap?.enabled ?? true,
-            onChange: (e) => setSettings((prev) => ({
-              ...prev,
-              minimap: { ...prev.minimap || {}, enabled: e.target.checked }
-            })),
-            className: "form-checkbox h-5 w-5 text-yellow-500 bg-gray-700 border-gray-500 rounded focus:ring-yellow-500"
-          },
-          void 0,
-          false,
-          {
-            fileName: "<stdin>",
-            lineNumber: 126,
-            columnNumber: 21
-          }
-        )
-      ] }, void 0, true, {
-        fileName: "<stdin>",
-        lineNumber: 124,
-        columnNumber: 17
-      }),
-      /* @__PURE__ */ jsxDEV("div", { className: "flex justify-between items-center", children: [
-        /* @__PURE__ */ jsxDEV("label", { htmlFor: "minimap-grid", children: "Show Grid" }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 138,
-          columnNumber: 21
-        }),
-        /* @__PURE__ */ jsxDEV(
-          "input",
-          {
-            type: "checkbox",
-            id: "minimap-grid",
-            checked: settings.minimap?.showGrid ?? true,
-            onChange: (e) => setSettings((prev) => ({
-              ...prev,
-              minimap: { ...prev.minimap || {}, showGrid: e.target.checked }
-            })),
-            className: "form-checkbox h-5 w-5 text-yellow-500 bg-gray-700 border-gray-500 rounded focus:ring-yellow-500"
-          },
-          void 0,
-          false,
-          {
-            fileName: "<stdin>",
-            lineNumber: 139,
-            columnNumber: 21
-          }
-        )
-      ] }, void 0, true, {
-        fileName: "<stdin>",
-        lineNumber: 137,
-        columnNumber: 17
-      }),
-      /* @__PURE__ */ jsxDEV("div", { className: "flex justify-between items-center", children: [
-        /* @__PURE__ */ jsxDEV("label", { htmlFor: "minimap-info", children: "Show Info (coords/biome/district/road)" }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 151,
-          columnNumber: 21
-        }),
-        /* @__PURE__ */ jsxDEV(
-          "input",
-          {
-            type: "checkbox",
-            id: "minimap-info",
-            checked: settings.minimap?.showInfo ?? true,
-            onChange: (e) => setSettings((prev) => ({
-              ...prev,
-              minimap: { ...prev.minimap || {}, showInfo: e.target.checked }
-            })),
-            className: "form-checkbox h-5 w-5 text-yellow-500 bg-gray-700 border-gray-500 rounded focus:ring-yellow-500"
-          },
-          void 0,
-          false,
-          {
-            fileName: "<stdin>",
-            lineNumber: 152,
-            columnNumber: 21
-          }
-        )
-      ] }, void 0, true, {
-        fileName: "<stdin>",
-        lineNumber: 150,
-        columnNumber: 17
-      }),
-      /* @__PURE__ */ jsxDEV("div", { children: [
-        /* @__PURE__ */ jsxDEV("label", { className: "block mb-2", children: "Minimap Size" }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 164,
-          columnNumber: 21
-        }),
-        /* @__PURE__ */ jsxDEV("div", { className: "grid grid-cols-4 gap-2", children: [96, 128, 160, 192].map((sz) => /* @__PURE__ */ jsxDEV(
-          "button",
-          {
-            onClick: () => setSettings((prev) => ({
-              ...prev,
-              minimap: { ...prev.minimap || {}, size: sz }
-            })),
-            className: `px-2 py-1 rounded text-sm ${(settings.minimap?.size ?? 128) === sz ? "bg-yellow-500 text-black" : "bg-gray-700 hover:bg-gray-600"}`,
-            children: [
-              sz,
-              "px"
-            ]
-          },
-          sz,
-          true,
-          {
-            fileName: "<stdin>",
-            lineNumber: 167,
-            columnNumber: 29
-          }
-        )) }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 165,
-          columnNumber: 21
-        })
-      ] }, void 0, true, {
-        fileName: "<stdin>",
-        lineNumber: 163,
-        columnNumber: 17
-      }),
-      /* @__PURE__ */ jsxDEV("div", { children: [
-        /* @__PURE__ */ jsxDEV("label", { className: "block mb-2", children: "Minimap Opacity" }, void 0, false, {
-          fileName: "<stdin>",
-          lineNumber: 181,
-          columnNumber: 21
-        }),
-        /* @__PURE__ */ jsxDEV(
-          "input",
-          {
-            type: "range",
-            min: "0.4",
-            max: "1",
-            step: "0.05",
-            value: settings.minimap?.opacity ?? 0.9,
-            onChange: (e) => setSettings((prev) => ({
-              ...prev,
-              minimap: { ...prev.minimap || {}, opacity: parseFloat(e.target.value) }
-            })),
-            className: "w-full accent-yellow-500"
-          },
-          void 0,
-          false,
-          {
-            fileName: "<stdin>",
-            lineNumber: 182,
-            columnNumber: 21
-          }
-        )
-      ] }, void 0, true, {
-        fileName: "<stdin>",
-        lineNumber: 180,
-        columnNumber: 17
-      })
+        columnNumber: 9
+      }, this)
     ] }, void 0, true, {
       fileName: "<stdin>",
-      lineNumber: 21,
-      columnNumber: 13
-    })
+      lineNumber: 17,
+      columnNumber: 7
+    }, this)
   ] }, void 0, true, {
     fileName: "<stdin>",
-    lineNumber: 9,
-    columnNumber: 9
-  });
-};
-var stdin_default = SettingsPanel;
+    lineNumber: 15,
+    columnNumber: 5
+  }, this);
+}
 export {
-  SettingsPanel,
-  stdin_default as default
+  SettingsPanel as default
 };

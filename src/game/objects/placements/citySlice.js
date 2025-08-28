@@ -39,6 +39,10 @@ const CITY_SLICE_COLLIDER_PADDING = 0.5;
 const CITY_SLICE_COLLIDER_MIN_HALF = 2;
 /* @tweakable attach small debug markers to collider centers */
 const CITY_SLICE_COLLIDER_DEBUG = false;
+/* @tweakable choose building set: 'default' (30 mixed), 'basic' (5 in a row), or 'basic-grid' (5x12 colors) */
+const CITY_SLICE_VARIANT = 'default';
+/* @tweakable palette index (0..11) when variant==='basic' */
+const CITY_SLICE_BASIC_PALETTE_INDEX = 0;
 
 // Build the Konoha city slice and add it to the scene with collision proxies.
 // Returns the slice group or null on failure.
@@ -51,7 +55,8 @@ export function placeCitySlice(scene, objectGrid, settings) {
     // Use the buildings-module style API to add and place the slice, with colliders
     const group = addCitySliceBuildings(town, {
       THREE,
-      settings,
+      // Include local toggles for variant + palette; allow external settings to override.
+      settings: { ...settings, citySliceVariant: settings?.citySliceVariant ?? CITY_SLICE_VARIANT, citySlicePaletteIndex: settings?.citySlicePaletteIndex ?? CITY_SLICE_BASIC_PALETTE_INDEX },
       objectGrid,
       origin: [CITY_SLICE_ORIGIN.x, CITY_SLICE_ORIGIN.y, CITY_SLICE_ORIGIN.z],
       scale: CITY_SLICE_SCALE,
@@ -92,7 +97,9 @@ export function placeCitySlice(scene, objectGrid, settings) {
       rebuildSliceColliders(group, objectGrid);
     }
     // NEW: ensure at least 4 buildings per district by cloning exemplar buildings
-    if (districtPolys.length > 0) {
+    // Skip when using compact/basic-grid variants to preserve spacing and avoid collisions
+    const variant = settings?.citySliceVariant || 'default';
+    if (districtPolys.length > 0 && variant === 'default') {
       // Collect non-collider templates to randomize from
     const templates = group.children.filter(ch => !ch?.userData?.collider);
     const rand = (arr) => arr[(Math.random() * arr.length) | 0];
@@ -336,9 +343,39 @@ function rebuildSliceColliders(group, objectGrid) {
       const cz = hull.reduce((s, p) => s + p.z, 0) / hull.length;
       const proxy = new THREE.Object3D();
       proxy.position.set(cx, 0, cz);
+      // Build a unique label (count per baseName across current group)
+      if (!group.userData.__nameCounts) group.userData.__nameCounts = new Map();
+      const baseName = building.name || 'SliceBuilding';
+      const next = (group.userData.__nameCounts.get(baseName) || 0) + 1;
+      group.userData.__nameCounts.set(baseName, next);
+      const uniqueName = next === 1 ? baseName : `${baseName} (${next})`;
+      proxy.name = uniqueName;
       proxy.userData = {
-        label: building.name || 'SliceBuilding',
-        collider: { type: 'polygon', points: hull }
+        label: uniqueName,
+        collider: { type: 'polygon', points: hull },
+        onInteract: (obj, player) => {
+          try {
+            const target = building;
+            const orig = target.scale.clone();
+            const start = (typeof performance !== 'undefined' ? performance.now() : Date.now());
+            const dur = 450;
+            const amp = 0.08;
+            const step = () => {
+              const now = (typeof performance !== 'undefined' ? performance.now() : Date.now());
+              const t = Math.min(1, (now - start) / dur);
+              const s = 1 + amp * Math.sin(t * Math.PI);
+              target.scale.set(orig.x * s, orig.y * s, orig.z * s);
+              if (t < 1) {
+                (typeof requestAnimationFrame !== 'undefined' ? requestAnimationFrame : setTimeout)(step, 16);
+              } else {
+                target.scale.copy(orig);
+              }
+            };
+            step();
+            // eslint-disable-next-line no-console
+            console.log(`Interacted with ${uniqueName}`);
+          } catch (_) {}
+        }
       };
       objectGrid.add(proxy);
       group.add(proxy);

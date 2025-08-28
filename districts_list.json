@@ -1,0 +1,302 @@
+﻿[
+    {
+        "id":  "Aburame",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "Akimichi",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "Cemetery",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-1",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-10",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-11",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-12",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-13",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-14",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-15",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-16",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-17",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-18",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-19",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-2",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-20",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-21",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-22",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-23",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-24",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-25",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-26",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-27",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-28",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-29",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-3",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-30",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-31",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-32",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-33",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-34",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-35",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-36",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-37",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-38",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-39",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-4",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-5",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-6",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-7",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "district-8",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "hyuuga",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "Nara",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "residential1",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "residential2",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "residential3",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "residential4",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "residential5",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "residential6",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    },
+    {
+        "id":  "Yamanaka",
+        "name":  null,
+        "desc":  null,
+        "source":  "districts-custom.js"
+    }
+]
