@@ -20,6 +20,7 @@ import KakashiAnimationsModal from "./components/UI/KakashiAnimationsModal.jsx";
 import { changelogData } from "./components/UI/ChangelogPanel.jsx";
 import PauseMenu from "./components/UI/PauseMenu.jsx";
 import HokageOfficeModal from "./components/UI/HokageOfficeModal.jsx";
+import KitbashBuildingModal from "./components/UI/KitbashBuildingModal.jsx";
 import JutsuModal from "./components/UI/JutsuModal.jsx";
 const VERSION_PREFIX = "v";
 const OVERRIDE_VERSION = null;
@@ -62,6 +63,8 @@ const OpenWorldGame = () => {
   const [showKakashi, setShowKakashi] = useState(false);
   const [showPauseMenu, setShowPauseMenu] = useState(false);
   const [showHokageOffice, setShowHokageOffice] = useState(false);
+  const [showKitbashModal, setShowKitbashModal] = useState(false);
+  const [kitbashDetails, setKitbashDetails] = useState(null);
   const [showJutsuModal, setShowJutsuModal] = useState(false);
   const uiState = {
     setShowCharacter,
@@ -87,7 +90,16 @@ const OpenWorldGame = () => {
       setShowHokageOffice(true);
     };
     window.addEventListener("open-hokage-office", open);
-    return () => window.removeEventListener("open-hokage-office", open);
+    const openKit = (e) => {
+      window.__gamePaused = true;
+      setKitbashDetails(e?.detail || null);
+      setShowKitbashModal(true);
+    };
+    window.addEventListener("open-kitbash-building", openKit);
+    return () => {
+      window.removeEventListener("open-hokage-office", open);
+      window.removeEventListener("open-kitbash-building", openKit);
+    };
   }, []);
   const handleStartGame = async () => {
     setGameReady(false);
@@ -241,6 +253,12 @@ const OpenWorldGame = () => {
     gameState === "Playing" && showHokageOffice && /* @__PURE__ */ jsxDEV(HokageOfficeModal, { onClose: () => {
       window.__gamePaused = false;
       setShowHokageOffice(false);
+    } }, void 0, false),
+    /* NEW: Kitbash Building Modal */
+    gameState === "Playing" && showKitbashModal && /* @__PURE__ */ jsxDEV(KitbashBuildingModal, { details: kitbashDetails, onClose: () => {
+      window.__gamePaused = false;
+      setShowKitbashModal(false);
+      setKitbashDetails(null);
     } }, void 0, false),
     /* NEW: Jutsu Modal */
     gameState === "Playing" && showJutsuModal && /* @__PURE__ */ jsxDEV(ErrorBoundary, { children: /* @__PURE__ */ jsxDEV(JutsuModal, { onClose: () => setShowJutsuModal(false) }, void 0, false) }, void 0, false)

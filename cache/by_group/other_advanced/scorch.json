@@ -2,21 +2,126 @@
   {
     "name": "Scorch Release: Extremely Steaming Murder",
     "sourcePage": "Scorch Release: Extremely Steaming Murder",
-    "pageId": 63336,
     "url": "https://naruto.fandom.com/wiki/Scorch_Release:_Extremely_Steaming_Murder",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/e/e4/Scorch_Release_suns.png/revision/latest/scale-to-width-down/600?cb=20151102011645",
     "raw": {
-      "markdown": "# Scorch Release: Extremely Steaming Murder\n\n## Quick Facts\n- Element/Type: Scorch Release\n- Classification: Kekkei Genkai~Scorch Release, Ninjutsu,\n- Class: Offensive\n- Range: Short\n- Users: Pakura\n- Media: Anime, Manga, Game\n\n## Summary\nThe user creates several flaming orbs that resemble small suns. These orbs rotate around the user and can be freely controlled to attack enemies.\n\n## Usage\n- However, this technique is vulnerable to Water Release, which can be used to dissipate the heat, becoming steam.\n\n## Notes\n- When an orb touches an opponent, it instantly evaporates all the water inside their body, leaving them in a mummified state.\n- When this happens, steam can be seen emitting from the opponent's body.\n- * In later depictions in the anime, the orbs were changed into magatama.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Scorch Release: Extremely Steaming Murder"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Scorch Release",
+            "**Classification:** Kekkei Genkai, Scorch Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short",
+            "**Users:** Pakura",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The user creates several flaming orbs that resemble small suns. These orbs rotate around the user and can be freely controlled to attack enemies."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Usage"
+        },
+        {
+          "type": "list",
+          "items": [
+            "However, this technique is vulnerable to Water Release, which can be used to dissipate the heat, becoming steam."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "When an orb touches an opponent, it instantly evaporates all the water inside their body, leaving them in a mummified state.",
+            "When this happens, steam can be seen emitting from the opponent's body.",
+            "* In later depictions in the anime, the orbs were changed into magatama."
+          ]
+        }
+      ]
+    },
+    "id": "scorch-release-extremely-steaming-murder",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The user creates several flaming orbs that resemble small suns. These orbs rotate around the user and can be freely controlled to attack enemies.",
+    "technique": [
+      "However, this technique is vulnerable to Water Release, which can be used to dissipate the heat, becoming steam.",
+      "When an orb touches an opponent, it instantly evaporates all the water inside their body, leaving them in a mummified state.",
+      "When this happens, steam can be seen emitting from the opponent's body.",
+      "In later depictions in the anime, the orbs were changed into magatama."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Scorch Release: Extremely Steaming Murder mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Scorch Release: Great Steaming Explosive Blast",
     "sourcePage": "Scorch Release: Great Steaming Explosive Blast",
-    "pageId": 104245,
     "url": "https://naruto.fandom.com/wiki/Scorch_Release:_Great_Steaming_Explosive_Blast",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/6/63/Great_Steaming_Explosive_Blast.png/revision/latest/scale-to-width-down/600?cb=20160121021832",
     "raw": {
-      "markdown": "# Scorch Release: Great Steaming Explosive Blast\n\n## Quick Facts\n- Element/Type: Scorch Release\n- Classification: Kekkei Genkai~Scorch Release, Ninjutsu\n- Class: Offensive\n- Range: Short, Mid, Long\n- Users: Pakura\n- Media: Anime, Game\n\n## Summary\nPakura combines several of her flaming orbs to create a single massive one, which then violently explodes with enough force and power to incinerate a large area around it. When this happens, steam can be seen emitting from the area.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Scorch Release: Great Steaming Explosive Blast"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Scorch Release",
+            "**Classification:** Kekkei Genkai, Scorch Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Pakura",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Pakura combines several of her flaming orbs to create a single massive one, which then violently explodes with enough force and power to incinerate a large area around it. When this happens, steam can be seen emitting from the area."
+        }
+      ]
+    },
+    "id": "scorch-release-great-steaming-explosive-blast",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Pakura combines several of her flaming orbs to create a single massive one, which then violently explodes with enough force and power to incinerate a large area around it. When this happens, steam can be seen emitting from the area.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Scorch Release: Great Steaming Explosive Blast mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   }
 ]

@@ -35,6 +35,7 @@ import { placeHokageMonument } from './placements/hokageMonument.js';
 import { placeIchiraku } from './placements/ichiraku.js';
 import { placeKonohaGates } from './placements/konohaGates.js';
 import { placeCitySlice } from './placements/citySlice.js';
+import { placeKitbash } from './placements/kitbash.js';
 import { WALL_RADIUS } from '../player/movement/constants.js';
 import { parseGridLabel, posForCell } from './utils/gridLabel.js';
 import * as THREE from 'three';
@@ -136,6 +137,10 @@ export function updateObjects(scene, currentObjects, settings) {
 
   const citySlice = placeCitySlice(scene, objectGrid, settings);
   if (citySlice) renderObjects.push(citySlice);
+
+  // Kitbash neighborhood: separate colliders + unique interactions; avoid CitySlice overlap
+  const kitbash = placeKitbash(scene, objectGrid, settings);
+  if (kitbash) renderObjects.push(kitbash);
 
   // KonohaTown buildings removed
 

@@ -2,11 +2,89 @@
   {
     "name": "Body Flicker Technique",
     "sourcePage": "Body Flicker Technique",
-    "pageId": 2070,
     "url": "https://naruto.fandom.com/wiki/Body_Flicker_Technique",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/e/ef/Body_flicker_pt_1.png/revision/latest/scale-to-width-down/600?cb=20170123030549",
     "raw": {
-      "markdown": "# Body Flicker Technique\n\n## Quick Facts\n- Classification: Ninjutsu, General skill\n- Class: Supplementary\n- Users: A (Third Raikage), A (Fourth Raikage), Shisui Uchiha<!-- Do not add Naruto or any other ninja because here notable shinobi who extensively use this technique as their fighting style are added. -->\n- Media: Anime, Manga, Novel, Game, Movie\n\n## Summary\nThe Body Flicker Technique is a high-speed movement technique. To an observer, it appears as if the user has teleported.\n\n## Usage\n- * The Body Flicker Technique is similar to Swift Release, a kekkei genkai that allows the user to move at high speeds.\n\n## Counters / Defenses\n- In Viz's English translations, the Body Flicker Technique is called \"Teleportation\", whereas space–time ninjutsu are generally referred to as \"Transportation Techniques\".\n\n## Notes\n- It is accomplished by using chakra to temporarily vitalise the body and move at extreme speeds.\n- The amount of chakra required depends on the overall distance and elevation between the user and the intended destination.\n- Despite this, the Flying Thunder God Technique is regularly mistaken for \"Body Flicker Technique\" by various individuals, including the technique's creator, due to targets not seen to be tagged for the \"Flying Thunder God Technique\".\n- ** Further confusion exists in some translations of the series.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Body Flicker Technique"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Classification:** Ninjutsu, General skill",
+            "**Class:** Supplementary",
+            "**Users:** A (Third Raikage), A (Fourth Raikage), Shisui Uchiha",
+            "**Media:** Anime, Manga, Novel, Game, Movie"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Body Flicker Technique is a high-speed movement technique. To an observer, it appears as if the user has teleported."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Usage"
+        },
+        {
+          "type": "list",
+          "items": [
+            "* The Body Flicker Technique is similar to Swift Release, a kekkei genkai that allows the user to move at high speeds."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Counters / Defenses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "In Viz's English translations, the Body Flicker Technique is called \"Teleportation\", whereas space–time ninjutsu are generally referred to as \"Transportation Techniques\"."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "It is accomplished by using chakra to temporarily vitalise the body and move at extreme speeds.",
+            "The amount of chakra required depends on the overall distance and elevation between the user and the intended destination.",
+            "Despite this, the Flying Thunder God Technique is regularly mistaken for \"Body Flicker Technique\" by various individuals, including the technique's creator, due to targets not seen to be tagged for the \"Flying Thunder God Technique\".",
+            "** Further confusion exists in some translations of the series."
+          ]
+        }
+      ]
+    },
+    "id": "body-flicker-technique",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The Body Flicker Technique is a high-speed movement technique. To an observer, it appears as if the user has teleported.",
+    "technique": [
+      "The Body Flicker Technique is similar to Swift Release, a kekkei genkai that allows the user to move at high speeds.",
+      "It is accomplished by using chakra to temporarily vitalise the body and move at extreme speeds.",
+      "The amount of chakra required depends on the overall distance and elevation between the user and the intended destination.",
+      "Despite this, the Flying Thunder God Technique is regularly mistaken for \"Body Flicker Technique\" by various individuals, including the technique's creator, due to targets not seen to be tagged for the \"Flying Thunder God Technique\".",
+      "** Further confusion exists in some translations of the series."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Body Flicker Technique mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   }
 ]

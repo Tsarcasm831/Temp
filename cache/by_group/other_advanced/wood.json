@@ -2,371 +2,2527 @@
   {
     "name": "Black Receiver",
     "sourcePage": "Black Receiver",
-    "pageId": 8643,
     "url": "https://naruto.fandom.com/wiki/Black_Receiver",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/c/c4/Chakra_Receiver_Manifestation.png/revision/latest/scale-to-width-down/600?cb=20141026135812",
     "raw": {
-      "markdown": "# Black Receiver\n\n## Quick Facts\n- Classification: Kekkei Genkai~Rinnegan, Ninjutsu, Dōjutsu\n- Class: Offensive, Supplementary\n- Range: Short, Mid, Long\n- Users: Black Zetsu, Demonic Statue of the Outer Path, Madara Uchiha, Momoshiki Ōtsutsuki, Nagato, Obito Uchiha, Urashiki Ōtsutsuki~anime, Hagoromo Ōtsutsuki~game\n- Media: Anime, Manga, Game, Movie\n\n## Summary\nBlack Receivers are black rods that function as demodulators for high-frequency chakra signals. Users are able to create and transmit their chakra into these receivers for a variety of purposes.\n\n## Usage\n- On one occasion, these rods pierced Nagato's back and drained him of his life force, which allowed him to control the statue.\n- * Black rods have sprouted from Obito's artificial right half on several occasions: upon first awakening his Mangekyō Sharingan and using Wood Release, when Madara used the rods to control his actions, and when Black Zetsu first coated his body and forced him to revive Madara.\n- * When Obito was the Ten-Tails' jinchūriki, he converted one of his Truth-Seeking Balls into six black receivers, which he used to activate the Six Red Yang Formation.\n- As they are controlled by the user's chakra, opponents can prevent these bodies from moving by removing all of their receivers.\n- The creatures Nagato summoned through the Animal Path were also embedded with numerous receivers, suggesting he controlled them in a similar manner.\n\n## Counters / Defenses\n- The receivers implanted in Obito's Six Paths of Pain doubled as a means of temporarily binding the chakra of the tailed beasts sealed inside the Demonic Statue to their bodies, making them into jinchūriki.\n- His absorb chakra instead of transmitting his own to disrupt the chakra of those it pierces.\n\n## Drawbacks\n- Offensively employing receivers from afar carries a risk, as those with sensing capabilities can trace the transmitted chakra back to the user when pierced with one.\n- The user can fully immobilise the target by stabbing them with multiple rods, Aside from being stabbed, simply touching the receivers can apparently also incur negative effects,\n\nChakra receivers are also used to control the Six Paths of Pain: six reanimated corpses that possess copies of the Rinnegan, granting them a shared field of vision with their creator.\n- Nagato controlled his Six Paths of Pain using numerous receivers fashioned into piercings, which were implanted all about their bodies, whereas Obito had a single rod implanted in each body's chest.\n- * In Naruto Shippūden: Shinobi Rumble , Pain's Black Needle Stab temporarily reverses the controls of those stabbed by his black rods.\n\n## Notes\n- However, there have been several instances in which black rods were produced through other means:\n* While connected to the Demonic Statue of the Outer Path, Madara Uchiha produced a black rod from Hashirama's artificial body and identified it as a physical manifestation of his will.\n- He then told Obito Uchiha to use it when performing the Six Paths Technique.\n- They are durable enough to break steel scalpels, as well as sharp enough to pierce through human bodies with ease.\n- Though durable, the rods can still be destroyed when struck with sufficient force, and their creator is able to break them apart without any apparent difficulty.\n- Once formed, the user can transmit chakra to these receivers from across vast distances, though for best results, they must be nearby and at a high elevation.\n- Though chakra being sent to these receivers can be sensed, a skilled user can prevent their location from being discovered by constantly changing the frequency of their chakra.\n- When receiving chakra, the black rods noticeably heat up.\n- Among other Rinnegan abilities, the bodies are capable of producing additional rods to serve as weapons.\n- When they entered Tailed Beast Mode, the receivers would relocate from the jinchūriki's chests up to the tailed beasts' necks.\n- When employed offensively, the black rods make for effective weapons.\n- They can emerge from the user's hand to stab opponents, be broken off and wielded like swords, or be launched as high-speed projectiles, and the size and shape of the generated receivers can be adjusted to fit the situation.\n- He can also manifest chakra chains to bind those touching the receivers with an even greater binding power.\n- In the anime, the user can also apply shape transformation to the rods after launching them, altering them into more elaborate forms.\n- Black receivers disintegrate when their creator is killed or similarly incapacitated, alongside any Truth-Seeking Balls they may possess.\n- though they do eventually heal.\n- * Isshiki Ōtsutsuki has employed similar tools; however, they're different in that Isshiki has no Rinnegan, and they function differently.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Black Receiver"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Classification:** Kekkei Genkai, Rinnegan, Ninjutsu, Dōjutsu",
+            "**Class:** Offensive, Supplementary",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Black Zetsu, Demonic Statue of the Outer Path, Madara Uchiha, Momoshiki Ōtsutsuki, Nagato, Obito Uchiha, Urashiki Ōtsutsuki, anime, Hagoromo Ōtsutsuki, game",
+            "**Media:** Anime, Manga, Game, Movie"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Black Receivers are black rods that function as demodulators for high-frequency chakra signals. Users are able to create and transmit their chakra into these receivers for a variety of purposes."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Usage"
+        },
+        {
+          "type": "list",
+          "items": [
+            "On one occasion, these rods pierced Nagato's back and drained him of his life force, which allowed him to control the statue.",
+            "* Black rods have sprouted from Obito's artificial right half on several occasions: upon first awakening his Mangekyō Sharingan and using Wood Release, when Madara used the rods to control his actions, and when Black Zetsu first coated his body and forced him to revive Madara.",
+            "* When Obito was the Ten-Tails' jinchūriki, he converted one of his Truth-Seeking Balls into six black receivers, which he used to activate the Six Red Yang Formation.",
+            "As they are controlled by the user's chakra, opponents can prevent these bodies from moving by removing all of their receivers.",
+            "The creatures Nagato summoned through the Animal Path were also embedded with numerous receivers, suggesting he controlled them in a similar manner."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Counters / Defenses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The receivers implanted in Obito's Six Paths of Pain doubled as a means of temporarily binding the chakra of the tailed beasts sealed inside the Demonic Statue to their bodies, making them into jinchūriki.",
+            "His absorb chakra instead of transmitting his own to disrupt the chakra of those it pierces."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Drawbacks"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Offensively employing receivers from afar carries a risk, as those with sensing capabilities can trace the transmitted chakra back to the user when pierced with one.",
+            "The user can fully immobilise the target by stabbing them with multiple rods, Aside from being stabbed, simply touching the receivers can apparently also incur negative effects,"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Chakra receivers are also used to control the Six Paths of Pain: six reanimated corpses that possess copies of the Rinnegan, granting them a shared field of vision with their creator."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Nagato controlled his Six Paths of Pain using numerous receivers fashioned into piercings, which were implanted all about their bodies, whereas Obito had a single rod implanted in each body's chest.",
+            "*** In Naruto Shippūden:** Shinobi Rumble , Pain's Black Needle Stab temporarily reverses the controls of those stabbed by his black rods."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "However, there have been several instances in which black rods were produced through other means:",
+            "While connected to the Demonic Statue of the Outer Path, Madara Uchiha produced a black rod from Hashirama's artificial body and identified it as a physical manifestation of his will.",
+            "He then told Obito Uchiha to use it when performing the Six Paths Technique.",
+            "They are durable enough to break steel scalpels, as well as sharp enough to pierce through human bodies with ease.",
+            "Though durable, the rods can still be destroyed when struck with sufficient force, and their creator is able to break them apart without any apparent difficulty.",
+            "Once formed, the user can transmit chakra to these receivers from across vast distances, though for best results, they must be nearby and at a high elevation.",
+            "Though chakra being sent to these receivers can be sensed, a skilled user can prevent their location from being discovered by constantly changing the frequency of their chakra.",
+            "When receiving chakra, the black rods noticeably heat up.",
+            "Among other Rinnegan abilities, the bodies are capable of producing additional rods to serve as weapons.",
+            "When they entered Tailed Beast Mode, the receivers would relocate from the jinchūriki's chests up to the tailed beasts' necks.",
+            "When employed offensively, the black rods make for effective weapons.",
+            "They can emerge from the user's hand to stab opponents, be broken off and wielded like swords, or be launched as high-speed projectiles, and the size and shape of the generated receivers can be adjusted to fit the situation.",
+            "He can also manifest chakra chains to bind those touching the receivers with an even greater binding power.",
+            "In the anime, the user can also apply shape transformation to the rods after launching them, altering them into more elaborate forms.",
+            "Black receivers disintegrate when their creator is killed or similarly incapacitated, alongside any Truth-Seeking Balls they may possess.",
+            "though they do eventually heal.",
+            "* Isshiki Ōtsutsuki has employed similar tools; however, they're different in that Isshiki has no Rinnegan, and they function differently."
+          ]
+        }
+      ]
+    },
+    "id": "black-receiver",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Black Receivers are black rods that function as demodulators for high-frequency chakra signals. Users are able to create and transmit their chakra into these receivers for a variety of purposes.",
+    "technique": [
+      "On one occasion, these rods pierced Nagato's back and drained him of his life force, which allowed him to control the statue.",
+      "Black rods have sprouted from Obito's artificial right half on several occasions: upon first awakening his Mangekyō Sharingan and using Wood Release, when Madara used the rods to control his actions, and when Black Zetsu first coated his body and forced him to revive Madara.",
+      "When Obito was the Ten-Tails' jinchūriki, he converted one of his Truth-Seeking Balls into six black receivers, which he used to activate the Six Red Yang Formation.",
+      "As they are controlled by the user's chakra, opponents can prevent these bodies from moving by removing all of their receivers.",
+      "The creatures Nagato summoned through the Animal Path were also embedded with numerous receivers, suggesting he controlled them in a similar manner.",
+      "However, there have been several instances in which black rods were produced through other means:",
+      "While connected to the Demonic Statue of the Outer Path, Madara Uchiha produced a black rod from Hashirama's artificial body and identified it as a physical manifestation of his will.",
+      "He then told Obito Uchiha to use it when performing the Six Paths Technique.",
+      "They are durable enough to break steel scalpels, as well as sharp enough to pierce through human bodies with ease.",
+      "Though durable, the rods can still be destroyed when struck with sufficient force, and their creator is able to break them apart without any apparent difficulty.",
+      "Once formed, the user can transmit chakra to these receivers from across vast distances, though for best results, they must be nearby and at a high elevation.",
+      "Though chakra being sent to these receivers can be sensed, a skilled user can prevent their location from being discovered by constantly changing the frequency of their chakra.",
+      "When receiving chakra, the black rods noticeably heat up.",
+      "Among other Rinnegan abilities, the bodies are capable of producing additional rods to serve as weapons.",
+      "When they entered Tailed Beast Mode, the receivers would relocate from the jinchūriki's chests up to the tailed beasts' necks.",
+      "When employed offensively, the black rods make for effective weapons.",
+      "They can emerge from the user's hand to stab opponents, be broken off and wielded like swords, or be launched as high-speed projectiles, and the size and shape of the generated receivers can be adjusted to fit the situation.",
+      "He can also manifest chakra chains to bind those touching the receivers with an even greater binding power.",
+      "In the anime, the user can also apply shape transformation to the rods after launching them, altering them into more elaborate forms.",
+      "Black receivers disintegrate when their creator is killed or similarly incapacitated, alongside any Truth-Seeking Balls they may possess.",
+      "though they do eventually heal.",
+      "Isshiki Ōtsutsuki has employed similar tools; however, they're different in that Isshiki has no Rinnegan, and they function differently."
+    ],
+    "training": [],
+    "tips": [
+      "Offensively employing receivers from afar carries a risk, as those with sensing capabilities can trace the transmitted chakra back to the user when pierced with one.",
+      "The user can fully immobilise the target by stabbing them with multiple rods, Aside from being stabbed, simply touching the receivers can apparently also incur negative effects,",
+      "Chakra receivers are also used to control the Six Paths of Pain: six reanimated corpses that possess copies of the Rinnegan, granting them a shared field of vision with their creator.",
+      "Nagato controlled his Six Paths of Pain using numerous receivers fashioned into piercings, which were implanted all about their bodies, whereas Obito had a single rod implanted in each body's chest.",
+      "Shinobi Rumble , Pain's Black Needle Stab temporarily reverses the controls of those stabbed by his black rods."
+    ],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Black Receiver mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Chibaku Tensei",
     "sourcePage": "Chibaku Tensei",
-    "pageId": 12317,
     "url": "https://naruto.fandom.com/wiki/Chibaku_Tensei",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/9/96/Chibaku_Tensei_orb.png/revision/latest/scale-to-width-down/600?cb=20150309054038",
     "raw": {
-      "markdown": "# Chibaku Tensei\n\n## Quick Facts\n- Classification: Kekkei Genkai~Rinnegan, Dōjutsu, Ninjutsu, Fūinjutsu,\n- Class: Offensive, Supplementary\n- Range: Short, Mid, Long\n- Users: Hagoromo Ōtsutsuki, Madara Uchiha, Nagato, Sasuke Uchiha\n- Media: Anime, Manga, Game\n\n## Summary\nChibaku Tensei is a technique used through the Deva Path of the Rinnegan. When the sphere is activated, it generates powerful attractive force, pulling everything in the vicinity to it until a large satellite is created; users control how large the satellite becomes.\n\n## Drawbacks\n- Creating a satellite apparently requires a great deal of chakra, such that Nagato, when attempting to use it through his Six Paths of Pain, must first bring the Deva Path close to his location so that he can channel his chakra to it more effectively, although it was done in his heavily exhausted state.\n- Chibaku Tensei is most often used to restrain targets, drawing them in during the satellite's creation and trapping them beneath the mounds of rubble.\n- Rather than use the satellites to restrain targets, Madara uses them as large projectiles that he drops on his opponents.\n- *In Ultimate Ninja Storm 2 , Pain uses Chibaku Tensei to summon a whirlwind of boulders to protect himself against attacks.\n- *In Ultimate Ninja Impact , Pain creates the planetary body and brings it down on his opponents.\n- *In Ultimate Ninja Storm Revolution , as part of Pain and Konan's collaboration, Pain uses this technique to trap his opponent and then Konan lines the debris with explosive tags.\n\n## Notes\n- Only Naruto Uzumaki, by entering a near-Tailed Beast Mode, has been known to break free from one.\n- When performed by Sasuke Uchiha, he does not use the typical black sphere, instead gathering rubble around each of his immobilised targets; this is similar to the Six Paths — Chibaku Tensei.\n- Once the satellites are formed, Sasuke is able to move them remotely.\n- Madara Uchiha is also shown creating multiple satellites at a time, each with its own black sphere.\n- In the game it is called \"Six Paths Technique\" rather than Chibaku Tensei.\n- An enhanced, \"Full Throttle\" version of the technique called can also be performed.\n- He can also launch the boulders individually as a form of attack.\n- He also uses this as his Awakening, where he summons a whirlwind of boulders as a defensive system and an offensive system at the same time.\n- *In Ultimate Ninja Storm 3 , Nagato uses this technique to imprison his opponent, and then fires a chakra blast which goes through its core, causing a massive explosion.\n- Konan then sends a single origami bird which causes a massive explosion.\n- *In Ultimate Ninja Storm 4 , Rinnegan Sasuke pierces the opponent with the black flames, traps him within Chibaku Tensei, and then destroys it with Chidori Kagutsuchi via his Complete Body — Susanoo.\n- His The Last version also uses the technique as part of his Chidori: Star Crusher.\n- And during the boss battle against Naruto and Sasuke, Madara is able to create a gargantuan version of Chibaku Tensei by merging multiple planetoids into one with the Wood Release.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Chibaku Tensei"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Classification:** Kekkei Genkai, Rinnegan, Dōjutsu, Ninjutsu, Fūinjutsu",
+            "**Class:** Offensive, Supplementary",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Hagoromo Ōtsutsuki, Madara Uchiha, Nagato, Sasuke Uchiha",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Chibaku Tensei is a technique used through the Deva Path of the Rinnegan. When the sphere is activated, it generates powerful attractive force, pulling everything in the vicinity to it until a large satellite is created; users control how large the satellite becomes."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Drawbacks"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Creating a satellite apparently requires a great deal of chakra, such that Nagato, when attempting to use it through his Six Paths of Pain, must first bring the Deva Path close to his location so that he can channel his chakra to it more effectively, although it was done in his heavily exhausted state.",
+            "Chibaku Tensei is most often used to restrain targets, drawing them in during the satellite's creation and trapping them beneath the mounds of rubble.",
+            "Rather than use the satellites to restrain targets, Madara uses them as large projectiles that he drops on his opponents.",
+            "*In Ultimate Ninja Storm 2 , Pain uses Chibaku Tensei to summon a whirlwind of boulders to protect himself against attacks.",
+            "*In Ultimate Ninja Impact , Pain creates the planetary body and brings it down on his opponents.",
+            "*In Ultimate Ninja Storm Revolution , as part of Pain and Konan's collaboration, Pain uses this technique to trap his opponent and then Konan lines the debris with explosive tags."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Only Naruto Uzumaki, by entering a near-Tailed Beast Mode, has been known to break free from one.",
+            "When performed by Sasuke Uchiha, he does not use the typical black sphere, instead gathering rubble around each of his immobilised targets; this is similar to the Six Paths — Chibaku Tensei.",
+            "Once the satellites are formed, Sasuke is able to move them remotely.",
+            "Madara Uchiha is also shown creating multiple satellites at a time, each with its own black sphere.",
+            "In the game it is called \"Six Paths Technique\" rather than Chibaku Tensei.",
+            "An enhanced, \"Full Throttle\" version of the technique called can also be performed.",
+            "He can also launch the boulders individually as a form of attack.",
+            "He also uses this as his Awakening, where he summons a whirlwind of boulders as a defensive system and an offensive system at the same time.",
+            "*In Ultimate Ninja Storm 3 , Nagato uses this technique to imprison his opponent, and then fires a chakra blast which goes through its core, causing a massive explosion.",
+            "Konan then sends a single origami bird which causes a massive explosion.",
+            "*In Ultimate Ninja Storm 4 , Rinnegan Sasuke pierces the opponent with the black flames, traps him within Chibaku Tensei, and then destroys it with Chidori Kagutsuchi via his Complete Body — Susanoo.",
+            "**His The Last version also uses the technique as part of his Chidori:** Star Crusher.",
+            "And during the boss battle against Naruto and Sasuke, Madara is able to create a gargantuan version of Chibaku Tensei by merging multiple planetoids into one with the Wood Release."
+          ]
+        }
+      ]
+    },
+    "id": "chibaku-tensei",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Chibaku Tensei is a technique used through the Deva Path of the Rinnegan. When the sphere is activated, it generates powerful attractive force, pulling everything in the vicinity to it until a large satellite is created; users control how large the satellite becomes.",
+    "technique": [
+      "Only Naruto Uzumaki, by entering a near-Tailed Beast Mode, has been known to break free from one.",
+      "When performed by Sasuke Uchiha, he does not use the typical black sphere, instead gathering rubble around each of his immobilised targets; this is similar to the Six Paths — Chibaku Tensei.",
+      "Once the satellites are formed, Sasuke is able to move them remotely.",
+      "Madara Uchiha is also shown creating multiple satellites at a time, each with its own black sphere.",
+      "In the game it is called \"Six Paths Technique\" rather than Chibaku Tensei.",
+      "An enhanced, \"Full Throttle\" version of the technique called can also be performed.",
+      "He can also launch the boulders individually as a form of attack.",
+      "He also uses this as his Awakening, where he summons a whirlwind of boulders as a defensive system and an offensive system at the same time.",
+      "*In Ultimate Ninja Storm 3 , Nagato uses this technique to imprison his opponent, and then fires a chakra blast which goes through its core, causing a massive explosion.",
+      "Konan then sends a single origami bird which causes a massive explosion.",
+      "*In Ultimate Ninja Storm 4 , Rinnegan Sasuke pierces the opponent with the black flames, traps him within Chibaku Tensei, and then destroys it with Chidori Kagutsuchi via his Complete Body — Susanoo.",
+      "Star Crusher.",
+      "And during the boss battle against Naruto and Sasuke, Madara is able to create a gargantuan version of Chibaku Tensei by merging multiple planetoids into one with the Wood Release."
+    ],
+    "training": [],
+    "tips": [
+      "Creating a satellite apparently requires a great deal of chakra, such that Nagato, when attempting to use it through his Six Paths of Pain, must first bring the Deva Path close to his location so that he can channel his chakra to it more effectively, although it was done in his heavily exhausted state.",
+      "Chibaku Tensei is most often used to restrain targets, drawing them in during the satellite's creation and trapping them beneath the mounds of rubble.",
+      "Rather than use the satellites to restrain targets, Madara uses them as large projectiles that he drops on his opponents.",
+      "*In Ultimate Ninja Storm 2 , Pain uses Chibaku Tensei to summon a whirlwind of boulders to protect himself against attacks.",
+      "*In Ultimate Ninja Impact , Pain creates the planetary body and brings it down on his opponents.",
+      "*In Ultimate Ninja Storm Revolution , as part of Pain and Konan's collaboration, Pain uses this technique to trap his opponent and then Konan lines the debris with explosive tags."
+    ],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Chibaku Tensei mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Hokage-Style Sixty-Year-Old Technique — Kakuan Entering Society with Bliss-Bringing Hands",
     "sourcePage": "Hokage-Style Sixty-Year-Old Technique — Kakuan Entering Society with Bliss-Bringing Hands",
-    "pageId": 3241,
     "url": "https://naruto.fandom.com/wiki/Hokage-Style_Sixty-Year-Old_Technique_%E2%80%94_Kakuan_Entering_Society_with_Bliss-Bringing_Hands",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/5/56/Tailed_Beast_Control.png/revision/latest/scale-to-width-down/600?cb=20160129044413",
     "raw": {
-      "markdown": "# Hokage-Style Sixty-Year-Old Technique — Kakuan Entering Society with Bliss-Bringing Hands\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Supplementary\n- Range: Short\n- Users: Hashirama Senju, Yamato\n- Media: Anime, Manga, Game\n\n## Summary\nThe Hokage-Style Sixty-Year-Old Technique — Kakuan Entering Society with Bliss-Bringing Hands technique utilises the power of the Wood Release to forcibly suppress a tailed beast's chakra. The user produces the kanji in their palm, and by touching the tailed beast, or its jinchūriki with their hand, the user can suppress the chakra inside an area which is usually lined with ten pillars.\n\n## Usage\n- When Hashirama used it on a tailed beast directly rather than a jinchūriki, he circumvented the use of the pillars and channelled the tailed beast control through his Wood Release: Wood Human Technique, which could even overwrite the control of a tailed beast controlled by the Sharingan.\n\n## Notes\n- When Yamato used this technique to suppress Naruto Uzumaki's four-tailed form, Naruto needed to be in possession of the First Hokage's Necklace to aid in suppressing the Nine-Tails' chakra.\n- It comes from a saying by Confucius, , that is most commonly translated long the lines of \"At sixty, my ear was obedient\", meaning that at age sixty, one is able to hear all things without being unhappy about them.\n- The last part of this technique's name, , comes from a famous series of short poems and accompanying images, called the .\n- The pictures and poems are intended to illustrate the stages of Zen discipline.\n- They were drawn by a twelfth-century Chinese Zen master called .\n- The tenth poem talks about how the fully-enlightened herdsman returns to the city to help others reach enlightenment.\n- This poem is called , which can be translated as \"entering society with bliss-bringing hands\" (i.e.\n- hands that teach how to reach enlightenment).\n- As a gag, the kanji on Yamato's hand changed to , as he was on the verge of vomiting.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Hokage-Style Sixty-Year-Old Technique — Kakuan Entering Society with Bliss-Bringing Hands"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Supplementary",
+            "**Range:** Short",
+            "**Users:** Hashirama Senju, Yamato",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Hokage-Style Sixty-Year-Old Technique — Kakuan Entering Society with Bliss-Bringing Hands technique utilises the power of the Wood Release to forcibly suppress a tailed beast's chakra. The user produces the kanji in their palm, and by touching the tailed beast, or its jinchūriki with their hand, the user can suppress the chakra inside an area which is usually lined with ten pillars."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Usage"
+        },
+        {
+          "type": "list",
+          "items": [
+            "When Hashirama used it on a tailed beast directly rather than a jinchūriki, he circumvented the use of the pillars and channelled the tailed beast control through his Wood Release: Wood Human Technique, which could even overwrite the control of a tailed beast controlled by the Sharingan."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "When Yamato used this technique to suppress Naruto Uzumaki's four-tailed form, Naruto needed to be in possession of the First Hokage's Necklace to aid in suppressing the Nine-Tails' chakra.",
+            "It comes from a saying by Confucius, , that is most commonly translated long the lines of \"At sixty, my ear was obedient\", meaning that at age sixty, one is able to hear all things without being unhappy about them.",
+            "The last part of this technique's name, , comes from a famous series of short poems and accompanying images, called the .",
+            "The pictures and poems are intended to illustrate the stages of Zen discipline.",
+            "They were drawn by a twelfth-century Chinese Zen master called .",
+            "The tenth poem talks about how the fully-enlightened herdsman returns to the city to help others reach enlightenment.",
+            "This poem is called , which can be translated as \"entering society with bliss-bringing hands\" (i.e.",
+            "hands that teach how to reach enlightenment).",
+            "As a gag, the kanji on Yamato's hand changed to , as he was on the verge of vomiting."
+          ]
+        }
+      ]
+    },
+    "id": "hokage-style-sixty-year-old-technique-kakuan-entering-society-with-bliss-bringing-hands",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The Hokage-Style Sixty-Year-Old Technique — Kakuan Entering Society with Bliss-Bringing Hands technique utilises the power of the Wood Release to forcibly suppress a tailed beast's chakra. The user produces the kanji in their palm, and by touching the tailed beast, or its jinchūriki with their hand, the user can suppress the chakra inside an area which is usually lined with ten pillars.",
+    "technique": [
+      "When Hashirama used it on a tailed beast directly rather than a jinchūriki, he circumvented the use of the pillars and channelled the tailed beast control through his Wood Release: Wood Human Technique, which could even overwrite the control of a tailed beast controlled by the Sharingan.",
+      "When Yamato used this technique to suppress Naruto Uzumaki's four-tailed form, Naruto needed to be in possession of the First Hokage's Necklace to aid in suppressing the Nine-Tails' chakra.",
+      "It comes from a saying by Confucius, , that is most commonly translated long the lines of \"At sixty, my ear was obedient\", meaning that at age sixty, one is able to hear all things without being unhappy about them.",
+      "The last part of this technique's name, , comes from a famous series of short poems and accompanying images, called the .",
+      "The pictures and poems are intended to illustrate the stages of Zen discipline.",
+      "They were drawn by a twelfth-century Chinese Zen master called .",
+      "The tenth poem talks about how the fully-enlightened herdsman returns to the city to help others reach enlightenment.",
+      "This poem is called , which can be translated as \"entering society with bliss-bringing hands\" (i.e.",
+      "hands that teach how to reach enlightenment).",
+      "As a gag, the kanji on Yamato's hand changed to , as he was on the verge of vomiting."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Hokage-Style Sixty-Year-Old Technique — Kakuan Entering Society with Bliss-Bringing Hands mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Kanzeon Lotus King",
     "sourcePage": "Kanzeon Lotus King",
-    "pageId": 128378,
     "url": "https://naruto.fandom.com/wiki/Kanzeon_Lotus_King",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/1/1d/Kanzeon_Lotus_king.png/revision/latest/scale-to-width-down/600?cb=20160409175410",
     "raw": {
-      "markdown": "# Kanzeon Lotus King\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu,\n- Class: Offensive\n- Range: Mid, Long\n- Users: Tobi (Zetsu), Asura Ōtsutsuki~game\n- Media: Anime, Manga, Game\n\n## Summary\nWhile using Yamato as a medium, Tobi creates a massive statue, similar to Hashirama Senju's Sage Art Wood Release: True Several Thousand Hands technique. Unlike Hashirama's much larger variant however, this creation does not utilise senjutsu chakra.\n\n## Counters / Defenses\n- Unlike its counterpart, this avatar does not have the wood human or dragon atop its heads, however, Tobi displayed the ability to channel its ability to manipulate all five basic nature transformations from the miniature faces that encircle its head.\n\n## Notes\n- The wielder of this avatar is capable of using a multitude of hands to assault their opponents.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Kanzeon Lotus King"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Mid, Long",
+            "**Users:** Tobi (Zetsu), Asura Ōtsutsuki, game",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "While using Yamato as a medium, Tobi creates a massive statue, similar to Hashirama Senju's Sage Art Wood Release: True Several Thousand Hands technique. Unlike Hashirama's much larger variant however, this creation does not utilise senjutsu chakra."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Counters / Defenses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Unlike its counterpart, this avatar does not have the wood human or dragon atop its heads, however, Tobi displayed the ability to channel its ability to manipulate all five basic nature transformations from the miniature faces that encircle its head."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The wielder of this avatar is capable of using a multitude of hands to assault their opponents."
+          ]
+        }
+      ]
+    },
+    "id": "kanzeon-lotus-king",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "While using Yamato as a medium, Tobi creates a massive statue, similar to Hashirama Senju's Sage Art Wood Release: True Several Thousand Hands technique. Unlike Hashirama's much larger variant however, this creation does not utilise senjutsu chakra.",
+    "technique": [
+      "The wielder of this avatar is capable of using a multitude of hands to assault their opponents."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Kanzeon Lotus King mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Mayfly",
     "sourcePage": "Mayfly",
-    "pageId": 9184,
     "url": "https://naruto.fandom.com/wiki/Mayfly",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/d/de/Mayfly.png/revision/latest/scale-to-width-down/600?cb=20150220084111",
     "raw": {
-      "markdown": "# Mayfly\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Supplementary\n- Range: Short, Mid, Long\n- Users: Black Zetsu, White Zetsu, Tobi (Zetsu), White Zetsu Army\n- Media: Anime, Manga, Game, Movie\n\n## Summary\nThe Mayfly is an infiltration technique, which is a signature characteristic of White Zetsu and its clone siblings, due to being infused with the cells of Hashirama Senju. His insectivorous plant-like shell has the ability to merge with the ground, because it is tinged with his chakra.\n\n## Notes\n- Then, using the underground network of organic matter, consisting of things like plant roots and water veins, he can travel everywhere with high speed.\n- Using this technique he can conceal himself in such things as trees and even sand.\n- Once merged, his presence is completely concealed, making it impossible to detect him, even for sensor type ninja like Karin.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Mayfly"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Supplementary",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Black Zetsu, White Zetsu, Tobi (Zetsu), White Zetsu Army",
+            "**Media:** Anime, Manga, Game, Movie"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Mayfly is an infiltration technique, which is a signature characteristic of White Zetsu and its clone siblings, due to being infused with the cells of Hashirama Senju. His insectivorous plant-like shell has the ability to merge with the ground, because it is tinged with his chakra."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Then, using the underground network of organic matter, consisting of things like plant roots and water veins, he can travel everywhere with high speed.",
+            "Using this technique he can conceal himself in such things as trees and even sand.",
+            "Once merged, his presence is completely concealed, making it impossible to detect him, even for sensor type ninja like Karin."
+          ]
+        }
+      ]
+    },
+    "id": "mayfly",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The Mayfly is an infiltration technique, which is a signature characteristic of White Zetsu and its clone siblings, due to being infused with the cells of Hashirama Senju. His insectivorous plant-like shell has the ability to merge with the ground, because it is tinged with his chakra.",
+    "technique": [
+      "Then, using the underground network of organic matter, consisting of things like plant roots and water veins, he can travel everywhere with high speed.",
+      "Using this technique he can conceal himself in such things as trees and even sand.",
+      "Once merged, his presence is completely concealed, making it impossible to detect him, even for sensor type ninja like Karin."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Mayfly mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Multiple Wood Release Clone Technique",
     "sourcePage": "Multiple Wood Release Clone Technique",
-    "pageId": 92550,
     "url": "https://naruto.fandom.com/wiki/Multiple_Wood_Release_Clone_Technique",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/0/0e/Taj%C5%AB_Mokuton_Bunshin_no_Jutsu.png/revision/latest/scale-to-width-down/600?cb=20131004001944",
     "raw": {
-      "markdown": "# Multiple Wood Release Clone Technique\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu, Clone Techniques\n- Class: Supplementary\n- Users: Madara Uchiha\n- Media: Anime, Manga\n\n## Summary\nThis technique is essentially a large-scale version of the Wood Clone Technique where the user uses pre-existing vegetation in their immediate vicinity as a medium to create a large number of wood clones.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Multiple Wood Release Clone Technique"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu, Clone Techniques",
+            "**Class:** Supplementary",
+            "**Users:** Madara Uchiha",
+            "**Media:** Anime, Manga"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "This technique is essentially a large-scale version of the Wood Clone Technique where the user uses pre-existing vegetation in their immediate vicinity as a medium to create a large number of wood clones."
+        }
+      ]
+    },
+    "id": "multiple-wood-release-clone-technique",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "This technique is essentially a large-scale version of the Wood Clone Technique where the user uses pre-existing vegetation in their immediate vicinity as a medium to create a large number of wood clones.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Multiple Wood Release Clone Technique mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Regeneration Ability",
     "sourcePage": "Regeneration Ability",
-    "pageId": 125701,
     "url": "https://naruto.fandom.com/wiki/Regeneration_Ability",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/5/50/Healing_Power_1.png/revision/latest/scale-to-width-down/600?cb=20160306191209",
     "raw": {
-      "markdown": "# Regeneration Ability\n\n## Quick Facts\n- Class: Supplementary\n- Users: Danzō Shimura, Hashirama Senju, Madara Uchiha, Naruto Uzumaki, Obito Uchiha, Orochimaru, Tobi (Zetsu), White Zetsu, Yamato, Nue~anime\n- Media: Anime, Manga\n\n## Summary\nThe Regeneration Ability is a power lying inside the cells of Hashirama Senju, which is able to heal the injuries of anyone imbued with them in mere moments. The enhanced regeneration granted by the cells is so rapid that even dozens of puncture wounds, on top of various injuries inflicted by the combined physical assault of all nine tailed beasts were completely healed in mere moments.\n\n## Notes\n- This ability does not appear to extend to severed limbs as Madara instead replaced his severed arm with that of a White Zetsu clone's.\n- as he regenerated the half of his torso blown away by Night Guy and regenerated even after Sasuke Uchiha fully bisected him at the waist.\n- * With the genetic tissue transplanted into Madara and the artificial limbs for Obito each comprised of Hashirama's DNA, they both not only gained Hashirama's healing abilities, but also they no longer required any food or water to survive.\n- However, it is unknown if these two traits are related or if Hashirama himself was also endowed with the latter.\n- * Though Jūgo was in possession of Hashirama's cells at one point, he automatically converted them into his own before having a chance to use this ability.\n- * Those who possess a fragment of the Stone of Gelel inside their bodies will gain regenerative powers comparable to this ability.\n- * In the anime, Mugino states to be able to use Wood Release a person must have the First Hokage's cells, which suggests that the Wood Release user Moegi Kazamatsuri has access to this ability.\n- * In the anime, rumors have spread that the Regeneration Ability also will restore one's youth and extend their longevity.\n- Konoha-nin however have denied such claims.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Regeneration Ability"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Class:** Supplementary",
+            "**Users:** Danzō Shimura, Hashirama Senju, Madara Uchiha, Naruto Uzumaki, Obito Uchiha, Orochimaru, Tobi (Zetsu), White Zetsu, Yamato, Nue, anime",
+            "**Media:** Anime, Manga"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Regeneration Ability is a power lying inside the cells of Hashirama Senju, which is able to heal the injuries of anyone imbued with them in mere moments. The enhanced regeneration granted by the cells is so rapid that even dozens of puncture wounds, on top of various injuries inflicted by the combined physical assault of all nine tailed beasts were completely healed in mere moments."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "This ability does not appear to extend to severed limbs as Madara instead replaced his severed arm with that of a White Zetsu clone's.",
+            "as he regenerated the half of his torso blown away by Night Guy and regenerated even after Sasuke Uchiha fully bisected him at the waist.",
+            "* With the genetic tissue transplanted into Madara and the artificial limbs for Obito each comprised of Hashirama's DNA, they both not only gained Hashirama's healing abilities, but also they no longer required any food or water to survive.",
+            "However, it is unknown if these two traits are related or if Hashirama himself was also endowed with the latter.",
+            "* Though Jūgo was in possession of Hashirama's cells at one point, he automatically converted them into his own before having a chance to use this ability.",
+            "* Those who possess a fragment of the Stone of Gelel inside their bodies will gain regenerative powers comparable to this ability.",
+            "* In the anime, Mugino states to be able to use Wood Release a person must have the First Hokage's cells, which suggests that the Wood Release user Moegi Kazamatsuri has access to this ability.",
+            "* In the anime, rumors have spread that the Regeneration Ability also will restore one's youth and extend their longevity.",
+            "Konoha-nin however have denied such claims."
+          ]
+        }
+      ]
+    },
+    "id": "regeneration-ability",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The Regeneration Ability is a power lying inside the cells of Hashirama Senju, which is able to heal the injuries of anyone imbued with them in mere moments. The enhanced regeneration granted by the cells is so rapid that even dozens of puncture wounds, on top of various injuries inflicted by the combined physical assault of all nine tailed beasts were completely healed in mere moments.",
+    "technique": [
+      "This ability does not appear to extend to severed limbs as Madara instead replaced his severed arm with that of a White Zetsu clone's.",
+      "as he regenerated the half of his torso blown away by Night Guy and regenerated even after Sasuke Uchiha fully bisected him at the waist.",
+      "With the genetic tissue transplanted into Madara and the artificial limbs for Obito each comprised of Hashirama's DNA, they both not only gained Hashirama's healing abilities, but also they no longer required any food or water to survive.",
+      "However, it is unknown if these two traits are related or if Hashirama himself was also endowed with the latter.",
+      "Though Jūgo was in possession of Hashirama's cells at one point, he automatically converted them into his own before having a chance to use this ability.",
+      "Those who possess a fragment of the Stone of Gelel inside their bodies will gain regenerative powers comparable to this ability.",
+      "In the anime, Mugino states to be able to use Wood Release a person must have the First Hokage's cells, which suggests that the Wood Release user Moegi Kazamatsuri has access to this ability.",
+      "In the anime, rumors have spread that the Regeneration Ability also will restore one's youth and extend their longevity.",
+      "Konoha-nin however have denied such claims."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Regeneration Ability mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Resonance Blast",
     "sourcePage": "Resonance Blast",
-    "pageId": 294850,
     "url": "https://naruto.fandom.com/wiki/Resonance_Blast",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/0/0e/Obito_Resonance_Blast.png/revision/latest/scale-to-width-down/600?cb=20241223102842",
     "raw": {
-      "markdown": "# Resonance Blast\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Offensive\n- Range: Short, Mid, Long\n- Users: Obito Uchiha\n- Media: Anime, Manga, Game\n\n## Summary\nObito grows a large tree from beneath the ground with four flowers that forms four large Tailed Beast Balls. To ensure the balls would not miss, Obito had used Six Red Yang Formation to contain the blast, although the Allied Shinobi Forces had teleported outside the barrier to avoid it.\n\n## Notes\n- The resultant explosion was strong enough to completely distort the shape of the unbreakable barrier.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Resonance Blast"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Obito Uchiha",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Obito grows a large tree from beneath the ground with four flowers that forms four large Tailed Beast Balls. To ensure the balls would not miss, Obito had used Six Red Yang Formation to contain the blast, although the Allied Shinobi Forces had teleported outside the barrier to avoid it."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The resultant explosion was strong enough to completely distort the shape of the unbreakable barrier."
+          ]
+        }
+      ]
+    },
+    "id": "resonance-blast",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Obito grows a large tree from beneath the ground with four flowers that forms four large Tailed Beast Balls. To ensure the balls would not miss, Obito had used Six Red Yang Formation to contain the blast, although the Allied Shinobi Forces had teleported outside the barrier to avoid it.",
+    "technique": [
+      "The resultant explosion was strong enough to completely distort the shape of the unbreakable barrier."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Resonance Blast mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Highlight motif: multi-caster formation. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Sage Art Wood Release: True Several Thousand Hands",
     "sourcePage": "Sage Art Wood Release: True Several Thousand Hands",
-    "pageId": 109326,
     "url": "https://naruto.fandom.com/wiki/Sage_Art_Wood_Release:_True_Several_Thousand_Hands",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/a/af/Shin_S%C5%ABsenju.png/revision/latest/scale-to-width-down/600?cb=20140619122300",
     "raw": {
-      "markdown": "# Sage Art Wood Release: True Several Thousand Hands\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu, Senjutsu\n- Class: Offensive, Defensive\n- Range: Short, Mid\n- Users: Hashirama Senju, Asura Ōtsutsuki~anime,\n- Media: Anime, Manga, Game\n\n## Summary\nThe Sage Art Wood Release: True Several Thousand Hands is a technique which creates a titanic, many-handed wooden statue that can be freely controlled by the user. Thousands of hands originate from the statue's back in countless concentric rows, while its two main hands are clasped, as if in prayer.\n\n## Usage\n- Hashirama can then use the Hokage-Style Sixty-Year-Old Technique — Kakuan Entering Society with Bliss-Bringing Hands in conjunction with the Wood Human on the statue's head to suppress and remove any direct control over the tailed beast.\n\n## Notes\n- The statue can serve a variety of purposes in battle, from fighting on the user's behalf to defending and even using other techniques.\n- The sheer size of this technique makes it almost impossible to attack the user.\n- It can also detach its main self from its main arsenal to increase its mobility to adapt to a situation that requires more speed.\n- With its immense strength, it can grab hold of a tailed beast with ease and hold it in place, leaving it unable to move.\n- One prominent story tells of Kannon vowing never to rest until he had freed all beings from Saṃsāra.\n- After strenuous effort, but struggling to comprehend the needs of so many who still had yet to be saved, his head splits into eleven pieces.\n- The Buddha Amida, seeing his plight, gives him eleven heads with which to hear the cries of the suffering.\n- Upon hearing and comprehending these cries, Kannon attempted to reach out to all those who needed aid, but found that his two arms shattered into pieces.\n- Once more, Amida comes to his aid and grants him a thousand arms with which to aid the suffering.\n- * In Naruto x Boruto: Ultimate Ninja Storm Connections , Asura's usage of the jutsu has the statue firing a large Amenomihashira at the opponent.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Sage Art Wood Release: True Several Thousand Hands"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu, Senjutsu",
+            "**Class:** Offensive, Defensive",
+            "**Range:** Short, Mid",
+            "**Users:** Hashirama Senju, Asura Ōtsutsuki, anime",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Sage Art Wood Release: True Several Thousand Hands is a technique which creates a titanic, many-handed wooden statue that can be freely controlled by the user. Thousands of hands originate from the statue's back in countless concentric rows, while its two main hands are clasped, as if in prayer."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Usage"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hashirama can then use the Hokage-Style Sixty-Year-Old Technique — Kakuan Entering Society with Bliss-Bringing Hands in conjunction with the Wood Human on the statue's head to suppress and remove any direct control over the tailed beast."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The statue can serve a variety of purposes in battle, from fighting on the user's behalf to defending and even using other techniques.",
+            "The sheer size of this technique makes it almost impossible to attack the user.",
+            "It can also detach its main self from its main arsenal to increase its mobility to adapt to a situation that requires more speed.",
+            "With its immense strength, it can grab hold of a tailed beast with ease and hold it in place, leaving it unable to move.",
+            "One prominent story tells of Kannon vowing never to rest until he had freed all beings from Saṃsāra.",
+            "After strenuous effort, but struggling to comprehend the needs of so many who still had yet to be saved, his head splits into eleven pieces.",
+            "The Buddha Amida, seeing his plight, gives him eleven heads with which to hear the cries of the suffering.",
+            "Upon hearing and comprehending these cries, Kannon attempted to reach out to all those who needed aid, but found that his two arms shattered into pieces.",
+            "Once more, Amida comes to his aid and grants him a thousand arms with which to aid the suffering.",
+            "*** In Naruto x Boruto:** Ultimate Ninja Storm Connections , Asura's usage of the jutsu has the statue firing a large Amenomihashira at the opponent."
+          ]
+        }
+      ]
+    },
+    "id": "sage-art-wood-release-true-several-thousand-hands",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The Sage Art Wood Release: True Several Thousand Hands is a technique which creates a titanic, many-handed wooden statue that can be freely controlled by the user. Thousands of hands originate from the statue's back in countless concentric rows, while its two main hands are clasped, as if in prayer.",
+    "technique": [
+      "Hashirama can then use the Hokage-Style Sixty-Year-Old Technique — Kakuan Entering Society with Bliss-Bringing Hands in conjunction with the Wood Human on the statue's head to suppress and remove any direct control over the tailed beast.",
+      "The statue can serve a variety of purposes in battle, from fighting on the user's behalf to defending and even using other techniques.",
+      "The sheer size of this technique makes it almost impossible to attack the user.",
+      "It can also detach its main self from its main arsenal to increase its mobility to adapt to a situation that requires more speed.",
+      "With its immense strength, it can grab hold of a tailed beast with ease and hold it in place, leaving it unable to move.",
+      "One prominent story tells of Kannon vowing never to rest until he had freed all beings from Saṃsāra.",
+      "After strenuous effort, but struggling to comprehend the needs of so many who still had yet to be saved, his head splits into eleven pieces.",
+      "The Buddha Amida, seeing his plight, gives him eleven heads with which to hear the cries of the suffering.",
+      "Upon hearing and comprehending these cries, Kannon attempted to reach out to all those who needed aid, but found that his two arms shattered into pieces.",
+      "Once more, Amida comes to his aid and grants him a thousand arms with which to aid the suffering.",
+      "Ultimate Ninja Storm Connections , Asura's usage of the jutsu has the statue firing a large Amenomihashira at the opponent."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Sage Art Wood Release: True Several Thousand Hands mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Sea of Trees Erosion",
     "sourcePage": "Sea of Trees Erosion",
-    "pageId": 101295,
     "url": "https://naruto.fandom.com/wiki/Sea_of_Trees_Erosion",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/9/93/Underground_Roots_Technique.png/revision/latest/scale-to-width-down/600?cb=20160414213234",
     "raw": {
-      "markdown": "# Sea of Trees Erosion\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu,\n- Class: Offensive, Defensive\n- Range: Short, Mid, Long\n- Users: Black Zetsu, Obito Uchiha, Hashirama Senju~game\n- Media: Anime, Manga, Game\n\n## Summary\nUsing the Wood Release, a user can manipulate the terrain, bringing out underground roots of varying sizes to fit various offensive situations, such as using the roots for trickery, misdirection and restriction. One can also use a large scale version, bringing out massive roots over a larger area that tangle around each other with such force that anyone caught in-between is violently crushed to death.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Sea of Trees Erosion"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Offensive, Defensive",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Black Zetsu, Obito Uchiha, Hashirama Senju, game",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Using the Wood Release, a user can manipulate the terrain, bringing out underground roots of varying sizes to fit various offensive situations, such as using the roots for trickery, misdirection and restriction. One can also use a large scale version, bringing out massive roots over a larger area that tangle around each other with such force that anyone caught in-between is violently crushed to death."
+        }
+      ]
+    },
+    "id": "sea-of-trees-erosion",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Using the Wood Release, a user can manipulate the terrain, bringing out underground roots of varying sizes to fit various offensive situations, such as using the roots for trickery, misdirection and restriction. One can also use a large scale version, bringing out massive roots over a larger area that tangle around each other with such force that anyone caught in-between is violently crushed to death.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Sea of Trees Erosion mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Spontaneous Tree Summoning",
     "sourcePage": "Spontaneous Tree Summoning",
-    "pageId": 235598,
     "url": "https://naruto.fandom.com/wiki/Spontaneous_Tree_Summoning",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/b/b7/Danzomokuton.png/revision/latest/scale-to-width-down/600?cb=20151004003721",
     "raw": {
-      "markdown": "# Spontaneous Tree Summoning\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu,\n- Class: Defensive\n- Range: Short\n- Users: Danzō Shimura\n- Media: Anime, Manga, Game\n\n## Summary\nA last resort technique which doesn't require hand seals. Using their own cells as a medium, the user creates an entire tree from their body at the cost of a large amount of chakra.\n\n## Notes\n- In doing so, it can alter the trajectory of incoming attacks.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Spontaneous Tree Summoning"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Defensive",
+            "**Range:** Short",
+            "**Users:** Danzō Shimura",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "A last resort technique which doesn't require hand seals. Using their own cells as a medium, the user creates an entire tree from their body at the cost of a large amount of chakra."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "In doing so, it can alter the trajectory of incoming attacks."
+          ]
+        }
+      ]
+    },
+    "id": "spontaneous-tree-summoning",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "A last resort technique which doesn't require hand seals. Using their own cells as a medium, the user creates an entire tree from their body at the cost of a large amount of chakra.",
+    "technique": [
+      "In doing so, it can alter the trajectory of incoming attacks."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Spontaneous Tree Summoning mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Takamimusubinokami",
     "sourcePage": "Takamimusubinokami",
-    "pageId": 262118,
     "url": "https://naruto.fandom.com/wiki/Takamimusubinokami",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/f/f6/Takamimusubinokami.png/revision/latest/scale-to-width-down/600?cb=20180614114658",
     "raw": {
-      "markdown": "# Takamimusubinokami\n\n## Quick Facts\n- Classification: Kekkei Genkai~Rinnegan, Ninjutsu, Dōjutsu\n- Class: Offensive, Supplementary\n- Range: Short, Mid, Long\n- Users: Momoshiki Ōtsutsuki\n- Media: Anime, Manga, Novel, Game, Movie canon\n\n## Summary\nAfter absorbing his enemies' ninjutsu with the Rinnegan in his right hand, Momoshiki can release those same techniques from the Rinnegan in his left hand, using the chakra he obtains from his pills to amplify their power as many times as he wishes. In the anime after absorbing Kinshiki, Momoshiki's golden Rinnegan turn red when he uses this technique.\n\n## Counters / Defenses\n- * In the novelisation of Boruto: Naruto the Movie , Momoshiki absorbs several other techniques fired from Katasuke's Shinobi Gauntlet, including Wood Release techniques and unspecified Hiden techniques collected from Konoha's various clans.\n\n## Notes\n- For this technique in particular, the name comes from \"Takamimusubi\", one of the first three Kotoamatsukami.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Takamimusubinokami"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Classification:** Kekkei Genkai, Rinnegan, Ninjutsu, Dōjutsu",
+            "**Class:** Offensive, Supplementary",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Momoshiki Ōtsutsuki",
+            "**Media:** Anime, Manga, Novel, Game, Movie canon"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "After absorbing his enemies' ninjutsu with the Rinnegan in his right hand, Momoshiki can release those same techniques from the Rinnegan in his left hand, using the chakra he obtains from his pills to amplify their power as many times as he wishes. In the anime after absorbing Kinshiki, Momoshiki's golden Rinnegan turn red when he uses this technique."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Counters / Defenses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "*** In the novelisation of Boruto:** Naruto the Movie , Momoshiki absorbs several other techniques fired from Katasuke's Shinobi Gauntlet, including Wood Release techniques and unspecified Hiden techniques collected from Konoha's various clans."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "For this technique in particular, the name comes from \"Takamimusubi\", one of the first three Kotoamatsukami."
+          ]
+        }
+      ]
+    },
+    "id": "takamimusubinokami",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "After absorbing his enemies' ninjutsu with the Rinnegan in his right hand, Momoshiki can release those same techniques from the Rinnegan in his left hand, using the chakra he obtains from his pills to amplify their power as many times as he wishes. In the anime after absorbing Kinshiki, Momoshiki's golden Rinnegan turn red when he uses this technique.",
+    "technique": [
+      "For this technique in particular, the name comes from \"Takamimusubi\", one of the first three Kotoamatsukami."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Takamimusubinokami mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Top Transformed Buddha",
     "sourcePage": "Top Transformed Buddha",
-    "pageId": 111490,
     "url": "https://naruto.fandom.com/wiki/Top_Transformed_Buddha",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/8/86/Ch%C5%8Dj%C5%8D_Kebutsu.png/revision/latest/scale-to-width-down/600?cb=20140724121735",
     "raw": {
-      "markdown": "# Top Transformed Buddha\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Offensive\n- Range: Short, Mid\n- Users: Hashirama Senju, Tobi (Zetsu), Asura Ōtsutsuki~anime,\n- Media: Anime, Manga, Game\n\n## Summary\nAfter creating a gigantic wooden statue that possesses hundreds or thousands of hands, the user utilises all of these hands simultaneously to deliver powerful blows to the target. Due to the sheer volume of the punches involved, defending against the entirety of them is nearly impossible.\n\n## Usage\n- This can be used as a one-shot technique, increasing its destructive power but also resulting in the hands behind the statue's back being destroyed.\n\n## Notes\n- Afterwards, Hashirama discards the back of the statue to increase the mobility of the True Several Thousand Hands statue.\n- It can also be used more conservatively as seen in Tobi's usage, preventing the hands from being destroyed and enabling another usage of the technique, but results in less destructive power.\n- In practical terms, this means a smaller Buddhist image attached to a larger one.\n- Such depictions serve as an example of the many forms Buddhist deities can assume in order to save sentient beings.\n- They are found most notably within the statues of Kannon, where a small image of Amida is placed atop Kannon's crown or held in the hands of Thousand-Armed Kannon.\n- Also, through his Several Thousand Hands, his fists can break off and rain down like meteors onto the target.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Top Transformed Buddha"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short, Mid",
+            "**Users:** Hashirama Senju, Tobi (Zetsu), Asura Ōtsutsuki, anime",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "After creating a gigantic wooden statue that possesses hundreds or thousands of hands, the user utilises all of these hands simultaneously to deliver powerful blows to the target. Due to the sheer volume of the punches involved, defending against the entirety of them is nearly impossible."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Usage"
+        },
+        {
+          "type": "list",
+          "items": [
+            "This can be used as a one-shot technique, increasing its destructive power but also resulting in the hands behind the statue's back being destroyed."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Afterwards, Hashirama discards the back of the statue to increase the mobility of the True Several Thousand Hands statue.",
+            "It can also be used more conservatively as seen in Tobi's usage, preventing the hands from being destroyed and enabling another usage of the technique, but results in less destructive power.",
+            "In practical terms, this means a smaller Buddhist image attached to a larger one.",
+            "Such depictions serve as an example of the many forms Buddhist deities can assume in order to save sentient beings.",
+            "They are found most notably within the statues of Kannon, where a small image of Amida is placed atop Kannon's crown or held in the hands of Thousand-Armed Kannon.",
+            "Also, through his Several Thousand Hands, his fists can break off and rain down like meteors onto the target."
+          ]
+        }
+      ]
+    },
+    "id": "top-transformed-buddha",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "After creating a gigantic wooden statue that possesses hundreds or thousands of hands, the user utilises all of these hands simultaneously to deliver powerful blows to the target. Due to the sheer volume of the punches involved, defending against the entirety of them is nearly impossible.",
+    "technique": [
+      "This can be used as a one-shot technique, increasing its destructive power but also resulting in the hands behind the statue's back being destroyed.",
+      "Afterwards, Hashirama discards the back of the statue to increase the mobility of the True Several Thousand Hands statue.",
+      "It can also be used more conservatively as seen in Tobi's usage, preventing the hands from being destroyed and enabling another usage of the technique, but results in less destructive power.",
+      "In practical terms, this means a smaller Buddhist image attached to a larger one.",
+      "Such depictions serve as an example of the many forms Buddhist deities can assume in order to save sentient beings.",
+      "They are found most notably within the statues of Kannon, where a small image of Amida is placed atop Kannon's crown or held in the hands of Thousand-Armed Kannon.",
+      "Also, through his Several Thousand Hands, his fists can break off and rain down like meteors onto the target."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Top Transformed Buddha mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Transmission Wood",
     "sourcePage": "Transmission Wood",
-    "pageId": 153200,
     "url": "https://naruto.fandom.com/wiki/Transmission_Wood",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/0/02/Signal_seeds.png/revision/latest/scale-to-width-down/600?cb=20160128033841",
     "raw": {
-      "markdown": "# Transmission Wood\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Supplementary\n- Users: Yamato\n- Media: Anime, Manga\n\n## Summary\nAfter turning a wood clone into a seed, the seed can be used to track a target by either planting it on them or having them ingest it. Only the user of this technique can detect the seed's transmissions.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Transmission Wood"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Supplementary",
+            "**Users:** Yamato",
+            "**Media:** Anime, Manga"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "After turning a wood clone into a seed, the seed can be used to track a target by either planting it on them or having them ingest it. Only the user of this technique can detect the seed's transmissions."
+        }
+      ]
+    },
+    "id": "transmission-wood",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "After turning a wood clone into a seed, the seed can be used to track a target by either planting it on them or having them ingest it. Only the user of this technique can detect the seed's transmissions.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Transmission Wood mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Clone Technique",
     "sourcePage": "Wood Clone Technique",
-    "pageId": 3732,
     "url": "https://naruto.fandom.com/wiki/Wood_Clone_Technique",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/a/ad/Hashirama_forming_multiple_wood_clones.png/revision/latest/scale-to-width-down/600?cb=20140824013401",
     "raw": {
-      "markdown": "# Wood Clone Technique\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu, Clone Techniques,\n- Class: Supplementary\n- Users: Hashirama Senju, Madara Uchiha, Yamato\n- Media: Anime, Manga, Game\n\n## Summary\nA clone that is created by using chakra to alter the user's own cells into vegetation. The clones can be as simple in function as a wooden dummy for use in the Body Replacement Technique or completely mobile and able to perform jutsu.\n\n## Notes\n- They have the ability to travel far from the user and are able to communicate with the original.\n- Moreover, since the wood clone has the ability to merge with plants and trees, it is also great for reconnaissance missions.\n- By directly touching the wood clone with his hand, the user can change the shape of the clone.\n- Unlike other clone techniques, the wood clone doesn't disappear when hit and takes the damage to a certain degree.\n- This, according to Madara Uchiha, makes it the perfect clone technique that only he with his dōjutsu was able to see through.\n- Wood clones are also somewhat inhibited by the actions of the user, so if they are preoccupied with other tasks the wood clones will not be able to act to their full potential.\n- Wood clones can, however, be dispelled like normal clones.\n- * When Hashirama used this technique, he called it .\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Clone Technique"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu, Clone Techniques",
+            "**Class:** Supplementary",
+            "**Users:** Hashirama Senju, Madara Uchiha, Yamato",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "A clone that is created by using chakra to alter the user's own cells into vegetation. The clones can be as simple in function as a wooden dummy for use in the Body Replacement Technique or completely mobile and able to perform jutsu."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "They have the ability to travel far from the user and are able to communicate with the original.",
+            "Moreover, since the wood clone has the ability to merge with plants and trees, it is also great for reconnaissance missions.",
+            "By directly touching the wood clone with his hand, the user can change the shape of the clone.",
+            "Unlike other clone techniques, the wood clone doesn't disappear when hit and takes the damage to a certain degree.",
+            "This, according to Madara Uchiha, makes it the perfect clone technique that only he with his dōjutsu was able to see through.",
+            "Wood clones are also somewhat inhibited by the actions of the user, so if they are preoccupied with other tasks the wood clones will not be able to act to their full potential.",
+            "Wood clones can, however, be dispelled like normal clones.",
+            "* When Hashirama used this technique, he called it ."
+          ]
+        }
+      ]
+    },
+    "id": "wood-clone-technique",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "A clone that is created by using chakra to alter the user's own cells into vegetation. The clones can be as simple in function as a wooden dummy for use in the Body Replacement Technique or completely mobile and able to perform jutsu.",
+    "technique": [
+      "They have the ability to travel far from the user and are able to communicate with the original.",
+      "Moreover, since the wood clone has the ability to merge with plants and trees, it is also great for reconnaissance missions.",
+      "By directly touching the wood clone with his hand, the user can change the shape of the clone.",
+      "Unlike other clone techniques, the wood clone doesn't disappear when hit and takes the damage to a certain degree.",
+      "This, according to Madara Uchiha, makes it the perfect clone technique that only he with his dōjutsu was able to see through.",
+      "Wood clones are also somewhat inhibited by the actions of the user, so if they are preoccupied with other tasks the wood clones will not be able to act to their full potential.",
+      "Wood clones can, however, be dispelled like normal clones.",
+      "When Hashirama used this technique, he called it ."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Clone Technique mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Advent of a World of Flowering Trees",
     "sourcePage": "Wood Release: Advent of a World of Flowering Trees",
-    "pageId": 91485,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Advent_of_a_World_of_Flowering_Trees",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/e/e1/Mokuton_Kajukai_K%C5%8Drin.png/revision/latest/scale-to-width-down/600?cb=20130926125824",
     "raw": {
-      "markdown": "# Wood Release: Advent of a World of Flowering Trees\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Offensive, Supplementary\n- Range: Mid, Long\n- Users: Hashirama Senju, Madara Uchiha\n- Media: Anime, Manga\n\n## Summary\nTaking advantage of the innate properties of Wood Release which allows the user to force trees to grow on any surface at a rapid pace, the user creates a dense forest of flowering trees. During the forest's formation, the user can have the branch restrain any target(s) that tries to attack the user before the formation of the forest is complete.\n\n## Usage\n- The user can also control where the pollen spreads so it does not affect them nor their comrades.\n\n## Counters / Defenses\n- With enough willpower, it is possible to regain consciousness, however, in order to counter the technique fully, either the trees themselves must be destroyed completely or the target must continue to remain elevated above the dispersed pollen.\n\n## Notes\n- The pollen produced by these flowers is then released into the atmosphere and when inhaled, renders any afflicted target unconscious.\n- The pollen is also capable of penetrating Susanoo's defences.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Advent of a World of Flowering Trees"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Offensive, Supplementary",
+            "**Range:** Mid, Long",
+            "**Users:** Hashirama Senju, Madara Uchiha",
+            "**Media:** Anime, Manga"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Taking advantage of the innate properties of Wood Release which allows the user to force trees to grow on any surface at a rapid pace, the user creates a dense forest of flowering trees. During the forest's formation, the user can have the branch restrain any target(s) that tries to attack the user before the formation of the forest is complete."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Usage"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The user can also control where the pollen spreads so it does not affect them nor their comrades."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Counters / Defenses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "With enough willpower, it is possible to regain consciousness, however, in order to counter the technique fully, either the trees themselves must be destroyed completely or the target must continue to remain elevated above the dispersed pollen."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The pollen produced by these flowers is then released into the atmosphere and when inhaled, renders any afflicted target unconscious.",
+            "The pollen is also capable of penetrating Susanoo's defences."
+          ]
+        }
+      ]
+    },
+    "id": "wood-release-advent-of-a-world-of-flowering-trees",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Taking advantage of the innate properties of Wood Release which allows the user to force trees to grow on any surface at a rapid pace, the user creates a dense forest of flowering trees. During the forest's formation, the user can have the branch restrain any target(s) that tries to attack the user before the formation of the forest is complete.",
+    "technique": [
+      "The user can also control where the pollen spreads so it does not affect them nor their comrades.",
+      "The pollen produced by these flowers is then released into the atmosphere and when inhaled, renders any afflicted target unconscious.",
+      "The pollen is also capable of penetrating Susanoo's defences."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Advent of a World of Flowering Trees mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Cutting Technique",
     "sourcePage": "Wood Release: Cutting Technique",
-    "pageId": 103691,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Cutting_Technique",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/6/6b/Cutting_Technique_1.png/revision/latest/scale-to-width-down/600?cb=20140116131720",
     "raw": {
-      "markdown": "# Wood Release: Cutting Technique\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Offensive\n- Range: Short, Mid\n- Users: Obito Uchiha, Ten-Tails~~with~Obito Uchiha, Tobi (Zetsu), Hashirama Senju~game, Zetsu~game\n- Media: Anime, Manga, Game\n\n## Summary\nA versatile technique where the user can produce sharp wooden spikes from their body to either fashion short-range weapons akin to a makeshift sword, or use them as projectiles, where the branches' growth can be triggered remotely, skewering the enemy as a result. Obito was able to channel this technique through the Ten-Tails' tails after he and Madara Uchiha strengthened their control over the beast by connecting to it using Hashirama Senju's DNA.\n\n## Notes\n- It involves cutting off a piece of a plant, usually the stem or root, which is then put in an appropriate medium.\n- If done properly, the cut piece will grow into a new plant, genetically identical to the plant it was cut from.\n- * When this technique was first performed by Obito, various black receivers were scattered throughout the growth of branches that extended from his right side.\n- However, upon deactivating his Mangekyō Sharingan and the Wood Release Technique, the rods vanished with them.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Cutting Technique"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short, Mid",
+            "**Users:** Obito Uchiha, Ten-Tails, , with, Obito Uchiha, Tobi (Zetsu), Hashirama Senju, game, Zetsu, game",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "A versatile technique where the user can produce sharp wooden spikes from their body to either fashion short-range weapons akin to a makeshift sword, or use them as projectiles, where the branches' growth can be triggered remotely, skewering the enemy as a result. Obito was able to channel this technique through the Ten-Tails' tails after he and Madara Uchiha strengthened their control over the beast by connecting to it using Hashirama Senju's DNA."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "It involves cutting off a piece of a plant, usually the stem or root, which is then put in an appropriate medium.",
+            "If done properly, the cut piece will grow into a new plant, genetically identical to the plant it was cut from.",
+            "* When this technique was first performed by Obito, various black receivers were scattered throughout the growth of branches that extended from his right side.",
+            "However, upon deactivating his Mangekyō Sharingan and the Wood Release Technique, the rods vanished with them."
+          ]
+        }
+      ]
+    },
+    "id": "wood-release-cutting-technique",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "A versatile technique where the user can produce sharp wooden spikes from their body to either fashion short-range weapons akin to a makeshift sword, or use them as projectiles, where the branches' growth can be triggered remotely, skewering the enemy as a result. Obito was able to channel this technique through the Ten-Tails' tails after he and Madara Uchiha strengthened their control over the beast by connecting to it using Hashirama Senju's DNA.",
+    "technique": [
+      "It involves cutting off a piece of a plant, usually the stem or root, which is then put in an appropriate medium.",
+      "If done properly, the cut piece will grow into a new plant, genetically identical to the plant it was cut from.",
+      "When this technique was first performed by Obito, various black receivers were scattered throughout the growth of branches that extended from his right side.",
+      "However, upon deactivating his Mangekyō Sharingan and the Wood Release Technique, the rods vanished with them."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Cutting Technique mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Foo Dog Heads",
     "sourcePage": "Wood Release: Foo Dog Heads",
-    "pageId": 109399,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Foo_Dog_Heads",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/7/7e/Kakuan_Entering_Society_With_Bliss-Bringing_Hands.png.png/revision/latest/scale-to-width-down/600?cb=20150223084523",
     "raw": {
-      "markdown": "# Wood Release: Foo Dog Heads\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu, Chakra Absorption Techniques\n- Class: Supplementary\n- Range: Short, Mid, Long\n- Users: Yamato\n- Media: Anime, Manga, Game\n\n## Summary\nA technique designed to be used to absorb a tailed beast's chakra. The user produces the kanji on their palm and creates a series of wooden pillars, which are engraved with what resemble foo dog faces and have lit wicks on top of them.\n\n## Counters / Defenses\n- When the user slams their palm on the ground, the wooden statues rush towards the target and absorb its chakra.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Foo Dog Heads"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu, Chakra Absorption Techniques",
+            "**Class:** Supplementary",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Yamato",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "A technique designed to be used to absorb a tailed beast's chakra. The user produces the kanji on their palm and creates a series of wooden pillars, which are engraved with what resemble foo dog faces and have lit wicks on top of them."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Counters / Defenses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "When the user slams their palm on the ground, the wooden statues rush towards the target and absorb its chakra."
+          ]
+        }
+      ]
+    },
+    "id": "wood-release-foo-dog-heads",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "A technique designed to be used to absorb a tailed beast's chakra. The user produces the kanji on their palm and creates a series of wooden pillars, which are engraved with what resemble foo dog faces and have lit wicks on top of them.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Foo Dog Heads mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Four-Pillar House Technique",
     "sourcePage": "Wood Release: Four-Pillar House Technique",
-    "pageId": 4048,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Four-Pillar_House_Technique",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/4/42/Wood_Style%2C_Four_Pillars_House_Anime.png/revision/latest/scale-to-width-down/600?cb=20160425183026",
     "raw": {
-      "markdown": "# Wood Release: Four-Pillar House Technique\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Supplementary\n- Range: Short\n- Users: Yamato\n- Media: Anime, Manga\n\n## Summary\nBy sending chakra into the ground, the roots of the plants are converted into raw materials. This technique allows for a building to be constructed, by forcing accelerated growth.\n\n## Usage\n- By placing tags around the house, the user creates a barrier, making it impossible for the enemy to detect it and allowing the user to \"camp\" in peace.\n\n## Notes\n- Just like with the Four-Pillar Prison Technique, the size and shape of the building are taken from the user's imagination or memories.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Four-Pillar House Technique"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Supplementary",
+            "**Range:** Short",
+            "**Users:** Yamato",
+            "**Media:** Anime, Manga"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "By sending chakra into the ground, the roots of the plants are converted into raw materials. This technique allows for a building to be constructed, by forcing accelerated growth."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Usage"
+        },
+        {
+          "type": "list",
+          "items": [
+            "By placing tags around the house, the user creates a barrier, making it impossible for the enemy to detect it and allowing the user to \"camp\" in peace."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Just like with the Four-Pillar Prison Technique, the size and shape of the building are taken from the user's imagination or memories."
+          ]
+        }
+      ]
+    },
+    "id": "wood-release-four-pillar-house-technique",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "By sending chakra into the ground, the roots of the plants are converted into raw materials. This technique allows for a building to be constructed, by forcing accelerated growth.",
+    "technique": [
+      "By placing tags around the house, the user creates a barrier, making it impossible for the enemy to detect it and allowing the user to \"camp\" in peace.",
+      "Just like with the Four-Pillar Prison Technique, the size and shape of the building are taken from the user's imagination or memories."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Four-Pillar House Technique mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Four-Pillar Prison Technique",
     "sourcePage": "Wood Release: Four-Pillar Prison Technique",
-    "pageId": 3385,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Four-Pillar_Prison_Technique",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/2/25/Four-Pillar_Prison_Technique.png/revision/latest/scale-to-width-down/600?cb=20191001163001",
     "raw": {
-      "markdown": "# Wood Release: Four-Pillar Prison Technique\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Supplementary\n- Range: Short\n- Users: Yamato\n- Media: Anime, Manga, Game, Movie\n\n## Summary\nThe user converts chakra into timber under the ground and lets it grow rapidly while forming it into a wooden prison. The size of the prison is based on the user's imagination.\n\n## Notes\n- From an insect cage to a great prison, one can make it into whatever they want by regulating the amount of chakra used.\n- The timber itself is treated with a chakra coating, making its destruction extremely difficult.\n- During war, it has the great ability to detain prisoners, but it can also be used as a disciplinary measure for quarrelling subordinates.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Four-Pillar Prison Technique"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Supplementary",
+            "**Range:** Short",
+            "**Users:** Yamato",
+            "**Media:** Anime, Manga, Game, Movie"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The user converts chakra into timber under the ground and lets it grow rapidly while forming it into a wooden prison. The size of the prison is based on the user's imagination."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "From an insect cage to a great prison, one can make it into whatever they want by regulating the amount of chakra used.",
+            "The timber itself is treated with a chakra coating, making its destruction extremely difficult.",
+            "During war, it has the great ability to detain prisoners, but it can also be used as a disciplinary measure for quarrelling subordinates."
+          ]
+        }
+      ]
+    },
+    "id": "wood-release-four-pillar-prison-technique",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The user converts chakra into timber under the ground and lets it grow rapidly while forming it into a wooden prison. The size of the prison is based on the user's imagination.",
+    "technique": [
+      "From an insect cage to a great prison, one can make it into whatever they want by regulating the amount of chakra used.",
+      "The timber itself is treated with a chakra coating, making its destruction extremely difficult.",
+      "During war, it has the great ability to detain prisoners, but it can also be used as a disciplinary measure for quarrelling subordinates."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Four-Pillar Prison Technique mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Great Forest Technique",
     "sourcePage": "Wood Release: Great Forest Technique",
-    "pageId": 9656,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Great_Forest_Technique",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/1/1e/Great_Forest_Technique.png/revision/latest/scale-to-width-down/600?cb=20150312113626",
     "raw": {
-      "markdown": "# Wood Release: Great Forest Technique\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Offensive, Defensive, Supplementary\n- Range: Short, Mid, Long\n- Users: Hashirama Senju, Yamato\n- Media: Anime, Manga, Game, Movie\n\n## Summary\nA technique that changes one's own arm into big trees. Using chakra, the tissues are transformed into trees at the cellular level.\n\n## Notes\n- Then, by activating the trees, stimulating them to grow rapidly, they lengthen at high speed and fork into many branches.\n- It is possible to capture the enemy with these branches and at the same time, if one changes the ends into sharp stakes, turn them into countless, sharp, spear-like piercing weapons.\n- Yamato also used this technique to infiltrate Orochimaru's hideout.\n- After finding a small crack in the wall, the wood squeezed into the hole and grew into a square shape which increase the size of the hole so that he and his team could pass through.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Great Forest Technique"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Offensive, Defensive, Supplementary",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Hashirama Senju, Yamato",
+            "**Media:** Anime, Manga, Game, Movie"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "A technique that changes one's own arm into big trees. Using chakra, the tissues are transformed into trees at the cellular level."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Then, by activating the trees, stimulating them to grow rapidly, they lengthen at high speed and fork into many branches.",
+            "It is possible to capture the enemy with these branches and at the same time, if one changes the ends into sharp stakes, turn them into countless, sharp, spear-like piercing weapons.",
+            "Yamato also used this technique to infiltrate Orochimaru's hideout.",
+            "After finding a small crack in the wall, the wood squeezed into the hole and grew into a square shape which increase the size of the hole so that he and his team could pass through."
+          ]
+        }
+      ]
+    },
+    "id": "wood-release-great-forest-technique",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "A technique that changes one's own arm into big trees. Using chakra, the tissues are transformed into trees at the cellular level.",
+    "technique": [
+      "Then, by activating the trees, stimulating them to grow rapidly, they lengthen at high speed and fork into many branches.",
+      "It is possible to capture the enemy with these branches and at the same time, if one changes the ends into sharp stakes, turn them into countless, sharp, spear-like piercing weapons.",
+      "Yamato also used this technique to infiltrate Orochimaru's hideout.",
+      "After finding a small crack in the wall, the wood squeezed into the hole and grew into a square shape which increase the size of the hole so that he and his team could pass through."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Great Forest Technique mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Great Spear Tree",
     "sourcePage": "Wood Release: Great Spear Tree",
-    "pageId": 194370,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Great_Spear_Tree",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/6/64/Obito_killed_kirinin.png/revision/latest/scale-to-width-down/600?cb=20140116131501",
     "raw": {
-      "markdown": "# Wood Release: Great Spear Tree\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu,\n- Class: Offensive\n- Range: Short, Mid\n- Users: Obito Uchiha, Tobi (Zetsu), Black Zetsu~game, White Zetsu~game\n- Media: Anime, Manga, Game\n\n## Summary\nObito brings up several thick roots from the ground, and uses them to crush his opponents.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Great Spear Tree"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short, Mid",
+            "**Users:** Obito Uchiha, Tobi (Zetsu), Black Zetsu, game, White Zetsu, game",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Obito brings up several thick roots from the ground, and uses them to crush his opponents."
+        }
+      ]
+    },
+    "id": "wood-release-great-spear-tree",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Obito brings up several thick roots from the ground, and uses them to crush his opponents.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Great Spear Tree mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Hand Tool Manipulation",
     "sourcePage": "Wood Release: Hand Tool Manipulation",
-    "pageId": 105532,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Hand_Tool_Manipulation",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/9/9c/Wood_Key.png/revision/latest/scale-to-width-down/600?cb=20140129003601",
     "raw": {
-      "markdown": "# Wood Release: Hand Tool Manipulation\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Defensive, Supplementary\n- Range: Short\n- Users: Yamato\n- Media: Anime, Manga\n\n## Summary\nUsing Wood Release, Yamato manipulates his hand to form into a tool, such as a key or a shield.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Hand Tool Manipulation"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Defensive, Supplementary",
+            "**Range:** Short",
+            "**Users:** Yamato",
+            "**Media:** Anime, Manga"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Using Wood Release, Yamato manipulates his hand to form into a tool, such as a key or a shield."
+        }
+      ]
+    },
+    "id": "wood-release-hand-tool-manipulation",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Using Wood Release, Yamato manipulates his hand to form into a tool, such as a key or a shield.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Hand Tool Manipulation mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Highlight motif: defensive aura wrapping the user. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Hōbi Technique",
     "sourcePage": "Wood Release: Hōbi Technique",
-    "pageId": 109376,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_H%C5%8Dbi_Technique",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/0/02/H%C5%8Dbi_Technique.png/revision/latest/scale-to-width-down/600?cb=20140619121954",
     "raw": {
-      "markdown": "# Wood Release: Hōbi Technique\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu, Fūinjutsu\n- Class: Defensive\n- Range: Short\n- Users: Hashirama Senju\n- Media: Anime, Manga, Game\n\n## Summary\nQuickly creating a dome-like structure in the form of a dragon's face, the user is completely surrounded. Taking advantage of the nature of Wood Release, this fūinjutsu substantially weakens incoming attacks whilst protecting the user inside.\n\n## Notes\n- Hashirama once used this to nullify the destructive force of Kurama's Tailed Beast Ball.\n- On the user's command, the dome is split down the middle and can be opened.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Hōbi Technique"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu, Fūinjutsu",
+            "**Class:** Defensive",
+            "**Range:** Short",
+            "**Users:** Hashirama Senju",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Quickly creating a dome-like structure in the form of a dragon's face, the user is completely surrounded. Taking advantage of the nature of Wood Release, this fūinjutsu substantially weakens incoming attacks whilst protecting the user inside."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hashirama once used this to nullify the destructive force of Kurama's Tailed Beast Ball.",
+            "On the user's command, the dome is split down the middle and can be opened."
+          ]
+        }
+      ]
+    },
+    "id": "wood-release-hobi-technique",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Quickly creating a dome-like structure in the form of a dragon's face, the user is completely surrounded. Taking advantage of the nature of Wood Release, this fūinjutsu substantially weakens incoming attacks whilst protecting the user inside.",
+    "technique": [
+      "Hashirama once used this to nullify the destructive force of Kurama's Tailed Beast Ball.",
+      "On the user's command, the dome is split down the middle and can be opened."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Hōbi Technique mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Highlight motif: dragon-shaped effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Hotei Technique",
     "sourcePage": "Wood Release: Hotei Technique",
-    "pageId": 109363,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Hotei_Technique",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/c/c4/Hotei_Technique.png/revision/latest/scale-to-width-down/600?cb=20140619122105",
     "raw": {
-      "markdown": "# Wood Release: Hotei Technique\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Offensive, Defensive, Supplementary\n- Range: Short, Mid\n- Users: Hashirama Senju\n- Media: Anime, Manga, Game\n\n## Summary\nThe user creates a number of gigantic wooden hands that erupt upward from beneath the ground, which then encircle and attempt to restrain a chosen enemy. The size of each of these hands is around the size of a tailed beast.\n\n## Counters / Defenses\n- Hashirama is shown to be able to manifest two hands with sheer will alone, without the use of hand seals.\n\n## Notes\n- He is almost always shown smiling or laughing, hence his nickname: the Laughing Buddha.\n- In Japan, Hotei persists in folklore as one of the Seven Lucky Gods of Taoism.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Hotei Technique"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Offensive, Defensive, Supplementary",
+            "**Range:** Short, Mid",
+            "**Users:** Hashirama Senju",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The user creates a number of gigantic wooden hands that erupt upward from beneath the ground, which then encircle and attempt to restrain a chosen enemy. The size of each of these hands is around the size of a tailed beast."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Counters / Defenses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hashirama is shown to be able to manifest two hands with sheer will alone, without the use of hand seals."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**He is almost always shown smiling or laughing, hence his nickname:** the Laughing Buddha.",
+            "In Japan, Hotei persists in folklore as one of the Seven Lucky Gods of Taoism."
+          ]
+        }
+      ]
+    },
+    "id": "wood-release-hotei-technique",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The user creates a number of gigantic wooden hands that erupt upward from beneath the ground, which then encircle and attempt to restrain a chosen enemy. The size of each of these hands is around the size of a tailed beast.",
+    "technique": [
+      "the Laughing Buddha.",
+      "In Japan, Hotei persists in folklore as one of the Seven Lucky Gods of Taoism."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Hotei Technique mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Nativity of a Sea of Trees",
     "sourcePage": "Wood Release: Nativity of a Sea of Trees",
-    "pageId": 57587,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Nativity_of_a_Sea_of_Trees",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/b/b3/Jukai_Kotan.png/revision/latest/scale-to-width-down/600?cb=20150121003717",
     "raw": {
-      "markdown": "# Wood Release: Nativity of a Sea of Trees\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Supplementary\n- Range: Short, Mid\n- Users: Yamato,Hashirama Senju~game\n- Media: Anime, Manga, Game\n\n## Summary\nAfter forming the necessary seals, Yamato is able to turn an area into a vast forest in a matter of mere moments complete with trees and grass growing out of any terrain he is on. This technique is very similar to Hashirama's signature technique, albeit on a somewhat smaller scale.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Nativity of a Sea of Trees"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Supplementary",
+            "**Range:** Short, Mid",
+            "**Users:** Yamato,Hashirama Senju, game",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "After forming the necessary seals, Yamato is able to turn an area into a vast forest in a matter of mere moments complete with trees and grass growing out of any terrain he is on. This technique is very similar to Hashirama's signature technique, albeit on a somewhat smaller scale."
+        }
+      ]
+    },
+    "id": "wood-release-nativity-of-a-sea-of-trees",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "After forming the necessary seals, Yamato is able to turn an area into a vast forest in a matter of mere moments complete with trees and grass growing out of any terrain he is on. This technique is very similar to Hashirama's signature technique, albeit on a somewhat smaller scale.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Nativity of a Sea of Trees mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release Secret Technique: Nativity of a World of Trees",
     "sourcePage": "Wood Release Secret Technique: Nativity of a World of Trees",
-    "pageId": 5572,
     "url": "https://naruto.fandom.com/wiki/Wood_Release_Secret_Technique:_Nativity_of_a_World_of_Trees",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/9/9a/Hashirama%27s_wood_release.png/revision/latest/scale-to-width-down/600?cb=20240908160726",
     "raw": {
-      "markdown": "# Wood Release Secret Technique: Nativity of a World of Trees\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release,Hiden~Senju Clan, Ninjutsu\n- Class: Offensive, Defensive, Supplementary\n- Range: Short, Mid, Long\n- Users: Hashirama Senju, Madara Uchiha\n- Media: Anime, Manga, Game\n\n## Summary\nHashirama Senju creates a dense growth of trees, controlling how it grows using his chakra. The trees' life force is immense enough to split the earth as they sprout and further pierce through any other obstructions they encounter.\n\n## Notes\n- This growth is also fast enough that it can capture targets before they have a chance to escape.\n- Hashirama used this technique to serve as a foundation for Konohagakure; none other than Hashirama have been capable of such a feat.\n- Years later, he instead uses Wood Release: Nativity of a Sea of Trees, a similar yet smaller-scale version of this technique.\n- This technique changed the last kanji from to , probably to reinforce the greatness of the forest created.\n- * In Tō no Sho , this technique is classified as hiden instead of a kekkei genkai.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release Secret Technique: Nativity of a World of Trees"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release,Hiden, Senju Clan, Ninjutsu",
+            "**Class:** Offensive, Defensive, Supplementary",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Hashirama Senju, Madara Uchiha",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Hashirama Senju creates a dense growth of trees, controlling how it grows using his chakra. The trees' life force is immense enough to split the earth as they sprout and further pierce through any other obstructions they encounter."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "This growth is also fast enough that it can capture targets before they have a chance to escape.",
+            "Hashirama used this technique to serve as a foundation for Konohagakure; none other than Hashirama have been capable of such a feat.",
+            "**Years later, he instead uses Wood Release:** Nativity of a Sea of Trees, a similar yet smaller-scale version of this technique.",
+            "This technique changed the last kanji from to , probably to reinforce the greatness of the forest created.",
+            "* In Tō no Sho , this technique is classified as hiden instead of a kekkei genkai."
+          ]
+        }
+      ]
+    },
+    "id": "wood-release-secret-technique-nativity-of-a-world-of-trees",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Hashirama Senju creates a dense growth of trees, controlling how it grows using his chakra. The trees' life force is immense enough to split the earth as they sprout and further pierce through any other obstructions they encounter.",
+    "technique": [
+      "This growth is also fast enough that it can capture targets before they have a chance to escape.",
+      "Hashirama used this technique to serve as a foundation for Konohagakure; none other than Hashirama have been capable of such a feat.",
+      "Nativity of a Sea of Trees, a similar yet smaller-scale version of this technique.",
+      "This technique changed the last kanji from to , probably to reinforce the greatness of the forest created.",
+      "In Tō no Sho , this technique is classified as hiden instead of a kekkei genkai."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release Secret Technique: Nativity of a World of Trees mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Serial Pillar Houses Technique",
     "sourcePage": "Wood Release: Serial Pillar Houses Technique",
-    "pageId": 15336,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Serial_Pillar_Houses_Technique",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/7/72/Serial_Piller_House.PNG/revision/latest/scale-to-width-down/600?cb=20150514121746",
     "raw": {
-      "markdown": "# Wood Release: Serial Pillar Houses Technique\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Supplementary\n- Users: Yamato\n- Media: Anime, Manga\n\n## Summary\nA larger scaled version of the Wood Release: Four-Pillar House Technique where instead of creating a single house, Yamato creates multiple houses at once. Because of the sheer volume of structures created with this technique, it appears to exhaust him rather quickly.\n\n## Drawbacks\n- * It should be noted that in the anime, these constructs emerged fully painted and with glass windows.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Serial Pillar Houses Technique"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Supplementary",
+            "**Users:** Yamato",
+            "**Media:** Anime, Manga"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "A larger scaled version of the Wood Release: Four-Pillar House Technique where instead of creating a single house, Yamato creates multiple houses at once. Because of the sheer volume of structures created with this technique, it appears to exhaust him rather quickly."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Drawbacks"
+        },
+        {
+          "type": "list",
+          "items": [
+            "* It should be noted that in the anime, these constructs emerged fully painted and with glass windows."
+          ]
+        }
+      ]
+    },
+    "id": "wood-release-serial-pillar-houses-technique",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "A larger scaled version of the Wood Release: Four-Pillar House Technique where instead of creating a single house, Yamato creates multiple houses at once. Because of the sheer volume of structures created with this technique, it appears to exhaust him rather quickly.",
+    "technique": [],
+    "training": [],
+    "tips": [
+      "It should be noted that in the anime, these constructs emerged fully painted and with glass windows."
+    ],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Serial Pillar Houses Technique mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Smothering Binding Technique",
     "sourcePage": "Wood Release: Smothering Binding Technique",
-    "pageId": 44680,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Smothering_Binding_Technique",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/2/26/Smothering_Binding_Technique.png/revision/latest/scale-to-width-down/600?cb=20160128071453",
     "raw": {
-      "markdown": "# Wood Release: Smothering Binding Technique\n\n## Quick Facts\n- Element/Type: Wood Release,\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu, Fūinjutsu\n- Class: Offensive, Supplementary\n- Range: Short, Mid\n- Users: Yamato\n- Media: Anime, Manga, Game\n\n## Summary\nBy transforming their arm into a tree, the user can then create multiple branches which will rapidly grow around the target, immobilising them. This technique is strong enough to restrain a giant squid.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Smothering Binding Technique"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu, Fūinjutsu",
+            "**Class:** Offensive, Supplementary",
+            "**Range:** Short, Mid",
+            "**Users:** Yamato",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "By transforming their arm into a tree, the user can then create multiple branches which will rapidly grow around the target, immobilising them. This technique is strong enough to restrain a giant squid."
+        }
+      ]
+    },
+    "id": "wood-release-smothering-binding-technique",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "By transforming their arm into a tree, the user can then create multiple branches which will rapidly grow around the target, immobilising them. This technique is strong enough to restrain a giant squid.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Smothering Binding Technique mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Stocks",
     "sourcePage": "Wood Release: Stocks",
-    "pageId": 53408,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Stocks",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/a/a1/Wood_Release_stocks.png/revision/latest/scale-to-width-down/600?cb=20151004044147",
     "raw": {
-      "markdown": "# Wood Release: Stocks\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Supplementary\n- Range: Short\n- Users: Yamato\n- Media: Anime, Manga, Game\n\n## Summary\nYamato creates wooden stocks to restrain a target. These stocks also have the added effect of suppressing the target's chakra, rendering most captives unable to retaliate.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Stocks"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Supplementary",
+            "**Range:** Short",
+            "**Users:** Yamato",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Yamato creates wooden stocks to restrain a target. These stocks also have the added effect of suppressing the target's chakra, rendering most captives unable to retaliate."
+        }
+      ]
+    },
+    "id": "wood-release-stocks",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Yamato creates wooden stocks to restrain a target. These stocks also have the added effect of suppressing the target's chakra, rendering most captives unable to retaliate.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Stocks mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Transformation",
     "sourcePage": "Wood Release: Transformation",
-    "pageId": 5989,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Transformation",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/c/c1/Wood_Release_Transformation.PNG/revision/latest/scale-to-width-down/600?cb=20170119213453",
     "raw": {
-      "markdown": "# Wood Release: Transformation\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Supplementary\n- Range: Short\n- Users: Yamato\n- Media: Anime, Manga\n\n## Summary\nYamato performs the necessary hand seals, then wood emerges and covers his entire body with a puff of smoke or chakra, covering up the transformation. Once the technique is done, the transformation is complete.\n\n## Drawbacks\n- It acts more like a costume than a transformation, as he is able to leave it behind if necessary.\n\n## Notes\n- He also demonstrates the ability to adjust his voice while using this technique.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Transformation"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Supplementary",
+            "**Range:** Short",
+            "**Users:** Yamato",
+            "**Media:** Anime, Manga"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Yamato performs the necessary hand seals, then wood emerges and covers his entire body with a puff of smoke or chakra, covering up the transformation. Once the technique is done, the transformation is complete."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Drawbacks"
+        },
+        {
+          "type": "list",
+          "items": [
+            "It acts more like a costume than a transformation, as he is able to leave it behind if necessary."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "He also demonstrates the ability to adjust his voice while using this technique."
+          ]
+        }
+      ]
+    },
+    "id": "wood-release-transformation",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Yamato performs the necessary hand seals, then wood emerges and covers his entire body with a puff of smoke or chakra, covering up the transformation. Once the technique is done, the transformation is complete.",
+    "technique": [
+      "He also demonstrates the ability to adjust his voice while using this technique."
+    ],
+    "training": [],
+    "tips": [
+      "It acts more like a costume than a transformation, as he is able to leave it behind if necessary."
+    ],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Transformation mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Tree Bind Flourishing Burial",
     "sourcePage": "Wood Release: Tree Bind Flourishing Burial",
-    "pageId": 7262,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Tree_Bind_Flourishing_Burial",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/7/7f/Binding_Nest.PNG/revision/latest/scale-to-width-down/600?cb=20210829035641",
     "raw": {
-      "markdown": "# Wood Release: Tree Bind Flourishing Burial\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Offensive, Supplementary\n- Range: Short, Mid\n- Users: Yamato\n- Media: Anime, Game\n\n## Summary\nThis technique lets the user summon a tree around their opponent to bind them. This technique is relatively powerful and holds opponents much more gracefully, with less of a strain on the user, because the user sinks them into the ground.\n\n## Notes\n- Afterwards, the user can enclose the opponent so that their body is crushed.\n- This technique requires some preparation as Yamato first had to crush the earth and then add water before this technique could be used.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Tree Bind Flourishing Burial"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Offensive, Supplementary",
+            "**Range:** Short, Mid",
+            "**Users:** Yamato",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "This technique lets the user summon a tree around their opponent to bind them. This technique is relatively powerful and holds opponents much more gracefully, with less of a strain on the user, because the user sinks them into the ground."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Afterwards, the user can enclose the opponent so that their body is crushed.",
+            "This technique requires some preparation as Yamato first had to crush the earth and then add water before this technique could be used."
+          ]
+        }
+      ]
+    },
+    "id": "wood-release-tree-bind-flourishing-burial",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "This technique lets the user summon a tree around their opponent to bind them. This technique is relatively powerful and holds opponents much more gracefully, with less of a strain on the user, because the user sinks them into the ground.",
+    "technique": [
+      "Afterwards, the user can enclose the opponent so that their body is crushed.",
+      "This technique requires some preparation as Yamato first had to crush the earth and then add water before this technique could be used."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Tree Bind Flourishing Burial mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Wood Dragon Technique",
     "sourcePage": "Wood Release: Wood Dragon Technique",
-    "pageId": 104190,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Wood_Dragon_Technique",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/9/91/Mokury%C5%AB_no_jutsu.png/revision/latest/scale-to-width-down/600?cb=20140619145749",
     "raw": {
-      "markdown": "# Wood Release: Wood Dragon Technique\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu, Chakra Absorption Techniques\n- Class: Offensive, Defensive\n- Range: Short, Mid\n- Users: Hashirama Senju, Madara Uchiha, Obito Uchiha,\n- Media: Anime, Manga, Game\n\n## Summary\nThe user creates a gigantic wooden dragon, which they can use for a multitude of purposes including restraining a target, or for offensive purposes. The dragon that the user creates can vary in terms of appearance.\n\n## Counters / Defenses\n- It also has the ability to absorb chakra from its target, slowly rendering them unable to use techniques by biting into the target and draining them almost in a vampiric fashion.\n- Both Naruto Uzumaki and Kurama countered it this way by destroying the head with a Body Flicker Technique and Tailed Beast Ball combination respectively.\n- Madara Uchiha would also counter it with his Susanoo, deflecting its attempts to drain his chakra with a sword.\n\n## Notes\n- While both instances created a serpentine dragon, Chinese dragon, though the first had a short trunk-like nose, while the other two later created did not.\n- In the anime, Hashirama was able to cause the dragon to detonate on his target, resulting in a large explosion.\n- Over time, the myth surrounding this creature has spread throughout most of Asia, and in Chinese renditions of the creature it most resembles this one: a dragon with an elephant's trunk.\n- * Hashirama noted that the chakra absorption feature of this technique negates the Chakra Absorption Techniques of a bound target.\n- * When the Wood Release: Wood Human Technique was used, this dragon encircles the creature's torso.\n- * In certain parts of Japanese mythology, dragons are considered deities with power over wood, forests, and water, likely a reference to Hashirama's Wood Release.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Wood Dragon Technique"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu, Chakra Absorption Techniques",
+            "**Class:** Offensive, Defensive",
+            "**Range:** Short, Mid",
+            "**Users:** Hashirama Senju, Madara Uchiha, Obito Uchiha",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The user creates a gigantic wooden dragon, which they can use for a multitude of purposes including restraining a target, or for offensive purposes. The dragon that the user creates can vary in terms of appearance."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Counters / Defenses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "It also has the ability to absorb chakra from its target, slowly rendering them unable to use techniques by biting into the target and draining them almost in a vampiric fashion.",
+            "Both Naruto Uzumaki and Kurama countered it this way by destroying the head with a Body Flicker Technique and Tailed Beast Ball combination respectively.",
+            "Madara Uchiha would also counter it with his Susanoo, deflecting its attempts to drain his chakra with a sword."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "While both instances created a serpentine dragon, Chinese dragon, though the first had a short trunk-like nose, while the other two later created did not.",
+            "In the anime, Hashirama was able to cause the dragon to detonate on his target, resulting in a large explosion.",
+            "Over time, the myth surrounding this creature has spread throughout most of Asia, and in Chinese renditions of the creature it most resembles this one: a dragon with an elephant's trunk.",
+            "* Hashirama noted that the chakra absorption feature of this technique negates the Chakra Absorption Techniques of a bound target.",
+            "*** When the Wood Release:** Wood Human Technique was used, this dragon encircles the creature's torso.",
+            "* In certain parts of Japanese mythology, dragons are considered deities with power over wood, forests, and water, likely a reference to Hashirama's Wood Release."
+          ]
+        }
+      ]
+    },
+    "id": "wood-release-wood-dragon-technique",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The user creates a gigantic wooden dragon, which they can use for a multitude of purposes including restraining a target, or for offensive purposes. The dragon that the user creates can vary in terms of appearance.",
+    "technique": [
+      "While both instances created a serpentine dragon, Chinese dragon, though the first had a short trunk-like nose, while the other two later created did not.",
+      "In the anime, Hashirama was able to cause the dragon to detonate on his target, resulting in a large explosion.",
+      "Over time, the myth surrounding this creature has spread throughout most of Asia, and in Chinese renditions of the creature it most resembles this one: a dragon with an elephant's trunk.",
+      "Hashirama noted that the chakra absorption feature of this technique negates the Chakra Absorption Techniques of a bound target.",
+      "Wood Human Technique was used, this dragon encircles the creature's torso.",
+      "In certain parts of Japanese mythology, dragons are considered deities with power over wood, forests, and water, likely a reference to Hashirama's Wood Release."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Wood Dragon Technique mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Highlight motif: dragon-shaped effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Wood Human Technique",
     "sourcePage": "Wood Release: Wood Human Technique",
-    "pageId": 108990,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Wood_Human_Technique",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/3/3d/Giant_Wood_Human.png/revision/latest/scale-to-width-down/600?cb=20140718025044",
     "raw": {
-      "markdown": "# Wood Release: Wood Human Technique\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Offensive, Defensive\n- Users: Hashirama Senju, Tobi (Zetsu)\n- Media: Anime, Manga, Game\n\n## Summary\nAfter forming the required hand seals, the user creates an enormous statue-like creature out of wood. This humanoid creature with a full body and an oni-like face is usually created with a wooden dragon wrapped around its torso, and is generally used in battle as an avatar.\n\n## Usage\n- The wooden dragon can be multiplied and be used to attack its enemies directly as well.\n\n## Notes\n- This creature is stated to be as powerful as the Nine-Tails, It could even clash against the likes of Madara Uchiha's Complete Body — Susanoo, which was stated by Madara himself to have destructive powers rivalling even the tailed beasts.\n- In the anime, it is capable of spawning multiple Wood Dragon heads, each capable of self-destructing.\n- Together with , the pair symbolise the power of the Shitennō to repel and defeat evil.\n- The Buddhist monk Kōben sculpted notable wooden statues of both Tentōki and Ryūtōki, which are each considered a National Treasure of Japan.\n- * While never seen using it in the series, Tobi is listed as a user of this technique in Jin no Sho.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Wood Human Technique"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Offensive, Defensive",
+            "**Users:** Hashirama Senju, Tobi (Zetsu)",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "After forming the required hand seals, the user creates an enormous statue-like creature out of wood. This humanoid creature with a full body and an oni-like face is usually created with a wooden dragon wrapped around its torso, and is generally used in battle as an avatar."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Usage"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The wooden dragon can be multiplied and be used to attack its enemies directly as well."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "This creature is stated to be as powerful as the Nine-Tails, It could even clash against the likes of Madara Uchiha's Complete Body — Susanoo, which was stated by Madara himself to have destructive powers rivalling even the tailed beasts.",
+            "In the anime, it is capable of spawning multiple Wood Dragon heads, each capable of self-destructing.",
+            "Together with , the pair symbolise the power of the Shitennō to repel and defeat evil.",
+            "The Buddhist monk Kōben sculpted notable wooden statues of both Tentōki and Ryūtōki, which are each considered a National Treasure of Japan.",
+            "* While never seen using it in the series, Tobi is listed as a user of this technique in Jin no Sho."
+          ]
+        }
+      ]
+    },
+    "id": "wood-release-wood-human-technique",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "After forming the required hand seals, the user creates an enormous statue-like creature out of wood. This humanoid creature with a full body and an oni-like face is usually created with a wooden dragon wrapped around its torso, and is generally used in battle as an avatar.",
+    "technique": [
+      "The wooden dragon can be multiplied and be used to attack its enemies directly as well.",
+      "This creature is stated to be as powerful as the Nine-Tails, It could even clash against the likes of Madara Uchiha's Complete Body — Susanoo, which was stated by Madara himself to have destructive powers rivalling even the tailed beasts.",
+      "In the anime, it is capable of spawning multiple Wood Dragon heads, each capable of self-destructing.",
+      "Together with , the pair symbolise the power of the Shitennō to repel and defeat evil.",
+      "The Buddhist monk Kōben sculpted notable wooden statues of both Tentōki and Ryūtōki, which are each considered a National Treasure of Japan.",
+      "While never seen using it in the series, Tobi is listed as a user of this technique in Jin no Sho."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Wood Human Technique mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Highlight motif: dragon-shaped effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Wood Locking Wall",
     "sourcePage": "Wood Release: Wood Locking Wall",
-    "pageId": 3712,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Wood_Locking_Wall",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/d/d5/Wood_element.PNG/revision/latest/scale-to-width-down/600?cb=20160407231752",
     "raw": {
-      "markdown": "# Wood Release: Wood Locking Wall\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Offensive, Defensive\n- Range: Short\n- Users: Yamato, Hashirama Senju~anime\n- Media: Anime, Manga, Game, Movie\n\n## Summary\nAn extremely versatile move, this technique uses chakra to activate the roots in the ground and, using the user of the technique as a reference point, makes wooden pillars appear from left and right. The wooden pillars join together in a dome-shape with the user at the centre.\n\n## Notes\n- In the case that the user confronts the enemy at a short distance, the enemy can be locked up inside the dome, catching the enemy in a double sided attack.\n- Furthermore, it can function as an easy shelter against an enemy's long-distance attacks, like the shockwave created from Naruto Uzumaki in his Version 2 state.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Wood Locking Wall"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Offensive, Defensive",
+            "**Range:** Short",
+            "**Users:** Yamato, Hashirama Senju, anime",
+            "**Media:** Anime, Manga, Game, Movie"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "An extremely versatile move, this technique uses chakra to activate the roots in the ground and, using the user of the technique as a reference point, makes wooden pillars appear from left and right. The wooden pillars join together in a dome-shape with the user at the centre."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "In the case that the user confronts the enemy at a short distance, the enemy can be locked up inside the dome, catching the enemy in a double sided attack.",
+            "Furthermore, it can function as an easy shelter against an enemy's long-distance attacks, like the shockwave created from Naruto Uzumaki in his Version 2 state."
+          ]
+        }
+      ]
+    },
+    "id": "wood-release-wood-locking-wall",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "An extremely versatile move, this technique uses chakra to activate the roots in the ground and, using the user of the technique as a reference point, makes wooden pillars appear from left and right. The wooden pillars join together in a dome-shape with the user at the centre.",
+    "technique": [
+      "In the case that the user confronts the enemy at a short distance, the enemy can be locked up inside the dome, catching the enemy in a double sided attack.",
+      "Furthermore, it can function as an easy shelter against an enemy's long-distance attacks, like the shockwave created from Naruto Uzumaki in his Version 2 state."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Wood Locking Wall mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: Wood Spikes Ring",
     "sourcePage": "Wood Release: Wood Spikes Ring",
-    "pageId": 59072,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_Wood_Spikes_Ring",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/c/c3/Wood_Release_Ring.png/revision/latest/scale-to-width-down/600?cb=20150915000725",
     "raw": {
-      "markdown": "# Wood Release: Wood Spikes Ring\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Supplementary\n- Range: Short\n- Users: Yamato\n- Media: Anime, Manga\n\n## Summary\nThe user creates a semi-circle of wood around a captured target, and then form spikes within the ring, pointing at the target, preventing them from making any sudden movements.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: Wood Spikes Ring"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Supplementary",
+            "**Range:** Short",
+            "**Users:** Yamato",
+            "**Media:** Anime, Manga"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The user creates a semi-circle of wood around a captured target, and then form spikes within the ring, pointing at the target, preventing them from making any sudden movements."
+        }
+      ]
+    },
+    "id": "wood-release-wood-spikes-ring",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The user creates a semi-circle of wood around a captured target, and then form spikes within the ring, pointing at the target, preventing them from making any sudden movements.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: Wood Spikes Ring mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Wood Release: World of Trees Wall",
     "sourcePage": "Wood Release: World of Trees Wall",
-    "pageId": 33526,
     "url": "https://naruto.fandom.com/wiki/Wood_Release:_World_of_Trees_Wall",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/d/d0/Jukai_Heki_no_Jutsu.png/revision/latest/scale-to-width-down/600?cb=20151130224420",
     "raw": {
-      "markdown": "# Wood Release: World of Trees Wall\n\n## Quick Facts\n- Element/Type: Wood Release\n- Classification: Kekkei Genkai~Wood Release, Ninjutsu\n- Class: Defensive\n- Range: Short\n- Users: Yamato, Crimson Fist~game\n- Media: Anime, Game\n\n## Summary\nThe user creates countless wooden branches that grow at high speed from the ground. The branches interlace to form a wide, net-like wall with an impressive defensive power.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Wood Release: World of Trees Wall"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Wood Release",
+            "**Classification:** Kekkei Genkai, Wood Release, Ninjutsu",
+            "**Class:** Defensive",
+            "**Range:** Short",
+            "**Users:** Yamato, Crimson Fist, game",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The user creates countless wooden branches that grow at high speed from the ground. The branches interlace to form a wide, net-like wall with an impressive defensive power."
+        }
+      ]
+    },
+    "id": "wood-release-world-of-trees-wall",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The user creates countless wooden branches that grow at high speed from the ground. The branches interlace to form a wide, net-like wall with an impressive defensive power.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Wood Release: World of Trees Wall mid-cast with a dynamic action pose. Emphasize growing wooden tendrils, bark textures, splinters. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   }
 ]

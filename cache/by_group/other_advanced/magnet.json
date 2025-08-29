@@ -2,161 +2,984 @@
   {
     "name": "Air Gold Dust Protective Wall",
     "sourcePage": "Air Gold Dust Protective Wall",
-    "pageId": 78938,
     "url": "https://naruto.fandom.com/wiki/Air_Gold_Dust_Protective_Wall",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/8/87/Gold_Dust_Wall.png/revision/latest/scale-to-width-down/600?cb=20211030005524",
     "raw": {
-      "markdown": "# Air Gold Dust Protective Wall\n\n## Quick Facts\n- Element/Type: Magnet Release\n- Classification: Kekkei Genkai~Magnet Release, Ninjutsu\n- Class: Defensive\n- Range: Mid, Long\n- Users: Rasa\n- Media: Anime, Manga, Game\n\n## Summary\nMaking use of his Gold Dust, the Fourth Kazekage raises it above him to create a thick barricade in order to block incoming aerial attacks, whilst using hand gestures to dictate the shape that the barrier adopts. This ability is strong enough to guard against even Gaara's Sand Hail technique.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Air Gold Dust Protective Wall"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Magnet Release",
+            "**Classification:** Kekkei Genkai, Magnet Release, Ninjutsu",
+            "**Class:** Defensive",
+            "**Range:** Mid, Long",
+            "**Users:** Rasa",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Making use of his Gold Dust, the Fourth Kazekage raises it above him to create a thick barricade in order to block incoming aerial attacks, whilst using hand gestures to dictate the shape that the barrier adopts. This ability is strong enough to guard against even Gaara's Sand Hail technique."
+        }
+      ]
+    },
+    "id": "air-gold-dust-protective-wall",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Making use of his Gold Dust, the Fourth Kazekage raises it above him to create a thick barricade in order to block incoming aerial attacks, whilst using hand gestures to dictate the shape that the barrier adopts. This ability is strong enough to guard against even Gaara's Sand Hail technique.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Air Gold Dust Protective Wall mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Black Secret Technique: Black Iron",
     "sourcePage": "Black Secret Technique: Black Iron",
-    "pageId": 276970,
     "url": "https://naruto.fandom.com/wiki/Black_Secret_Technique:_Black_Iron",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/9/97/Black_Secret_Art_Black_Iron.png/revision/latest/scale-to-width-down/600?cb=20190917080113",
     "raw": {
-      "markdown": "# Black Secret Technique: Black Iron\n\n## Quick Facts\n- Element/Type: Magnet Release\n- Classification: Kekkei Genkai~Magnet Release, Ninjutsu, Fūinjutsu\n- Class: Supplementary\n- Range: Short, Mid\n- Users: Shinki\n- Media: Anime, Game\n\n## Summary\nShinki encases his target with Iron Sand, then proceeds to summon his puppet that bites down on the target, which results in a fūinjutsu formula that temporarily seals said target's movement as Shinki completely buries them in a casket of Iron Sand.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Black Secret Technique: Black Iron"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Magnet Release",
+            "**Classification:** Kekkei Genkai, Magnet Release, Ninjutsu, Fūinjutsu",
+            "**Class:** Supplementary",
+            "**Range:** Short, Mid",
+            "**Users:** Shinki",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Shinki encases his target with Iron Sand, then proceeds to summon his puppet that bites down on the target, which results in a fūinjutsu formula that temporarily seals said target's movement as Shinki completely buries them in a casket of Iron Sand."
+        }
+      ]
+    },
+    "id": "black-secret-technique-black-iron",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Shinki encases his target with Iron Sand, then proceeds to summon his puppet that bites down on the target, which results in a fūinjutsu formula that temporarily seals said target's movement as Shinki completely buries them in a casket of Iron Sand.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Black Secret Technique: Black Iron mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Iron Sand: Black Iron Wings",
     "sourcePage": "Iron Sand: Black Iron Wings",
-    "pageId": 261580,
     "url": "https://naruto.fandom.com/wiki/Iron_Sand:_Black_Iron_Wings",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/4/41/Iron_Sand_Iron_Wings.png/revision/latest/scale-to-width-down/600?cb=20180607113635",
     "raw": {
-      "markdown": "# Iron Sand: Black Iron Wings\n\n## Quick Facts\n- Element/Type: Magnet Release\n- Classification: Kekkei Genkai~Magnet Release, Ninjutsu\n- Class: Offensive, Supplementary\n- Range: Short, Mid, Long\n- Users: Sasori~~puppet~Third Kazekage, Shinki~anime, Third Kazekage~game\n- Media: Anime, Manga, Game\n\n## Summary\nThe user creates wings out of Iron Sand that can be used for flight. Using these wings, the user can also generate feathers in the form of homing missiles, as well as can combine the wings to form a giant spear.\n\n## Notes\n- ** In Naruto Mobile , the Third Kazekage's Summoning: Impure World Reincarnation unit is able to use the wings offensively, often creating a single wing and using it as a blade.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Iron Sand: Black Iron Wings"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Magnet Release",
+            "**Classification:** Kekkei Genkai, Magnet Release, Ninjutsu",
+            "**Class:** Offensive, Supplementary",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Sasori, , puppet, Third Kazekage, Shinki, anime, Third Kazekage, game",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The user creates wings out of Iron Sand that can be used for flight. Using these wings, the user can also generate feathers in the form of homing missiles, as well as can combine the wings to form a giant spear."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**** In Naruto Mobile , the Third Kazekage's Summoning:** Impure World Reincarnation unit is able to use the wings offensively, often creating a single wing and using it as a blade."
+          ]
+        }
+      ]
+    },
+    "id": "iron-sand-black-iron-wings",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The user creates wings out of Iron Sand that can be used for flight. Using these wings, the user can also generate feathers in the form of homing missiles, as well as can combine the wings to form a giant spear.",
+    "technique": [
+      "**** In Naruto Mobile , the Third Kazekage's Summoning:** Impure World Reincarnation unit is able to use the wings offensively, often creating a single wing and using it as a blade."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Iron Sand: Black Iron Wings mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Iron Sand Clone",
     "sourcePage": "Iron Sand Clone",
-    "pageId": 260966,
     "url": "https://naruto.fandom.com/wiki/Iron_Sand_Clone",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/e/eb/Satetsu_no_Bunshin.png/revision/latest/scale-to-width-down/600?cb=20180913191128",
     "raw": {
-      "markdown": "# Iron Sand Clone\n\n## Quick Facts\n- Element/Type: Magnet Release\n- Classification: Kekkei Genkai~Magnet Release, Ninjutsu, Clone Techniques\n- Class: Supplementary\n- Users: Shinki\n- Media: Anime, Game\n\n## Summary\nThe user creates a clone out of Iron Sand that can be used for diversionary tactics.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Iron Sand Clone"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Magnet Release",
+            "**Classification:** Kekkei Genkai, Magnet Release, Ninjutsu, Clone Techniques",
+            "**Class:** Supplementary",
+            "**Users:** Shinki",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The user creates a clone out of Iron Sand that can be used for diversionary tactics."
+        }
+      ]
+    },
+    "id": "iron-sand-clone",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The user creates a clone out of Iron Sand that can be used for diversionary tactics.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Iron Sand Clone mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Iron Sand Drizzle",
     "sourcePage": "Iron Sand Drizzle",
-    "pageId": 4880,
     "url": "https://naruto.fandom.com/wiki/Iron_Sand_Drizzle",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/e/e8/Iron_Sand_drizzle.png/revision/latest/scale-to-width-down/600?cb=20160421115053",
     "raw": {
-      "markdown": "# Iron Sand Drizzle\n\n## Quick Facts\n- Element/Type: Magnet Release,\n- Classification: Kekkei Genkai~Magnet Release, Ninjutsu\n- Class: Offensive\n- Range: Short, Mid, Long\n- Users: Third Kazekage, Sasori~~puppet~Third Kazekage, Shinki~anime\n- Media: Anime, Manga, Game\n\n## Summary\nIt is a gunshot-like attack which uses Iron Sand hardened into minuscule grains to attack simultaneously across a vast range. The bullets are so fast that they are difficult to see.\n\n## Notes\n- The moment the user has finished preparing the attack, evading it becomes extremely difficult.\n- Using the repellent force of magnetism, the speed of the bullets is rapidly increased after they are shot.\n- Furthermore, the user can also use an attack pattern where the Iron Sand bullets are shaped into sharp needles, increasing their ability to wound or kill the opponent.\n- Since the Iron Sand has a magnetic force and (when used by Sasori) is also drenched in poison, defending against this technique is almost impossible.\n- This technique is especially threatening to puppet users, since the puppets can be rendered immobile if the sand gets lodged into their joints.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Iron Sand Drizzle"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Magnet Release",
+            "**Classification:** Kekkei Genkai, Magnet Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Third Kazekage, Sasori, , puppet, Third Kazekage, Shinki, anime",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "It is a gunshot-like attack which uses Iron Sand hardened into minuscule grains to attack simultaneously across a vast range. The bullets are so fast that they are difficult to see."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The moment the user has finished preparing the attack, evading it becomes extremely difficult.",
+            "Using the repellent force of magnetism, the speed of the bullets is rapidly increased after they are shot.",
+            "Furthermore, the user can also use an attack pattern where the Iron Sand bullets are shaped into sharp needles, increasing their ability to wound or kill the opponent.",
+            "Since the Iron Sand has a magnetic force and (when used by Sasori) is also drenched in poison, defending against this technique is almost impossible.",
+            "This technique is especially threatening to puppet users, since the puppets can be rendered immobile if the sand gets lodged into their joints."
+          ]
+        }
+      ]
+    },
+    "id": "iron-sand-drizzle",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "It is a gunshot-like attack which uses Iron Sand hardened into minuscule grains to attack simultaneously across a vast range. The bullets are so fast that they are difficult to see.",
+    "technique": [
+      "The moment the user has finished preparing the attack, evading it becomes extremely difficult.",
+      "Using the repellent force of magnetism, the speed of the bullets is rapidly increased after they are shot.",
+      "Furthermore, the user can also use an attack pattern where the Iron Sand bullets are shaped into sharp needles, increasing their ability to wound or kill the opponent.",
+      "Since the Iron Sand has a magnetic force and (when used by Sasori) is also drenched in poison, defending against this technique is almost impossible.",
+      "This technique is especially threatening to puppet users, since the puppets can be rendered immobile if the sand gets lodged into their joints."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Iron Sand Drizzle mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Highlight motif: projectile focus. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Iron Sand Gathering Assault",
     "sourcePage": "Iron Sand Gathering Assault",
-    "pageId": 9330,
     "url": "https://naruto.fandom.com/wiki/Iron_Sand_Gathering_Assault",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/b/b7/Satetsu_Kessh%C5%AB.png/revision/latest/scale-to-width-down/600?cb=20240827203121",
     "raw": {
-      "markdown": "# Iron Sand Gathering Assault\n\n## Quick Facts\n- Element/Type: Magnet Release\n- Classification: Kekkei Genkai~Magnet Release, Ninjutsu\n- Class: Offensive\n- Range: Short, Mid, Long\n- Users: Third Kazekage, Sasori~~puppet~Third Kazekage,\n- Media: Anime, Manga, Game\n\n## Summary\nThe Iron Sand Gathering Assault is a technique which gathers a great volume of Iron Sand and compresses it into a high-density shape. The weight and size of these shapes are so great, they can easily shatter bedrock and break through most defences with a single hit.\n\n## Usage\n- This allows the user to create the best weapon for the fight, by taking into account the opponent's abilities and the surrounding environment.\n- |-\n|\n|\n|Besides being capable of penetrating through someone's body, these long spikes can be used to attack multiple targets.\n- |-\n|\n|\n|This giant block-like weapon can be used to crush its target with devastating power as a giant block that is used to crush the target.\n\n## Notes\n- Because the weapon is made out of Iron Sand, the shape can be whatever the user wants, and can even be changed during the fight.\n- Since the Iron Sand generates a strong magnetic field, the opponent cannot use any metal weapons or tools.\n- It can be spun to pick it up even more power, giving it a drill-like appearance.\n- It can also be shaped into a thinner, but longer version of it to increase its range.\n- The user can also hover them over their target to launch them down at any time with incredible speed.\n- |}\n\n## Trivia\n\n* When written as \"結集\", kesshū means \"concentration\" or \"regimentation\".\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Iron Sand Gathering Assault"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Magnet Release",
+            "**Classification:** Kekkei Genkai, Magnet Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Third Kazekage, Sasori, , puppet, Third Kazekage",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Iron Sand Gathering Assault is a technique which gathers a great volume of Iron Sand and compresses it into a high-density shape. The weight and size of these shapes are so great, they can easily shatter bedrock and break through most defences with a single hit."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Usage"
+        },
+        {
+          "type": "paragraph",
+          "text": "| | |Besides being capable of penetrating through someone's body, these long spikes can be used to attack multiple targets."
+        },
+        {
+          "type": "paragraph",
+          "text": "| | |This giant block-like weapon can be used to crush its target with devastating power as a giant block that is used to crush the target."
+        },
+        {
+          "type": "list",
+          "items": [
+            "This allows the user to create the best weapon for the fight, by taking into account the opponent's abilities and the surrounding environment.",
+            "|-",
+            "|-"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Because the weapon is made out of Iron Sand, the shape can be whatever the user wants, and can even be changed during the fight.",
+            "Since the Iron Sand generates a strong magnetic field, the opponent cannot use any metal weapons or tools.",
+            "It can be spun to pick it up even more power, giving it a drill-like appearance.",
+            "It can also be shaped into a thinner, but longer version of it to increase its range.",
+            "The user can also hover them over their target to launch them down at any time with incredible speed.",
+            "|}"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Trivia"
+        },
+        {
+          "type": "list",
+          "items": [
+            "When written as \"結集\", kesshū means \"concentration\" or \"regimentation\"."
+          ]
+        }
+      ]
+    },
+    "id": "iron-sand-gathering-assault",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The Iron Sand Gathering Assault is a technique which gathers a great volume of Iron Sand and compresses it into a high-density shape. The weight and size of these shapes are so great, they can easily shatter bedrock and break through most defences with a single hit.",
+    "technique": [
+      "| | |Besides being capable of penetrating through someone's body, these long spikes can be used to attack multiple targets.",
+      "| | |This giant block-like weapon can be used to crush its target with devastating power as a giant block that is used to crush the target.",
+      "This allows the user to create the best weapon for the fight, by taking into account the opponent's abilities and the surrounding environment.",
+      "|-",
+      "|-",
+      "Because the weapon is made out of Iron Sand, the shape can be whatever the user wants, and can even be changed during the fight.",
+      "Since the Iron Sand generates a strong magnetic field, the opponent cannot use any metal weapons or tools.",
+      "It can be spun to pick it up even more power, giving it a drill-like appearance.",
+      "It can also be shaped into a thinner, but longer version of it to increase its range.",
+      "The user can also hover them over their target to launch them down at any time with incredible speed.",
+      "|}"
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Iron Sand Gathering Assault mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Iron Sand Marking",
     "sourcePage": "Iron Sand Marking",
-    "pageId": 260968,
     "url": "https://naruto.fandom.com/wiki/Iron_Sand_Marking",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/6/67/Iron_Sand_Marking.png/revision/latest/scale-to-width-down/600?cb=20180607114557",
     "raw": {
-      "markdown": "# Iron Sand Marking\n\n## Quick Facts\n- Element/Type: Magnet Release\n- Classification: Kekkei Genkai~Magnet Release, Ninjutsu\n- Class: Supplementary\n- Users: Shinki\n- Media: Anime, Game\n\n## Summary\nThe user tags their opponent with a special marking, ensuring that all Iron Sand-based attacks are magnetically drawn to their target.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Iron Sand Marking"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Magnet Release",
+            "**Classification:** Kekkei Genkai, Magnet Release, Ninjutsu",
+            "**Class:** Supplementary",
+            "**Users:** Shinki",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The user tags their opponent with a special marking, ensuring that all Iron Sand-based attacks are magnetically drawn to their target."
+        }
+      ]
+    },
+    "id": "iron-sand-marking",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The user tags their opponent with a special marking, ensuring that all Iron Sand-based attacks are magnetically drawn to their target.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Iron Sand Marking mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Iron Sand Wall",
     "sourcePage": "Iron Sand Wall",
-    "pageId": 260967,
     "url": "https://naruto.fandom.com/wiki/Iron_Sand_Wall",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/e/e6/Iron_Wall.png/revision/latest/scale-to-width-down/600?cb=20180607114821",
     "raw": {
-      "markdown": "# Iron Sand Wall\n\n## Quick Facts\n- Element/Type: Magnet Release\n- Classification: Kekkei Genkai~Magnet Release, Ninjutsu\n- Class: Defensive\n- Range: Short\n- Users: Shinki\n- Media: Anime, Manga, Movie canon, Game\n\n## Summary\nShinki uses his Iron Sand to create a cloak around himself as a means of protection from incoming attacks.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Iron Sand Wall"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Magnet Release",
+            "**Classification:** Kekkei Genkai, Magnet Release, Ninjutsu",
+            "**Class:** Defensive",
+            "**Range:** Short",
+            "**Users:** Shinki",
+            "**Media:** Anime, Manga, Movie canon, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Shinki uses his Iron Sand to create a cloak around himself as a means of protection from incoming attacks."
+        }
+      ]
+    },
+    "id": "iron-sand-wall",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Shinki uses his Iron Sand to create a cloak around himself as a means of protection from incoming attacks.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Iron Sand Wall mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Iron Sand Wave",
     "sourcePage": "Iron Sand Wave",
-    "pageId": 259495,
     "url": "https://naruto.fandom.com/wiki/Iron_Sand_Wave",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/a/a9/Iron_Sand_Wave.png/revision/latest/scale-to-width-down/600?cb=20210703203107",
     "raw": {
-      "markdown": "# Iron Sand Wave\n\n## Quick Facts\n- Element/Type: Magnet Release\n- Classification: Kekkei Genkai~Magnet Release, Ninjutsu\n- Class: Offensive\n- Range: Short, Mid, Long\n- Users: Shinki\n- Media: Anime, Game\n\n## Summary\nShinki launches a wave of Iron Sand to descend upon his target. It is similar to Gaara's Quicksand Waterfall Flow, but on a much smaller scale.\n\n## Notes\n- He can also use this technique to bind a target and crush them.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Iron Sand Wave"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Magnet Release",
+            "**Classification:** Kekkei Genkai, Magnet Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Shinki",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Shinki launches a wave of Iron Sand to descend upon his target. It is similar to Gaara's Quicksand Waterfall Flow, but on a much smaller scale."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "He can also use this technique to bind a target and crush them."
+          ]
+        }
+      ]
+    },
+    "id": "iron-sand-wave",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Shinki launches a wave of Iron Sand to descend upon his target. It is similar to Gaara's Quicksand Waterfall Flow, but on a much smaller scale.",
+    "technique": [
+      "He can also use this technique to bind a target and crush them."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Iron Sand Wave mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Iron Sand Weaponry",
     "sourcePage": "Iron Sand Weaponry",
-    "pageId": 260697,
     "url": "https://naruto.fandom.com/wiki/Iron_Sand_Weaponry",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/1/1e/Gaara_Meets_Shinki.png/revision/latest/scale-to-width-down/600?cb=20180524151209",
     "raw": {
-      "markdown": "# Iron Sand Weaponry\n\n## Quick Facts\n- Element/Type: Magnet Release\n- Classification: Kekkei Genkai~Magnet Release, Ninjutsu\n- Class: Offensive\n- Range: Short, Mid, Long\n- Users: Shinki\n- Media: Anime\n\n## Summary\nUsing Iron Sand, the user can create weapons charged with magnetism, such as spikes, spears, and swords, that can be used offensively against the opponent. In addition, the user can place special markings on their opponents to ensure that the weapons hit their target.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Iron Sand Weaponry"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Magnet Release",
+            "**Classification:** Kekkei Genkai, Magnet Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Shinki",
+            "**Media:** Anime"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Using Iron Sand, the user can create weapons charged with magnetism, such as spikes, spears, and swords, that can be used offensively against the opponent. In addition, the user can place special markings on their opponents to ensure that the weapons hit their target."
+        }
+      ]
+    },
+    "id": "iron-sand-weaponry",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Using Iron Sand, the user can create weapons charged with magnetism, such as spikes, spears, and swords, that can be used offensively against the opponent. In addition, the user can place special markings on their opponents to ensure that the weapons hit their target.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Iron Sand Weaponry mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Iron Sand World Method",
     "sourcePage": "Iron Sand World Method",
-    "pageId": 6242,
     "url": "https://naruto.fandom.com/wiki/Iron_Sand_World_Method",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/1/10/Satetsu_Kaih%C5%8D1.png/revision/latest/scale-to-width-down/600?cb=20160217030753",
     "raw": {
-      "markdown": "# Iron Sand World Method\n\n## Quick Facts\n- Element/Type: Magnet Release\n- Classification: Kekkei Genkai~Magnet Release, Ninjutsu\n- Class: Offensive\n- Range: Short, Mid, Long\n- Users: Third Kazekage, Sasori~~puppet~Third Kazekage\n- Media: Anime, Manga, Game\n\n## Summary\nThis technique uses Iron Sand to create a gigantic sphere of branching spikes. The user first creates two masses of Iron Sand of opposing magnetic fields and then merges them together.\n\n## Notes\n- This causes the magnetic forces to instantly increase and the repellent force created by the two opposing magnetic fields scatters the Iron Sand across a vast area.\n- The Iron Sand spreads in spikes that branch off irregularly, making it almost impossible to get a clear overview of what is happening.\n- This also makes evading the spikes nearly impossible.\n- Even if the opponent has managed to evade getting hit, the Iron Sand spikes will have filled the entire surroundings, cutting off any escape routes.\n- With the opponent trapped, the user is free to attack in person.\n- Because Sasori coats his Iron Sand in his lethal poison, the technique is even deadlier; if one of the spikes so much as scratches the target, it will introduce enough poison into the target's body to kill them.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Iron Sand World Method"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Magnet Release",
+            "**Classification:** Kekkei Genkai, Magnet Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Third Kazekage, Sasori, , puppet, Third Kazekage",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "This technique uses Iron Sand to create a gigantic sphere of branching spikes. The user first creates two masses of Iron Sand of opposing magnetic fields and then merges them together."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "This causes the magnetic forces to instantly increase and the repellent force created by the two opposing magnetic fields scatters the Iron Sand across a vast area.",
+            "The Iron Sand spreads in spikes that branch off irregularly, making it almost impossible to get a clear overview of what is happening.",
+            "This also makes evading the spikes nearly impossible.",
+            "Even if the opponent has managed to evade getting hit, the Iron Sand spikes will have filled the entire surroundings, cutting off any escape routes.",
+            "With the opponent trapped, the user is free to attack in person.",
+            "Because Sasori coats his Iron Sand in his lethal poison, the technique is even deadlier; if one of the spikes so much as scratches the target, it will introduce enough poison into the target's body to kill them."
+          ]
+        }
+      ]
+    },
+    "id": "iron-sand-world-method",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "This technique uses Iron Sand to create a gigantic sphere of branching spikes. The user first creates two masses of Iron Sand of opposing magnetic fields and then merges them together.",
+    "technique": [
+      "This causes the magnetic forces to instantly increase and the repellent force created by the two opposing magnetic fields scatters the Iron Sand across a vast area.",
+      "The Iron Sand spreads in spikes that branch off irregularly, making it almost impossible to get a clear overview of what is happening.",
+      "This also makes evading the spikes nearly impossible.",
+      "Even if the opponent has managed to evade getting hit, the Iron Sand spikes will have filled the entire surroundings, cutting off any escape routes.",
+      "With the opponent trapped, the user is free to attack in person.",
+      "Because Sasori coats his Iron Sand in his lethal poison, the technique is even deadlier; if one of the spikes so much as scratches the target, it will introduce enough poison into the target's body to kill them."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Iron Sand World Method mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Magnet Release: Conserving Bee Twin Blades",
     "sourcePage": "Magnet Release: Conserving Bee Twin Blades",
-    "pageId": 78031,
     "url": "https://naruto.fandom.com/wiki/Magnet_Release:_Conserving_Bee_Twin_Blades",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/4/4b/Jakuh%C5%8D_no_S%C5%8Djin.png/revision/latest/scale-to-width-down/600?cb=20130117150027",
     "raw": {
-      "markdown": "# Magnet Release: Conserving Bee Twin Blades\n\n## Quick Facts\n- Element/Type: Magnet Release\n- Classification: Kekkei Genkai~Magnet Release, Ninjutsu, Shurikenjutsu\n- Class: Offensive, Supplementary\n- Range: Mid\n- Users: Toroi\n- Media: Anime, Manga, Game\n\n## Summary\nThrough the Magnet Release kekkei genkai, the user is able to magnetise anything they touch, and then subsequently anything that touches something they have already magnetised, and so on. However, the magnetic force weakens from object to object.\n\n## Counters / Defenses\n- Any individual that comes into direct contact with these shuriken themselves are magnetised; as such, it is crucial that the opponent avoids all of them as even a single deflection will result in the production of a powerful magnetic field around their body.\n\n## Notes\n- Once a person has been magnetised, the user can manipulate the magnetic field in such a manner as to make any subsequent attack using a metallic weapon impossible to evade.\n- Toroi uses his Magnet Release to magnetise a large quantity of shuriken, which he then throws in the direction of his opponents.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Magnet Release: Conserving Bee Twin Blades"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Magnet Release",
+            "**Classification:** Kekkei Genkai, Magnet Release, Ninjutsu, Shurikenjutsu",
+            "**Class:** Offensive, Supplementary",
+            "**Range:** Mid",
+            "**Users:** Toroi",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Through the Magnet Release kekkei genkai, the user is able to magnetise anything they touch, and then subsequently anything that touches something they have already magnetised, and so on. However, the magnetic force weakens from object to object."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Counters / Defenses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Any individual that comes into direct contact with these shuriken themselves are magnetised; as such, it is crucial that the opponent avoids all of them as even a single deflection will result in the production of a powerful magnetic field around their body."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Once a person has been magnetised, the user can manipulate the magnetic field in such a manner as to make any subsequent attack using a metallic weapon impossible to evade.",
+            "Toroi uses his Magnet Release to magnetise a large quantity of shuriken, which he then throws in the direction of his opponents."
+          ]
+        }
+      ]
+    },
+    "id": "magnet-release-conserving-bee-twin-blades",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Through the Magnet Release kekkei genkai, the user is able to magnetise anything they touch, and then subsequently anything that touches something they have already magnetised, and so on. However, the magnetic force weakens from object to object.",
+    "technique": [
+      "Once a person has been magnetised, the user can manipulate the magnetic field in such a manner as to make any subsequent attack using a metallic weapon impossible to evade.",
+      "Toroi uses his Magnet Release to magnetise a large quantity of shuriken, which he then throws in the direction of his opponents."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Magnet Release: Conserving Bee Twin Blades mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Magnet Release: Gold Dust Imperial Funeral",
     "sourcePage": "Magnet Release: Gold Dust Imperial Funeral",
-    "pageId": 78020,
     "url": "https://naruto.fandom.com/wiki/Magnet_Release:_Gold_Dust_Imperial_Funeral",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/0/0e/Gold_Dust_Wave.png/revision/latest/scale-to-width-down/600?cb=20211029234137",
     "raw": {
-      "markdown": "# Magnet Release: Gold Dust Imperial Funeral\n\n## Quick Facts\n- Element/Type: Magnet Release,\n- Classification: Kekkei Genkai~Magnet Release, Ninjutsu\n- Class: Offensive\n- Range: Short, Mid, Long\n- Users: Rasa\n- Media: Anime, Manga, Game\n\n## Summary\nRasa causes a considerable quantity of Gold Dust to erupt from beneath the surface, by placing both of his palms onto the ground directly in front of him, before manipulating the resulting substance into a wave of tidal proportions. The amount of dust produced by this ability is comparable to that of the sand used during Gaara's Quicksand Waterfall Flow technique, but as gold is the heavier of the two, the former was capable of nullifying the latter when they clashed.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Magnet Release: Gold Dust Imperial Funeral"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Magnet Release",
+            "**Classification:** Kekkei Genkai, Magnet Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Rasa",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Rasa causes a considerable quantity of Gold Dust to erupt from beneath the surface, by placing both of his palms onto the ground directly in front of him, before manipulating the resulting substance into a wave of tidal proportions. The amount of dust produced by this ability is comparable to that of the sand used during Gaara's Quicksand Waterfall Flow technique, but as gold is the heavier of the two, the former was capable of nullifying the latter when they clashed."
+        }
+      ]
+    },
+    "id": "magnet-release-gold-dust-imperial-funeral",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Rasa causes a considerable quantity of Gold Dust to erupt from beneath the surface, by placing both of his palms onto the ground directly in front of him, before manipulating the resulting substance into a wave of tidal proportions. The amount of dust produced by this ability is comparable to that of the sand used during Gaara's Quicksand Waterfall Flow technique, but as gold is the heavier of the two, the former was capable of nullifying the latter when they clashed.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Magnet Release: Gold Dust Imperial Funeral mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Sage Art: Magnet Release Rasengan",
     "sourcePage": "Sage Art: Magnet Release Rasengan",
-    "pageId": 122804,
     "url": "https://naruto.fandom.com/wiki/Sage_Art:_Magnet_Release_Rasengan",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/3/30/Magnet_Release_Rasengan.png/revision/latest/scale-to-width-down/600?cb=20150813121831",
     "raw": {
-      "markdown": "# Sage Art: Magnet Release Rasengan\n\n## Quick Facts\n- Element/Type: Magnet Release\n- Classification: Kekkei Genkai~Magnet Release, Ninjutsu, Fūinjutsu, Juinjutsu, Senjutsu\n- Class: Offensive\n- Range: Short\n- Users: Naruto Uzumaki\n- Media: Anime, Manga, Game\n\n## Summary\nA technique that's available to Naruto after inheriting the Sage of the Six Paths' powers. By combining his Rasengan with Shukaku's Magnet Release to reinforce its suction power, he creates a Rasengan with the beast's cursed seal markings.\n\n## Notes\n- He then smashes the sphere into his opponent in the same manner as a normal Rasengan.\n- Upon being struck with this technique, the markings quickly spread across the target's body and immobilises them.\n- In the anime, it was depicted as being made of chakra, while in the manga, the Rasengan is solid.\n- * In Naruto Shippūden: Ultimate Ninja Storm 4 , Naruto refers to this technique just as the \"Rasengan\", rather than the full name.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Sage Art: Magnet Release Rasengan"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Magnet Release",
+            "**Classification:** Kekkei Genkai, Magnet Release, Ninjutsu, Fūinjutsu, Juinjutsu, Senjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short",
+            "**Users:** Naruto Uzumaki",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "A technique that's available to Naruto after inheriting the Sage of the Six Paths' powers. By combining his Rasengan with Shukaku's Magnet Release to reinforce its suction power, he creates a Rasengan with the beast's cursed seal markings."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "He then smashes the sphere into his opponent in the same manner as a normal Rasengan.",
+            "Upon being struck with this technique, the markings quickly spread across the target's body and immobilises them.",
+            "In the anime, it was depicted as being made of chakra, while in the manga, the Rasengan is solid.",
+            "*** In Naruto Shippūden:** Ultimate Ninja Storm 4 , Naruto refers to this technique just as the \"Rasengan\", rather than the full name."
+          ]
+        }
+      ]
+    },
+    "id": "sage-art-magnet-release-rasengan",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "A technique that's available to Naruto after inheriting the Sage of the Six Paths' powers. By combining his Rasengan with Shukaku's Magnet Release to reinforce its suction power, he creates a Rasengan with the beast's cursed seal markings.",
+    "technique": [
+      "He then smashes the sphere into his opponent in the same manner as a normal Rasengan.",
+      "Upon being struck with this technique, the markings quickly spread across the target's body and immobilises them.",
+      "In the anime, it was depicted as being made of chakra, while in the manga, the Rasengan is solid.",
+      "Ultimate Ninja Storm 4 , Naruto refers to this technique just as the \"Rasengan\", rather than the full name."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Sage Art: Magnet Release Rasengan mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Shield of Sand",
     "sourcePage": "Shield of Sand",
-    "pageId": 2173,
     "url": "https://naruto.fandom.com/wiki/Shield_of_Sand",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/0/0a/Shield_of_Sand.png/revision/latest/scale-to-width-down/600?cb=20240901220822",
     "raw": {
-      "markdown": "# Shield of Sand\n\n## Quick Facts\n- Classification: Ninjutsu\n- Class: Defensive\n- Range: Short\n- Users: Gaara\n- Media: Anime, Manga, Novel\n\n## Summary\nThe Shield of Sand is the first part of Gaara's \"Absolute Defence\", his Armour of Sand being the second. Karura's love for Gaara was so great that, in death, her spirit possessed the sands and used them to protect him.\n\n## Counters / Defenses\n- The Shield of Sand, said Yashamaru, was a result of Shukaku (sealed within Gaara) using the sand to keep Gaara, and thus itself, safe.\n- It isn't until many years later that the Fourth Kazekage confesses to Gaara that he ordered Yashamaru to lie: Karura truly did love Gaara and the Shield of Sand truly is her doing.\n- The Shield of Sand reacts to any attack against Gaara, even those Gaara himself is not aware of.\n- When he's about to be physically harmed in any way, the Shield of Sand moves between him and the threat in order to block it.\n- Though most often used in shielding Gaara from enemies, the sand also protects him from self-inflicted injury.\n- Because the shield is formed from sand that's been seeped in Gaara's chakra, it has a very fast response time, too fast for most enemies to overcome.\n- Some, such as Rock Lee and Sasuke Uchiha, are fast enough to outpace the sand, striking Gaara before it's able to shield him; it is against opponents such as these that he relies on his Armour of Sand for defence.\n- The combination of the armour and shield is an effective one, enabling Gaara to go years without the slightest injury.\n- The Shield of Sand can protect Gaara against a great variety of threats, at different times defending him from kunai, taijutsu, Explosive Clay, to name only a few.\n- The sand itself is very good at absorbing the force from attacks, and so it is rarely even misshapen from the impact.\n- On those infrequent occasions when attacks do push against the shield, it places enough of a buffer between it and Gaara to stop the blow before it reaches him.\n- Even though the Shield of Sand ordinarily acts independently of Gaara, he is able to exert some control over it if he chooses.\n- He can fully surround himself with the shield, eliminating the chance of it being bypassed through sheer speed.\n- While he does this, he relies on his Third Eye to see what's going on outside, and then forms spikes from the shield to keep approaching enemies away.\n- In Gaara Hiden , Gaara uses his Magnet Release to mix \"sparkling metal particles\" into the Shield of Sand, fortifying it against attacks that would otherwise penetrate it.\n- Even Karura's will sometimes influences the Shield of Sand, shaping it into her likeness as it protects Gaara to remind him of her.\n\n## Notes\n- Later that same day, Yashamaru, under orders of the Fourth Kazekage, tried to assassinate Gaara.\n- After his attack failed, Yashamaru told Gaara that he lied earlier: Karura did not love Gaara; she hated him.\n- In Part I, Gaara usually enters this sphere of sand while preparing to enter Tailed Beast Mode.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Shield of Sand"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Classification:** Ninjutsu",
+            "**Class:** Defensive",
+            "**Range:** Short",
+            "**Users:** Gaara",
+            "**Media:** Anime, Manga, Novel"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Shield of Sand is the first part of Gaara's \"Absolute Defence\", his Armour of Sand being the second. Karura's love for Gaara was so great that, in death, her spirit possessed the sands and used them to protect him."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Counters / Defenses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The Shield of Sand, said Yashamaru, was a result of Shukaku (sealed within Gaara) using the sand to keep Gaara, and thus itself, safe.",
+            "It isn't until many years later that the Fourth Kazekage confesses to Gaara that he ordered Yashamaru to lie: Karura truly did love Gaara and the Shield of Sand truly is her doing.",
+            "The Shield of Sand reacts to any attack against Gaara, even those Gaara himself is not aware of.",
+            "When he's about to be physically harmed in any way, the Shield of Sand moves between him and the threat in order to block it.",
+            "Though most often used in shielding Gaara from enemies, the sand also protects him from self-inflicted injury.",
+            "Because the shield is formed from sand that's been seeped in Gaara's chakra, it has a very fast response time, too fast for most enemies to overcome.",
+            "Some, such as Rock Lee and Sasuke Uchiha, are fast enough to outpace the sand, striking Gaara before it's able to shield him; it is against opponents such as these that he relies on his Armour of Sand for defence.",
+            "The combination of the armour and shield is an effective one, enabling Gaara to go years without the slightest injury.",
+            "The Shield of Sand can protect Gaara against a great variety of threats, at different times defending him from kunai, taijutsu, Explosive Clay, to name only a few.",
+            "The sand itself is very good at absorbing the force from attacks, and so it is rarely even misshapen from the impact.",
+            "On those infrequent occasions when attacks do push against the shield, it places enough of a buffer between it and Gaara to stop the blow before it reaches him.",
+            "Even though the Shield of Sand ordinarily acts independently of Gaara, he is able to exert some control over it if he chooses.",
+            "He can fully surround himself with the shield, eliminating the chance of it being bypassed through sheer speed.",
+            "While he does this, he relies on his Third Eye to see what's going on outside, and then forms spikes from the shield to keep approaching enemies away.",
+            "In Gaara Hiden , Gaara uses his Magnet Release to mix \"sparkling metal particles\" into the Shield of Sand, fortifying it against attacks that would otherwise penetrate it.",
+            "Even Karura's will sometimes influences the Shield of Sand, shaping it into her likeness as it protects Gaara to remind him of her."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Later that same day, Yashamaru, under orders of the Fourth Kazekage, tried to assassinate Gaara.",
+            "**After his attack failed, Yashamaru told Gaara that he lied earlier:** Karura did not love Gaara; she hated him.",
+            "In Part I, Gaara usually enters this sphere of sand while preparing to enter Tailed Beast Mode."
+          ]
+        }
+      ]
+    },
+    "id": "shield-of-sand",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The Shield of Sand is the first part of Gaara's \"Absolute Defence\", his Armour of Sand being the second. Karura's love for Gaara was so great that, in death, her spirit possessed the sands and used them to protect him.",
+    "technique": [
+      "Later that same day, Yashamaru, under orders of the Fourth Kazekage, tried to assassinate Gaara.",
+      "Karura did not love Gaara; she hated him.",
+      "In Part I, Gaara usually enters this sphere of sand while preparing to enter Tailed Beast Mode."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Shield of Sand mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Highlight motif: defensive aura wrapping the user. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Successive Shots Iron Sand Drizzle",
     "sourcePage": "Successive Shots Iron Sand Drizzle",
-    "pageId": 261608,
     "url": "https://naruto.fandom.com/wiki/Successive_Shots_Iron_Sand_Drizzle",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/8/89/Iron_Sand_Drizzle.png/revision/latest/scale-to-width-down/600?cb=20180607131007",
     "raw": {
-      "markdown": "# Successive Shots Iron Sand Drizzle\n\n## Quick Facts\n- Element/Type: Magnet Release\n- Classification: Kekkei Genkai~Magnet Release, Ninjutsu\n- Class: Offensive\n- Range: Short, Mid\n- Users: Shinki\n- Media: Anime, Game\n\n## Summary\nShinki uses his Iron Sand to shoot a multitude of skewer-like projectiles in rapid succession. Being that it is a widespread attack, it is especially effective against multiple opponents.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Successive Shots Iron Sand Drizzle"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Magnet Release",
+            "**Classification:** Kekkei Genkai, Magnet Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short, Mid",
+            "**Users:** Shinki",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Shinki uses his Iron Sand to shoot a multitude of skewer-like projectiles in rapid succession. Being that it is a widespread attack, it is especially effective against multiple opponents."
+        }
+      ]
+    },
+    "id": "successive-shots-iron-sand-drizzle",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Shinki uses his Iron Sand to shoot a multitude of skewer-like projectiles in rapid succession. Being that it is a widespread attack, it is especially effective against multiple opponents.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Successive Shots Iron Sand Drizzle mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   }
 ]

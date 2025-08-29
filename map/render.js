@@ -21,7 +21,7 @@ function drawDistricts(){
     const pts=d.points.map(([x,y])=>[x*W/100,y*H/100].join(',')).join(' ');
     const col = d.color || '#22d3ee';
     const poly=mk('polygon',{class:'district '+(isSelected('district',k)?'selected':''),'data-id':k,points:pts, style:`--dist-stroke:${col};--dist-fill:${col}55`});
-    poly.addEventListener('mouseenter',e=>showTip(e,{name:d.name,desc:d.desc}));
+    poly.addEventListener('mouseenter',e=>showTip(e,{id: d.id || k, name:d.name, desc:d.desc}));
     poly.addEventListener('mousemove',moveTip);
     poly.addEventListener('mouseleave',hideTip);
     poly.addEventListener('mousedown',e=>{
@@ -43,7 +43,13 @@ function drawRoads(){
   for(let i=0;i<MODEL.roads.length;i++){
     const r=MODEL.roads[i];
     const d=r.points.map(p=>[p[0]*W/100,p[1]*H/100].join(',')).join(' ');
-    const pl=mk('polyline',{class:`road ${r.type} ${isSelected('road',i)?'selected':''}`,'data-i':i,points:d,strokeWidth:Math.max(4, r.width ?? 4)});
+    const attrs = {class:`road ${r.type} ${isSelected('road',i)?'selected':''}`,'data-i':i,points:d,strokeWidth:Math.max(4, r.width ?? 4)};
+    // Use secondary road texture for 'street' and 'avenue' types
+    const rtype = (r.type||'').toLowerCase();
+    if(rtype==='street' || rtype==='avenue'){
+      attrs.stroke = 'url(#roadSecondaryTex)';
+    }
+    const pl=mk('polyline', attrs);
     pl.addEventListener('mouseenter',e=>showTip(e,{name:r.name||r.id||'road',desc:r.type+` (${r.width||3}px)`}));
     pl.addEventListener('mousemove',moveTip);
     pl.addEventListener('mouseleave',hideTip);

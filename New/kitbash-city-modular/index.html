@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Kitbash City — Small Multicolor Buildings (≤3 floors) with Collisions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  html,body { margin:0; height:100%; background:#0b0f14; color:#cbd5e1; font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+  #hud { position:fixed; left:12px; top:12px; padding:10px 12px; background:rgba(0,0,0,.45); border:1px solid rgba(255,255,255,.08); border-radius:10px; line-height:1.35 }
+  #hud b { color:#fff; }
+  canvas { display:block; }
+</style>
+</head>
+<body>
+<div id="hud">
+  <div><b>Kitbash City</b> – small Naruto-style town blocks</div>
+  <div>• <b>Space</b>: regenerate • <b>C</b>: next palette • <b>R</b>: recolor • <b>Drag</b>: orbit • <b>Wheel</b>: zoom</div>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.161.0/build/three.module.js",
+    "three/examples/": "https://unpkg.com/three@0.161.0/examples/"
+  }
+}
+</script>
+
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

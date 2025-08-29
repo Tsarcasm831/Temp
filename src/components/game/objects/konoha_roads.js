@@ -1,6 +1,7 @@
 /* @tweakable use built-in fallbacks when external map modules are unavailable */
-const DEFAULT_ROADS = [];
-const DEFAULT_DISTRICTS = {};
+import { DEFAULT_MODEL as MAP_DEFAULT_MODEL } from '/map/defaults/full-default-model.js';
+const DEFAULT_ROADS = (MAP_DEFAULT_MODEL?.roads) || [];
+const DEFAULT_DISTRICTS = (MAP_DEFAULT_MODEL?.districts) || {};
 
 // Utility: grid label parsing and world position helper for rivers
 import { parseGridLabel, posForCell } from '../../../game/objects/utils/gridLabel.js';
@@ -26,8 +27,11 @@ export async function loadKonohaRoads() {
   const liveDistricts = (USE_LIVE_MAP_DISTRICTS && __liveModelRef && __liveModelRef.districts && Object.keys(__liveModelRef.districts).length)
     ? __liveModelRef.districts
     : DEFAULT_DISTRICTS;
+  const liveRoads = (USE_LIVE_MAP_DISTRICTS && __liveModelRef && Array.isArray(__liveModelRef.roads) && __liveModelRef.roads.length)
+    ? __liveModelRef.roads
+    : DEFAULT_ROADS;
   __roadsCache = {
-    roads: { all: DEFAULT_ROADS },
+    roads: { all: liveRoads },
     districts: liveDistricts
   };
   return __roadsCache;
@@ -46,6 +50,40 @@ let __liveModelRef = null;
 const ROAD_COLOR = '#d9c3a3';
 const ROAD_OPACITY = 0.85;
 const ROAD_BASE_WIDTH = 6; // pixels when r.width == 3
+/* road textures (project-root paths) */
+const ROAD_TEX_SECONDARY = '/secondary_road_texture.png';
+
+// Cached image/pattern for road texture strokes
+let __roadTexImg = null;
+let __roadTexPattern = null;
+let __roadTexLoaded = false;
+
+function loadImage(src){
+  return new Promise((resolve)=>{
+    const img = new Image();
+    img.onload = ()=> resolve(img);
+    img.onerror = ()=> resolve(null);
+    img.src = src;
+  });
+}
+
+async function ensureRoadPattern(ctx){
+  if(__roadTexPattern) return __roadTexPattern;
+  if(!__roadTexLoaded){
+    __roadTexLoaded = true;
+    __roadTexImg = await loadImage(ROAD_TEX_SECONDARY);
+  }
+  if(__roadTexImg){
+    // Draw into a small offscreen canvas to control tile size
+    const tile = 24; // px
+    const can = document.createElement('canvas');
+    can.width = tile; can.height = tile;
+    const c2 = can.getContext('2d');
+    c2.drawImage(__roadTexImg, 0, 0, tile, tile);
+    __roadTexPattern = ctx.createPattern(can, 'repeat');
+  }
+  return __roadTexPattern;
+}
 
 /**
  * Draw polyline roads loaded from the map defaults.
@@ -67,7 +105,7 @@ export async function drawRoads(ctx, scale, cx, cy, options = {}) {
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
   ctx.globalAlpha = opt.alpha;
-  ctx.strokeStyle = opt.color;
+  const roadPattern = await ensureRoadPattern(ctx);
 
   for (const r of roads.all) {
     if (!r.points || r.points.length < 2) continue;
@@ -81,6 +119,15 @@ export async function drawRoads(ctx, scale, cx, cy, options = {}) {
     });
     const widthFactor = (r.width || 3) / 3;
     ctx.lineWidth = opt.baseWidth * widthFactor;
+    // Use texture for non-canal roads; fall back to color when pattern missing
+    const rtype = (r.type || '').toLowerCase();
+    if (rtype === 'canal') {
+      ctx.strokeStyle = options.canalColor || '#38bdf8';
+    } else if (roadPattern) {
+      ctx.strokeStyle = roadPattern;
+    } else {
+      ctx.strokeStyle = opt.color;
+    }
     ctx.stroke();
   }
 

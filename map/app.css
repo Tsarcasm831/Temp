@@ -13,8 +13,8 @@ svg{width:100%;height:100%;display:block;touch-action:none}
 .district{fill:var(--dist-fill);stroke:var(--dist-stroke);stroke-width:2;vector-effect:non-scaling-stroke}
 .district:hover{stroke:#fff}
 .road{fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
-.road.avenue{stroke:var(--roadA)}
-.road.street{stroke:var(--roadS)}
+.road.avenue{stroke:url(#roadSecondaryTex)}
+.road.street{stroke:url(#roadSecondaryTex)}
 .road.canal{stroke:var(--canal)}
 .river{fill:none;stroke:lightblue;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .wall{fill:none;stroke:#94a3b8;stroke-width:8;vector-effect:non-scaling-stroke}

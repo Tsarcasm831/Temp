@@ -2,261 +2,1526 @@
   {
     "name": "Bat Controlling: Ultrasonic Mind Waves",
     "sourcePage": "Bat Controlling: Ultrasonic Mind Waves",
-    "pageId": 11245,
     "url": "https://naruto.fandom.com/wiki/Bat_Controlling:_Ultrasonic_Mind_Waves",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/7/79/Bat_Ultrasound.png/revision/latest/scale-to-width-down/600?cb=20150729222231",
     "raw": {
-      "markdown": "# Bat Controlling: Ultrasonic Mind Waves\n\n## Quick Facts\n- Classification: Ninjutsu\n- Class: Supplementary\n- Users: Rinji\n- Media: Anime\n\n## Summary\nOnce Rinji controls his bats, he commands them to produce high frequency ultrasonic waves that affect the mind of the opponent. These bats (along with Shino's evolving insect strategy) have been the only effective counters to the Crystal Release.\n\n## Notes\n- The ultrasound waves move at a frequency that allowed the crystal to breakdown at a molecular level, allowing dispersion of crystal particles back into the air.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Bat Controlling: Ultrasonic Mind Waves"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Classification:** Ninjutsu",
+            "**Class:** Supplementary",
+            "**Users:** Rinji",
+            "**Media:** Anime"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Once Rinji controls his bats, he commands them to produce high frequency ultrasonic waves that affect the mind of the opponent. These bats (along with Shino's evolving insect strategy) have been the only effective counters to the Crystal Release."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The ultrasound waves move at a frequency that allowed the crystal to breakdown at a molecular level, allowing dispersion of crystal particles back into the air."
+          ]
+        }
+      ]
+    },
+    "id": "bat-controlling-ultrasonic-mind-waves",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Once Rinji controls his bats, he commands them to produce high frequency ultrasonic waves that affect the mind of the opponent. These bats (along with Shino's evolving insect strategy) have been the only effective counters to the Crystal Release.",
+    "technique": [
+      "The ultrasound waves move at a frequency that allowed the crystal to breakdown at a molecular level, allowing dispersion of crystal particles back into the air."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Bat Controlling: Ultrasonic Mind Waves mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Armour",
     "sourcePage": "Crystal Armour",
-    "pageId": 13722,
     "url": "https://naruto.fandom.com/wiki/Crystal_Armour",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/4/45/Crystal_Armour.png/revision/latest/scale-to-width-down/600?cb=20151201044725",
     "raw": {
-      "markdown": "# Crystal Armour\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu, Chakra Flow\n- Class: Offensive, Defensive\n- Range: Short\n- Users: Guren\n- Media: Anime\n\n## Summary\nThis technique allows Guren to cover her skin with a thin sheet of pink crystal that improves her defence against physical attacks. This armour can also aid her to perform stronger physical attacks.\n\n## Notes\n- The crystal is transparent and can only be noticed by light reflecting off it.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Armour"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu, Chakra Flow",
+            "**Class:** Offensive, Defensive",
+            "**Range:** Short",
+            "**Users:** Guren",
+            "**Media:** Anime"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "This technique allows Guren to cover her skin with a thin sheet of pink crystal that improves her defence against physical attacks. This armour can also aid her to perform stronger physical attacks."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The crystal is transparent and can only be noticed by light reflecting off it."
+          ]
+        }
+      ]
+    },
+    "id": "crystal-armour",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "This technique allows Guren to cover her skin with a thin sheet of pink crystal that improves her defence against physical attacks. This armour can also aid her to perform stronger physical attacks.",
+    "technique": [
+      "The crystal is transparent and can only be noticed by light reflecting off it."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Armour mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal: Giant Hexagonal Shuriken",
     "sourcePage": "Crystal: Giant Hexagonal Shuriken",
-    "pageId": 12145,
     "url": "https://naruto.fandom.com/wiki/Crystal:_Giant_Hexagonal_Shuriken",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/e/e7/Giant_Hexagonal_Shuriken.png/revision/latest/scale-to-width-down/600?cb=20151016013727",
     "raw": {
-      "markdown": "# Crystal: Giant Hexagonal Shuriken\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Offensive\n- Range: Short, Mid, Long\n- Users: Guren\n- Media: Anime, Game\n\n## Summary\nGuren creates a giant jade-green crystal shuriken, resembling a snowflake, and throws it at the enemy. Despite its sharpness, it wasn't able to penetrate the Three-Tails' shell.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal: Giant Hexagonal Shuriken"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Guren",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Guren creates a giant jade-green crystal shuriken, resembling a snowflake, and throws it at the enemy. Despite its sharpness, it wasn't able to penetrate the Three-Tails' shell."
+        }
+      ]
+    },
+    "id": "crystal-giant-hexagonal-shuriken",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Guren creates a giant jade-green crystal shuriken, resembling a snowflake, and throws it at the enemy. Despite its sharpness, it wasn't able to penetrate the Three-Tails' shell.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal: Giant Hexagonal Shuriken mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal: Hexagonal Shuriken: Wild Dance",
     "sourcePage": "Crystal: Hexagonal Shuriken: Wild Dance",
-    "pageId": 13025,
     "url": "https://naruto.fandom.com/wiki/Crystal:_Hexagonal_Shuriken:_Wild_Dance",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/a/a0/Snowflake_Shuriken.png/revision/latest/scale-to-width-down/600?cb=20151201220716",
     "raw": {
-      "markdown": "# Crystal: Hexagonal Shuriken: Wild Dance\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Offensive\n- Range: Short, Mid, Long\n- Users: Guren\n- Media: Anime, Game\n\n## Summary\nGuren creates pink crystal shuriken in the shape of snowflakes to launch at the target. The user can make them spin to increase their lethal power, and can burst into multiple shards with enough force to easily pierce through trees.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal: Hexagonal Shuriken: Wild Dance"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Guren",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Guren creates pink crystal shuriken in the shape of snowflakes to launch at the target. The user can make them spin to increase their lethal power, and can burst into multiple shards with enough force to easily pierce through trees."
+        }
+      ]
+    },
+    "id": "crystal-hexagonal-shuriken-wild-dance",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Guren creates pink crystal shuriken in the shape of snowflakes to launch at the target. The user can make them spin to increase their lethal power, and can burst into multiple shards with enough force to easily pierce through trees.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal: Hexagonal Shuriken: Wild Dance mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Release: Crimson Fruit",
     "sourcePage": "Crystal Release: Crimson Fruit",
-    "pageId": 13982,
     "url": "https://naruto.fandom.com/wiki/Crystal_Release:_Crimson_Fruit",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/6/62/Sh%C5%8Dton_Kurenai_no_Kajitsu.png/revision/latest/scale-to-width-down/600?cb=20151016013059",
     "raw": {
-      "markdown": "# Crystal Release: Crimson Fruit\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Defensive, Supplementary\n- Range: Short\n- Users: Guren\n- Media: Anime\n\n## Summary\nGuren creates a dome of pink crystal to surround a target. It is highly durable from both external and internal attacks, and can be used to either protect or trap a target.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Release: Crimson Fruit"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Defensive, Supplementary",
+            "**Range:** Short",
+            "**Users:** Guren",
+            "**Media:** Anime"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Guren creates a dome of pink crystal to surround a target. It is highly durable from both external and internal attacks, and can be used to either protect or trap a target."
+        }
+      ]
+    },
+    "id": "crystal-release-crimson-fruit",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Guren creates a dome of pink crystal to surround a target. It is highly durable from both external and internal attacks, and can be used to either protect or trap a target.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Release: Crimson Fruit mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Release: Crystal Encampment Wall",
     "sourcePage": "Crystal Release: Crystal Encampment Wall",
-    "pageId": 10326,
     "url": "https://naruto.fandom.com/wiki/Crystal_Release:_Crystal_Encampment_Wall",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/8/8b/Crystal_Encampment_Wall.png/revision/latest/scale-to-width-down/600?cb=20151130221823",
     "raw": {
-      "markdown": "# Crystal Release: Crystal Encampment Wall\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Defensive\n- Users: Guren\n- Media: Anime\n\n## Summary\nGuren sends out a wave of chakra, which then turns into an almost impenetrable red crystal wall, given the fact that it repairs itself when damaged. Only Shino's enhanced insects were capable of weakening the wall enough for Kakashi to finally destroy it with his Lightning Cutter.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Release: Crystal Encampment Wall"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Defensive",
+            "**Users:** Guren",
+            "**Media:** Anime"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Guren sends out a wave of chakra, which then turns into an almost impenetrable red crystal wall, given the fact that it repairs itself when damaged. Only Shino's enhanced insects were capable of weakening the wall enough for Kakashi to finally destroy it with his Lightning Cutter."
+        }
+      ]
+    },
+    "id": "crystal-release-crystal-encampment-wall",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Guren sends out a wave of chakra, which then turns into an almost impenetrable red crystal wall, given the fact that it repairs itself when damaged. Only Shino's enhanced insects were capable of weakening the wall enough for Kakashi to finally destroy it with his Lightning Cutter.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Release: Crystal Encampment Wall mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Release: Crystal Imprisonment Wave",
     "sourcePage": "Crystal Release: Crystal Imprisonment Wave",
-    "pageId": 33426,
     "url": "https://naruto.fandom.com/wiki/Crystal_Release:_Crystal_Imprisonment_Wave",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/e/eb/Crystal_Imprisonment.png/revision/latest/scale-to-width-down/600?cb=20170823175836",
     "raw": {
-      "markdown": "# Crystal Release: Crystal Imprisonment Wave\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Supplementary\n- Users: Guren\n- Media: Anime\n\n## Summary\nA technique similar to Guren's Crystal Release: Crystal Pentagonal Prison, where she instead sends a wave of pink crystal particles through the air to encase her target(s) in crystal.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Release: Crystal Imprisonment Wave"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Supplementary",
+            "**Users:** Guren",
+            "**Media:** Anime"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "A technique similar to Guren's Crystal Release: Crystal Pentagonal Prison, where she instead sends a wave of pink crystal particles through the air to encase her target(s) in crystal."
+        }
+      ]
+    },
+    "id": "crystal-release-crystal-imprisonment-wave",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "A technique similar to Guren's Crystal Release: Crystal Pentagonal Prison, where she instead sends a wave of pink crystal particles through the air to encase her target(s) in crystal.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Release: Crystal Imprisonment Wave mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Release: Crystal Lance",
     "sourcePage": "Crystal Release: Crystal Lance",
-    "pageId": 12131,
     "url": "https://naruto.fandom.com/wiki/Crystal_Release:_Crystal_Lance",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/7/76/Crystal_Lance.png/revision/latest/scale-to-width-down/600?cb=20151016012254",
     "raw": {
-      "markdown": "# Crystal Release: Crystal Lance\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Offensive\n- Range: Short\n- Users: Guren\n- Media: Anime\n\n## Summary\nThis technique allows Guren to create a large and sharp blue spear-like crystal surrounding her forearm, which she can use to impale her target.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Release: Crystal Lance"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short",
+            "**Users:** Guren",
+            "**Media:** Anime"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "This technique allows Guren to create a large and sharp blue spear-like crystal surrounding her forearm, which she can use to impale her target."
+        }
+      ]
+    },
+    "id": "crystal-release-crystal-lance",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "This technique allows Guren to create a large and sharp blue spear-like crystal surrounding her forearm, which she can use to impale her target.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Release: Crystal Lance mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Release: Crystal Needles",
     "sourcePage": "Crystal Release: Crystal Needles",
-    "pageId": 10325,
     "url": "https://naruto.fandom.com/wiki/Crystal_Release:_Crystal_Needles",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/9/97/Crystal_Needles.png/revision/latest/scale-to-width-down/600?cb=20151130223034",
     "raw": {
-      "markdown": "# Crystal Release: Crystal Needles\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Offensive, Supplementary\n- Range: Short, Mid, Long\n- Users: Guren\n- Media: Anime\n\n## Summary\nGuren creates long, sharp pink crystals that shoot at the target at extremely high speeds with pinpoint accuracy. She can also create smaller versions of pink crystals to trap her target.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Release: Crystal Needles"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Offensive, Supplementary",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Guren",
+            "**Media:** Anime"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Guren creates long, sharp pink crystals that shoot at the target at extremely high speeds with pinpoint accuracy. She can also create smaller versions of pink crystals to trap her target."
+        }
+      ]
+    },
+    "id": "crystal-release-crystal-needles",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Guren creates long, sharp pink crystals that shoot at the target at extremely high speeds with pinpoint accuracy. She can also create smaller versions of pink crystals to trap her target.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Release: Crystal Needles mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Release: Crystal Pentagonal Prison",
     "sourcePage": "Crystal Release: Crystal Pentagonal Prison",
-    "pageId": 10077,
     "url": "https://naruto.fandom.com/wiki/Crystal_Release:_Crystal_Pentagonal_Prison",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/6/62/Sh%C5%8Dton_Kessh%C5%8D_Gokakur%C5%8D.PNG/revision/latest/scale-to-width-down/600?cb=20170816205645",
     "raw": {
-      "markdown": "# Crystal Release: Crystal Pentagonal Prison\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Supplementary\n- Users: Guren\n- Media: Anime, Game\n\n## Summary\nGuren completely encases her opponents in pink crystal using the surface beneath them. When shattered, the bodies of the victims disintegrate along with the crystal particles.\n\n## Notes\n- It is shown through examination with Shino's kikaichū that those affected by the technique are covered in a frostbite-like pattern.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Release: Crystal Pentagonal Prison"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Supplementary",
+            "**Users:** Guren",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Guren completely encases her opponents in pink crystal using the surface beneath them. When shattered, the bodies of the victims disintegrate along with the crystal particles."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "It is shown through examination with Shino's kikaichū that those affected by the technique are covered in a frostbite-like pattern."
+          ]
+        }
+      ]
+    },
+    "id": "crystal-release-crystal-pentagonal-prison",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Guren completely encases her opponents in pink crystal using the surface beneath them. When shattered, the bodies of the victims disintegrate along with the crystal particles.",
+    "technique": [
+      "It is shown through examination with Shino's kikaichū that those affected by the technique are covered in a frostbite-like pattern."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Release: Crystal Pentagonal Prison mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Release: Crystal Wheel",
     "sourcePage": "Crystal Release: Crystal Wheel",
-    "pageId": 41028,
     "url": "https://naruto.fandom.com/wiki/Crystal_Release:_Crystal_Wheel",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/1/1b/Crystal_Wheel.png/revision/latest/scale-to-width-down/600?cb=20151016013539",
     "raw": {
-      "markdown": "# Crystal Release: Crystal Wheel\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Supplementary\n- Range: Short, Mid, Long\n- Users: Guren\n- Media: Anime\n\n## Summary\nGuren creates a ring-shaped pink crystal wheel and has it rotate vertically around herself, allowing her to move at high speed, even above water.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Release: Crystal Wheel"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Supplementary",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Guren",
+            "**Media:** Anime"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Guren creates a ring-shaped pink crystal wheel and has it rotate vertically around herself, allowing her to move at high speed, even above water."
+        }
+      ]
+    },
+    "id": "crystal-release-crystal-wheel",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Guren creates a ring-shaped pink crystal wheel and has it rotate vertically around herself, allowing her to move at high speed, even above water.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Release: Crystal Wheel mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Release: Growing Crystal Thorns",
     "sourcePage": "Crystal Release: Growing Crystal Thorns",
-    "pageId": 31067,
     "url": "https://naruto.fandom.com/wiki/Crystal_Release:_Growing_Crystal_Thorns",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/d/d9/Crystal_Release_Growing_Crystal_Thorns_2.PNG/revision/latest/scale-to-width-down/600?cb=20170823180626",
     "raw": {
-      "markdown": "# Crystal Release: Growing Crystal Thorns\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Offensive\n- Range: Short, Mid\n- Users: Guren\n- Media: Anime\n\n## Summary\nGuren creates pink thorn-like crystals that she can manipulate to continuously grow towards her target's direction.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Release: Growing Crystal Thorns"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short, Mid",
+            "**Users:** Guren",
+            "**Media:** Anime"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Guren creates pink thorn-like crystals that she can manipulate to continuously grow towards her target's direction."
+        }
+      ]
+    },
+    "id": "crystal-release-growing-crystal-thorns",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Guren creates pink thorn-like crystals that she can manipulate to continuously grow towards her target's direction.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Release: Growing Crystal Thorns mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Release: Jade Crystal Blade",
     "sourcePage": "Crystal Release: Jade Crystal Blade",
-    "pageId": 11777,
     "url": "https://naruto.fandom.com/wiki/Crystal_Release:_Jade_Crystal_Blade",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/0/0c/Jade_Crystal_Blade.png/revision/latest/scale-to-width-down/600?cb=20230411190552",
     "raw": {
-      "markdown": "# Crystal Release: Jade Crystal Blade\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Offensive\n- Range: Short\n- Users: Guren\n- Media: Anime, Game\n\n## Summary\nGuren materialises a blue crystal blade on her forearm to engage in combat. It has proven to be durable enough to block shuriken and kunai.\n\n## Notes\n- If need be, she can create a crystal blade on each forearm.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Release: Jade Crystal Blade"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short",
+            "**Users:** Guren",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Guren materialises a blue crystal blade on her forearm to engage in combat. It has proven to be durable enough to block shuriken and kunai."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "If need be, she can create a crystal blade on each forearm."
+          ]
+        }
+      ]
+    },
+    "id": "crystal-release-jade-crystal-blade",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Guren materialises a blue crystal blade on her forearm to engage in combat. It has proven to be durable enough to block shuriken and kunai.",
+    "technique": [
+      "If need be, she can create a crystal blade on each forearm."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Release: Jade Crystal Blade mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Release: Jade Crystal Hexagonal Pillars",
     "sourcePage": "Crystal Release: Jade Crystal Hexagonal Pillars",
-    "pageId": 11956,
     "url": "https://naruto.fandom.com/wiki/Crystal_Release:_Jade_Crystal_Hexagonal_Pillars",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/2/25/Jade_Crystal_Hexagonal_Pillars.png/revision/latest/scale-to-width-down/600?cb=20170816205420",
     "raw": {
-      "markdown": "# Crystal Release: Jade Crystal Hexagonal Pillars\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Supplementary\n- Users: Guren\n- Media: Anime\n\n## Summary\nBy creating five large pink crystalline pillars around the user, this technique can be used to enhance the potency of other techniques. It was used to greatly amplify Yūkimaru's ability to the point that he could summon the Three-Tails, although with assistance from Kabuto's medication.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Release: Jade Crystal Hexagonal Pillars"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Supplementary",
+            "**Users:** Guren",
+            "**Media:** Anime"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "By creating five large pink crystalline pillars around the user, this technique can be used to enhance the potency of other techniques. It was used to greatly amplify Yūkimaru's ability to the point that he could summon the Three-Tails, although with assistance from Kabuto's medication."
+        }
+      ]
+    },
+    "id": "crystal-release-jade-crystal-hexagonal-pillars",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "By creating five large pink crystalline pillars around the user, this technique can be used to enhance the potency of other techniques. It was used to greatly amplify Yūkimaru's ability to the point that he could summon the Three-Tails, although with assistance from Kabuto's medication.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Release: Jade Crystal Hexagonal Pillars mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Release: Jade Crystal Labyrinth Technique",
     "sourcePage": "Crystal Release: Jade Crystal Labyrinth Technique",
-    "pageId": 11626,
     "url": "https://naruto.fandom.com/wiki/Crystal_Release:_Jade_Crystal_Labyrinth_Technique",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/3/3a/Jade_Crystal_Labyrinth.png/revision/latest/scale-to-width-down/600?cb=20151006202119",
     "raw": {
-      "markdown": "# Crystal Release: Jade Crystal Labyrinth Technique\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu, Barrier Ninjutsu\n- Class: Supplementary\n- Range: Short, Mid, Long\n- Users: Guren\n- Media: Anime\n\n## Summary\nAfter planting red crystal seeds, Guren can cause them to bloom at will. These flower-like constructs will rapidly grow and into a massive barrier in order to trap whatever is within its perimeter.\n\n## Notes\n- Enemies trapped inside hindered by the labyrinth's reflective nature as it can generate mirror images of the routes, paths, and other details within its confines, confusing and disorienting them.\n- It is even capable of confusing the Byakugan.\n- Until it is broken, the barrier cannot be discerned from within.\n- Because of the crystal's stable molecular structure, a simple attack focused at one point is rendered useless, and its wide surface will disperse the force of wide range attacks, reducing their effectiveness.\n- To overcome this technique, an attack that has impact force both wide and powerful is required to smash through it from the outside.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Release: Jade Crystal Labyrinth Technique"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu, Barrier Ninjutsu",
+            "**Class:** Supplementary",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Guren",
+            "**Media:** Anime"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "After planting red crystal seeds, Guren can cause them to bloom at will. These flower-like constructs will rapidly grow and into a massive barrier in order to trap whatever is within its perimeter."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Enemies trapped inside hindered by the labyrinth's reflective nature as it can generate mirror images of the routes, paths, and other details within its confines, confusing and disorienting them.",
+            "It is even capable of confusing the Byakugan.",
+            "Until it is broken, the barrier cannot be discerned from within.",
+            "Because of the crystal's stable molecular structure, a simple attack focused at one point is rendered useless, and its wide surface will disperse the force of wide range attacks, reducing their effectiveness.",
+            "To overcome this technique, an attack that has impact force both wide and powerful is required to smash through it from the outside."
+          ]
+        }
+      ]
+    },
+    "id": "crystal-release-jade-crystal-labyrinth-technique",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "After planting red crystal seeds, Guren can cause them to bloom at will. These flower-like constructs will rapidly grow and into a massive barrier in order to trap whatever is within its perimeter.",
+    "technique": [
+      "Enemies trapped inside hindered by the labyrinth's reflective nature as it can generate mirror images of the routes, paths, and other details within its confines, confusing and disorienting them.",
+      "It is even capable of confusing the Byakugan.",
+      "Until it is broken, the barrier cannot be discerned from within.",
+      "Because of the crystal's stable molecular structure, a simple attack focused at one point is rendered useless, and its wide surface will disperse the force of wide range attacks, reducing their effectiveness.",
+      "To overcome this technique, an attack that has impact force both wide and powerful is required to smash through it from the outside."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Release: Jade Crystal Labyrinth Technique mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Release: Jade Crystal Mirror",
     "sourcePage": "Crystal Release: Jade Crystal Mirror",
-    "pageId": 11775,
     "url": "https://naruto.fandom.com/wiki/Crystal_Release:_Jade_Crystal_Mirror",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/1/1b/Jade_Crystal_Mirror.png/revision/latest/scale-to-width-down/600?cb=20151006202416",
     "raw": {
-      "markdown": "# Crystal Release: Jade Crystal Mirror\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Supplementary\n- Users: Guren\n- Media: Anime, Game\n\n## Summary\nGuren outstretches her arms in a position where her hands are open, and materialises a pink chakra-like energy, before converting it into a large jade-green mirror. The mirror takes the shape of a snowflake, and Guren can use it to perform the Jade Crystal Clone Technique.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Release: Jade Crystal Mirror"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Supplementary",
+            "**Users:** Guren",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Guren outstretches her arms in a position where her hands are open, and materialises a pink chakra-like energy, before converting it into a large jade-green mirror. The mirror takes the shape of a snowflake, and Guren can use it to perform the Jade Crystal Clone Technique."
+        }
+      ]
+    },
+    "id": "crystal-release-jade-crystal-mirror",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Guren outstretches her arms in a position where her hands are open, and materialises a pink chakra-like energy, before converting it into a large jade-green mirror. The mirror takes the shape of a snowflake, and Guren can use it to perform the Jade Crystal Clone Technique.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Release: Jade Crystal Mirror mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Release: Jade Crystal Prison Technique",
     "sourcePage": "Crystal Release: Jade Crystal Prison Technique",
-    "pageId": 11803,
     "url": "https://naruto.fandom.com/wiki/Crystal_Release:_Jade_Crystal_Prison_Technique",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/5/5c/Jade_Crystal_Prison.png/revision/latest/scale-to-width-down/600?cb=20151006202337",
     "raw": {
-      "markdown": "# Crystal Release: Jade Crystal Prison Technique\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Supplementary\n- Range: Short\n- Users: Guren\n- Media: Anime\n\n## Summary\nThis technique, which seems to be Crystal Release: Crystal Pentagonal Prison on a smaller scale or a minor version of it, allows Guren to completely encase a single target in a compact mass of pink crystals. If the crystals are shattered, the victim disintegrates along with the crystal particles.\n\n## Counters / Defenses\n- However, Hinata was able to surround her body with chakra before she was completely encased, thereby avoiding the fatal disintegration effect.\n\n## Notes\n- Therefore, this jutsu has no effect on chakra.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Release: Jade Crystal Prison Technique"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Supplementary",
+            "**Range:** Short",
+            "**Users:** Guren",
+            "**Media:** Anime"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "This technique, which seems to be Crystal Release: Crystal Pentagonal Prison on a smaller scale or a minor version of it, allows Guren to completely encase a single target in a compact mass of pink crystals. If the crystals are shattered, the victim disintegrates along with the crystal particles."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Counters / Defenses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "However, Hinata was able to surround her body with chakra before she was completely encased, thereby avoiding the fatal disintegration effect."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Therefore, this jutsu has no effect on chakra."
+          ]
+        }
+      ]
+    },
+    "id": "crystal-release-jade-crystal-prison-technique",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "This technique, which seems to be Crystal Release: Crystal Pentagonal Prison on a smaller scale or a minor version of it, allows Guren to completely encase a single target in a compact mass of pink crystals. If the crystals are shattered, the victim disintegrates along with the crystal particles.",
+    "technique": [
+      "Therefore, this jutsu has no effect on chakra."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Release: Jade Crystal Prison Technique mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Release: Jade Crystal Wall Eighth Formation",
     "sourcePage": "Crystal Release: Jade Crystal Wall Eighth Formation",
-    "pageId": 12133,
     "url": "https://naruto.fandom.com/wiki/Crystal_Release:_Jade_Crystal_Wall_Eighth_Formation",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/6/66/Crystal_Wall_8th_Formation.png/revision/latest/scale-to-width-down/600?cb=20151016014743",
     "raw": {
-      "markdown": "# Crystal Release: Jade Crystal Wall Eighth Formation\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Offensive, Supplementary\n- Range: Short, Mid, Long\n- Users: Guren\n- Media: Anime, Game\n\n## Summary\nThis technique allows Guren to encase a large area in red crystals, thus crystallising everything within it. This technique was first used in Guren's battle with the Three-Tailed Beast, but to no avail, as it broke out shortly after.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Release: Jade Crystal Wall Eighth Formation"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Offensive, Supplementary",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Guren",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "This technique allows Guren to encase a large area in red crystals, thus crystallising everything within it. This technique was first used in Guren's battle with the Three-Tailed Beast, but to no avail, as it broke out shortly after."
+        }
+      ]
+    },
+    "id": "crystal-release-jade-crystal-wall-eighth-formation",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "This technique allows Guren to encase a large area in red crystals, thus crystallising everything within it. This technique was first used in Guren's battle with the Three-Tailed Beast, but to no avail, as it broke out shortly after.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Release: Jade Crystal Wall Eighth Formation mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Release: Shuriken Wild Dance",
     "sourcePage": "Crystal Release: Shuriken Wild Dance",
-    "pageId": 12134,
     "url": "https://naruto.fandom.com/wiki/Crystal_Release:_Shuriken_Wild_Dance",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/a/a9/Crystal_Needle_Scattering_Destruction.png/revision/latest/scale-to-width-down/600?cb=20170816203323",
     "raw": {
-      "markdown": "# Crystal Release: Shuriken Wild Dance\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Offensive\n- Range: Short, Mid, Long\n- Users: Guren\n- Media: Anime, Game\n\n## Summary\nGuren surrounds herself in pink crystal particles, condensing them into numerous shuriken that continuously revolve around her as she launches them at high speeds.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Release: Shuriken Wild Dance"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Offensive",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Guren",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Guren surrounds herself in pink crystal particles, condensing them into numerous shuriken that continuously revolve around her as she launches them at high speeds."
+        }
+      ]
+    },
+    "id": "crystal-release-shuriken-wild-dance",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Guren surrounds herself in pink crystal particles, condensing them into numerous shuriken that continuously revolve around her as she launches them at high speeds.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Release: Shuriken Wild Dance mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Release: String of Glory",
     "sourcePage": "Crystal Release: String of Glory",
-    "pageId": 13981,
     "url": "https://naruto.fandom.com/wiki/Crystal_Release:_String_of_Glory",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/f/f6/Arrow_of_Light.png/revision/latest/scale-to-width-down/600?cb=20151016012900",
     "raw": {
-      "markdown": "# Crystal Release: String of Glory\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Offensive, Defensive\n- Range: Short, Mid, Long\n- Users: Guren\n- Media: Anime, Game\n\n## Summary\nAfter using the Pressure Points of Harm and Death technique, Guren encases herself in a prism of transparent blue crystal. The prism can hover in the air, but seems to be immobile.\n\n## Usage\n- In addition, this technique allows her to attack by focusing her chakra into powerful heat blasts launched through the prism's tip.\n\n## Notes\n- However, the prism protects her from almost any attack, as it was capable of withstanding a barrage of continuous Rasengan, only shattering in the end.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Release: String of Glory"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Offensive, Defensive",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Guren",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "After using the Pressure Points of Harm and Death technique, Guren encases herself in a prism of transparent blue crystal. The prism can hover in the air, but seems to be immobile."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Usage"
+        },
+        {
+          "type": "list",
+          "items": [
+            "In addition, this technique allows her to attack by focusing her chakra into powerful heat blasts launched through the prism's tip."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "However, the prism protects her from almost any attack, as it was capable of withstanding a barrage of continuous Rasengan, only shattering in the end."
+          ]
+        }
+      ]
+    },
+    "id": "crystal-release-string-of-glory",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "After using the Pressure Points of Harm and Death technique, Guren encases herself in a prism of transparent blue crystal. The prism can hover in the air, but seems to be immobile.",
+    "technique": [
+      "In addition, this technique allows her to attack by focusing her chakra into powerful heat blasts launched through the prism's tip.",
+      "However, the prism protects her from almost any attack, as it was capable of withstanding a barrage of continuous Rasengan, only shattering in the end."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Release: String of Glory mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Release: Tearing Crystal Falling Dragon",
     "sourcePage": "Crystal Release: Tearing Crystal Falling Dragon",
-    "pageId": 11955,
     "url": "https://naruto.fandom.com/wiki/Crystal_Release:_Tearing_Crystal_Falling_Dragon",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/4/48/Sh%C5%8Dton_Hash%C5%8D_K%C5%8Dry%C5%AB.PNG/revision/latest/scale-to-width-down/533?cb=20140520054613",
     "raw": {
-      "markdown": "# Crystal Release: Tearing Crystal Falling Dragon\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Offensive, Supplementary\n- Range: Short, Mid, Long\n- Users: Guren\n- Media: Anime, Game\n\n## Summary\nThe user crystallises a material in the area, and then turns it into a pink Chinese-like dragon with several pink horns and jade-green eye irides. It can be used as a means to travel or to attack a target.\n\n## Notes\n- Several dragons can also be made and manipulated at once.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Release: Tearing Crystal Falling Dragon"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Offensive, Supplementary",
+            "**Range:** Short, Mid, Long",
+            "**Users:** Guren",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The user crystallises a material in the area, and then turns it into a pink Chinese-like dragon with several pink horns and jade-green eye irides. It can be used as a means to travel or to attack a target."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Several dragons can also be made and manipulated at once."
+          ]
+        }
+      ]
+    },
+    "id": "crystal-release-tearing-crystal-falling-dragon",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The user crystallises a material in the area, and then turns it into a pink Chinese-like dragon with several pink horns and jade-green eye irides. It can be used as a means to travel or to attack a target.",
+    "technique": [
+      "Several dragons can also be made and manipulated at once."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Release: Tearing Crystal Falling Dragon mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Highlight motif: dragon-shaped effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Crystal Release: The Gods' Crossings Technique",
     "sourcePage": "Crystal Release: The Gods' Crossings Technique",
-    "pageId": 12132,
     "url": "https://naruto.fandom.com/wiki/Crystal_Release:_The_Gods%27_Crossings_Technique",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/5/55/Gods_Crossings_Technique.png/revision/latest/scale-to-width-down/600?cb=20151016013810",
     "raw": {
-      "markdown": "# Crystal Release: The Gods' Crossings Technique\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu\n- Class: Offensive, Supplementary\n- Range: Mid, Long\n- Users: Guren\n- Media: Anime, Game\n\n## Summary\nGuren places her hand on a surface, creating a long stream of sharp blue crystals to bind and pierce a target. In winter, the lake's surface freezes over, but because of a natural hot spring under the lake, the lower waters remain warm and circulating.\n\n## Notes\n- This causes pressure ridges to appear on the ice, reaching heights of 30 centimetres or more.\n- Local belief holds that these ridges are formed by gods crossing the lake to visit the various buildings of the twelve centuries old Suwa Grand Shrine.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Crystal Release: The Gods' Crossings Technique"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu",
+            "**Class:** Offensive, Supplementary",
+            "**Range:** Mid, Long",
+            "**Users:** Guren",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Guren places her hand on a surface, creating a long stream of sharp blue crystals to bind and pierce a target. In winter, the lake's surface freezes over, but because of a natural hot spring under the lake, the lower waters remain warm and circulating."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "This causes pressure ridges to appear on the ice, reaching heights of 30 centimetres or more.",
+            "Local belief holds that these ridges are formed by gods crossing the lake to visit the various buildings of the twelve centuries old Suwa Grand Shrine."
+          ]
+        }
+      ]
+    },
+    "id": "crystal-release-the-gods-crossings-technique",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Guren places her hand on a surface, creating a long stream of sharp blue crystals to bind and pierce a target. In winter, the lake's surface freezes over, but because of a natural hot spring under the lake, the lower waters remain warm and circulating.",
+    "technique": [
+      "This causes pressure ridges to appear on the ice, reaching heights of 30 centimetres or more.",
+      "Local belief holds that these ridges are formed by gods crossing the lake to visit the various buildings of the twelve centuries old Suwa Grand Shrine."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Crystal Release: The Gods' Crossings Technique mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Jade Crystal Clone Technique",
     "sourcePage": "Jade Crystal Clone Technique",
-    "pageId": 11776,
     "url": "https://naruto.fandom.com/wiki/Jade_Crystal_Clone_Technique",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/0/09/Jade_Crystal_Clone.png/revision/latest/scale-to-width-down/600?cb=20151006202505",
     "raw": {
-      "markdown": "# Jade Crystal Clone Technique\n\n## Quick Facts\n- Element/Type: Crystal Release\n- Classification: Kekkei Genkai~Crystal Release, Ninjutsu, Clone Techniques\n- Class: Supplementary\n- Users: Guren\n- Media: Anime\n\n## Summary\nBy using the Crystal Release: Jade Crystal Mirror as a medium, Guren creates six clones of herself that emerge from the mirror. Due to them being made of crystal, those said clones can endure further damage than that of a shadow clone can.\n\n## Notes\n- These clones are also able to deceive Byakugan users due to their reflective nature, but by focusing their sight, this can be circumvented.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Jade Crystal Clone Technique"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Crystal Release",
+            "**Classification:** Kekkei Genkai, Crystal Release, Ninjutsu, Clone Techniques",
+            "**Class:** Supplementary",
+            "**Users:** Guren",
+            "**Media:** Anime"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "By using the Crystal Release: Jade Crystal Mirror as a medium, Guren creates six clones of herself that emerge from the mirror. Due to them being made of crystal, those said clones can endure further damage than that of a shadow clone can."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "These clones are also able to deceive Byakugan users due to their reflective nature, but by focusing their sight, this can be circumvented."
+          ]
+        }
+      ]
+    },
+    "id": "jade-crystal-clone-technique",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "By using the Crystal Release: Jade Crystal Mirror as a medium, Guren creates six clones of herself that emerge from the mirror. Due to them being made of crystal, those said clones can endure further damage than that of a shadow clone can.",
+    "technique": [
+      "These clones are also able to deceive Byakugan users due to their reflective nature, but by focusing their sight, this can be circumvented."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Jade Crystal Clone Technique mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Living Corpse Reincarnation",
     "sourcePage": "Living Corpse Reincarnation",
-    "pageId": 2330,
     "url": "https://naruto.fandom.com/wiki/Living_Corpse_Reincarnation",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/6/61/Fushi_Tensei.png/revision/latest/scale-to-width-down/600?cb=20120509181240",
     "raw": {
-      "markdown": "# Living Corpse Reincarnation\n\n## Quick Facts\n- Classification: Kinjutsu, Ninjutsu, Reincarnation Ninjutsu\n- Class: Supplementary\n- Users: Orochimaru,<!-- Do not add Kabuto Yakushi, he didn't use this technique. He just manifested Orochimaru's true form -->\n- Media: Anime, Manga, Game\n\n## Summary\nThe Living Corpse Reincarnation is a technique that was developed by Orochimaru that allows him to transfer his soul to someone else's body. It is also referred to as the \"Eternal Youth and Immortality Technique\".\n\n## Usage\n- By repeating this process periodically, this effectively allows the user to remain in the realm of living, so long as they can keep the host body alive while residing within.\n- Orochimaru then swallows the new host and takes him or her to a separate, mental plane where he envelops the mind of his victim.\n\n## Counters / Defenses\n- # Unknown female — for replacing the hand Itachi Uchiha severed; left body to escape the effects of his arms being sealed away.\n- # Sasuke Uchiha — after having been absorbed by Sasuke when he reversed his Living Corpse Reincarnation technique, took over due to Itachi's battle with his brother lowering Sasuke's chakra enough for Orochimaru to gain control; was sealed away by Itachi.\n- # White Zetsu Clone — for the cells of Hashirama Senju, as well as to escape the fatal injury of releasing the Dead Demon Consuming Seal.\n- (anime only)\n* Sasuke Uchiha — for the Sharingan; postponed due to being overpowered by Sasuke, then sealed away before another of his consciousnesses was released by the Evil Releasing Method.\n\n## Notes\n- It was developed in order to fuel his dream of acquiring all the knowledge in existence, a feat that cannot be achieved in a single lifetime.\n- Orochimaru can only perform this technique once every three years.\n- It also seems that when the three years are almost over, he is forced to move into another host, as the previous one begins to weaken and reject him.\n- Presumably, if he had a proper container, he could stay in the host for a full lifetime.\n- The fact that he wanted to prepare Sasuke Uchiha and Kimimaro for the transfer before performing it reinforces this.\n- To perform this technique, Orochimaru reveals his true form: a gigantic white snake composed of smaller white snakes, by abandoning his current host's body.\n- The snake body then dies and falls apart, and Orochimaru's soul dominates the body (though the Sharingan seems to be able to reverse the process against Orochimaru, which also grants the host Orochimaru's supply of chakra and powers).\n- The souls of the hosts are kept alive within Orochimaru, leaving them \"still alive\", in a sense (albeit suppressed), and when Orochimaru switches hosts, the souls leave with him.\n- Apparently if the host of these souls' chakra level falls enough it is possible for them to resurface in material form as seen with Orochimaru surfacing with his Eight Branches Technique after Sasuke used up most of his chakra.\n- After taking over another body, Orochimaru modifies it to suit his theme of snakes, in order to increase his survival capabilities, such as stretching and bending his body, reconnecting any severed parts, and shedding his skin to heal injuries.\n- This ensures that if Orochimaru cannot transfer to another body within the three years' time, he can allow his current one to greatly heal and evade attacks, rendering it virtually immortal; Sasuke refers this as the .\n- Orochimaru also alters the face of his host to look like his original form.\n- After being revived through the Evil Releasing Method, Orochimaru seemingly circumvented this process, emerging in a slightly different snake form and then slithering into a White Zetsu clone's mouth.\n- # Unknown person — when Orochimaru uses his Living Corpse Reincarnation on Sasuke, another one of his past hosts is seen in Orochimaru and Sasuke's mental plane.\n- # Gen'yūmaru — a desperate temporary replacement body before Sasuke Uchiha; left body for Sasuke Uchiha.\n- * Kimimaro — for the Shikotsumyaku; rejected due to terminal disease.\n- * Guren — for the Crystal Release; rejected due to being too late and loss of interest.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Living Corpse Reincarnation"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Classification:** Kinjutsu, Ninjutsu, Reincarnation Ninjutsu",
+            "**Class:** Supplementary",
+            "**Users:** Orochimaru",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Living Corpse Reincarnation is a technique that was developed by Orochimaru that allows him to transfer his soul to someone else's body. It is also referred to as the \"Eternal Youth and Immortality Technique\"."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Usage"
+        },
+        {
+          "type": "list",
+          "items": [
+            "By repeating this process periodically, this effectively allows the user to remain in the realm of living, so long as they can keep the host body alive while residing within.",
+            "Orochimaru then swallows the new host and takes him or her to a separate, mental plane where he envelops the mind of his victim."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Counters / Defenses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "# Unknown female — for replacing the hand Itachi Uchiha severed; left body to escape the effects of his arms being sealed away.",
+            "# Sasuke Uchiha — after having been absorbed by Sasuke when he reversed his Living Corpse Reincarnation technique, took over due to Itachi's battle with his brother lowering Sasuke's chakra enough for Orochimaru to gain control; was sealed away by Itachi.",
+            "# White Zetsu Clone — for the cells of Hashirama Senju, as well as to escape the fatal injury of releasing the Dead Demon Consuming Seal.",
+            "(anime only)",
+            "Sasuke Uchiha — for the Sharingan; postponed due to being overpowered by Sasuke, then sealed away before another of his consciousnesses was released by the Evil Releasing Method."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "It was developed in order to fuel his dream of acquiring all the knowledge in existence, a feat that cannot be achieved in a single lifetime.",
+            "Orochimaru can only perform this technique once every three years.",
+            "It also seems that when the three years are almost over, he is forced to move into another host, as the previous one begins to weaken and reject him.",
+            "Presumably, if he had a proper container, he could stay in the host for a full lifetime.",
+            "The fact that he wanted to prepare Sasuke Uchiha and Kimimaro for the transfer before performing it reinforces this.",
+            "**To perform this technique, Orochimaru reveals his true form:** a gigantic white snake composed of smaller white snakes, by abandoning his current host's body.",
+            "The snake body then dies and falls apart, and Orochimaru's soul dominates the body (though the Sharingan seems to be able to reverse the process against Orochimaru, which also grants the host Orochimaru's supply of chakra and powers).",
+            "The souls of the hosts are kept alive within Orochimaru, leaving them \"still alive\", in a sense (albeit suppressed), and when Orochimaru switches hosts, the souls leave with him.",
+            "Apparently if the host of these souls' chakra level falls enough it is possible for them to resurface in material form as seen with Orochimaru surfacing with his Eight Branches Technique after Sasuke used up most of his chakra.",
+            "After taking over another body, Orochimaru modifies it to suit his theme of snakes, in order to increase his survival capabilities, such as stretching and bending his body, reconnecting any severed parts, and shedding his skin to heal injuries.",
+            "This ensures that if Orochimaru cannot transfer to another body within the three years' time, he can allow his current one to greatly heal and evade attacks, rendering it virtually immortal; Sasuke refers this as the .",
+            "Orochimaru also alters the face of his host to look like his original form.",
+            "After being revived through the Evil Releasing Method, Orochimaru seemingly circumvented this process, emerging in a slightly different snake form and then slithering into a White Zetsu clone's mouth.",
+            "# Unknown person — when Orochimaru uses his Living Corpse Reincarnation on Sasuke, another one of his past hosts is seen in Orochimaru and Sasuke's mental plane.",
+            "# Gen'yūmaru — a desperate temporary replacement body before Sasuke Uchiha; left body for Sasuke Uchiha.",
+            "* Kimimaro — for the Shikotsumyaku; rejected due to terminal disease.",
+            "* Guren — for the Crystal Release; rejected due to being too late and loss of interest."
+          ]
+        }
+      ]
+    },
+    "id": "living-corpse-reincarnation",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The Living Corpse Reincarnation is a technique that was developed by Orochimaru that allows him to transfer his soul to someone else's body. It is also referred to as the \"Eternal Youth and Immortality Technique\".",
+    "technique": [
+      "By repeating this process periodically, this effectively allows the user to remain in the realm of living, so long as they can keep the host body alive while residing within.",
+      "Orochimaru then swallows the new host and takes him or her to a separate, mental plane where he envelops the mind of his victim.",
+      "It was developed in order to fuel his dream of acquiring all the knowledge in existence, a feat that cannot be achieved in a single lifetime.",
+      "Orochimaru can only perform this technique once every three years.",
+      "It also seems that when the three years are almost over, he is forced to move into another host, as the previous one begins to weaken and reject him.",
+      "Presumably, if he had a proper container, he could stay in the host for a full lifetime.",
+      "The fact that he wanted to prepare Sasuke Uchiha and Kimimaro for the transfer before performing it reinforces this.",
+      "a gigantic white snake composed of smaller white snakes, by abandoning his current host's body.",
+      "The snake body then dies and falls apart, and Orochimaru's soul dominates the body (though the Sharingan seems to be able to reverse the process against Orochimaru, which also grants the host Orochimaru's supply of chakra and powers).",
+      "The souls of the hosts are kept alive within Orochimaru, leaving them \"still alive\", in a sense (albeit suppressed), and when Orochimaru switches hosts, the souls leave with him.",
+      "Apparently if the host of these souls' chakra level falls enough it is possible for them to resurface in material form as seen with Orochimaru surfacing with his Eight Branches Technique after Sasuke used up most of his chakra.",
+      "After taking over another body, Orochimaru modifies it to suit his theme of snakes, in order to increase his survival capabilities, such as stretching and bending his body, reconnecting any severed parts, and shedding his skin to heal injuries.",
+      "This ensures that if Orochimaru cannot transfer to another body within the three years' time, he can allow his current one to greatly heal and evade attacks, rendering it virtually immortal; Sasuke refers this as the .",
+      "Orochimaru also alters the face of his host to look like his original form.",
+      "After being revived through the Evil Releasing Method, Orochimaru seemingly circumvented this process, emerging in a slightly different snake form and then slithering into a White Zetsu clone's mouth.",
+      "# Unknown person — when Orochimaru uses his Living Corpse Reincarnation on Sasuke, another one of his past hosts is seen in Orochimaru and Sasuke's mental plane.",
+      "# Gen'yūmaru — a desperate temporary replacement body before Sasuke Uchiha; left body for Sasuke Uchiha.",
+      "Kimimaro — for the Shikotsumyaku; rejected due to terminal disease.",
+      "Guren — for the Crystal Release; rejected due to being too late and loss of interest."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Living Corpse Reincarnation mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Pressure Points of Harm and Death",
     "sourcePage": "Pressure Points of Harm and Death",
-    "pageId": 20994,
     "url": "https://naruto.fandom.com/wiki/Pressure_Points_of_Harm_and_Death",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/3/3e/Pressure_Points_of_Harm_and_Death.png/revision/latest/scale-to-width-down/600?cb=20151016003125",
     "raw": {
-      "markdown": "# Pressure Points of Harm and Death\n\n## Quick Facts\n- Classification: Ninjutsu,\n- Class: Supplementary\n- Users: Guren\n- Media: Anime\n\n## Summary\nGuren releases two tenketsu points to greatly increase her chakra and physical capabilities for a short time by changing her life force into chakra. This allows the use of taxing techniques such as Crystal Release: String of Glory.\n\n## Notes\n- The amount of chakra released is so much that it becomes visible and causes water to form a vortex around her, similar to the one caused by opening the \"Sixth Gate of Joy\" from the Eight Gates.\n- Her eyes also turn completely white momentarily.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Pressure Points of Harm and Death"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Classification:** Ninjutsu",
+            "**Class:** Supplementary",
+            "**Users:** Guren",
+            "**Media:** Anime"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Guren releases two tenketsu points to greatly increase her chakra and physical capabilities for a short time by changing her life force into chakra. This allows the use of taxing techniques such as Crystal Release: String of Glory."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The amount of chakra released is so much that it becomes visible and causes water to form a vortex around her, similar to the one caused by opening the \"Sixth Gate of Joy\" from the Eight Gates.",
+            "Her eyes also turn completely white momentarily."
+          ]
+        }
+      ]
+    },
+    "id": "pressure-points-of-harm-and-death",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Guren releases two tenketsu points to greatly increase her chakra and physical capabilities for a short time by changing her life force into chakra. This allows the use of taxing techniques such as Crystal Release: String of Glory.",
+    "technique": [
+      "The amount of chakra released is so much that it becomes visible and causes water to form a vortex around her, similar to the one caused by opening the \"Sixth Gate of Joy\" from the Eight Gates.",
+      "Her eyes also turn completely white momentarily."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Pressure Points of Harm and Death mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Three-Tails Chakra: Release",
     "sourcePage": "Three-Tails Chakra: Release",
-    "pageId": 13937,
     "url": "https://naruto.fandom.com/wiki/Three-Tails_Chakra:_Release",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/9/94/Three-Tails_Chakra_Release.png/revision/latest/scale-to-width-down/600?cb=20160425182648",
     "raw": {
-      "markdown": "# Three-Tails Chakra: Release\n\n## Quick Facts\n- Classification: Ninjutsu, Chakra Flow\n- Users: Yūkimaru\n- Media: Anime\n\n## Summary\nDue to his mysterious connection to the Three-Tails, Yūkimaru is able to at least partially control the Three-Tails. At first, Yūkimaru can only make an apparition of the beast appear, after taking some of Kabuto's pills.\n\n## Usage\n- Later, after taking a larger dosage of the pills (combined with Guren's Crystal Release technique) he is able to make the beast fully appear, but couldn't control it.\n\n## Counters / Defenses\n- When Guren seemingly sacrificed her life to save him, Yūkimaru lost control of himself and used his powers to the fullest which enhanced the Three-Tails strength and rampage enabling it to break through the Four-Corner Sealing Barrier.\n\n## Notes\n- Later, when Guren is in danger of being harmed by the Three-Tailed Beast, he is able to halt it completely without Kabuto's pills.\n- This could mean that, like Naruto's jinchūriki forms, this ability is tied to his emotions.\n- Shizune concluded that due to the extensive toll this ability took on Yūkimaru's body, his lifespan was shortened, and he lost the ability altogether.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Three-Tails Chakra: Release"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Classification:** Ninjutsu, Chakra Flow",
+            "**Users:** Yūkimaru",
+            "**Media:** Anime"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Due to his mysterious connection to the Three-Tails, Yūkimaru is able to at least partially control the Three-Tails. At first, Yūkimaru can only make an apparition of the beast appear, after taking some of Kabuto's pills."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Usage"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Later, after taking a larger dosage of the pills (combined with Guren's Crystal Release technique) he is able to make the beast fully appear, but couldn't control it."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Counters / Defenses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "When Guren seemingly sacrificed her life to save him, Yūkimaru lost control of himself and used his powers to the fullest which enhanced the Three-Tails strength and rampage enabling it to break through the Four-Corner Sealing Barrier."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Later, when Guren is in danger of being harmed by the Three-Tailed Beast, he is able to halt it completely without Kabuto's pills.",
+            "This could mean that, like Naruto's jinchūriki forms, this ability is tied to his emotions.",
+            "Shizune concluded that due to the extensive toll this ability took on Yūkimaru's body, his lifespan was shortened, and he lost the ability altogether."
+          ]
+        }
+      ]
+    },
+    "id": "three-tails-chakra-release",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Due to his mysterious connection to the Three-Tails, Yūkimaru is able to at least partially control the Three-Tails. At first, Yūkimaru can only make an apparition of the beast appear, after taking some of Kabuto's pills.",
+    "technique": [
+      "Later, after taking a larger dosage of the pills (combined with Guren's Crystal Release technique) he is able to make the beast fully appear, but couldn't control it.",
+      "Later, when Guren is in danger of being harmed by the Three-Tailed Beast, he is able to halt it completely without Kabuto's pills.",
+      "This could mean that, like Naruto's jinchūriki forms, this ability is tied to his emotions.",
+      "Shizune concluded that due to the extensive toll this ability took on Yūkimaru's body, his lifespan was shortened, and he lost the ability altogether."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Three-Tails Chakra: Release mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   }
 ]

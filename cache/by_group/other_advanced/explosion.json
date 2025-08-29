@@ -2,41 +2,238 @@
   {
     "name": "Explosion Release: Defence Technique",
     "sourcePage": "Explosion Release: Defence Technique",
-    "pageId": 104294,
     "url": "https://naruto.fandom.com/wiki/Explosion_Release:_Defence_Technique",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/1/17/Explosive_Palm.png/revision/latest/scale-to-width-down/600?cb=20150709214001",
     "raw": {
-      "markdown": "# Explosion Release: Defence Technique\n\n## Quick Facts\n- Element/Type: Explosion Release\n- Classification: Kekkei Genkai~Explosion Release, Ninjutsu, Taijutsu\n- Class: Defensive, Supplementary\n- Range: Short\n- Users: Gari\n- Media: Anime, Game\n\n## Summary\nThe user creates a small explosion in their palm. If properly timed and angled, it can be used to send thrown kunai back at the enemy.\n\n## Drawbacks\n- Gari has also used this to cut the length of binding cloth that Maki used to restrain Pakura.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Explosion Release: Defence Technique"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Explosion Release",
+            "**Classification:** Kekkei Genkai, Explosion Release, Ninjutsu, Taijutsu",
+            "**Class:** Defensive, Supplementary",
+            "**Range:** Short",
+            "**Users:** Gari",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "The user creates a small explosion in their palm. If properly timed and angled, it can be used to send thrown kunai back at the enemy."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Drawbacks"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Gari has also used this to cut the length of binding cloth that Maki used to restrain Pakura."
+          ]
+        }
+      ]
+    },
+    "id": "explosion-release-defence-technique",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "The user creates a small explosion in their palm. If properly timed and angled, it can be used to send thrown kunai back at the enemy.",
+    "technique": [],
+    "training": [],
+    "tips": [
+      "Gari has also used this to cut the length of binding cloth that Maki used to restrain Pakura."
+    ],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Explosion Release: Defence Technique mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Explosion Release: Impact",
     "sourcePage": "Explosion Release: Impact",
-    "pageId": 294516,
     "url": "https://naruto.fandom.com/wiki/Explosion_Release:_Impact",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/e/e0/Gari_Ground_Explosion.png/revision/latest/scale-to-width-down/600?cb=20130204172924",
     "raw": {
-      "markdown": "# Explosion Release: Impact\n\n## Quick Facts\n- Element/Type: Explosion Release\n- Classification: Kekkei Genkai~Explosion Release, Ninjutsu\n- Class: Offensive, Supplementary\n- Range: Short\n- Users: Gari\n- Media: Anime, Game\n\n## Summary\nGari punches the ground, the explosion causing the earth to upturn, unbalancing his opponents.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Explosion Release: Impact"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Explosion Release",
+            "**Classification:** Kekkei Genkai, Explosion Release, Ninjutsu",
+            "**Class:** Offensive, Supplementary",
+            "**Range:** Short",
+            "**Users:** Gari",
+            "**Media:** Anime, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "Gari punches the ground, the explosion causing the earth to upturn, unbalancing his opponents."
+        }
+      ]
+    },
+    "id": "explosion-release-impact",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "Gari punches the ground, the explosion causing the earth to upturn, unbalancing his opponents.",
+    "technique": [],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Explosion Release: Impact mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Explosion Release: Landmine Fist",
     "sourcePage": "Explosion Release: Landmine Fist",
-    "pageId": 63345,
     "url": "https://naruto.fandom.com/wiki/Explosion_Release:_Landmine_Fist",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/b/bc/Landmine_Fist.png/revision/latest/scale-to-width-down/600?cb=20150123214706",
     "raw": {
-      "markdown": "# Explosion Release: Landmine Fist\n\n## Quick Facts\n- Element/Type: Explosion Release\n- Classification: Kekkei Genkai~Explosion Release, Ninjutsu, Taijutsu\n- Class: Offensive\n- Range: Short\n- Users: Gari\n- Media: Anime, Manga, Game\n\n## Summary\nAfter establishing direct contact with their opponent through a simple punch, the user utilises Explosion Release to subsequently generate an enormous explosion from the opponent's insides. This explosion is powerful enough to completely obliterate an opponent far larger than the user.\n\n## Notes\n- Due to the directionality of the blast, the user minimises any potential repercussions, such as being struck by resultant debris and even recoil appears to be completely negated.\n- In the anime, Gari also uses a less-destructive version of this technique, creating a puff of smoke instead of an explosion.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Explosion Release: Landmine Fist"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Element/Type:** Explosion Release",
+            "**Classification:** Kekkei Genkai, Explosion Release, Ninjutsu, Taijutsu",
+            "**Class:** Offensive",
+            "**Range:** Short",
+            "**Users:** Gari",
+            "**Media:** Anime, Manga, Game"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "After establishing direct contact with their opponent through a simple punch, the user utilises Explosion Release to subsequently generate an enormous explosion from the opponent's insides. This explosion is powerful enough to completely obliterate an opponent far larger than the user."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Due to the directionality of the blast, the user minimises any potential repercussions, such as being struck by resultant debris and even recoil appears to be completely negated.",
+            "In the anime, Gari also uses a less-destructive version of this technique, creating a puff of smoke instead of an explosion."
+          ]
+        }
+      ]
+    },
+    "id": "explosion-release-landmine-fist",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "After establishing direct contact with their opponent through a simple punch, the user utilises Explosion Release to subsequently generate an enormous explosion from the opponent's insides. This explosion is powerful enough to completely obliterate an opponent far larger than the user.",
+    "technique": [
+      "Due to the directionality of the blast, the user minimises any potential repercussions, such as being struck by resultant debris and even recoil appears to be completely negated.",
+      "In the anime, Gari also uses a less-destructive version of this technique, creating a puff of smoke instead of an explosion."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Explosion Release: Landmine Fist mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   },
   {
     "name": "Iwagakure Kinjutsu",
     "sourcePage": "Iwagakure Kinjutsu",
-    "pageId": 33729,
     "url": "https://naruto.fandom.com/wiki/Iwagakure_Kinjutsu",
-    "thumbnail": "https://static.wikia.nocookie.net/naruto/images/d/d5/Iwagakure_Kinjutsu.PNG/revision/latest/scale-to-width-down/600?cb=20160103183901",
     "raw": {
-      "markdown": "# Iwagakure Kinjutsu\n\n## Quick Facts\n- Classification: Ninjutsu, Kinjutsu, Hiden~Iwagakure\n- Class: Supplementary\n- Users: Deidara, Sekiei~anime\n- Media: Anime, Manga, Novel, Game, Movie\n\n## Summary\nThis is an unnamed kinjutsu which was passed down through generations in Iwagakure. By doing so the object can be shaped, animated, and controlled remotely.\n\n## Notes\n- On command, the object's size can also be manipulated — from nano-sized to gigantic heights.\n- Once the user infuses their chakra into an object, it can become a source of origin for a technique.\n- Deidara stole this technique in his quest to find the ultimate art and used it in conjunction with his Explosion Release kekkei genkai to infuse explosive chakra into clay, creating his signature Explosive Clay.\n- Sekiei, a fabrication, was given both the nature transformation and this technique to utilise it in the same way.\n"
-    }
+      "markdown": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Iwagakure Kinjutsu"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Quick Facts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Classification:** Ninjutsu, Kinjutsu, Hiden, Iwagakure",
+            "**Class:** Supplementary",
+            "**Users:** Deidara, Sekiei, anime",
+            "**Media:** Anime, Manga, Novel, Game, Movie"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "type": "paragraph",
+          "text": "This is an unnamed kinjutsu which was passed down through generations in Iwagakure. By doing so the object can be shaped, animated, and controlled remotely."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Notes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "On command, the object's size can also be manipulated — from nano-sized to gigantic heights.",
+            "Once the user infuses their chakra into an object, it can become a source of origin for a technique.",
+            "Deidara stole this technique in his quest to find the ultimate art and used it in conjunction with his Explosion Release kekkei genkai to infuse explosive chakra into clay, creating his signature Explosive Clay.",
+            "Sekiei, a fabrication, was given both the nature transformation and this technique to utilise it in the same way."
+          ]
+        }
+      ]
+    },
+    "id": "iwagakure-kinjutsu",
+    "rank": "Unknown",
+    "chakraCost": "Unknown",
+    "seals": [],
+    "summary": "This is an unnamed kinjutsu which was passed down through generations in Iwagakure. By doing so the object can be shaped, animated, and controlled remotely.",
+    "technique": [
+      "On command, the object's size can also be manipulated — from nano-sized to gigantic heights.",
+      "Once the user infuses their chakra into an object, it can become a source of origin for a technique.",
+      "Deidara stole this technique in his quest to find the ultimate art and used it in conjunction with his Explosion Release kekkei genkai to infuse explosive chakra into clay, creating his signature Explosive Clay.",
+      "Sekiei, a fabrication, was given both the nature transformation and this technique to utilise it in the same way."
+    ],
+    "training": [],
+    "tips": [],
+    "image-description": "naruto-style, anime cel-shading, bold linework. Key art of Iwagakure Kinjutsu mid-cast with a dynamic action pose. Emphasize dramatic chakra effects and clear depiction of the technique. Three-quarter cinematic angle, slight low tilt, strong rim light, high-contrast chakra aura, motion speed-lines. Clear focal point on the jutsu effect. Clean, uncluttered background with atmospheric depth; high contrast; leave negative space for UI, subject framed slightly off-center."
   }
 ]
