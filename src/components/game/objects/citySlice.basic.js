@@ -27,19 +27,13 @@ export function buildBasicFive(THREE, kit, ex, { roofColor } = {}) {
     spiralTower, lotusPavilion, fanRoofHall, skyBridgeTowers, tieredGardenHouse
   } = ex;
 
-  // Assign descriptive base names to each returned building
-  const b1 = spiralTower({ w: 60, d: 52, floors: 4, roofColor: RC, plaster: 'B' });
-  b1.name = 'Spiral Tower';
-  const b2 = lotusPavilion({ r: 26, petals: 8, roofColor: RC, plaster: 'A' });
-  b2.name = 'Lotus Pavilion';
-  const b3 = fanRoofHall({ w: 92, d: 44, roofColor: RC, plaster: 'C' });
-  b3.name = 'Fan Roof Hall';
-  const b4 = skyBridgeTowers({ w: 40, d: 36, h: 22, gap: 64, roofColor: RC, plaster: 'B' });
-  b4.name = 'Sky Bridge Towers';
-  const b5 = tieredGardenHouse({ w: 92, d: 60, tiers: 3, roofColor: RC, plaster: 'A' });
-  b5.name = 'Tiered Garden House';
-
-  return [b1, b2, b3, b4, b5];
+  return [
+    spiralTower({ w: 60, d: 52, floors: 4, roofColor: RC, plaster: 'B' }),
+    lotusPavilion({ r: 26, petals: 8, roofColor: RC, plaster: 'A' }),
+    fanRoofHall({ w: 92, d: 44, roofColor: RC, plaster: 'C' }),
+    skyBridgeTowers({ w: 40, d: 36, h: 22, gap: 64, roofColor: RC, plaster: 'B' }),
+    tieredGardenHouse({ w: 92, d: 60, tiers: 3, roofColor: RC, plaster: 'A' })
+  ];
 }
 
 // Legacy: a 12-piece compact set (kept for 'basic' variant compatibility)

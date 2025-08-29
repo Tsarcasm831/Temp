@@ -8,6 +8,7 @@ const MAP_MODAL_BACKDROP_OPACITY = 0.6;
 const MAP_EDITOR_ENABLED = true;
 const MainMenu = ({ onStart, onOptions, onChangelog, onCredits, version }) => {
   const [showMapModal, setShowMapModal] = React.useState(false);
+  const [showWelcome, setShowWelcome] = React.useState(true);
   React.useEffect(() => {
     const onKeyDown = (e) => {
       if (e.key === "Escape") setShowMapModal(false);
@@ -24,7 +25,7 @@ const MainMenu = ({ onStart, onOptions, onChangelog, onCredits, version }) => {
         /* @__PURE__ */ jsxDEV("div", { className: "bg-black bg-opacity-60 p-12 rounded-xl shadow-2xl border-2 border-yellow-500 flex flex-col items-center gap-6 backdrop-blur-sm", children: [
           /* @__PURE__ */ jsxDEV("p", { className: "text-gray-300 -mt-4", children: version }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 29,
+            lineNumber: 30,
             columnNumber: 17
           }),
           /* @__PURE__ */ jsxDEV("div", { className: "flex flex-col gap-4 w-64", children: [
@@ -39,7 +40,7 @@ const MainMenu = ({ onStart, onOptions, onChangelog, onCredits, version }) => {
               false,
               {
                 fileName: "<stdin>",
-                lineNumber: 31,
+                lineNumber: 32,
                 columnNumber: 21
               }
             ),
@@ -54,7 +55,7 @@ const MainMenu = ({ onStart, onOptions, onChangelog, onCredits, version }) => {
               false,
               {
                 fileName: "<stdin>",
-                lineNumber: 37,
+                lineNumber: 38,
                 columnNumber: 21
               }
             ),
@@ -69,7 +70,7 @@ const MainMenu = ({ onStart, onOptions, onChangelog, onCredits, version }) => {
               false,
               {
                 fileName: "<stdin>",
-                lineNumber: 43,
+                lineNumber: 44,
                 columnNumber: 21
               }
             ),
@@ -84,7 +85,7 @@ const MainMenu = ({ onStart, onOptions, onChangelog, onCredits, version }) => {
               false,
               {
                 fileName: "<stdin>",
-                lineNumber: 49,
+                lineNumber: 50,
                 columnNumber: 21
               }
             ),
@@ -99,18 +100,18 @@ const MainMenu = ({ onStart, onOptions, onChangelog, onCredits, version }) => {
               false,
               {
                 fileName: "<stdin>",
-                lineNumber: 56,
+                lineNumber: 57,
                 columnNumber: 23
               }
             )
           ] }, void 0, true, {
             fileName: "<stdin>",
-            lineNumber: 30,
+            lineNumber: 31,
             columnNumber: 17
           })
         ] }, void 0, true, {
           fileName: "<stdin>",
-          lineNumber: 28,
+          lineNumber: 29,
           columnNumber: 13
         }),
         /* @__PURE__ */ jsxDEV(
@@ -127,7 +128,7 @@ const MainMenu = ({ onStart, onOptions, onChangelog, onCredits, version }) => {
           false,
           {
             fileName: "<stdin>",
-            lineNumber: 66,
+            lineNumber: 67,
             columnNumber: 13
           }
         ),
@@ -150,7 +151,7 @@ const MainMenu = ({ onStart, onOptions, onChangelog, onCredits, version }) => {
                 false,
                 {
                   fileName: "<stdin>",
-                  lineNumber: 83,
+                  lineNumber: 84,
                   columnNumber: 17
                 }
               ),
@@ -175,12 +176,12 @@ const MainMenu = ({ onStart, onOptions, onChangelog, onCredits, version }) => {
                       false,
                       {
                         fileName: "<stdin>",
-                        lineNumber: 96,
+                        lineNumber: 97,
                         columnNumber: 21
                       }
                     ) }, void 0, false, {
                       fileName: "<stdin>",
-                      lineNumber: 95,
+                      lineNumber: 96,
                       columnNumber: 19
                     }),
                     /* @__PURE__ */ jsxDEV(
@@ -195,7 +196,7 @@ const MainMenu = ({ onStart, onOptions, onChangelog, onCredits, version }) => {
                       false,
                       {
                         fileName: "<stdin>",
-                        lineNumber: 104,
+                        lineNumber: 105,
                         columnNumber: 19
                       }
                     )
@@ -205,7 +206,7 @@ const MainMenu = ({ onStart, onOptions, onChangelog, onCredits, version }) => {
                 true,
                 {
                   fileName: "<stdin>",
-                  lineNumber: 88,
+                  lineNumber: 89,
                   columnNumber: 17
                 }
               )
@@ -215,17 +216,85 @@ const MainMenu = ({ onStart, onOptions, onChangelog, onCredits, version }) => {
           true,
           {
             fileName: "<stdin>",
-            lineNumber: 77,
+            lineNumber: 78,
             columnNumber: 15
           }
-        )
+        ),
+        showWelcome && /* @__PURE__ */ jsxDEV("div", { className: "fixed inset-0 z-50 flex items-center justify-center", children: [
+          /* @__PURE__ */ jsxDEV("div", { className: "absolute inset-0 bg-black/70", onClick: () => setShowWelcome(false) }, void 0, false, {
+            fileName: "<stdin>",
+            lineNumber: 116,
+            columnNumber: 17
+          }),
+          /* @__PURE__ */ jsxDEV("div", { className: "relative bg-gray-900 text-white border-2 border-yellow-600 rounded-xl shadow-2xl w-[95vw] max-w-[700px] p-6", children: [
+            /* @__PURE__ */ jsxDEV("div", { className: "flex items-center justify-between mb-3", children: [
+              /* @__PURE__ */ jsxDEV("h2", { className: "text-yellow-400 font-bold text-xl", children: "Welcome to Naruto RPG \u2014 Early Alpha" }, void 0, false, {
+                fileName: "<stdin>",
+                lineNumber: 119,
+                columnNumber: 21
+              }),
+              /* @__PURE__ */ jsxDEV("button", { onClick: () => setShowWelcome(false), className: "text-red-400 hover:text-red-300 text-2xl font-bold", "aria-label": "Close", children: "\xD7" }, void 0, false, {
+                fileName: "<stdin>",
+                lineNumber: 120,
+                columnNumber: 21
+              })
+            ] }, void 0, true, {
+              fileName: "<stdin>",
+              lineNumber: 118,
+              columnNumber: 19
+            }),
+            /* @__PURE__ */ jsxDEV("div", { className: "space-y-3 text-sm text-gray-200", children: [
+              /* @__PURE__ */ jsxDEV("p", { children: "Thank you for trying this early alpha. It currently showcases core foundations: exploration, basic movement, UI panels, and a few interactive scenes." }, void 0, false, {
+                fileName: "<stdin>",
+                lineNumber: 123,
+                columnNumber: 21
+              }),
+              /* @__PURE__ */ jsxDEV("p", { className: "text-yellow-300", children: "Development focus: most progress is built and tested on desktop. Mobile support is planned, but without test help it isn\u2019t a priority yet. Apologies to mobile players\u2014your patience is appreciated." }, void 0, false, {
+                fileName: "<stdin>",
+                lineNumber: 124,
+                columnNumber: 21
+              }),
+              /* @__PURE__ */ jsxDEV("p", { children: "This is a solo project. Updates will be incremental; thoughtful feedback and bug reports directly shape the roadmap." }, void 0, false, {
+                fileName: "<stdin>",
+                lineNumber: 125,
+                columnNumber: 21
+              }),
+              /* @__PURE__ */ jsxDEV("p", { className: "text-gray-300", children: "All assets are AI\u2011generated and used for non\u2011commercial, transformative purposes. No copyright infringement is intended." }, void 0, false, {
+                fileName: "<stdin>",
+                lineNumber: 126,
+                columnNumber: 21
+              })
+            ] }, void 0, true, {
+              fileName: "<stdin>",
+              lineNumber: 122,
+              columnNumber: 19
+            }),
+            /* @__PURE__ */ jsxDEV("div", { className: "mt-4 flex justify-end", children: /* @__PURE__ */ jsxDEV("button", { onClick: () => setShowWelcome(false), className: "bg-yellow-500 hover:bg-yellow-400 text-black font-semibold px-4 py-2 rounded-lg border border-yellow-600", children: "Continue" }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 129,
+              columnNumber: 21
+            }) }, void 0, false, {
+              fileName: "<stdin>",
+              lineNumber: 128,
+              columnNumber: 19
+            })
+          ] }, void 0, true, {
+            fileName: "<stdin>",
+            lineNumber: 117,
+            columnNumber: 17
+          })
+        ] }, void 0, true, {
+          fileName: "<stdin>",
+          lineNumber: 115,
+          columnNumber: 15
+        })
       ]
     },
     void 0,
     true,
     {
       fileName: "<stdin>",
-      lineNumber: 24,
+      lineNumber: 25,
       columnNumber: 9
     }
   );

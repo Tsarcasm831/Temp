@@ -1,4 +1,4 @@
-const JSON_DIRECTORY = '/src/components/json/';
+const JSON_DIRECTORY = './src/components/json/';
 const CACHE_NAME = 'game-assets-v1';
 
 // This will hold the list of all asset URLs to be downloaded.
@@ -19,18 +19,18 @@ const ESSENTIAL_ANIMATION_MATCHES = [
 // NEW: Local image assets to precache during the first loading screen
 const IMAGE_ASSETS = [
     // UI and splash screens
-    '/loading.png',
-    '/loading1.png',
-    '/menu.png',
+    './loading.png',
+    './loading1.png',
+    './menu.png',
 
     // Terrain and world textures (some may be swapped by settings/biomes)
-    '/grass_texture.png',
-    '/sand_texture.png',
-    '/dirt_path_texture.png',
-    '/rocky_ground_texture.png',
-    '/snow_texture.png',
-    '/forest_floor_texture.png',
-    '/ground_texture.png'
+    './grass_texture.png',
+    './sand_texture.png',
+    './dirt_path_texture.png',
+    './rocky_ground_texture.png',
+    './snow_texture.png',
+    './forest_floor_texture.png',
+    './ground_texture.png'
 ];
 
 /**

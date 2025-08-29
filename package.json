@@ -4,7 +4,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "start": "echo \"Open index.html in a modern browser\" && exit 0",
+    "start": "node server.mjs",
+    "dev": "node server.mjs",
     "split:anime": "node scripts/split_anime.mjs"
   }
 }

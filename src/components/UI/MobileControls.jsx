@@ -165,7 +165,7 @@ const MobileControls = ({ joystickRef, keysRef, zoomRef, cameraOrbitRef, cameraP
         className: `px-3 py-2 rounded-full border-2 shadow-lg text-sm ${visible ? "bg-black/70 text-white border-gray-400" : "bg-yellow-500 text-black border-yellow-300"}`,
         "aria-label": "Toggle mobile controls",
         title: "Toggle controls",
-        children: visible ? "Hide Controls" : "Mobile Controls"
+        children: visible ? "Enable Desktop Controls" : "Mobile Controls"
       },
       void 0,
       false,

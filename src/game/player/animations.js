@@ -48,7 +48,7 @@ function getAnimationName(url) {
 export async function loadPlayerAssets() {
     const loader = new GLTFLoader();
     
-    const response = await fetch('/src/components/json/kakashiAnimations.json');
+    const response = await fetch('./src/components/json/kakashiAnimations.json');
     const { files: animationUrls } = await response.json();
 
     if (!animationUrls || animationUrls.length === 0) {

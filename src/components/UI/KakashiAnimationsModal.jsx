@@ -10,7 +10,7 @@ const KakashiAnimationsModal = ({ onClose }) => {
     let cancelled = false;
     const load = async () => {
       try {
-        const res = await fetch("/src/components/json/kakashiAnimations.json");
+        const res = await fetch("./src/components/json/kakashiAnimations.json");
         const data = await res.json();
         if (!cancelled) {
           setAnimations(data.files || []);

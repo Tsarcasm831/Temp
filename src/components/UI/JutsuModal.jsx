@@ -5,7 +5,7 @@ const JutsuModal = ({ onClose }) => {
   React.useEffect(() => {
     (async () => {
       try {
-        const res = await fetch("/src/components/json/jutsu_flat.json");
+        const res = await fetch("./src/components/json/jutsu_flat.json");
         const data = await res.json();
         const arr = Array.isArray(data) ? data : data.items || [];
         setItems(arr);

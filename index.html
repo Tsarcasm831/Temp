@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naruto RPG v0.001.293</title>
+    <title>Naruto RPG v0.002.001 [Alpha]</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles/style.css">
     <script async src="https://ga.jspm.io/npm:es-module-shims@1.7.0/dist/es-module-shims.js"></script>
@@ -17,7 +17,10 @@
         "three/addons/": "https://esm.sh/three@0.158.0/examples/jsm/",
         "prop-types": "https://esm.sh/prop-types@15.8.1",
         "nipplejs": "https://esm.sh/nipplejs@0.10.1",
-        "@tweenjs/tween.js": "https://esm.sh/@tweenjs/tween.js@21.0.0"
+        "@tweenjs/tween.js": "https://esm.sh/@tweenjs/tween.js@21.0.0",
+        "/src/": "./src/",
+        "/map/": "./map/",
+        "/hokage/": "./hokage/"
       }
     }
     </script>
@@ -43,15 +46,15 @@
       #splash.fade-out { opacity: 0; pointer-events: none; }
     </style>
     <!-- @tweakable Preload the initial splash image for fastest first paint -->
-    <link rel="preload" as="image" href="/loading.png" fetchpriority="high">
+    <link rel="preload" as="image" href="./loading.png" fetchpriority="high">
     <!-- @tweakable Preload the main menu background image to avoid delay -->
-    <link rel="preload" as="image" href="/menu.png" fetchpriority="high">
+    <link rel="preload" as="image" href="./menu.png" fetchpriority="high">
     <!-- @tweakable Preload the in-game loading overlay image to avoid delay -->
-    <link rel="preload" as="image" href="/loading1.png" fetchpriority="high">
+    <link rel="preload" as="image" href="./loading1.png" fetchpriority="high">
 </head>
 <body>
     <!-- Apply background-image inline so it renders before scripts execute -->
-    <div id="splash" aria-label="Loading screen" style="background-image:url('/loading.png')"></div>
+    <div id="splash" aria-label="Loading screen" style="background-image:url('./loading.png')"></div>
     <!-- The img is inserted and set via script for the fastest possible eager render -->
     <div id="root"></div>
     <!-- Mobile rotate-to-landscape overlay -->
@@ -64,14 +67,14 @@
       </div>
     </div>
     <!-- @tweakable when true, add hidden <img> tags to force high-priority fetch/decode of hero images -->
-    <img src="/loading.png" alt="" aria-hidden="true" width="1" height="1" decoding="async" fetchpriority="high" style="position:fixed;left:-9999px;top:-9999px;opacity:0;pointer-events:none;">
-    <img src="/menu.png" alt="" aria-hidden="true" width="1" height="1" decoding="async" fetchpriority="high" style="position:fixed;left:-9999px;top:-9999px;opacity:0;pointer-events:none;">
-    <img src="/loading1.png" alt="" aria-hidden="true" width="1" height="1" decoding="async" fetchpriority="high" style="position:fixed;left:-9999px;top:-9999px;opacity:0;pointer-events:none;">
+    <img src="./loading.png" alt="" aria-hidden="true" width="1" height="1" decoding="async" fetchpriority="high" style="position:fixed;left:-9999px;top:-9999px;opacity:0;pointer-events:none;">
+    <img src="./menu.png" alt="" aria-hidden="true" width="1" height="1" decoding="async" fetchpriority="high" style="position:fixed;left:-9999px;top:-9999px;opacity:0;pointer-events:none;">
+    <img src="./loading1.png" alt="" aria-hidden="true" width="1" height="1" decoding="async" fetchpriority="high" style="position:fixed;left:-9999px;top:-9999px;opacity:0;pointer-events:none;">
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel" data-type="module">
         // @tweakable path/URL to the splash image shown before React mounts
         /* @tweakable The splash image shown immediately on page load. Use an absolute path to avoid relative-load timing issues. */
-        const SPLASH_IMAGE_URL = '/loading.png';
+        const SPLASH_IMAGE_URL = './loading.png';
         /* @tweakable milliseconds to fade out the splash once React starts */
         const SPLASH_FADE_MS = 300;
         /* @tweakable minimum milliseconds to keep splash visible before fading */
@@ -94,9 +97,9 @@
         // Ensure priority hints are applied to hidden preloaders at runtime (if present)
         if (ENABLE_HIDDEN_IMG_PRELOADERS) {
           const setFP = (sel, val) => { const el = document.querySelector(sel); if (el) el.fetchPriority = val; };
-          setFP(`img[src="/loading.png"]`, SPLASH_FETCH_PRIORITY);
-          setFP(`img[src="/menu.png"]`, MENU_FETCH_PRIORITY);
-          setFP(`img[src="/loading1.png"]`, LOADING1_FETCH_PRIORITY);
+          setFP(`img[src="./loading.png"]`, SPLASH_FETCH_PRIORITY);
+          setFP(`img[src="./menu.png"]`, MENU_FETCH_PRIORITY);
+          setFP(`img[src="./loading1.png"]`, LOADING1_FETCH_PRIORITY);
         }
         import React from 'react';
         import ReactDOM from 'react-dom/client';

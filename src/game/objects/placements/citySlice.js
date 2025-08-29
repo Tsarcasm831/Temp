@@ -343,39 +343,9 @@ function rebuildSliceColliders(group, objectGrid) {
       const cz = hull.reduce((s, p) => s + p.z, 0) / hull.length;
       const proxy = new THREE.Object3D();
       proxy.position.set(cx, 0, cz);
-      // Build a unique label (count per baseName across current group)
-      if (!group.userData.__nameCounts) group.userData.__nameCounts = new Map();
-      const baseName = building.name || 'SliceBuilding';
-      const next = (group.userData.__nameCounts.get(baseName) || 0) + 1;
-      group.userData.__nameCounts.set(baseName, next);
-      const uniqueName = next === 1 ? baseName : `${baseName} (${next})`;
-      proxy.name = uniqueName;
       proxy.userData = {
-        label: uniqueName,
-        collider: { type: 'polygon', points: hull },
-        onInteract: (obj, player) => {
-          try {
-            const target = building;
-            const orig = target.scale.clone();
-            const start = (typeof performance !== 'undefined' ? performance.now() : Date.now());
-            const dur = 450;
-            const amp = 0.08;
-            const step = () => {
-              const now = (typeof performance !== 'undefined' ? performance.now() : Date.now());
-              const t = Math.min(1, (now - start) / dur);
-              const s = 1 + amp * Math.sin(t * Math.PI);
-              target.scale.set(orig.x * s, orig.y * s, orig.z * s);
-              if (t < 1) {
-                (typeof requestAnimationFrame !== 'undefined' ? requestAnimationFrame : setTimeout)(step, 16);
-              } else {
-                target.scale.copy(orig);
-              }
-            };
-            step();
-            // eslint-disable-next-line no-console
-            console.log(`Interacted with ${uniqueName}`);
-          } catch (_) {}
-        }
+        label: building.name || 'SliceBuilding',
+        collider: { type: 'polygon', points: hull }
       };
       objectGrid.add(proxy);
       group.add(proxy);

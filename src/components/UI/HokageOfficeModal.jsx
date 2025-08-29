@@ -56,7 +56,7 @@ const HokageOfficeModal = ({ onClose }) => {
       "iframe",
       {
         title: "Hokage Office Top Floor",
-        src: "/hokage/office_top_floor/index.html",
+        src: "./hokage/office_top_floor/index.html",
         style: { width: "100%", height: "100%", border: "none" }
       },
       void 0,
@@ -84,7 +84,7 @@ const HokageOfficeModal = ({ onClose }) => {
           columnNumber: 15
         }
       ),
-      /* @__PURE__ */ jsxDEV("iframe", { title: "Hokage Office Interior", src: "/hokage/office_interior/index.html", style: { width: "100%", height: "100%", border: "none" } }, void 0, false, {
+      /* @__PURE__ */ jsxDEV("iframe", { title: "Hokage Office Interior", src: "./hokage/office_interior/index.html", style: { width: "100%", height: "100%", border: "none" } }, void 0, false, {
         fileName: "<stdin>",
         lineNumber: 46,
         columnNumber: 15

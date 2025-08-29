@@ -17,7 +17,7 @@ import { createKit } from "./citySlice.kit.js";
 import { createExotics } from "./citySlice.exotics.js";
 import { buildOriginals } from "./citySlice.originals.js";
 import { buildMore } from "./citySlice.more.js";
-import { buildBasic, BASIC_ROOF_PALETTES, buildBasicFive, buildBasicFiveGrid } from "./citySlice.basic.js";
+import { buildBasic, BASIC_ROOF_PALETTES } from "./citySlice.basic.js";
 /* @tweakable world-size used for map percent→world conversions */
 import { WORLD_SIZE } from "/src/scene/terrain.js";
 /* NEW: static import for default map model to avoid top-level await */
@@ -52,14 +52,9 @@ export function addKonohaCitySlice(target, opts = {}) {
 
   // Make buildings based on variant
   let builds = [];
-  let rowsLocal = rows, colsLocal = cols;
   if (variant === 'basic') {
     const color = BASIC_ROOF_PALETTES[(basicPaletteIndex % BASIC_ROOF_PALETTES.length + BASIC_ROOF_PALETTES.length) % BASIC_ROOF_PALETTES.length].color;
-    builds = buildBasicFive(THREE, kit, ex, { roofColor: color });
-    rowsLocal = 1; colsLocal = builds.length;
-  } else if (variant === 'basic-grid' || variant === 'basicGrid') {
-    builds = buildBasicFiveGrid(THREE, kit, ex);
-    rowsLocal = 5; colsLocal = BASIC_ROOF_PALETTES.length; // 5 x 12
+    builds = buildBasic(THREE, kit, ex, { roofColor: color });
   } else {
     const originals = buildOriginals(THREE, kit, ex);
     const more      = buildMore(THREE, kit, ex);
@@ -67,12 +62,12 @@ export function addKonohaCitySlice(target, opts = {}) {
   }
 
   const [cx, cy, cz] = center;
-  const X0 = cx - (colsLocal - 1) * spacingX / 2;
-  const Z0 = cz - (rowsLocal - 1) * spacingZ / 2;
+  const X0 = cx - (cols - 1) * spacingX / 2;
+  const Z0 = cz - (rows - 1) * spacingZ / 2;
 
   let idx = 0;
-  for (let r = 0; r < rowsLocal; r++) {
-    for (let c = 0; c < colsLocal; c++) {
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
       if (idx >= builds.length) break;
       const b = builds[idx++];
       b.position.set(X0 + c * spacingX, 0, Z0 + r * spacingZ);
@@ -98,8 +93,6 @@ const CITY_SLICE_COLLIDER_MIN_HALF = 2;
 const CITY_SLICE_COLLIDER_DEBUG = false;
 /* @tweakable require live /map districts to place any city-slice buildings */
 const CITY_SLICE_REQUIRE_DISTRICTS = true;
-/* @tweakable use advanced local constraints (nudging + collision) here; keep off to defer to placement logic */
-const CITY_SLICE_LOCAL_CONSTRAINTS = false;
 
 /**
  * Buildings-module style API: add the 30-building city slice into a given parent group (e.g., "town"),
@@ -134,14 +127,9 @@ export function addCitySliceBuildings(
   const variant = settings?.citySliceVariant || 'default';
   const basicPaletteIndex = settings?.citySlicePaletteIndex ?? 0;
   let builds = [];
-  let rowsLocal2 = rows, colsLocal2 = cols;
   if (variant === 'basic') {
     const color = BASIC_ROOF_PALETTES[(basicPaletteIndex % BASIC_ROOF_PALETTES.length + BASIC_ROOF_PALETTES.length) % BASIC_ROOF_PALETTES.length].color;
-    builds = buildBasicFive(THREE, kit, ex, { roofColor: color });
-    rowsLocal2 = 1; colsLocal2 = builds.length;
-  } else if (variant === 'basic-grid' || variant === 'basicGrid') {
-    builds = buildBasicFiveGrid(THREE, kit, ex);
-    rowsLocal2 = 5; colsLocal2 = BASIC_ROOF_PALETTES.length; // 5 x 12
+    builds = buildBasic(THREE, kit, ex, { roofColor: color });
   } else {
     const originals = buildOriginals(THREE, kit, ex);
     const more = buildMore(THREE, kit, ex);
@@ -149,29 +137,18 @@ export function addCitySliceBuildings(
   }
 
   const [ox, oy, oz] = origin;
-  const X0 = ox - (colsLocal2 - 1) * spacingX / 2;
-  const Z0 = oz - (rowsLocal2 - 1) * spacingZ / 2;
+  const X0 = ox - (cols - 1) * spacingX / 2;
+  const Z0 = oz - (rows - 1) * spacingZ / 2;
 
   // NEW: constrain to districts if live map model is present
   // Use live model when present; fall back to defaults when missing/empty
   const liveModelAll = (window.__konohaMapModel?.MODEL ?? window.__konohaMapModel);
   const fallbackAll = MAP_DEFAULT_MODEL;
   const useModel = (liveModelAll && Object.keys(liveModelAll?.districts || {}).length > 0) ? liveModelAll : fallbackAll;
-  const districtsArr = useModel?.districts ? Object.values(useModel.districts) : [];
-  const districtPolys = CITY_SLICE_LOCAL_CONSTRAINTS
-    ? districtsArr
-      .filter(d=>Array.isArray(d.points)&&d.points.length>=3)
-      .map(d=>d.points.map(([px,py])=>({ x:(px/100)*WORLD_SIZE - WORLD_SIZE/2, z:(py/100)*WORLD_SIZE - WORLD_SIZE/2 })))
-    : [];
-  const districtCentroids = CITY_SLICE_LOCAL_CONSTRAINTS
-    ? districtsArr
-      .filter(d=>Array.isArray(d.points)&&d.points.length>=3)
-      .map(d=>{
-        const pts = d.points.map(([px,py])=>({ x:(px/100)*WORLD_SIZE - WORLD_SIZE/2, z:(py/100)*WORLD_SIZE - WORLD_SIZE/2 }));
-        const c = pts.reduce((acc,p)=>({ x: acc.x + p.x, z: acc.z + p.z }), {x:0,z:0});
-        return { x: c.x/pts.length, z: c.z/pts.length };
-      })
-    : [];
+  const districtPolys = useModel?.districts
+    ? Object.values(useModel.districts).filter(d=>Array.isArray(d.points)&&d.points.length>=3)
+        .map(d=>d.points.map(([px,py])=>({ x:(px/100)*WORLD_SIZE - WORLD_SIZE/2, z:(py/100)*WORLD_SIZE - WORLD_SIZE/2 })))
+    : null;
   const pointInPoly = (p, poly) => {
     let inside = false;
     for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
@@ -183,7 +160,6 @@ export function addCitySliceBuildings(
     return inside;
   };
   const insideAnyDistrict = (p) => {
-    if (!CITY_SLICE_LOCAL_CONSTRAINTS) return true;
     if (!districtPolys || districtPolys.length === 0) return !CITY_SLICE_REQUIRE_DISTRICTS ? true : false;
     return districtPolys.some(poly=>pointInPoly(p,poly));
   };
@@ -195,76 +171,10 @@ export function addCitySliceBuildings(
     return pts.map(([x,z])=>({ x: c.x + x*cos - z*sin, z: c.z + x*sin + z*cos }));
   };
   const fullyInsideAnyDistrict = (obb) => {
-    if (!CITY_SLICE_LOCAL_CONSTRAINTS) return true;
     if (!districtPolys || districtPolys.length===0) return !CITY_SLICE_REQUIRE_DISTRICTS ? true : false;
     const pts = obbCorners(obb);
     return districtPolys.some(poly => pts.every(p => pointInPoly(p, poly)));
   };
-
-  // SAT-based OBB intersection in XZ plane
-  function obbOverlaps(a, b) {
-    const A = obbCorners(a), B = obbCorners(b);
-    const axes = [];
-    const edge = (C, i) => ({ x: C[(i+1)%4].x - C[i].x, z: C[(i+1)%4].z - C[i].z });
-    const norm = (v) => { const m=Math.hypot(v.x,v.z)||1; return { x: -v.z/m, z: v.x/m }; };
-    axes.push(norm(edge(A,0)), norm(edge(A,1)), norm(edge(B,0)), norm(edge(B,1)));
-    const proj = (pts, ax) => {
-      let lo=Infinity, hi=-Infinity; for(const p of pts){ const d=p.x*ax.x + p.z*ax.z; if(d<lo)lo=d; if(d>hi)hi=d; } return {lo,hi};
-    };
-    for(const ax of axes){ const pA=proj(A,ax), pB=proj(B,ax); if(pA.hi < pB.lo || pB.hi < pA.lo) return false; }
-    return true;
-  }
-
-  // Nudge toward nearest district centroid until fully inside
-  function nudgeIntoDistrict(building, { step=6, max=40 }={}){
-    if ((districtCentroids?.length||0)===0) return false;
-    const obb0 = (()=>{ building.updateWorldMatrix(true,false); return getBuildingOBB(building); })();
-    if (fullyInsideAnyDistrict(obb0)) return true;
-    // pick nearest centroid from OBB center
-    const c0 = obb0.center;
-    let best = districtCentroids[0], bestD2 = Infinity;
-    for(const c of districtCentroids){ const dx=c.x-c0.x, dz=c.z-c0.z, d2=dx*dx+dz*dz; if(d2<bestD2){bestD2=d2;best=c;} }
-    const dir = new THREE.Vector3(best.x - c0.x, 0, best.z - c0.z).normalize();
-    const orig = building.position.clone();
-    for(let k=0;k<max;k++){
-      building.position.addScaledVector(dir, step);
-      const obb = (()=>{ building.updateWorldMatrix(true,false); return getBuildingOBB(building); })();
-      if (fullyInsideAnyDistrict(obb)) return true;
-    }
-    building.position.copy(orig);
-    return false;
-  }
-
-  function resolveBuildingCollisions(building, placedObbs, { step=5, max=48 }={}){
-    const orig = building.position.clone();
-    const tryCheck = () => {
-      const obb = (()=>{ building.updateWorldMatrix(true,false); return getBuildingOBB(building); })();
-      for (const o of placedObbs) if (obbOverlaps(obb, o)) return { ok:false, obb:null };
-      return { ok:true, obb };
-    };
-    // Quick pass: if already clear, accept
-    let res = tryCheck(); if (res.ok) return res.obb;
-    // Push away from overlaps by summing directions
-    for (let iter=1; iter<=max; iter++){
-      // Compute repulsion direction from overlapping neighbors
-      let dir = new THREE.Vector3(0,0,0);
-      const cur = (()=>{ building.updateWorldMatrix(true,false); return getBuildingOBB(building); })();
-      for (const o of placedObbs){ if (obbOverlaps(cur,o)){ const vx = cur.center.x - o.center.x; const vz = cur.center.z - o.center.z; const m=Math.hypot(vx,vz)||1; dir.x += vx/m; dir.z += vz/m; } }
-      if (dir.lengthSq() < 1e-6) { // fallback directions
-        const dirs = [[1,0],[-1,0],[0,1],[0,-1],[1,1],[-1,1],[1,-1],[-1,-1]];
-        const d = dirs[(iter-1)%dirs.length]; dir.set(d[0],0,d[1]);
-      }
-      dir.normalize();
-      building.position.addScaledVector(dir, step);
-      // keep inside districts
-      const obb = (()=>{ building.updateWorldMatrix(true,false); return getBuildingOBB(building); })();
-      if (!fullyInsideAnyDistrict(obb)) { building.position.copy(orig); return null; }
-      // check again
-      res = tryCheck(); if (res.ok) return res.obb;
-    }
-    building.position.copy(orig);
-    return null;
-  }
 
   function getBuildingOBB(building) {
     const box = new THREE.Box3().setFromObject(building);
@@ -283,37 +193,18 @@ export function addCitySliceBuildings(
   }
 
   let idx = 0;
-  if (!CITY_SLICE_LOCAL_CONSTRAINTS) {
-    for (let r = 0; r < rowsLocal2; r++) {
-      for (let c = 0; c < colsLocal2; c++) {
-        if (idx >= builds.length) break;
-        const b = builds[idx++];
-        b.position.set(X0 + c * spacingX, 0, Z0 + r * spacingZ);
-        b.rotation.y = (Math.random() - 0.5) * jitter;
-        group.add(b);
-      }
-    }
-  } else {
-    const placedObbs = [];
-    for (let r = 0; r < rowsLocal2; r++) {
-      for (let c = 0; c < colsLocal2; c++) {
-        if (idx >= builds.length) break;
-        const b = builds[idx++];
-        const pos = { x: X0 + c * spacingX, z: Z0 + r * spacingZ };
-        b.position.set(pos.x, 0, pos.z);
-        b.rotation.y = (Math.random() - 0.5) * jitter;
-        if (!insideAnyDistrict(pos)) { if (!nudgeIntoDistrict(b)) { continue; } }
-        let obb = (()=>{ b.updateWorldMatrix(true,false); return getBuildingOBB(b); })();
-        if (!fullyInsideAnyDistrict(obb)) {
-          if (!nudgeIntoDistrict(b)) { continue; }
-          obb = (()=>{ b.updateWorldMatrix(true,false); return getBuildingOBB(b); })();
-          if (!fullyInsideAnyDistrict(obb)) { continue; }
-        }
-        const placed = resolveBuildingCollisions(b, placedObbs);
-        if (!placed) { continue; }
-        placedObbs.push(placed);
-        group.add(b);
-      }
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      if (idx >= builds.length) break;
+      const b = builds[idx++];
+      const pos = { x: X0 + c * spacingX, z: Z0 + r * spacingZ };
+      if (!insideAnyDistrict(pos)) { continue; }
+      b.position.set(pos.x, 0, pos.z);
+      b.rotation.y = (Math.random() - 0.5) * jitter;
+      // require full containment based on OBB
+      const obb = (()=>{ b.updateWorldMatrix(true,false); return getBuildingOBB(b); })();
+      if (!fullyInsideAnyDistrict(obb)) { continue; }
+      group.add(b);
     }
   }
 

@@ -1,4 +1,4 @@
-﻿import { svg } from './constants.js';
+import { svg } from './constants.js';
 import { MODEL, state } from './model.js';
 import { clamp, screenToPct, autosave } from './utils.js';
 import { dumpJSON } from './export-utils.js';
@@ -171,7 +171,7 @@ export function finishDrawing(){
   if(!isRoad && !isRiver && !isWall && !isForest && !isMountain){
     let idx=1; while(MODEL.districts['residential'+idx]) idx++;
     const id='residential'+idx;
-    MODEL.districts[id]={id,name:null,desc:null,points:state.drawing.points};
+    MODEL.districts[id]={id,name:id,desc:'',points:state.drawing.points};
     select('district',id);
   }else if(isRoad){
     const id='road-'+(MODEL.roads.length+1);
@@ -208,7 +208,7 @@ function clearLayer(el){ while(el && el.firstChild) el.removeChild(el.firstChild
 
 /* helper to compute an upright triangle in pct units */
 function trianglePts(cx,cy,r){
-  const h = r*1.732; // height for equilateral from side â‰ˆ r*2 -> adjust scale for prominence
+  const h = r*1.732; // height for equilateral from side ≈ r*2 -> adjust scale for prominence
   return [
     [cx, cy - h/2],           // top
     [cx - r, cy + h/2],       // bottom-left

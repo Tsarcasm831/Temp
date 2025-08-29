@@ -1,17 +1,11 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
 import React from "react";
-const LATEST_VERSION = "0.001.288";
-const LATEST_DATE = "2025-08-26";
+const LATEST_VERSION = "0.002.000 [Alpha]";
+const LATEST_DATE = "2025-08-29";
 const LATEST_CHANGES = [
-  "Version bump to 0.001.288.",
-  "Map/Districts: Fixed undefined __roadsCache and made live-map loading resilient; districts render even if /map is missing.",
-  "World/Buildings: Reworked placement to require full district containment; restored visibility with graceful fallback when no districts are present.",
-  "City Slice: Added district-constrained placement and OBB collider registration; honors road-avoidance and live map polygons.",
-  "Hokage Office/Monument/Ichiraku: Precise OBB colliders; placement validated against districts; temporary proxies removed after load.",
-  "Minimap/World Map: Pre-rendered overlays to eliminate flicker; added walls rendering with configurable opacity/width.",
-  "Terrain Overlay: Districts, roads, river, and walls composited on a single canvas layer with polygon offset to reduce z-fighting.",
-  "UX: Pause menu toggle (Backquote); version label now sourced from top changelog entry; refined mobile FPV and cam pad behavior.",
-  "Stability/Perf: Throttled HUD/minimap (~12 FPS), renderer pixel ratio cap, pooled tooltips; reduced re-inits and safe guards around optional modules."
+  "Version bump to 0.002.000 [Alpha].",
+  "Added run_me.bat (Windows) and serve.py (Python) so players can download and run locally with a single command.",
+  "Title/version now reflects the new alpha tag across the UI."
 ];
 const changelogData = [
   { version: LATEST_VERSION, date: LATEST_DATE, changes: LATEST_CHANGES },
@@ -78,7 +72,7 @@ const ChangelogPanel = ({ onClose }) => {
     /* @__PURE__ */ jsxDEV("div", { className: "bg-gray-700 px-4 py-2 rounded-t-lg border-b border-gray-600 flex justify-between items-center", children: [
       /* @__PURE__ */ jsxDEV("h2", { className: "text-yellow-400 font-bold text-lg", children: "Changelog" }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 86,
+        lineNumber: 80,
         columnNumber: 17
       }),
       /* @__PURE__ */ jsxDEV(
@@ -92,18 +86,18 @@ const ChangelogPanel = ({ onClose }) => {
         false,
         {
           fileName: "<stdin>",
-          lineNumber: 87,
+          lineNumber: 81,
           columnNumber: 17
         }
       )
     ] }, void 0, true, {
       fileName: "<stdin>",
-      lineNumber: 85,
+      lineNumber: 79,
       columnNumber: 13
     }),
     /* @__PURE__ */ jsxDEV("div", { className: "px-4 pt-2 text-xs text-gray-300", children: "by Lord Tsarcasm" }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 95,
+      lineNumber: 89,
       columnNumber: 13
     }),
     /* @__PURE__ */ jsxDEV("div", { className: "p-4 space-y-4 max-h-[80vh] overflow-y-auto", children: changelogData.map((entry) => /* @__PURE__ */ jsxDEV("div", { className: "bg-gray-900 p-3 rounded-lg border border-gray-700", children: [
@@ -113,40 +107,40 @@ const ChangelogPanel = ({ onClose }) => {
           entry.version
         ] }, void 0, true, {
           fileName: "<stdin>",
-          lineNumber: 101,
+          lineNumber: 95,
           columnNumber: 30
         }),
         /* @__PURE__ */ jsxDEV("p", { className: "text-xs text-gray-400", children: entry.date }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 102,
+          lineNumber: 96,
           columnNumber: 30
         })
       ] }, void 0, true, {
         fileName: "<stdin>",
-        lineNumber: 100,
+        lineNumber: 94,
         columnNumber: 25
       }),
       /* @__PURE__ */ jsxDEV("ul", { className: "list-disc list-inside text-sm space-y-1 text-gray-300", children: entry.changes.map((change, index) => /* @__PURE__ */ jsxDEV("li", { children: change }, index, false, {
         fileName: "<stdin>",
-        lineNumber: 107,
+        lineNumber: 101,
         columnNumber: 33
       })) }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 105,
+        lineNumber: 99,
         columnNumber: 25
       })
     ] }, entry.version, true, {
       fileName: "<stdin>",
-      lineNumber: 99,
+      lineNumber: 93,
       columnNumber: 21
     })) }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 97,
+      lineNumber: 91,
       columnNumber: 13
     })
   ] }, void 0, true, {
     fileName: "<stdin>",
-    lineNumber: 83,
+    lineNumber: 77,
     columnNumber: 9
   });
 };
