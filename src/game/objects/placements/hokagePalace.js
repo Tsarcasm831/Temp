@@ -21,8 +21,9 @@ const HOKAGE_ROTATE_Y = 0;
 
 /* @tweakable when true, use the GLB office model instead of the procedural palace */
 const HOKAGE_USE_GLB = true;
-/* @tweakable path to the Hokage Office GLB model */
-const HOKAGE_GLB_PATH = '../../assets/hokage_office.glb';
+/* @tweakable path to the Hokage Office GLB model
+   Note: Use a URL relative to the site root so it resolves correctly at runtime. */
+const HOKAGE_GLB_PATH = '/src/assets/hokage_office.glb';
 /* @tweakable model uniform scale applied after loading */
 const HOKAGE_GLB_SCALE = 24;
 /* @tweakable additional Y-axis rotation (radians) applied to the loaded model */
@@ -99,7 +100,7 @@ export function placeHokagePalace(scene, objectGrid, worldSize, settings, label 
             temp.userData.collider = null;
           }
         } catch (e) { /* non-fatal */ }
-      }, undefined, () => { /* load failed: keep temp, fall back next tick? */ });
+      }, undefined, (err) => { console.warn('Failed to load Hokage Office GLB:', HOKAGE_GLB_PATH, err); /* keep temp collider */ });
 
       // Add tooltip proxies at LB122 and LC122 so the label shows when the player is at those grid cells
       try {

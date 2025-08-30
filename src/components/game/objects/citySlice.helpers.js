@@ -94,6 +94,58 @@ export function buildingToHullPoints(building) {
   return pts;
 }
 
+// Compute polygon area (XZ plane) using the shoelace formula.
+// Expects an array of points with { x, z }. Returns absolute area in world units^2.
+export function polygonArea(poly) {
+  if (!Array.isArray(poly) || poly.length < 3) return 0;
+  let area = 0;
+  for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+    const xi = poly[i].x, zi = poly[i].z;
+    const xj = poly[j].x, zj = poly[j].z;
+    area += (xj * zi - xi * zj);
+  }
+  return Math.abs(area) * 0.5;
+}
+
+// Get world scale along X and Z (and max) for radius/size-aware tests
+export function getWorldScaleXZ(building) {
+  const s = new THREE.Vector3(1, 1, 1);
+  try { building.getWorldScale(s); } catch (_) {}
+  return { sx: s.x, sz: s.z, sMax: Math.max(s.x, s.z) };
+}
+
+// Check full containment of a building (circle-aware via userData.round/roundRadius) inside any of the polygons
+export function buildingFullyInsidePolys(building, polys, opts = {}) {
+  if (!polys || polys.length === 0) return !CITY_SLICE_REQUIRE_DISTRICTS;
+  // Circle-aware path
+  if (building?.userData?.round && typeof building.userData.roundRadius === 'number') {
+    const { sMax } = getWorldScaleXZ(building);
+    const obb = getBuildingOBB(building, opts);
+    const R = Math.max(0, building.userData.roundRadius * sMax);
+    const samples = 12;
+    for (let k = 0; k < polys.length; k++) {
+      let ok = true;
+      for (let i = 0; i < samples && ok; i++) {
+        const a = (i / samples) * Math.PI * 2;
+        const x = obb.center.x + Math.cos(a) * R;
+        const z = obb.center.z + Math.sin(a) * R;
+        ok = ok && pointInPolyXZ({ x, z }, polys[k]);
+      }
+      if (ok) return true;
+    }
+    return false;
+  }
+  // OBB corner path
+  const obb = getBuildingOBB(building, opts);
+  return fullyInsideAnyDistrict(obb, polys);
+}
+
+// Check full containment inside a single polygon (delegates to buildingFullyInsidePolys)
+export function buildingFullyInsidePoly(building, poly, opts = {}) {
+  if (!poly || poly.length < 3) return !CITY_SLICE_REQUIRE_DISTRICTS;
+  return buildingFullyInsidePolys(building, [poly], opts);
+}
+
 // Basic OBB overlap test via SAT in XZ plane
 export function obbOverlaps(a, b) {
   const A = obbCorners(a), B = obbCorners(b);
@@ -158,4 +210,3 @@ export function resolveBuildingCollisions(building, placedObbs, fullyInside, { s
   building.position.copy(orig);
   return null;
 }
-

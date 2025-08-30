@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { addCitySliceBuildings } from '../../../components/game/objects/citySlice.js';
+import { pointInPolyXZ, getBuildingOBB, buildingFullyInsidePolys, buildingFullyInsidePoly, polygonArea } from '../../../components/game/objects/citySlice.helpers.js';
 // @tweakable world-size for map percent→world conversion (must match terrain.js)
 import { WORLD_SIZE } from '/src/scene/terrain.js';
 /* NEW: static import for default map model to avoid await in non-async fn */
@@ -43,6 +44,15 @@ const CITY_SLICE_COLLIDER_DEBUG = false;
 const CITY_SLICE_VARIANT = 'default';
 /* @tweakable palette index (0..11) when variant==='basic' */
 const CITY_SLICE_BASIC_PALETTE_INDEX = 0;
+/* @tweakable minimum uniform scale for cloned buildings so player feels small */
+const CITY_SLICE_MIN_CLONE_SCALE = 0.28;
+
+/* Area-based per-district targets for slice clones */
+/* @tweakable world-units^2 per citySlice building */
+const CITY_SLICE_AREA_PER_BUILDING = 180000; // larger value => fewer buildings
+/* @tweakable min/max targets per district for citySlice */
+const CITY_SLICE_MIN_PER_DISTRICT = 1;
+const CITY_SLICE_MAX_PER_DISTRICT = 5;
 
 // Build the Konoha city slice and add it to the scene with collision proxies.
 // Returns the slice group or null on failure.
@@ -52,8 +62,8 @@ export function placeCitySlice(scene, objectGrid, settings) {
     town.name = 'CitySliceRoot';
     scene.add(town);
 
-    // Use the buildings-module style API to add and place the slice, with colliders
-    const group = addCitySliceBuildings(town, {
+  // Use the buildings-module style API to add and place the slice, with colliders
+  const group = addCitySliceBuildings(town, {
       THREE,
       // Include local toggles for variant + palette; allow external settings to override.
       settings: { ...settings, citySliceVariant: settings?.citySliceVariant ?? CITY_SLICE_VARIANT, citySlicePaletteIndex: settings?.citySlicePaletteIndex ?? CITY_SLICE_BASIC_PALETTE_INDEX },
@@ -64,13 +74,20 @@ export function placeCitySlice(scene, objectGrid, settings) {
       colliderPadding: CITY_SLICE_COLLIDER_PADDING,
       colliderMinHalf: CITY_SLICE_COLLIDER_MIN_HALF,
       colliderDebug: CITY_SLICE_COLLIDER_DEBUG
-    });
+  });
 
-    // Build district polygon/centroid sets from live map (if available)
-    const live = (window.__konohaMapModel?.MODEL ?? window.__konohaMapModel) || MODEL || MAP_DEFAULT_MODEL;
+  // Capture seed templates before any containment pruning so we can clone reliably
+  const seedTemplates = group.children
+    .filter(ch => !ch?.userData?.collider)
+    .map(t => t.clone(true));
+
+  // Build district polygon/centroid sets from live map merged with defaults
+  // Merge strategy: start with defaults, then override with any live-edited districts
+  const liveModel = (window.__konohaMapModel?.MODEL ?? window.__konohaMapModel) || MODEL || {};
     districtPolys = [];
     districtCentroids = [];
-    const districts = live?.districts || DEFAULT_DISTRICTS;
+    const defaultDistricts = MAP_DEFAULT_MODEL?.districts || {};
+    const districts = { ...defaultDistricts, ...(liveModel?.districts || {}) };
     for (const d of Object.values(districts)) {
       if (!Array.isArray(d.points) || d.points.length < 3) continue;
       const poly = d.points.map(([px, py]) => ({
@@ -87,8 +104,8 @@ export function placeCitySlice(scene, objectGrid, settings) {
     if (CITY_SLICE_DISTRICT_ENFORCE && districtPolys.length > 0) {
       group.children.forEach(b => {
         if (b.userData?.collider) return; // skip collider proxies
-        if (!buildingFullyInsideAnyDistrict(b)) {
-          if (!nudgeTowardNearestDistrict(b) || !buildingFullyInsideAnyDistrict(b)) {
+        if (!buildingFullyInsidePolys(b, districtPolys)) {
+          if (!nudgeTowardNearestDistrict(b) || !buildingFullyInsidePolys(b, districtPolys)) {
             if (CITY_SLICE_DISTRICT_DROP_IF_FAIL) { b.removeFromParent?.(); }
           }
         }
@@ -96,12 +113,12 @@ export function placeCitySlice(scene, objectGrid, settings) {
       // IMPORTANT: rebuild colliders now that buildings may have moved/been removed
       rebuildSliceColliders(group, objectGrid);
     }
-    // NEW: ensure at least 4 buildings per district by cloning exemplar buildings
+    // Area-based fill: ensure N buildings per district by cloning exemplar buildings
     // Skip when using compact/basic-grid variants to preserve spacing and avoid collisions
     const variant = settings?.citySliceVariant || 'default';
     if (districtPolys.length > 0 && variant === 'default') {
-      // Collect non-collider templates to randomize from
-    const templates = group.children.filter(ch => !ch?.userData?.collider);
+      // Use captured seed templates (pre-pruning) so we always have a pool
+    const templates = seedTemplates.length > 0 ? seedTemplates : group.children.filter(ch => !ch?.userData?.collider);
     const rand = (arr) => arr[(Math.random() * arr.length) | 0];
     const getMaxHalf = (obb) => Math.max(obb.hx, obb.hz);
     const obbRoughOverlap = (a, b) => {
@@ -114,37 +131,85 @@ export function placeCitySlice(scene, objectGrid, settings) {
     for (let k = 0; k < districtPolys.length; k++) {
       const poly = districtPolys[k];
       const centroid = districtCentroids[k];
+      const area = polygonArea(poly);
+      const target = Math.max(
+        CITY_SLICE_MIN_PER_DISTRICT,
+        Math.min(CITY_SLICE_MAX_PER_DISTRICT, Math.round(area / CITY_SLICE_AREA_PER_BUILDING))
+      );
       // Existing buildings in this district
       const existing = group.children.filter(b => !b?.userData?.collider && pointInPolyXZ(b.position, poly));
       const existingOBBs = existing.map(getBuildingOBB);
       let have = existing.length;
       const placed = [];
 
-      // Try to reach 4 per district
+      // Helper: uniform sample inside this district polygon (rejection sampling over bbox)
+      const bbox = poly.reduce((b, p) => ({
+        minX: Math.min(b.minX, p.x), maxX: Math.max(b.maxX, p.x),
+        minZ: Math.min(b.minZ, p.z), maxZ: Math.max(b.maxZ, p.z)
+      }), { minX: Infinity, maxX: -Infinity, minZ: Infinity, maxZ: -Infinity });
+      const sampleInside = () => {
+        for (let t = 0; t < 80; t++) {
+          const x = bbox.minX + Math.random() * (bbox.maxX - bbox.minX);
+          const z = bbox.minZ + Math.random() * (bbox.maxZ - bbox.minZ);
+          if (pointInPolyXZ({ x, z }, poly)) return { x, z };
+        }
+        return { x: centroid.x, z: centroid.z };
+      };
+
+      // Try to reach target per district
       let attempts = 0;
-      while (have < 4 && attempts < 60 && templates.length > 0) {
+      while (have < target && attempts < 200 && templates.length > 0) {
         attempts++;
         const tpl = rand(templates);
         const clone = tpl.clone(true);
-        // Random small radial placement around centroid
-        const r = 14 + Math.random() * 18;
-        const a = Math.random() * Math.PI * 2;
-        const px = centroid.x + Math.cos(a) * r;
-        const pz = centroid.z + Math.sin(a) * r;
+        // Assign unique identifier using slice runTag/counter if available
+        try {
+          const runTag = group.userData?.sliceRunTag ?? (Date.now());
+          const next = ((group.userData?.sliceCounter ?? 0) + 1);
+          const uid = `${runTag}-${String(next).padStart(3, '0')}`;
+          const baseName = tpl.name?.replace(/\s*\[[^\]]+\]$/, '') || tpl.name || 'SliceBuilding';
+          clone.name = `${baseName} [${uid}]`;
+          clone.userData = { ...(clone.userData || {}), uid, baseName };
+          group.userData = { ...(group.userData || {}), sliceRunTag: runTag, sliceCounter: next };
+        } catch (_) { /* no-op */ }
+        // Random point inside this district polygon
+        const { x: px, z: pz } = sampleInside();
         clone.position.set(px, 0, pz);
         clone.rotation.y = (Math.random() - 0.5) * 0.6;
         group.add(clone);
 
         // Road avoidance + containment + non-overlap checks
-        const okRoad = ensureNotOnRoad(clone);
-        const obb = getBuildingOBB(clone);
-        const okInside = buildingFullyInsideAnyDistrict(clone);
-        const okNoOverlap = okRoad && okInside && existingOBBs.every(o => !obbRoughOverlap(obb, o)) && placed.every(o => !obbRoughOverlap(obb, o));
-        if (okNoOverlap) {
-          placed.push(obb);
-          have++;
-        } else {
-          clone.removeFromParent?.();
+        let accepted = false;
+        const scales = [1.0, 0.85, 0.7, 0.55, 0.42, 0.34];
+        for (let si = 0; si < scales.length && !accepted; si++) {
+          clone.scale.setScalar(Math.max(CITY_SLICE_MIN_CLONE_SCALE, scales[si]));
+          const okRoad = ensureNotOnRoad(clone);
+          const obb = getBuildingOBB(clone);
+          const okInside = buildingFullyInsidePoly(clone, poly);
+          const okNoOverlap = okRoad && okInside && existingOBBs.every(o => !obbRoughOverlap(obb, o)) && placed.every(o => !obbRoughOverlap(obb, o));
+          if (okNoOverlap) { placed.push(obb); have++; accepted = true; }
+        }
+        if (!accepted) clone.removeFromParent?.();
+      }
+      // If below minimum, relax constraints to guarantee at least the minimum
+      if (have < CITY_SLICE_MIN_PER_DISTRICT && templates.length > 0) {
+        let relaxAttempts = 0;
+        while (relaxAttempts < 240 && have < CITY_SLICE_MIN_PER_DISTRICT) {
+          relaxAttempts++;
+          const tpl = rand(templates);
+          const clone = tpl.clone(true);
+          const { x: px, z: pz } = sampleInside();
+          clone.position.set(px, 0, pz);
+          clone.rotation.y = (Math.random() - 0.5) * 0.6;
+          group.add(clone);
+          let accepted = false;
+          const scales = [0.7, 0.55, 0.42, 0.34, 0.28];
+          for (let si = 0; si < scales.length && !accepted; si++) {
+            clone.scale.setScalar(Math.max(CITY_SLICE_MIN_CLONE_SCALE, scales[si]));
+            const okInside = buildingFullyInsidePoly(clone, poly);
+            if (okInside) { const obb = getBuildingOBB(clone); placed.push(obb); have++; accepted = true; }
+          }
+          if (!accepted) clone.removeFromParent?.();
         }
       }
     }
@@ -157,26 +222,7 @@ export function placeCitySlice(scene, objectGrid, settings) {
 }
 }
 
-function pointInPolyXZ(p, poly) {
-  let inside = false;
-  for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
-    const xi = poly[i].x, zi = poly[i].z, xj = poly[j].x, zj = poly[j].z;
-    const intersect = ((zi > p.z) !== (zj > p.z)) &&
-      (p.x < (xj - xi) * (p.z - zi) / ((zj - zi) || 1e-9) + xi);
-    if (intersect) inside = !inside;
-  }
-  return inside;
-}
-
-function getBuildingOBB(building) {
-  building.updateWorldMatrix(true, true);
-  const box = new THREE.Box3().setFromObject(building);
-  const center = new THREE.Vector3(), size = new THREE.Vector3();
-  box.getCenter(center); box.getSize(size);
-  const quat = new THREE.Quaternion(); building.getWorldQuaternion(quat);
-  const eulerY = new THREE.Euler().setFromQuaternion(quat, 'YXZ').y;
-  return { center: { x: center.x, z: center.z }, hx: Math.max(1, size.x / 2), hz: Math.max(1, size.z / 2), rotY: eulerY };
-}
+// Using shared helpers for poly tests and OBB extraction
 
 function segSegIntersect2D(p1, p2, q1, q2) {
   const o = (a, b, c) => Math.sign((b.z - a.z) * (c.x - b.x) - (b.x - a.x) * (c.z - b.z));
@@ -240,36 +286,11 @@ function isInsideAnyDistrict(worldPos) {
   }
   return false;
 }
-function buildingFullyInsideAnyDistrict(building) {
-  if (districtPolys.length === 0) return true;
-  const obb = getBuildingOBB(building);
-  if (building.userData?.round && building.userData?.roundRadius) {
-    const R = building.userData.roundRadius;
-    const samples = 12;
-    for (let k = 0; k < districtPolys.length; k++) {
-      let ok = true;
-      for (let i = 0; i < samples && ok; i++) {
-        const a = (i / samples) * Math.PI * 2;
-        const x = obb.center.x + Math.cos(a) * R;
-        const z = obb.center.z + Math.sin(a) * R;
-        ok = ok && pointInPolyXZ({ x, z }, districtPolys[k]);
-      }
-      if (ok) return true;
-    }
-    return false;
-  }
-  const c = obb.center, hx = obb.hx, hz = obb.hz, a = obb.rotY;
-  const cos = Math.cos(a), sin = Math.sin(a);
-  const local = [[-hx, -hz], [hx, -hz], [hx, hz], [-hx, hz]].map(([x, z]) => ({
-    x: c.x + x * cos - z * sin,
-    z: c.z + x * sin + z * cos
-  }));
-  return districtPolys.some(poly => local.every(p => pointInPolyXZ(p, poly)));
-}
+// Containment checks now via shared helpers
 
 function nudgeTowardNearestDistrict(building) {
   if (!CITY_SLICE_DISTRICT_ENFORCE || districtCentroids.length === 0) return true;
-  if (buildingFullyInsideAnyDistrict(building)) return true;
+  if (buildingFullyInsidePolys(building, districtPolys)) return true;
   const obb = getBuildingOBB(building);
   // find nearest centroid
   let best = districtCentroids[0], bestD2 = Infinity;
@@ -282,7 +303,7 @@ function nudgeTowardNearestDistrict(building) {
   const orig = building.position.clone();
   for (let k = 1; k <= CITY_SLICE_DISTRICT_MAX_ATTEMPTS; k++) {
     building.position.addScaledVector(dir, step);
-    if (buildingFullyInsideAnyDistrict(building)) return true;
+    if (buildingFullyInsidePolys(building, districtPolys)) return true;
   }
   building.position.copy(orig);
   return false;

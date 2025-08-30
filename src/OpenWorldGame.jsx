@@ -4,6 +4,7 @@ import { initialPlayerStats, initialInventory } from "./game/initialState.js";
 import { useThreeScene } from "./hooks/useThreeScene.js";
 import { usePlayerControls } from "./hooks/usePlayerControls.js";
 import { initializeAssetLoader, startCaching } from "./utils/assetLoader.js";
+import { prefetchLocationAssets } from "../scripts/prefetchLocationAssets.js";
 import { MainMenu } from "./components/UI/MainMenu.jsx";
 import { LoadingScreen } from "./components/UI/LoadingScreen.jsx";
 import CharacterPanel from "./components/UI/CharacterPanel.jsx";
@@ -108,6 +109,9 @@ const OpenWorldGame = () => {
       await initializeAssetLoader();
       window.assetLoaderInitialized = true;
     }
+    // First, prefetch the jutsu by_group assets listed in cache/by_group/location.json
+    await prefetchLocationAssets(setLoadingProgress);
+    // Then, continue with existing asset caching pipeline
     await startCaching(setLoadingProgress);
     setGameState("Playing");
   };

@@ -48,6 +48,11 @@ export function addCitySliceBuildings(
   group.name = 'CitySliceBuildings';
   town.add(group);
 
+  // Unique naming context for this slice instance
+  const runTag = (typeof performance !== 'undefined' && performance.now) ? Math.floor(performance.now()) : Date.now();
+  let uniqueCounter = 0;
+  group.userData = { ...(group.userData || {}), sliceRunTag: runTag, sliceCounter: 0 };
+
   const variant = settings?.citySliceVariant || 'default';
   const basicPaletteIndex = settings?.citySlicePaletteIndex ?? 0;
   const { builds, rows: rOverride, cols: cOverride } = getBuildsForVariant(THREE, { variant, basicPaletteIndex });
@@ -59,9 +64,10 @@ export function addCitySliceBuildings(
   const X0 = ox - (colsLocal - 1) * spacingX / 2;
   const Z0 = oz - (rowsLocal - 1) * spacingZ / 2;
 
-  // Districts from live map (if available)
-  const live = (window.__konohaMapModel?.MODEL ?? window.__konohaMapModel) || MAP_DEFAULT_MODEL;
-  const districts = live?.districts || {};
+  // Districts from live map merged with defaults (live overrides edited keys)
+  const liveModel = (window.__konohaMapModel?.MODEL ?? window.__konohaMapModel) || {};
+  const defaultDistricts = MAP_DEFAULT_MODEL?.districts || {};
+  const districts = { ...defaultDistricts, ...(liveModel?.districts || {}) };
   const districtPolys = [];
   const districtCentroids = [];
   for (const d of Object.values(districts)) {
@@ -85,6 +91,12 @@ export function addCitySliceBuildings(
       for (let c = 0; c < colsLocal; c++) {
         if (idx >= builds.length) break;
         const b = builds[idx++];
+        // Assign unique name/identifier to each building
+        const baseName = b.name || 'SliceBuilding';
+        const uid = `${runTag}-${(++uniqueCounter).toString().padStart(3, '0')}`;
+        b.name = `${baseName} [${uid}]`;
+        b.userData = { ...(b.userData || {}), uid, baseName };
+        group.userData.sliceCounter = uniqueCounter;
         b.position.set(X0 + c * spacingX, 0, Z0 + r * spacingZ);
         b.rotation.y = (Math.random() - 0.5) * jitter;
         group.add(b);
@@ -96,6 +108,12 @@ export function addCitySliceBuildings(
       for (let c = 0; c < colsLocal; c++) {
         if (idx >= builds.length) break;
         const b = builds[idx++];
+        // Assign unique name/identifier to each building
+        const baseName = b.name || 'SliceBuilding';
+        const uid = `${runTag}-${(++uniqueCounter).toString().padStart(3, '0')}`;
+        b.name = `${baseName} [${uid}]`;
+        b.userData = { ...(b.userData || {}), uid, baseName };
+        group.userData.sliceCounter = uniqueCounter;
         const pos = { x: X0 + c * spacingX, z: Z0 + r * spacingZ };
         b.position.set(pos.x, 0, pos.z);
         b.rotation.y = (Math.random() - 0.5) * jitter;
@@ -144,4 +162,3 @@ export function addCitySliceBuildings(
 
   return group;
 }
-
