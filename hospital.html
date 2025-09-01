@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Shinobi Hospital — Spec + Preview (Vestibule Pushed Out)</title>
+  <title>Shinobi Hospital — Enhanced Silhouette (black bg)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     html,body{margin:0;height:100%;background:#0b0f14;color:#cbd5e1;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
@@ -23,15 +23,15 @@
 </head>
 <body>
   <div id="hud">
-    <div><b>Shinobi Hospital</b> — spec object (vestibule outside)</div>
+    <div><b>Shinobi Hospital</b> — enhanced silhouette (skirt roof + decks + turret + tank)</div>
     <button class="btn" id="export">Export JSON</button>
   </div>
 
   <script type="module">
     // ----------------------- SPEC OBJECT -----------------------
     const ShinobiHospital = {
-      id: "shinobi_hospital_v4_vestibule_out",
-      version: 4,
+      id: "shinobi_hospital_v7_enhanced",
+      version: 7,
       meta: { author: "Anton / Lord Tsarcasm", category: "civic", tags: ["hospital","konoha-style","3F"] },
 
       bounds: { width: 56, depth: 18, height: 15 },
@@ -39,37 +39,43 @@
       bay: { countLeft: 4, countRight: 4, spacing: 5.5 },
 
       entry: {
-        width: 10, depth: 3.6, height: 6.4,          // depth now extrudes OUT from facade
+        width: 10, depth: 3.8, height: 6.6,
         canopy: { width: 9.2, radius: 1.1, arc: Math.PI/2, depth: 0.9 },
         signPlate: { width: 9.6, height: 3.2, thickness: 0.25, trim: 0.18 },
         emblem: { radius: 0.95, thickness: 0.22, ring: 0.12, tube: 0.06 },
-        columns: { radius: 0.35, height: 4.6, offsetX: 4.1 },
-        door: { width: 4.8, height: 3.2, sill: 0.18, frame: 0.12, mullion: 0.12, leafThickness: 0.06, pushOut: 0.05 }
+        columns: { radius: 0.28, height: 4.8, offsetX: 4.2 },
+        door: { width: 4.8, height: 3.2, sill: 0.18, frame: 0.12, mullion: 0.12, leafThickness: 0.06, pushOut: -0.01 }
       },
 
       roof: {
-        height: 2.6, eave: 0.85, soften: 0.6,
-        addOns: {
-          fence: { enabled: true, inset: 0.6, height: 1.25, postEvery: 2.4, rails: 2 },
-          waterTank: { enabled: true, radius: 1.4, height: 2.2, x: -20, z: -5.2 },
-          turret: { enabled: true, sides: 10, radius: 2.4, height: 3.2, dome: 1.2, x: 20, z: 5.6 }
-        },
-        cablesEnabled: false, cables: []
+        height: 2.3, eave: 0.95, soften: 0.5,
+        skirt: { drop: 1.0, radius: 1.0, arc: Math.PI/2.3 }, // teal curved skirt roof that wraps the building
+        decks: [
+          { x:-15.5, z:-2.2, w:16, d:8, h:1.2 }, // left fenced deck under tank
+          { x: 12.5, z:  3.5, w:14, d:7, h:1.2 }  // right fenced deck by turret
+        ],
+        tank:  { base: {w:6.5, d:6.5, h:1.6, lip:0.25}, drum:{r:1.9, h:2.6}, cap:{r:1.1,h:0.5}, x:-19, z:-5.4 },
+        turret:{ sides: 8, r:2.2, h:2.8, windows:true, cone:{rTop:0.3, rBase:2.8, h:2.0, brimR:3.4, brimT:0.18}, x:19, z:5.6 },
+
+        cables: [
+          { pts:[[-22,0,-7],[-5,0,-8],[12,0,-6],[26,0,-7]], y: 17.8, r:0.08 },
+          { pts:[[-23,0, 8],[-8,0, 7],[ 8,0, 8],[25,0, 7]], y: 17.9, r:0.08 }
+        ]
       },
 
       facade: {
-        pilaster: { width: 0.9, depth: 0.28, every: 5.5, round: 0.08 },
+        pilaster: { width: 1.15, depth: 0.34, every: 5.5, round: 0.09 },
         beltBands: [
-          { y: 5.2, height: 0.55, depth: 0.12, round: 0.06 },
-          { y: 9.4, height: 0.55, depth: 0.12, round: 0.06 }
+          { y: 5.15, height: 0.6, depth: 0.14, round: 0.07 },
+          { y: 9.45, height: 0.6, depth: 0.14, round: 0.07 }
         ],
         window: {
           size: { w: 1.6, h: 2.2 }, inset: 0.14, frame: 0.08,
           grids: { cols: 2, rows: 2 },
           storeys: [
-            { yBase: 1.2, awning: { radius: 0.55, arc: Math.PI/3 } },
-            { yBase: 5.4, awning: { radius: 0.55, arc: Math.PI/3 }, archCap: true },
-            { yBase: 9.6, awning: { radius: 0.55, arc: Math.PI/3 } }
+            { yBase: 1.2, awning: { radius: 0.6, arc: Math.PI/2.8 } },
+            { yBase: 5.4, awning: { radius: 0.6, arc: Math.PI/2.8 }, archCap: true },
+            { yBase: 9.6, awning: { radius: 0.6, arc: Math.PI/2.8 } }
           ]
         }
       },
@@ -78,15 +84,14 @@
 
       palette: {
         plaster:"#eceae5", plasterShadow:"#dcd9d3", trim:"#e3d2a8",
-        belt:"#e58e22", signGreen:"#2f7d43", signTrim:"#f1d553",
-        emblemRed:"#b12e2e", canopyBlue:"#5e93d2",
-        windowGlass:"#88c7cf", windowFrame:"#3a5160",
+        belt:"#e8a33a", signGreen:"#2f7d43", signTrim:"#f1d553",
+        emblemRed:"#a52b2b", canopyBlue:"#5e93d2",
+        windowGlass:"#88c7cf", windowFrame:"#2e4655",
         roofTeal:"#1d6f6a", roofTile:"#2a7c76",
         domeThatch:"#e0bb3e", metal:"#8aa0aa", darkMetal:"#3b4a56",
-        hedge:"#2b6a3a", path:"#bfc5cc", fence:"#98a7b2", doorMetal:"#3a5160"
+        hedge:"#2b6a3a", path:"#bfc5cc", fence:"#98a7b2", doorMetal:"#2e4655", cable:"#1b1b1b"
       }
     };
-
     window.ShinobiHospital = ShinobiHospital;
 
     // ----------------------- PREVIEW --------------------------
@@ -104,18 +109,20 @@
     document.body.appendChild(renderer.domElement);
 
     const camera = new THREE.PerspectiveCamera(50, innerWidth/innerHeight, 0.1, 1000);
-    camera.position.set(34, 22, 42);
+    camera.position.set(34, 22, 44);
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.target.set(0, 6, 0); controls.update();
+    controls.target.set(0, 7, 0); controls.update();
 
-    scene.add(new THREE.HemisphereLight(0xffffff, 0x334455, .55));
-    const sun = new THREE.DirectionalLight(0xffffff, 1.1);
-    sun.position.set(20, 30, 12); sun.castShadow = true;
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x334455, .6));
+    const sun = new THREE.DirectionalLight(0xffffff, 1.15);
+    sun.position.set(24, 34, 14); sun.castShadow = true;
     sun.shadow.mapSize.set(2048,2048);
     scene.add(sun);
 
-    const ground = new THREE.Mesh(new THREE.PlaneGeometry(240,180),
-      new THREE.MeshStandardMaterial({color:0x16202b, roughness:.95}));
+    const ground = new THREE.Mesh(
+      new THREE.PlaneGeometry(240,180),
+      new THREE.MeshStandardMaterial({color:0x0f141a, roughness:.95})
+    );
     ground.rotation.x = -Math.PI/2; ground.receiveShadow = true; scene.add(ground);
 
     const mat = c => new THREE.MeshStandardMaterial({color:new THREE.Color(c), roughness:.8, metalness:.05});
@@ -123,12 +130,29 @@
     const rbox = (w,h,d,r,c)=> new THREE.Mesh(new RoundedBoxGeometry(w,h,d,r,3), mat(c));
 
     function arcCanopy(width, radius, arc, color){
-      const g = new THREE.CylinderGeometry(radius, radius, width, 24, 1, true, Math.PI/2 - arc, arc);
+      const g = new THREE.CylinderGeometry(radius, radius, width, 28, 1, true, Math.PI/2 - arc, arc);
       const m = mat(color); m.side = THREE.DoubleSide;
       const mesh = new THREE.Mesh(g, m);
       mesh.rotation.z = Math.PI/2;
       mesh.castShadow = true; mesh.receiveShadow = true;
       return mesh;
+    }
+    function tube(points, r, color){
+      const curve = new THREE.CatmullRomCurve3(points);
+      const geo = new THREE.TubeGeometry(curve, 100, r, 12, false);
+      const m = new THREE.MeshStandardMaterial({color:new THREE.Color(color), metalness:.1, roughness:.8});
+      return new THREE.Mesh(geo, m);
+    }
+    function railBetween(A, B, sizeY, sizeZ, color) {
+      const dir = new THREE.Vector3().subVectors(B, A);
+      const rail = new THREE.Mesh(
+        new THREE.BoxGeometry(dir.length(), sizeY, sizeZ),
+        new THREE.MeshStandardMaterial({ color, metalness: .45, roughness: .5 })
+      );
+      rail.position.copy(A).add(B).multiplyScalar(0.5);
+      rail.quaternion.setFromUnitVectors(new THREE.Vector3(1, 0, 0), dir.normalize());
+      rail.castShadow = true;
+      return rail;
     }
 
     function makeWindow(spec){
@@ -144,8 +168,9 @@
 
       const glass = new THREE.Mesh(new THREE.PlaneGeometry(w, h),
         new THREE.MeshPhysicalMaterial({color:P.windowGlass, roughness:.05, transmission:.5, thickness:.2}));
-      glass.position.z = 0.05 + 0.001; g.add(glass);
+      glass.position.z = 0.051; g.add(glass);
 
+      // grids
       for(let i=1;i<spec.grids.cols;i++){
         const v = new THREE.Mesh(new THREE.BoxGeometry(0.06, h, 0.06), mat(P.windowFrame));
         v.position.x = -w/2 + (w/spec.grids.cols)*i; v.position.z = 0.05; g.add(v);
@@ -160,23 +185,19 @@
         cap.position.y = h/2 + 0.15; g.add(cap);
       }
       if (spec.awning){
-        const aw = arcCanopy(w+0.2, spec.awning.radius, spec.awning.arc, P.domeThatch);
-        aw.position.set(0, h/2 + 0.25, 0.32); g.add(aw);
+        // backplate + brackets to avoid floating
+        const back = new THREE.Mesh(new THREE.BoxGeometry(w+0.24, 0.09, 0.18), mat(P.domeThatch));
+        back.position.set(0, h/2 + 0.07, 0.09); g.add(back);
+        const aw = arcCanopy(w+0.24, spec.awning.radius, spec.awning.arc, P.domeThatch);
+        aw.position.set(0, h/2 + 0.07, 0.28); g.add(aw);
+        // brackets
+        for (const sx of [-1,1]){
+          const br = new THREE.Mesh(new THREE.BoxGeometry(0.06,0.3,0.22), mat(P.windowFrame));
+          br.position.set(sx*(w/2-0.08), h/2 - 0.02, 0.16);
+          g.add(br);
+        }
       }
       return g;
-    }
-
-    function railBetween(A, B, sizeY, sizeZ, color) {
-      const dir = new THREE.Vector3().subVectors(B, A);
-      const len = dir.length();
-      const rail = new THREE.Mesh(
-        new THREE.BoxGeometry(len, sizeY, sizeZ),
-        new THREE.MeshStandardMaterial({ color: color, metalness: .45, roughness: .5 })
-      );
-      rail.position.copy(A).add(B).multiplyScalar(0.5);
-      rail.quaternion.setFromUnitVectors(new THREE.Vector3(1, 0, 0), dir.normalize());
-      rail.castShadow = true;
-      return rail;
     }
 
     function makeDoor(spec, colorFrame, colorGlass){
@@ -212,7 +233,6 @@
         return lg;
       }
       g.add(leaf(-1), leaf(1));
-
       return g;
     }
 
@@ -220,8 +240,10 @@
       const root = new THREE.Group();
       const W=spec.bounds.width, D=spec.bounds.depth, H=spec.bounds.height;
 
+      // Main plaster block
       const body = box(W, H, D, P.plaster); body.position.y = H/2; root.add(body);
 
+      // Pilasters
       const pilW = spec.facade.pilaster.width, pilD = spec.facade.pilaster.depth;
       const baysTotal = spec.bay.countLeft + spec.bay.countRight + 1;
       const bayW = spec.bay.spacing;
@@ -233,12 +255,14 @@
         pil.position.set(x, H/2, facadeZ - pilD/2); root.add(pil);
       }
 
+      // Belts
       for(const band of spec.facade.beltBands){
         const b = rbox(W-2*pilD, band.height, band.depth, band.round, P.belt);
         b.position.set(0, band.y + band.height/2, facadeZ + band.depth/2 - pilD/2);
         root.add(b);
       }
 
+      // Windows
       function placeWindows(colCenterX){
         for(let s=0; s<spec.storeys.length; s++){
           const ws = {...spec.facade.window, ...spec.facade.window.storeys[s]};
@@ -253,114 +277,150 @@
         if(!isEntry) placeWindows(colCenterX);
       }
 
+      // Entry / vestibule
       const e = spec.entry;
-
-      // >>> VESTIBULE OUTSIDE (rounded box protruding forward)
       const vestibule = rbox(e.width, e.height, e.depth, 0.18, P.plaster);
       vestibule.position.set(0, e.height/2, facadeZ + e.depth/2 + 0.02);
       root.add(vestibule);
 
-      // Columns at the vestibule front
-      const colL = new THREE.Mesh(new THREE.CylinderGeometry(e.columns.radius, e.columns.radius, e.columns.height, 20), mat(P.plaster));
+      const colL = new THREE.Mesh(new THREE.CylinderGeometry(e.columns.radius, e.columns.radius, e.columns.height, 22), mat(P.plaster));
       const colR = colL.clone();
-      const frontZ = facadeZ + e.depth - 0.2;
+      const frontZ = facadeZ + e.depth - 0.18;
       colL.position.set(-e.columns.offsetX, e.columns.height/2, frontZ);
       colR.position.set(+e.columns.offsetX, e.columns.height/2, frontZ);
       root.add(colL, colR);
 
-      // Curved entry canopy at vestibule front
-      const canopy = arcCanopy(e.canopy.width, e.canopy.radius, e.canopy.arc, P.canopyBlue);
-      canopy.position.set(0, 5.9, facadeZ + e.depth + 0.22);
-      root.add(canopy);
-
-      // Sign plate + trim now mounted on vestibule face
+      // Sign + emblem on wall
       const plate = rbox(e.signPlate.width, e.signPlate.height, e.signPlate.thickness, 0.12, P.signGreen);
-      plate.position.set(0, 7.6, facadeZ + e.depth + e.signPlate.thickness/2 - 0.03); root.add(plate);
+      plate.position.set(0, 7.6, facadeZ + e.signPlate.thickness/2 - 0.03); root.add(plate);
       const trim = rbox(e.signPlate.width, e.signPlate.trim, e.signPlate.thickness+0.08, 0.08, P.signTrim);
-      trim.position.set(0, 9.0, facadeZ + e.depth + e.signPlate.thickness/2 - 0.04); root.add(trim);
+      trim.position.set(0, 9.0, facadeZ + e.signPlate.thickness/2 - 0.04); root.add(trim);
+      const emblemZ = facadeZ + e.signPlate.thickness + e.emblem.thickness/2;
+      const emblem = new THREE.Mesh(new THREE.CylinderGeometry(e.emblem.radius, e.emblem.radius, e.emblem.thickness, 48),
+        new THREE.MeshStandardMaterial({color:P.emblemRed, metalness:.25, roughness:.5}));
+      emblem.rotation.x = Math.PI/2; emblem.position.set(0, 7.6, emblemZ); root.add(emblem);
+      const ring = new THREE.Mesh(new THREE.TorusGeometry(e.emblem.radius + e.emblem.ring, e.emblem.tube, 16, 64),
+        new THREE.MeshStandardMaterial({color:P.signTrim, metalness:.65, roughness:.35}));
+      ring.position.set(0, 7.6, emblemZ + 0.001); root.add(ring);
 
-      // Emblem + ring bezel, mounted on plate
-      const emblemZ = facadeZ + e.depth + e.signPlate.thickness + e.emblem.thickness/2;
-      const emblem = new THREE.Mesh(
-        new THREE.CylinderGeometry(e.emblem.radius, e.emblem.radius, e.emblem.thickness, 48),
-        new THREE.MeshStandardMaterial({color:P.emblemRed, metalness:.25, roughness:.5})
-      );
-      emblem.rotation.x = Math.PI/2;
-      emblem.position.set(0, 7.6, emblemZ);
-      root.add(emblem);
-      const ring = new THREE.Mesh(
-        new THREE.TorusGeometry(e.emblem.radius + e.emblem.ring, e.emblem.tube, 16, 64),
-        new THREE.MeshStandardMaterial({color:P.signTrim, metalness:.65, roughness:.35})
-      );
-      ring.position.set(0, 7.6, emblemZ + 0.001);
-      root.add(ring);
+      // Canopy on vestibule
+      const canopy = arcCanopy(e.canopy.width, e.canopy.radius, e.canopy.arc, P.canopyBlue);
+      canopy.position.set(0, 5.9, facadeZ + e.depth + 0.02); root.add(canopy);
 
-      // Door at vestibule front plane (proud by pushOut)
+      // Door
       const door = makeDoor(e.door, P.doorMetal, P.windowGlass);
-      door.position.set(0, e.door.sill, facadeZ + e.depth + e.door.pushOut);
-      root.add(door);
+      door.position.set(0, e.door.sill, facadeZ + e.depth + e.door.pushOut); root.add(door);
 
+      // Upper roof
       const R = spec.roof;
+      const roofTop = H + R.height;
       const roof = rbox(W+R.eave*2, R.height, D+R.eave*2, R.soften, P.roofTile);
       roof.position.y = H + R.height/2; root.add(roof);
 
-      if (R.addOns.fence.enabled) {
-        const f = new THREE.Group();
-        const inset = R.addOns.fence.inset;
-        const fh = R.addOns.fence.height;
-        const rails = R.addOns.fence.rails;
-        const y0 = H + R.height + 0.02;
-        const ringFence = [
-          new THREE.Vector3(-W/2 + inset, y0, -D/2 + inset),
-          new THREE.Vector3( W/2 - inset, y0, -D/2 + inset),
-          new THREE.Vector3( W/2 - inset, y0,  D/2 - inset),
-          new THREE.Vector3(-W/2 + inset, y0,  D/2 - inset)
+      // Curved skirt roof wrapping all sides (teal eaves)
+      const skirtY = H + 0.2;
+      const skirtR = R.skirt.radius, skirtArc = R.skirt.arc;
+      // long sides
+      const skirtFront = arcCanopy(W+0.2, skirtR, skirtArc, P.roofTeal);
+      skirtFront.position.set(0, skirtY, D/2 + 0.01); root.add(skirtFront);
+      const skirtBack = arcCanopy(W+0.2, skirtR, skirtArc, P.roofTeal);
+      skirtBack.rotation.y = Math.PI; skirtBack.position.set(0, skirtY, -D/2 - 0.01); root.add(skirtBack);
+      // short sides
+      const skirtLeft = arcCanopy(D+0.2, skirtR, skirtArc, P.roofTeal);
+      skirtLeft.rotation.y = -Math.PI/2; skirtLeft.position.set(-W/2-0.01, skirtY, 0); root.add(skirtLeft);
+      const skirtRight = arcCanopy(D+0.2, skirtR, skirtArc, P.roofTeal);
+      skirtRight.rotation.y = Math.PI/2; skirtRight.position.set(W/2+0.01, skirtY, 0); root.add(skirtRight);
+
+      // Rooftop fenced decks (frame + mesh impression)
+      for(const deck of R.decks){
+        const y0 = roofTop + deck.h/2;
+        const slab = rbox(deck.w, deck.h, deck.d, 0.08, P.plasterShadow);
+        slab.position.set(deck.x, y0, deck.z); root.add(slab);
+
+        const inset = 0.4, fh = 1.25, rails = [0.45, 0.95];
+        const corners = [
+          new THREE.Vector3(deck.x-deck.w/2+inset, y0+deck.h/2, deck.z-deck.d/2+inset),
+          new THREE.Vector3(deck.x+deck.w/2-inset, y0+deck.h/2, deck.z-deck.d/2+inset),
+          new THREE.Vector3(deck.x+deck.w/2-inset, y0+deck.h/2, deck.z+deck.d/2-inset),
+          new THREE.Vector3(deck.x-deck.w/2+inset, y0+deck.h/2, deck.z+deck.d/2-inset)
         ];
-        function fenceSeg(A, B) {
-          const step = R.addOns.fence.postEvery;
-          const segLen = A.distanceTo(B);
-          const posts = Math.max(1, Math.floor(segLen / step));
-          for (let i = 0; i <= posts; i++) {
-            const t = i / posts;
-            const p = new THREE.Vector3().lerpVectors(A, B, t);
-            const post = new THREE.Mesh(
-              new THREE.CylinderGeometry(0.06, 0.06, fh, 16),
-              new THREE.MeshStandardMaterial({ color: P.fence, metalness:.4, roughness:.6 })
-            );
-            post.position.set(p.x, p.y + fh/2, p.z);
-            post.castShadow = true;
-            f.add(post);
+        const fence = new THREE.Group();
+        function seg(A,B){
+          const len = A.distanceTo(B);
+          const posts = Math.max(1, Math.floor(len/2.4));
+          for(let i=0;i<=posts;i++){
+            const t=i/posts, p=new THREE.Vector3().lerpVectors(A,B,t);
+            const post = new THREE.Mesh(new THREE.CylinderGeometry(0.06,0.06,fh+0.02,16),
+              new THREE.MeshStandardMaterial({color:P.fence, roughness:.6, metalness:.45}));
+            post.position.set(p.x, A.y + (fh+0.02)/2, p.z); post.castShadow=true; fence.add(post);
           }
-          const railHeights = rails === 1 ? [0.72] : [0.45, 0.9];
-          for (const frac of railHeights) {
-            const A2 = A.clone(); A2.y += fh * frac;
-            const B2 = B.clone(); B2.y += fh * frac;
-            f.add(railBetween(A2, B2, 0.06, 0.06, P.fence));
+          for(const frac of rails){
+            const A2=A.clone(); A2.y += fh*frac;
+            const B2=B.clone(); B2.y += fh*frac;
+            fence.add(railBetween(A2,B2,0.06,0.06,P.fence));
+          }
+          // translucent infill for a mesh impression
+          const mid = A.clone().add(B).multiplyScalar(0.5);
+          const panel = new THREE.Mesh(new THREE.PlaneGeometry(len, fh*0.9),
+            new THREE.MeshStandardMaterial({color:0xcad5de, transparent:true, opacity:0.12, roughness:.9, metalness:.1, side:THREE.DoubleSide}));
+          panel.position.copy(mid); panel.position.y = A.y + fh*0.55;
+          panel.lookAt(B.x,B.y,B.z); fence.add(panel);
+        }
+        seg(corners[0], corners[1]); seg(corners[1], corners[2]);
+        seg(corners[2], corners[3]); seg(corners[3], corners[0]);
+        root.add(fence);
+      }
+
+      // Water tank on square pedestal (left)
+      {
+        const t = R.tank;
+        const base = rbox(t.base.w, t.base.h, t.base.d, 0.12, P.plaster);
+        base.position.set(t.x, roofTop + t.base.h/2, t.z); root.add(base);
+        const lip = rbox(t.base.w+0.6, t.base.lip, t.base.d+0.6, 0.05, P.plasterShadow);
+        lip.position.set(t.x, roofTop + t.base.h + t.base.lip/2, t.z); root.add(lip);
+        const drum = new THREE.Mesh(new THREE.CylinderGeometry(t.drum.r, t.drum.r, t.drum.h, 24), mat(P.metal));
+        drum.position.set(t.x, roofTop + t.base.h + t.base.lip + t.drum.h/2, t.z); root.add(drum);
+        const cap = new THREE.Mesh(new THREE.CylinderGeometry(t.cap.r, t.cap.r, t.cap.h, 24), mat(P.darkMetal));
+        cap.position.set(t.x, drum.position.y + t.drum.h/2 + t.cap.h/2, t.z); root.add(cap);
+      }
+
+      // Octagonal turret with conical thatch roof (right)
+      {
+        const k = R.turret;
+        const base = new THREE.Mesh(new THREE.CylinderGeometry(k.r, k.r, k.h, k.sides), mat(P.plaster));
+        base.position.set(k.x, roofTop + k.h/2, k.z); root.add(base);
+
+        if(k.windows){
+          for(let i=0;i<k.sides;i++){
+            const theta = (i/k.sides)*Math.PI*2;
+            const wx = k.x + Math.cos(theta)*(k.r-0.1);
+            const wz = k.z + Math.sin(theta)*(k.r-0.1);
+            const win = new THREE.Mesh(new THREE.PlaneGeometry(0.8,1.0),
+              new THREE.MeshPhysicalMaterial({color:P.windowGlass, transmission:.5, roughness:.08, thickness:.18}));
+            win.position.set(wx, roofTop + 0.9, wz);
+            win.lookAt(k.x, roofTop + 0.9, k.z);
+            root.add(win);
           }
         }
-        fenceSeg(ringFence[0], ringFence[1]);
-        fenceSeg(ringFence[1], ringFence[2]);
-        fenceSeg(ringFence[2], ringFence[3]);
-        fenceSeg(ringFence[3], ringFence[0]);
-        root.add(f);
+
+        const brim = new THREE.Mesh(new THREE.CylinderGeometry(k.cone.brimR, k.cone.brimR, k.cone.brimT, 40), mat(P.domeThatch));
+        brim.position.set(k.x, roofTop + k.h + k.cone.brimT/2, k.z); root.add(brim);
+
+        const cone = new THREE.Mesh(
+          new THREE.ConeGeometry(k.cone.rBase, k.cone.h, 40),
+          mat(P.domeThatch)
+        );
+        cone.position.set(k.x, roofTop + k.h + k.cone.brimT + k.cone.h/2, k.z);
+        root.add(cone);
       }
 
-      if(R.addOns.waterTank.enabled){
-        const t = R.addOns.waterTank;
-        const tank = new THREE.Mesh(new THREE.CylinderGeometry(t.radius,t.radius,t.height, 24),
-          new THREE.MeshStandardMaterial({color:P.metal, roughness:.6, metalness:.6}));
-        tank.position.set(t.x, H+R.height + t.height/2, t.z); root.add(tank);
-      }
-      if(R.addOns.turret.enabled){
-        const k = R.addOns.turret;
-        const base = new THREE.Mesh(new THREE.CylinderGeometry(k.radius,k.radius,k.height,k.sides), mat(P.plaster));
-        base.position.set(k.x, H+R.height + k.height/2, k.z);
-        const dome = new THREE.Mesh(new THREE.SphereGeometry(k.radius*0.95, 24, 16, 0, Math.PI*2, 0, Math.PI/2),
-          mat(P.domeThatch));
-        dome.position.set(k.x, H+R.height + k.height + k.dome*0.8, k.z);
-        root.add(base,dome);
+      // Cables draped across top
+      for(const c of R.cables){
+        const pts = c.pts.map(p=>new THREE.Vector3(p[0], c.y, p[2]));
+        root.add(tube(pts, c.r, P.cable));
       }
 
+      // Site path
       const path = box(spec.site.path.width, 0.08, spec.site.path.depth, P.path);
       path.position.set(0, 0.041, D/2 + spec.site.path.depth/2 - 0.2);
       path.receiveShadow = true; root.add(path);
@@ -375,10 +435,11 @@
     addEventListener('resize', ()=>{ camera.aspect = innerWidth/innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight);});
     (function animate(){ requestAnimationFrame(animate); renderer.render(scene,camera); })();
 
+    // Export the enhanced spec as JSON
     document.getElementById('export').addEventListener('click', ()=>{
       const data = JSON.stringify(ShinobiHospital, null, 2);
       const blob = new Blob([data], {type:'application/json'});
-      const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: 'shinobi_hospital.spec.json' });
+      const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: 'shinobi_hospital.enhanced.spec.json' });
       a.click(); URL.revokeObjectURL(a.href);
     });
   </script>

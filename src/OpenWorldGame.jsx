@@ -1,5 +1,6 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
 import React, { useState, useRef, useEffect, useCallback } from "react";
+import { DEFAULT_MODEL as MAP_DEFAULT_MODEL } from "/map/defaults/full-default-model.js";
 import { initialPlayerStats, initialInventory } from "./game/initialState.js";
 import { useThreeScene } from "./hooks/useThreeScene.js";
 import { usePlayerControls } from "./hooks/usePlayerControls.js";
@@ -113,6 +114,43 @@ const OpenWorldGame = () => {
     await prefetchLocationAssets(setLoadingProgress);
     // Then, continue with existing asset caching pipeline
     await startCaching(setLoadingProgress);
+    // Preload static district layout JSONs so world build can use them synchronously
+    try {
+      const ids = Object.keys(MAP_DEFAULT_MODEL?.districts || {}).filter(id => {
+        const low = String(id).toLowerCase();
+        return low.startsWith('district') || low.startsWith('residential') || low.startsWith('hyuuga');
+      });
+      window.__districtLayouts = window.__districtLayouts || {};
+      const tryFetch = async (urls) => {
+        for (const url of urls) {
+          try {
+            const res = await fetch(url, { credentials: 'omit' });
+            if (res.ok) return res;
+          } catch (_) { /* continue */ }
+        }
+        return null;
+      };
+      await Promise.all(ids.map(async (id) => {
+        try {
+          // Prefer new curated JSONs; try relative then absolute root to support subpath deployments
+          const res = await tryFetch([
+            `map/district-buildings/json/${id}.buildings.json`,
+            `/map/district-buildings/json/${id}.buildings.json`,
+            // Legacy fallback locations
+            `map/generated/district-buildings/${id}.json`,
+            `/map/generated/district-buildings/${id}.json`
+          ]);
+          if (res && res.ok) {
+            const data = await res.json();
+            if (Array.isArray(data)) {
+              window.__districtLayouts[id] = { entries: data };
+            } else if (data && typeof data === 'object' && Array.isArray(data.entries)) {
+              window.__districtLayouts[id] = data;
+            }
+          }
+        } catch (_) { /* ignore */ }
+      }));
+    } catch (_) { /* ignore */ }
     setGameState("Playing");
   };
   return /* @__PURE__ */ jsxDEV("div", { className: "relative w-full h-screen overflow-hidden bg-black", children: [

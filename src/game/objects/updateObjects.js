@@ -29,6 +29,10 @@ const HOKAGE_OFFICE_CLEANUP_ENABLED = true;
 const HOKAGE_OFFICE_BLOCKED_LABELS = ['KM300'];
 /* @tweakable removal radius (world units) around the label center to match office parts/colliders */
 const HOKAGE_OFFICE_CLEANUP_RADIUS = 280;
+// @tweakable enable/disable spawning CitySlice buildings
+const ENABLE_CITY_SLICE = false;
+// @tweakable enable/disable spawning Kitbash buildings
+const ENABLE_KITBASH = false;
 import { createCentralWallWithGate } from './walls/centralWall.js';
 import { placeHokagePalace } from './placements/hokagePalace.js';
 import { placeHokageMonument } from './placements/hokageMonument.js';
@@ -36,6 +40,7 @@ import { placeIchiraku } from './placements/ichiraku.js';
 import { placeKonohaGates } from './placements/konohaGates.js';
 import { placeCitySlice } from './placements/citySlice.js';
 import { placeKitbash } from './placements/kitbash.js';
+import { fillDistrict, listDistrictIdsByPrefix } from './placements/districtFill.js';
 import { WALL_RADIUS } from '../player/movement/constants.js';
 import { parseGridLabel, posForCell } from './utils/gridLabel.js';
 import * as THREE from 'three';
@@ -135,12 +140,37 @@ export function updateObjects(scene, currentObjects, settings) {
   const ichiraku = placeIchiraku(scene, objectGrid, worldSize, settings);
   if (ichiraku) renderObjects.push(ichiraku);
 
-  const citySlice = placeCitySlice(scene, objectGrid, settings);
-  if (citySlice) renderObjects.push(citySlice);
+  if (ENABLE_CITY_SLICE) {
+    const citySlice = placeCitySlice(scene, objectGrid, settings);
+    if (citySlice) renderObjects.push(citySlice);
+  }
 
   // Kitbash neighborhood: separate colliders + unique interactions; avoid CitySlice overlap
-  const kitbash = placeKitbash(scene, objectGrid, settings);
-  if (kitbash) renderObjects.push(kitbash);
+  if (ENABLE_KITBASH) {
+    const kitbash = placeKitbash(scene, objectGrid, settings);
+    if (kitbash) renderObjects.push(kitbash);
+  }
+
+  // District fill: populate all districts; include Hyuuga with its own style
+  try {
+    const ids = listDistrictIdsByPrefix(['district', 'residential', 'hyuuga']);
+    for (const id of ids) {
+      try {
+        const isHyuuga = String(id).toLowerCase().startsWith('hyuuga');
+        const group = fillDistrict(scene, objectGrid, {
+          districtId: id,
+          source: isHyuuga ? 'hyuuga' : 'mixed',
+          paletteIndex: settings?.citySlicePaletteIndex ?? 0,
+          shadows: settings?.shadows,
+        });
+        if (group) renderObjects.push(group);
+      } catch (e) {
+        console.warn('District fill failed for', id, e);
+      }
+    }
+  } catch (e) {
+    console.warn('District fill enumeration failed:', e);
+  }
 
   // KonohaTown buildings removed
 
