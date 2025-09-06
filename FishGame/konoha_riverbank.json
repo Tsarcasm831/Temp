@@ -1,0 +1,1298 @@
+[
+  {
+    "name": "Minnow",
+    "themeName": "Leafling Minnow",
+    "depthRange": "0–10m",
+    "description": "Tiny, slender freshwater fish with silver scales and translucent fins.",
+    "visualNotes": "gill markings arranged like a tiny leafy swirl; faint green chakra shimmer along the dorsal ridge; fast darting silhouette.",
+    "chakraAffinity": "water",
+    "clanMarkings": "small leaf-swirl near gill",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Common",
+    "biomes": [
+      "freshwater",
+      "river",
+      "lake"
+    ],
+    "weightKg": {
+      "min": 0.01,
+      "max": 0.1
+    },
+    "baseValue": {
+      "min": 1,
+      "max": 3
+    }
+  },
+  {
+    "name": "Bluegill",
+    "themeName": "Blueguard Sunfish",
+    "depthRange": "0–20m",
+    "description": "Small round-bodied sunfish with a blue sheen.",
+    "visualNotes": "cheek patch like a tiny protective plate (like a shinobi guard); orange belly that pulses when excited.",
+    "chakraAffinity": "water",
+    "clanMarkings": "single vertical stripe behind pectoral fin",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Common",
+    "biomes": [
+      "freshwater",
+      "lake",
+      "pond"
+    ],
+    "weightKg": {
+      "min": 0.2,
+      "max": 1
+    },
+    "baseValue": {
+      "min": 2,
+      "max": 5
+    }
+  },
+  {
+    "name": "Carp",
+    "themeName": "Bronze Koi of the Gate",
+    "depthRange": "0–25m",
+    "description": "Large-bodied fish with bronze-gold scales.",
+    "visualNotes": "long flowing dorsal like a ceremonial sash; barbels end in tiny knot motifs; chest scales engraved with faint seal lines.",
+    "chakraAffinity": "earth",
+    "clanMarkings": "two parallel crest lines across scales",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Common",
+    "biomes": [
+      "freshwater",
+      "river",
+      "lake"
+    ],
+    "weightKg": {
+      "min": 1,
+      "max": 15
+    },
+    "baseValue": {
+      "min": 3,
+      "max": 10
+    }
+  },
+  {
+    "name": "Perch",
+    "themeName": "Stripeguard Perch",
+    "depthRange": "5–30m",
+    "description": "Medium fish with green-gold scales and dark vertical bars.",
+    "visualNotes": "bars resemble wrapped bandages; spiny dorsal looks like a tiny kunai row; compact combat silhouette.",
+    "chakraAffinity": "wind",
+    "clanMarkings": "three dark vertical bars",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Common",
+    "biomes": [
+      "freshwater",
+      "river",
+      "lake"
+    ],
+    "weightKg": {
+      "min": 0.2,
+      "max": 2
+    },
+    "baseValue": {
+      "min": 3,
+      "max": 7
+    }
+  },
+  {
+    "name": "Bass",
+    "themeName": "Oakjaw Bass",
+    "depthRange": "5–40m",
+    "description": "Robust fish with large mouth and olive-green body.",
+    "visualNotes": "broad jaw with subtle carved markings that mimic an armor plate; dark horizontal stripe looks like a headband band.",
+    "chakraAffinity": "earth",
+    "clanMarkings": "horizontal sash stripe",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Common",
+    "biomes": [
+      "freshwater",
+      "lake",
+      "river"
+    ],
+    "weightKg": {
+      "min": 0.5,
+      "max": 6
+    },
+    "baseValue": {
+      "min": 5,
+      "max": 12
+    }
+  },
+  {
+    "name": "Trout",
+    "themeName": "Streamblade Trout",
+    "depthRange": "10–50m",
+    "description": "Streamlined fish with spotted scales and a pink streak.",
+    "visualNotes": "sleek flow lines down the flank like a blade’s shimmer; spots look like inked hand seals.",
+    "chakraAffinity": "water",
+    "clanMarkings": "dotted hand-seal pattern along flank",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Common",
+    "biomes": [
+      "freshwater",
+      "river",
+      "cold_water"
+    ],
+    "weightKg": {
+      "min": 0.3,
+      "max": 5
+    },
+    "baseValue": {
+      "min": 4,
+      "max": 10
+    }
+  },
+  {
+    "name": "Salmon",
+    "themeName": "Tidewalker Salmon",
+    "depthRange": "0–50m",
+    "description": "Sleek silver fish with a hooked jaw.",
+    "visualNotes": "glistening scales that refract chakra light; faint migrating band like an expedition sash.",
+    "chakraAffinity": "water",
+    "clanMarkings": "migration band across midbody",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Uncommon",
+    "biomes": [
+      "anadromous",
+      "freshwater",
+      "coastal"
+    ],
+    "weightKg": {
+      "min": 1,
+      "max": 15
+    },
+    "baseValue": {
+      "min": 8,
+      "max": 25
+    }
+  },
+  {
+    "name": "Pike",
+    "themeName": "Spearjaw Pike",
+    "depthRange": "10–60m",
+    "description": "Long torpedo predator with sharp teeth.",
+    "visualNotes": "pointed snout like a thrown spear; skin mottled like hunter camouflage; fins edged in dark lacquer.",
+    "chakraAffinity": "lightning",
+    "clanMarkings": "spear-stripe along snout",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Uncommon",
+    "biomes": [
+      "freshwater",
+      "river",
+      "lake"
+    ],
+    "weightKg": {
+      "min": 1,
+      "max": 20
+    },
+    "baseValue": {
+      "min": 10,
+      "max": 30
+    }
+  },
+  {
+    "name": "Catfish",
+    "themeName": "Whisker Sentinel",
+    "depthRange": "10–100m",
+    "description": "Bottom-dweller with whisker-like barbels.",
+    "visualNotes": "barbels resemble braided ropes; flat head with low lantern-like pores; armored cheek plates for digging.",
+    "chakraAffinity": "earth",
+    "clanMarkings": "braided whisker knots",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Common",
+    "biomes": [
+      "freshwater",
+      "demersal",
+      "riverbed"
+    ],
+    "weightKg": {
+      "min": 1,
+      "max": 50
+    },
+    "baseValue": {
+      "min": 5,
+      "max": 15
+    }
+  },
+  {
+    "name": "Tilapia",
+    "themeName": "Sunplate Tilapia",
+    "depthRange": "0–40m",
+    "description": "Rounded freshwater fish with silver-gray scales.",
+    "visualNotes": "rounded fins like decorative plates; subtle ring pattern behind head like a clan crest.",
+    "chakraAffinity": "yang",
+    "clanMarkings": "crescent ring near dorsal",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Common",
+    "biomes": [
+      "freshwater",
+      "lake",
+      "pond"
+    ],
+    "weightKg": {
+      "min": 0.5,
+      "max": 3
+    },
+    "baseValue": {
+      "min": 3,
+      "max": 8
+    }
+  },
+  {
+    "name": "Anchovy",
+    "themeName": "Fleet Anchovy",
+    "depthRange": "0–150m",
+    "description": "Tiny silver schooling fish with large eyes.",
+    "visualNotes": "school forms tight arrow patterns; each fish has a tiny dark triangular tail mark like a thrown shuriken.",
+    "chakraAffinity": "wind",
+    "clanMarkings": "tiny tail triangle",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Common",
+    "biomes": [
+      "pelagic",
+      "coastal",
+      "open_ocean"
+    ],
+    "weightKg": {
+      "min": 0.02,
+      "max": 0.1
+    },
+    "baseValue": {
+      "min": 1,
+      "max": 2
+    }
+  },
+  {
+    "name": "Snapper",
+    "themeName": "Crimson Snapper",
+    "depthRange": "10–150m",
+    "description": "Red-hued saltwater fish with strong jaws.",
+    "visualNotes": "red scales arranged like battle armor plates; jaw with faint tooth-rune motifs.",
+    "chakraAffinity": "fire",
+    "clanMarkings": "single fin crest with flame curl",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Uncommon",
+    "biomes": [
+      "reef",
+      "coastal",
+      "demersal"
+    ],
+    "weightKg": {
+      "min": 1,
+      "max": 14
+    },
+    "baseValue": {
+      "min": 12,
+      "max": 35
+    }
+  },
+  {
+    "name": "Mackerel",
+    "themeName": "Stormstripe Mackerel",
+    "depthRange": "10–200m",
+    "description": "Fast fish with iridescent blue-green stripes.",
+    "visualNotes": "horizontal lightning-like stripes; streamlined for sudden bursts; dorsal fin like a finned blade.",
+    "chakraAffinity": "lightning",
+    "clanMarkings": "zigzag stripe",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Common",
+    "biomes": [
+      "pelagic",
+      "open_ocean"
+    ],
+    "weightKg": {
+      "min": 0.2,
+      "max": 3
+    },
+    "baseValue": {
+      "min": 3,
+      "max": 7
+    }
+  },
+  {
+    "name": "Sardine",
+    "themeName": "Silvercluster Sardine",
+    "depthRange": "0–200m",
+    "description": "Small schooling fish with shiny silver body.",
+    "visualNotes": "reflective flank used to flash signals; schools form spirals like training seals.",
+    "chakraAffinity": "water",
+    "clanMarkings": "row of micro-scales that glitter",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Common",
+    "biomes": [
+      "pelagic",
+      "coastal"
+    ],
+    "weightKg": {
+      "min": 0.05,
+      "max": 0.2
+    },
+    "baseValue": {
+      "min": 1,
+      "max": 3
+    }
+  },
+  {
+    "name": "Eel",
+    "themeName": "Shadowcoil Eel",
+    "depthRange": "20–200m",
+    "description": "Long, snake-like body with slimy skin.",
+    "visualNotes": "skin shimmers with dark ink bands; lateral line glows faintly when charging chakra; body poses like coiled rope.",
+    "chakraAffinity": "yin",
+    "clanMarkings": "coil pattern along length",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Uncommon",
+    "biomes": [
+      "coastal",
+      "demersal",
+      "rocky_reefs"
+    ],
+    "weightKg": {
+      "min": 0.5,
+      "max": 10
+    },
+    "baseValue": {
+      "min": 10,
+      "max": 25
+    }
+  },
+  {
+    "name": "Herring",
+    "themeName": "Mirror Herring",
+    "depthRange": "0–300m",
+    "description": "Shimmering silver schooling fish with large eyes.",
+    "visualNotes": "big reflective flanks used by shinobi scouts to flash signals; elliptical school shapes.",
+    "chakraAffinity": "wind",
+    "clanMarkings": "subtle reflective band",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Common",
+    "biomes": [
+      "pelagic",
+      "coastal",
+      "open_ocean"
+    ],
+    "weightKg": {
+      "min": 0.1,
+      "max": 0.5
+    },
+    "baseValue": {
+      "min": 2,
+      "max": 5
+    }
+  },
+  {
+    "name": "Grouper",
+    "themeName": "Stoneguard Grouper",
+    "depthRange": "20–300m",
+    "description": "Massive-bodied fish with mottled brown pattern.",
+    "visualNotes": "bulk and stone-like scales; mouth like a cave entrance; markings resemble clan sigils carved into rock.",
+    "chakraAffinity": "earth",
+    "clanMarkings": "mottled rock sigils",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Uncommon",
+    "biomes": [
+      "reef",
+      "demersal",
+      "coastal"
+    ],
+    "weightKg": {
+      "min": 5,
+      "max": 200
+    },
+    "baseValue": {
+      "min": 20,
+      "max": 80
+    }
+  },
+  {
+    "name": "Flounder",
+    "themeName": "Camoflat Flounder",
+    "depthRange": "20–200m",
+    "description": "Flat, camouflaged fish with both eyes on one side.",
+    "visualNotes": "sandy mottled skin that takes patterns of nearby seals or scrolls; eye pair looks like a tiny mask.",
+    "chakraAffinity": "earth",
+    "clanMarkings": "masked eye pattern",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Uncommon",
+    "biomes": [
+      "demersal",
+      "coastal",
+      "sandy_bottoms"
+    ],
+    "weightKg": {
+      "min": 0.5,
+      "max": 5
+    },
+    "baseValue": {
+      "min": 8,
+      "max": 20
+    }
+  },
+  {
+    "name": "Red Drum",
+    "themeName": "Drumcrest Red",
+    "depthRange": "5–60m",
+    "description": "Copper-red fish with a black spot near the tail.",
+    "visualNotes": "single black 'eye' spot like a guardian sigil; scales flash copper when it drums water for alarms.",
+    "chakraAffinity": "fire",
+    "clanMarkings": "black tail eye",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Uncommon",
+    "biomes": [
+      "coastal",
+      "estuary",
+      "shallow_shelf"
+    ],
+    "weightKg": {
+      "min": 1,
+      "max": 20
+    },
+    "baseValue": {
+      "min": 12,
+      "max": 35
+    }
+  },
+  {
+    "name": "Barracuda",
+    "themeName": "Bladefang Barracuda",
+    "depthRange": "0–100m",
+    "description": "Long predator with pointed snout and sharp teeth.",
+    "visualNotes": "jagged tooth pattern reminiscent of small shuriken; narrow body with high speed lines; dorsal fin like a blade ridge.",
+    "chakraAffinity": "lightning",
+    "clanMarkings": "tooth silhouette stripe",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Rare",
+    "biomes": [
+      "coastal",
+      "pelagic",
+      "reef_edges"
+    ],
+    "weightKg": {
+      "min": 2,
+      "max": 25
+    },
+    "baseValue": {
+      "min": 25,
+      "max": 70
+    }
+  },
+  {
+    "name": "Haddock",
+    "themeName": "Ridge Haddock",
+    "depthRange": "40–450m",
+    "description": "Gray-silver fish with a dark lateral line and black spot.",
+    "visualNotes": "dark spot above pectoral looks like a checkpoint mark; neat fin geometry for realistic drawing.",
+    "chakraAffinity": "water",
+    "clanMarkings": "checkpoint dot",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Uncommon",
+    "biomes": [
+      "demersal",
+      "cold_water",
+      "continental_slope"
+    ],
+    "weightKg": {
+      "min": 1,
+      "max": 6
+    },
+    "baseValue": {
+      "min": 8,
+      "max": 18
+    }
+  },
+  {
+    "name": "Cod",
+    "themeName": "Boreal Cod",
+    "depthRange": "50–400m",
+    "description": "Chunky-bodied fish with chin barbel and mottled scales.",
+    "visualNotes": "chin barbel looks like a trailing rope talisman; broad fins with notch details.",
+    "chakraAffinity": "earth",
+    "clanMarkings": "subtle notch marks on fins",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Uncommon",
+    "biomes": [
+      "demersal",
+      "coastal",
+      "cold_water"
+    ],
+    "weightKg": {
+      "min": 2,
+      "max": 40
+    },
+    "baseValue": {
+      "min": 12,
+      "max": 30
+    }
+  },
+  {
+    "name": "Sea Bass",
+    "themeName": "Nightguard Bass",
+    "depthRange": "40–300m",
+    "description": "Dark sleek fish with spiny dorsal fin.",
+    "visualNotes": "dark back ideal for nighttime stealth scenes; spiny dorsal draws like armor spikes.",
+    "chakraAffinity": "yin",
+    "clanMarkings": "spine silhouettes",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Uncommon",
+    "biomes": [
+      "reef",
+      "coastal",
+      "demersal"
+    ],
+    "weightKg": {
+      "min": 1,
+      "max": 10
+    },
+    "baseValue": {
+      "min": 10,
+      "max": 25
+    }
+  },
+  {
+    "name": "Pollock",
+    "themeName": "Speckled Pollock",
+    "depthRange": "50–300m",
+    "description": "Silver-gray fish with elongated body and speckled back.",
+    "visualNotes": "speckle pattern useful for rock camouflage; soft jawline for quick sketches.",
+    "chakraAffinity": "water",
+    "clanMarkings": "speckle rows",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Common",
+    "biomes": [
+      "demersal",
+      "open_ocean"
+    ],
+    "weightKg": {
+      "min": 1,
+      "max": 20
+    },
+    "baseValue": {
+      "min": 5,
+      "max": 12
+    }
+  },
+  {
+    "name": "Marlin",
+    "themeName": "Spearwind Marlin",
+    "depthRange": "50–500m",
+    "description": "Massive predator with a long spear-like bill.",
+    "visualNotes": "long bill tapering into a ceremonial blade; cobalt back with streaks like wind scars.",
+    "chakraAffinity": "wind",
+    "clanMarkings": "blade streaks",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Rare",
+    "biomes": [
+      "pelagic",
+      "open_ocean",
+      "surface_to_midwater"
+    ],
+    "weightKg": {
+      "min": 50,
+      "max": 500
+    },
+    "baseValue": {
+      "min": 60,
+      "max": 200
+    }
+  },
+  {
+    "name": "Tuna",
+    "themeName": "Crescent Tuna",
+    "depthRange": "0–500m",
+    "description": "Bullet-shaped fish with metallic blue body and crescent tail.",
+    "visualNotes": "distinct crescent tail and ridged finlets provide silhouette recognition; ideal for dynamic action poses.",
+    "chakraAffinity": "yang",
+    "clanMarkings": "crescent tail band",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Uncommon",
+    "biomes": [
+      "pelagic",
+      "open_ocean",
+      "midwater"
+    ],
+    "weightKg": {
+      "min": 5,
+      "max": 300
+    },
+    "baseValue": {
+      "min": 20,
+      "max": 60
+    }
+  },
+  {
+    "name": "Swordfish",
+    "themeName": "Bladecrest Swordfish",
+    "depthRange": "200–600m",
+    "description": "Large predator with long flat sword-like bill.",
+    "visualNotes": "flat bill perfect for slicing volumes in dynamic art; dark back with metallic flanks.",
+    "chakraAffinity": "lightning",
+    "clanMarkings": "edge band on bill",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Rare",
+    "biomes": [
+      "pelagic",
+      "open_ocean",
+      "mid_to_deep"
+    ],
+    "weightKg": {
+      "min": 50,
+      "max": 650
+    },
+    "baseValue": {
+      "min": 70,
+      "max": 220
+    }
+  },
+  {
+    "name": "Halibut",
+    "themeName": "Platehal Halibut",
+    "depthRange": "100–700m",
+    "description": "Huge flatfish with both eyes on one side.",
+    "visualNotes": "large camo flanks that look like carved stone plates; underside pale like scroll paper.",
+    "chakraAffinity": "earth",
+    "clanMarkings": "plate-like mottling",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Rare",
+    "biomes": [
+      "demersal",
+      "coastal",
+      "continental_shelf"
+    ],
+    "weightKg": {
+      "min": 10,
+      "max": 300
+    },
+    "baseValue": {
+      "min": 50,
+      "max": 150
+    }
+  },
+  {
+    "name": "Wahoo",
+    "themeName": "Bluebolt Wahoo",
+    "depthRange": "0–300m",
+    "description": "Slender predator with vertical blue stripes.",
+    "visualNotes": "vertical lightning stripes, long jaw; drawn with taut muscles for high-speed scenes.",
+    "chakraAffinity": "lightning",
+    "clanMarkings": "vertical strike lines",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Rare",
+    "biomes": [
+      "pelagic",
+      "open_ocean",
+      "surface"
+    ],
+    "weightKg": {
+      "min": 2,
+      "max": 30
+    },
+    "baseValue": {
+      "min": 25,
+      "max": 80
+    }
+  },
+  {
+    "name": "Dorado (Mahi-Mahi)",
+    "themeName": "Aurablade Dorado",
+    "depthRange": "0–150m",
+    "description": "Vivid green, blue, and gold scales with blunt head.",
+    "visualNotes": "bright color gradients perfect for heroic catches; head appears like a helmet crest.",
+    "chakraAffinity": "yang",
+    "clanMarkings": "aural streak along back",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Uncommon",
+    "biomes": [
+      "pelagic",
+      "open_ocean",
+      "surface"
+    ],
+    "weightKg": {
+      "min": 1,
+      "max": 20
+    },
+    "baseValue": {
+      "min": 12,
+      "max": 40
+    }
+  },
+  {
+    "name": "Lanternfish",
+    "themeName": "Glowling Lantern",
+    "depthRange": "200–1000m",
+    "description": "Small deep-sea fish with glowing photophores along its body.",
+    "visualNotes": "rows of photophores like chakra beads; good reference for biolum color maps.",
+    "chakraAffinity": "yin",
+    "clanMarkings": "biolume bead rows",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Common",
+    "biomes": [
+      "midwater",
+      "deepsea",
+      "mesopelagic"
+    ],
+    "weightKg": {
+      "min": 0.02,
+      "max": 0.1
+    },
+    "baseValue": {
+      "min": 2,
+      "max": 5
+    }
+  },
+  {
+    "name": "Fangtooth",
+    "themeName": "Nightfang",
+    "depthRange": "200–1000m",
+    "description": "Menacing deep-sea predator with oversized fangs.",
+    "visualNotes": "oversized canines and huge head — emphasize silhouette; black matte skin to absorb light.",
+    "chakraAffinity": "yin",
+    "clanMarkings": "tooth crest",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Rare",
+    "biomes": [
+      "deepsea",
+      "mesopelagic",
+      "bathypelagic"
+    ],
+    "weightKg": {
+      "min": 0.5,
+      "max": 1.5
+    },
+    "baseValue": {
+      "min": 40,
+      "max": 100
+    }
+  },
+  {
+    "name": "Oarfish",
+    "themeName": "Sky-serpent Oarfish",
+    "depthRange": "200–1000m",
+    "description": "Elongated ribbon-like fish with silver scales and long dorsal crest.",
+    "visualNotes": "ancient serpentine body with flowing red dorsal fins like a ceremonial streamer; perfect 'legend' visual.",
+    "chakraAffinity": "void",
+    "clanMarkings": "long dorsal streamer",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Legendary",
+    "biomes": [
+      "pelagic",
+      "deepsea",
+      "open_ocean"
+    ],
+    "weightKg": {
+      "min": 50,
+      "max": 300
+    },
+    "baseValue": {
+      "min": 200,
+      "max": 500
+    }
+  },
+  {
+    "name": "Dragonfish",
+    "themeName": "Nightdrake Dragonfish",
+    "depthRange": "300–900m",
+    "description": "Slender dark fish with glowing lure under chin.",
+    "visualNotes": "lure looks like a tiny flame-scroll; narrow body with translucent fins — great for eerie compositions.",
+    "chakraAffinity": "yin",
+    "clanMarkings": "lure-scroll glow",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Rare",
+    "biomes": [
+      "deepsea",
+      "bathypelagic",
+      "midwater"
+    ],
+    "weightKg": {
+      "min": 0.2,
+      "max": 1
+    },
+    "baseValue": {
+      "min": 35,
+      "max": 90
+    }
+  },
+  {
+    "name": "Hatchetfish",
+    "themeName": "Edgehatchet",
+    "depthRange": "300–800m",
+    "description": "Tiny, flattened body shaped like a hatchet.",
+    "visualNotes": "sharp silhouette resembling a throwing tool; silver sheen with upturned eyes — great for stylized linework.",
+    "chakraAffinity": "wind",
+    "clanMarkings": "edge silhouette",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Uncommon",
+    "biomes": [
+      "midwater",
+      "deepsea",
+      "mesopelagic"
+    ],
+    "weightKg": {
+      "min": 0.05,
+      "max": 0.2
+    },
+    "baseValue": {
+      "min": 10,
+      "max": 25
+    }
+  },
+  {
+    "name": "Barreleye",
+    "themeName": "Glasshelm Barreleye",
+    "depthRange": "400–900m",
+    "description": "Transparent-headed fish with tubular green eyes pointing upward.",
+    "visualNotes": "clear cranial dome with green orb eyes — draw internal organs faintly visible for sci-fi aesthetic.",
+    "chakraAffinity": "void",
+    "clanMarkings": "dome halo",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Epic",
+    "biomes": [
+      "deepsea",
+      "midwater",
+      "bathypelagic"
+    ],
+    "weightKg": {
+      "min": 0.5,
+      "max": 2
+    },
+    "baseValue": {
+      "min": 100,
+      "max": 200
+    }
+  },
+  {
+    "name": "Viperfish",
+    "themeName": "Nightneedle Viper",
+    "depthRange": "400–1000m",
+    "description": "Needle-like predator with long fangs and bioluminescent spots.",
+    "visualNotes": "exaggerated fang silhouettes and glowing side spots — great for dramatic low-light renders.",
+    "chakraAffinity": "yin",
+    "clanMarkings": "biolume speck rows",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Epic",
+    "biomes": [
+      "deepsea",
+      "bathypelagic",
+      "midwater"
+    ],
+    "weightKg": {
+      "min": 0.5,
+      "max": 2
+    },
+    "baseValue": {
+      "min": 120,
+      "max": 250
+    }
+  },
+  {
+    "name": "Anglerfish",
+    "themeName": "Luremaster Angler",
+    "depthRange": "500–1000m",
+    "description": "Round predator with massive jaws and glowing lure.",
+    "visualNotes": "lure shaped like a sealed scroll with rune barbs; grotesque jaw, great for horror-styled character art.",
+    "chakraAffinity": "yin",
+    "clanMarkings": "lure rune",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Epic",
+    "biomes": [
+      "deepsea",
+      "demersal",
+      "bathypelagic"
+    ],
+    "weightKg": {
+      "min": 0.5,
+      "max": 5
+    },
+    "baseValue": {
+      "min": 150,
+      "max": 300
+    }
+  },
+  {
+    "name": "Blobfish",
+    "themeName": "Gloommote Blob",
+    "depthRange": "600–1000m",
+    "description": "Soft-bodied fish with gelatinous droopy features.",
+    "visualNotes": "gooey sagging forms that compress when surfaced; pallid pink tones for melancholy art beats.",
+    "chakraAffinity": "yin",
+    "clanMarkings": "none (amorphous)",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Rare",
+    "biomes": [
+      "deepsea",
+      "demersal",
+      "abyssal_slope"
+    ],
+    "weightKg": {
+      "min": 0.5,
+      "max": 2
+    },
+    "baseValue": {
+      "min": 40,
+      "max": 100
+    }
+  },
+  {
+    "name": "Gulper Eel",
+    "themeName": "Scrollgorge Gulper",
+    "depthRange": "500–1000m",
+    "description": "Enormous hinged mouth with eel-like body and bioluminescent tail tip.",
+    "visualNotes": "jaw like an unrolled scroll; thin body trailing off into darkness; small tail light like a signal bead.",
+    "chakraAffinity": "yin",
+    "clanMarkings": "scroll jaw pattern",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Epic",
+    "biomes": [
+      "deepsea",
+      "midwater",
+      "bathypelagic"
+    ],
+    "weightKg": {
+      "min": 1,
+      "max": 6
+    },
+    "baseValue": {
+      "min": 160,
+      "max": 350
+    }
+  },
+  {
+    "name": "Cookiecutter Shark",
+    "themeName": "Bitebrand Shark",
+    "depthRange": "100–1000m",
+    "description": "Small shark with cigar-shaped body and glowing belly.",
+    "visualNotes": "glowing belly used for luring; mouth ring has serrated pattern like a seal stamp; useful for scars lore.",
+    "chakraAffinity": "yin",
+    "clanMarkings": "bite ring motif",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Uncommon",
+    "biomes": [
+      "pelagic",
+      "deepsea",
+      "open_ocean"
+    ],
+    "weightKg": {
+      "min": 3,
+      "max": 6
+    },
+    "baseValue": {
+      "min": 20,
+      "max": 50
+    }
+  },
+  {
+    "name": "Greenland Shark",
+    "themeName": "Frostward Leviathan",
+    "depthRange": "200–600m",
+    "description": "Huge sluggish shark with dark rough skin.",
+    "visualNotes": "pitted skin like weathered armor; slow drifting pose suitable for ominous environmental art.",
+    "chakraAffinity": "earth",
+    "clanMarkings": "scattered barnacle crests",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Rare",
+    "biomes": [
+      "deepsea",
+      "cold_water",
+      "demersal"
+    ],
+    "weightKg": {
+      "min": 100,
+      "max": 1000
+    },
+    "baseValue": {
+      "min": 120,
+      "max": 300
+    }
+  },
+  {
+    "name": "Black Dragonfish",
+    "themeName": "Umbra Drake",
+    "depthRange": "500–1000m",
+    "description": "Sleek black body with fanglike teeth and bioluminescent organs.",
+    "visualNotes": "slim form with lit organ clusters like armor lights; ideal for silhouette and negative space art.",
+    "chakraAffinity": "yin",
+    "clanMarkings": "biolume flank lines",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Epic",
+    "biomes": [
+      "deepsea",
+      "bathypelagic"
+    ],
+    "weightKg": {
+      "min": 0.2,
+      "max": 1
+    },
+    "baseValue": {
+      "min": 100,
+      "max": 250
+    }
+  },
+  {
+    "name": "Deep Sea Smelt",
+    "themeName": "Pale Needle Smelt",
+    "depthRange": "400–800m",
+    "description": "Small silver fish with translucent fins and faint glow.",
+    "visualNotes": "delicate body, faint biolume — useful for ambient crowding in deepwater scenes.",
+    "chakraAffinity": "yin",
+    "clanMarkings": "subtle luminescent band",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Common",
+    "biomes": [
+      "midwater",
+      "deepsea",
+      "mesopelagic"
+    ],
+    "weightKg": {
+      "min": 0.05,
+      "max": 0.2
+    },
+    "baseValue": {
+      "min": 2,
+      "max": 6
+    }
+  },
+  {
+    "name": "Bigeye Tuna",
+    "themeName": "Mooneye Tuna",
+    "depthRange": "100–500m",
+    "description": "Large tuna with oversized eyes and metallic blue scales.",
+    "visualNotes": "large reflective eyes good for nocturnal designs; ridged finlets for motion blur sketches.",
+    "chakraAffinity": "water",
+    "clanMarkings": "eye halo",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Rare",
+    "biomes": [
+      "pelagic",
+      "open_ocean",
+      "midwater"
+    ],
+    "weightKg": {
+      "min": 20,
+      "max": 200
+    },
+    "baseValue": {
+      "min": 40,
+      "max": 120
+    }
+  },
+  {
+    "name": "Escolar",
+    "themeName": "Oilcoat Escolar",
+    "depthRange": "200–900m",
+    "description": "Dark brown fish with oily sheen and sharp fins.",
+    "visualNotes": "reflective oily skin; deep brown tone good for moody palettes; fin edges sharp like blades.",
+    "chakraAffinity": "yin",
+    "clanMarkings": "sheen streaks",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Uncommon",
+    "biomes": [
+      "pelagic",
+      "deepsea",
+      "open_ocean"
+    ],
+    "weightKg": {
+      "min": 2,
+      "max": 20
+    },
+    "baseValue": {
+      "min": 12,
+      "max": 35
+    }
+  },
+  {
+    "name": "Roughy (Orange)",
+    "themeName": "Ember Roughy",
+    "depthRange": "200–800m",
+    "description": "Bright orange fish with rough scales and large eyes.",
+    "visualNotes": "striking orange for contrast against deep blues; rough scale texture for tactile brushwork.",
+    "chakraAffinity": "fire",
+    "clanMarkings": "eye halo texture",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Rare",
+    "biomes": [
+      "demersal",
+      "deepsea",
+      "continental_slope"
+    ],
+    "weightKg": {
+      "min": 1,
+      "max": 7
+    },
+    "baseValue": {
+      "min": 30,
+      "max": 90
+    }
+  },
+  {
+    "name": "Spookfish",
+    "themeName": "Wraith Spookfish",
+    "depthRange": "600–1000m",
+    "description": "Translucent deep-sea fish with long snout.",
+    "visualNotes": "ghostly translucence and long needle snout; great for horror composition and rim lighting.",
+    "chakraAffinity": "void",
+    "clanMarkings": "ghostly veil",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Epic",
+    "biomes": [
+      "deepsea",
+      "bathypelagic",
+      "mesopelagic"
+    ],
+    "weightKg": {
+      "min": 0.5,
+      "max": 3
+    },
+    "baseValue": {
+      "min": 140,
+      "max": 280
+    }
+  },
+  {
+    "name": "Stoplight Loosejaw",
+    "themeName": "Signaljaw Loosejaw",
+    "depthRange": "300–1000m",
+    "description": "Thin-bodied fish with hinged jaw and bioluminescent red/green lights.",
+    "visualNotes": "biolume lights arranged like traffic beads; jaw hinge exaggerated for action reads.",
+    "chakraAffinity": "yin",
+    "clanMarkings": "biolume paired lights",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Epic",
+    "biomes": [
+      "deepsea",
+      "midwater",
+      "bathypelagic"
+    ],
+    "weightKg": {
+      "min": 0.2,
+      "max": 1
+    },
+    "baseValue": {
+      "min": 110,
+      "max": 250
+    }
+  },
+  {
+    "name": "Tripod Fish",
+    "themeName": "Standlight Tripod",
+    "depthRange": "700–1000m",
+    "description": "Deep-sea fish with long fin rays that extend to form 'legs' resting on the seafloor.",
+    "visualNotes": "long pedestal-like fins forming tripods; perfect strange silhouette for mythic captures.",
+    "chakraAffinity": "void",
+    "clanMarkings": "leg filament tufts",
+    "spawnLocations": [
+      "Konoha Riverbank"
+    ],
+    "rarity": "Legendary",
+    "biomes": [
+      "deepsea",
+      "abyssal",
+      "demersal"
+    ],
+    "weightKg": {
+      "min": 1,
+      "max": 5
+    },
+    "baseValue": {
+      "min": 250,
+      "max": 600
+    }
+  }
+]

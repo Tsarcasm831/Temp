@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ninja Fishing -  Monolithic Prototype</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Import Map for Three.js: avoids bare-specifier error -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+<div id="app"></div>
+<div id="loading">
+  <div class="box">
+    <h2>Loading…</h2>
+    <p id="loadingStatus">Preparing assets</p>
+  </div>
+</div>
+<div id="hud">
+  <div><b>Ninja Fishing (Prototype)</b></div>
+  <div>Phase: <span id="phase">READY</span></div>
+  <div>Score: <span id="score">0</span></div>
+  <div>Caught this run: <span id="caught">0</span>/10</div>
+  <hr style="border:none;border-top:1px solid #1f2937;margin:8px 0">
+  <div><b>Controls</b></div>
+  <div>• <kbd>F</kbd> or Left‑Click: Cast / Reel</div>
+  <div>• Slice phase: drag pointer across fish to cut</div>
+  <div>• <kbd>R</kbd>: Reset run • <kbd>Esc</kbd>: Full reset</div>
+  <div style="margin-top:6px;">
+    <b>Dev depth</b>:
+    <button id="depthDec" title="deeper">−</button>
+    <button id="depthInc" title="shallower">+</button>
+    <span style="margin-left:6px;">Limit: <span id="depthLimit">-10</span>m</span>
+  </div>
+  <div style="margin-top:8px;">
+    <button id="fishLibraryBtn">Fish Library</button>
+  </div>
+</div>
+<div id="toast"></div>
+<div id="cta">
+  <h1>Cast to begin</h1>
+  <p><kbd>F</kbd> or Left‑Click to drop the line ↓</p>
+</div>
+<div id="log"></div>
+<div id="depthMeter">
+  <div class="header"><span>Depth</span><span id="depthVal">0m</span></div>
+  <div class="bar"><div id="depthMarker"></div></div>
+  <div class="footer"><span>0m</span><span id="depthBottom">-10m</span></div>
+</div>
+
+<div id="journalModal" aria-hidden="true" style="display:none;">
+  <div class="panel">
+    <div class="head"><b>Fish Library</b><button id="journalClose" aria-label="Close">×</button></div>
+    <div id="journalContent" class="body"></div>
+  </div>
+</div>
+
+<!-- replace inline script with module entry -->
+<script type="module" src="src/app.js"></script>
+</body>
+</html>

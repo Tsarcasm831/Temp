@@ -123,6 +123,9 @@ export function initScene(mountEl, onLockedChange){
             nearest.open = !nearest.open;
             nearest.target = nearest.open ? nearest.openDir * Math.PI*0.7 : 0;
             if (nearest === state.doors[0] && nearest.open) {
+              // Release mouse lock before transitioning into the interior
+              try { controls.unlock(); } catch {}
+              try { document.exitPointerLock?.(); } catch {}
               try { window.parent?.postMessage({ type: 'openHokageInterior' }, '*'); } catch {}
             }
             nearest.autoCloseAt = nearest.open ? performance.now() + 4500 : 0;

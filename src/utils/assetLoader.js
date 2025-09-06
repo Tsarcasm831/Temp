@@ -33,6 +33,16 @@ const IMAGE_ASSETS = [
     './ground_texture.png'
 ];
 
+// NEW: 3D model assets to pre-cache (include external fallback for Hospital)
+const MODEL_ASSETS = [
+    // Local copies (prefer local for performance when available)
+    '/src/assets/hokage_office.glb',
+    '/src/assets/Hokage_Monument.glb',
+    '/src/assets/Hospital.glb',
+    // External fallback (opaque cached via no-cors)
+    'https://www.lordtsarcasm.com/assets/NarutoGame/Buildings/Hospital.glb'
+];
+
 /**
  * Fetches and parses a JSON file to get a list of asset URLs.
  * @param {string} jsonFileName - The name of the JSON file in the JSON_DIRECTORY.
@@ -80,8 +90,8 @@ export async function initializeAssetLoader() {
     // Remove duplicates
     allAssetUrls = [...new Set(urls)];
 
-    // Include local image assets so they are precached during the first loading screen
-    allAssetUrls = [...new Set([...allAssetUrls, ...IMAGE_ASSETS])];
+    // Include local image assets and model assets so they are precached during the first loading screen
+    allAssetUrls = [...new Set([...allAssetUrls, ...IMAGE_ASSETS, ...MODEL_ASSETS])];
     
     console.log(`Found ${allAssetUrls.length} unique assets to potentially download.`);
 }
@@ -128,7 +138,22 @@ export async function startCaching(onProgress) {
                 try {
                     const cachedResponse = await cache.match(url);
                     if (!cachedResponse) {
-                        await cache.add(url);
+                        // Cross-origin: prefer fetch(no-cors) + cache.put; if that fails, fall back to a plain fetch to warm HTTP cache.
+                        if (/^https?:\/\//i.test(url)) {
+                            try {
+                                const req = new Request(url, { mode: 'no-cors', credentials: 'omit' });
+                                const res = await fetch(req);
+                                // Store opaque response if available; some browsers may reject opaqueredirect.
+                                if (res && res.type !== 'opaqueredirect') {
+                                    try { await cache.put(req, res.clone()); } catch (_) { /* ignore */ }
+                                }
+                            } catch (e) {
+                                // non-fatal; remote prefetch is best-effort only
+                                console.warn(`Skipping cross-origin cache for: ${url} (${e?.message || e})`);
+                            }
+                        } else {
+                            await cache.add(url);
+                        }
                     }
                 } catch (error) {
                     console.error(`Failed to cache asset: ${url}`, error);

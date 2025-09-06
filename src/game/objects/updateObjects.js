@@ -36,6 +36,7 @@ const ENABLE_KITBASH = false;
 import { createCentralWallWithGate } from './walls/centralWall.js';
 import { placeHokagePalace } from './placements/hokagePalace.js';
 import { placeHokageMonument } from './placements/hokageMonument.js';
+import { placeHospital } from './placements/hospital.js';
 import { placeIchiraku } from './placements/ichiraku.js';
 import { placeKonohaGates } from './placements/konohaGates.js';
 import { placeCitySlice } from './placements/citySlice.js';
@@ -139,6 +140,10 @@ export function updateObjects(scene, currentObjects, settings) {
 
   const ichiraku = placeIchiraku(scene, objectGrid, worldSize, settings);
   if (ichiraku) renderObjects.push(ichiraku);
+
+  // Hospital GLB placed at configured grid label (default JQ150)
+  const hospital = placeHospital(scene, objectGrid, worldSize, settings);
+  if (hospital) renderObjects.push(hospital);
 
   if (ENABLE_CITY_SLICE) {
     const citySlice = placeCitySlice(scene, objectGrid, settings);

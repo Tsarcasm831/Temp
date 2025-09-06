@@ -25,7 +25,7 @@ const HOKAGE_USE_GLB = true;
    Note: Use a URL relative to the site root so it resolves correctly at runtime. */
 const HOKAGE_GLB_PATH = '/src/assets/hokage_office.glb';
 /* @tweakable model uniform scale applied after loading */
-const HOKAGE_GLB_SCALE = 24;
+const HOKAGE_GLB_SCALE = 25;
 /* @tweakable additional Y-axis rotation (radians) applied to the loaded model */
 /** @tweakable rotate GLB +Y by -90° (clockwise when viewed from above) */
 const HOKAGE_GLB_ROTATE_Y = -Math.PI / 2;

@@ -8,6 +8,7 @@ import { initializeAssetLoader, startCaching } from "./utils/assetLoader.js";
 import { prefetchLocationAssets } from "../scripts/prefetchLocationAssets.js";
 import { MainMenu } from "./components/UI/MainMenu.jsx";
 import { LoadingScreen } from "./components/UI/LoadingScreen.jsx";
+import MusicPlayer from "./components/UI/MusicPlayer.jsx";
 import CharacterPanel from "./components/UI/CharacterPanel.jsx";
 import { InventoryPanel } from "./components/UI/InventoryPanel.jsx";
 import { WorldMapPanel } from "./components/UI/WorldMapPanel.jsx";
@@ -24,6 +25,7 @@ import PauseMenu from "./components/UI/PauseMenu.jsx";
 import HokageOfficeModal from "./components/UI/HokageOfficeModal.jsx";
 import KitbashBuildingModal from "./components/UI/KitbashBuildingModal.jsx";
 import JutsuModal from "./components/UI/JutsuModal.jsx";
+import { preloadMusic, musicPlay, musicPause, musicState } from "./utils/musicManager.js";
 const VERSION_PREFIX = "v";
 const OVERRIDE_VERSION = null;
 const OpenWorldGame = () => {
@@ -86,10 +88,17 @@ const OpenWorldGame = () => {
   const joystickRef = useRef(null);
   const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
   const { playerRef, zoomRef, cameraOrbitRef, cameraPitchRef } = useThreeScene({ mountRef, keysRef, joystickRef, setPlayerPosition, settings, setWorldObjects, isPlaying: gameState === "Playing", onReady: useCallback(() => setGameReady(true), []) });
+  const musicWasPlayingRef = useRef(false);
   useEffect(() => {
     const open = () => {
       window.__gamePaused = true;
       setShowHokageOffice(true);
+      // Release pointer lock so mouse is free inside the interior UI
+      try { if (document.pointerLockElement) document.exitPointerLock(); } catch (_) {}
+      try {
+        musicWasPlayingRef.current = !!musicState().isPlaying;
+        musicPause();
+      } catch (_) {}
     };
     window.addEventListener("open-hokage-office", open);
     const openKit = (e) => {
@@ -110,10 +119,19 @@ const OpenWorldGame = () => {
       await initializeAssetLoader();
       window.assetLoaderInitialized = true;
     }
-    // First, prefetch the jutsu by_group assets listed in cache/by_group/location.json
-    await prefetchLocationAssets(setLoadingProgress);
-    // Then, continue with existing asset caching pipeline
-    await startCaching(setLoadingProgress);
+    // Map sub-progress (0..100) to segments of the total bar
+    const seg = (start, span) => (p) => {
+      const v = Math.max(0, Math.min(100, Number(p) || 0));
+      const mapped = Math.round(start + (v / 100) * span);
+      setLoadingProgress(mapped);
+    };
+    setLoadingProgress(0);
+    // First, prefetch the jutsu by_group assets listed in cache/by_group/location.json (0..30%)
+    await prefetchLocationAssets(seg(0, 30));
+    // Then, continue with existing asset caching pipeline (30..80%)
+    await startCaching(seg(30, 50));
+    // Finally, preload background music (80..100%)
+    try { await preloadMusic(seg(80, 20)); } catch (_) {}
     // Preload static district layout JSONs so world build can use them synchronously
     try {
       const ids = Object.keys(MAP_DEFAULT_MODEL?.districts || {}).filter(id => {
@@ -152,6 +170,8 @@ const OpenWorldGame = () => {
       }));
     } catch (_) { /* ignore */ }
     setGameState("Playing");
+    // Try to auto-start music; if blocked by autoplay policy, UI will show hint
+    try { musicPlay(); } catch (_) {}
   };
   return /* @__PURE__ */ jsxDEV("div", { className: "relative w-full h-screen overflow-hidden bg-black", children: [
     gameState === "MainMenu" && /* @__PURE__ */ jsxDEV(MainMenu, { version, onStart: handleStartGame, onOptions: () => setShowSettings(true), onChangelog: () => setShowChangelog(true), onCredits: () => setShowCredits(true) }, void 0, false, {
@@ -188,6 +208,11 @@ const OpenWorldGame = () => {
     }) }, void 0, false, {
       fileName: "<stdin>",
       lineNumber: 63,
+      columnNumber: 9
+    }),
+    gameState === "Playing" && /* @__PURE__ */ jsxDEV(MusicPlayer, {}, void 0, false, {
+      fileName: "<stdin>",
+      lineNumber: 64,
       columnNumber: 9
     }),
     /* NEW: Pause Menu overlay */
@@ -295,6 +320,10 @@ const OpenWorldGame = () => {
     gameState === "Playing" && showHokageOffice && /* @__PURE__ */ jsxDEV(HokageOfficeModal, { onClose: () => {
       window.__gamePaused = false;
       setShowHokageOffice(false);
+      try {
+        if (musicWasPlayingRef.current) { musicPlay(); }
+      } catch (_) {}
+      musicWasPlayingRef.current = false;
     } }, void 0, false),
     /* NEW: Kitbash Building Modal */
     gameState === "Playing" && showKitbashModal && /* @__PURE__ */ jsxDEV(KitbashBuildingModal, { details: kitbashDetails, onClose: () => {
