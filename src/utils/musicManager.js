@@ -1,7 +1,7 @@
 // Simple global music manager used to preload and control background music.
 // Exposes a singleton on window.__music for easy access across components.
 
-import playlist from '/src/assets/Songs/playlist.js';
+import playlist from '/src/assets/songs/playlist.js';
 
 function ensureGlobal() {
   if (!window.__music) {

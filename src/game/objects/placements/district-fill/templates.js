@@ -1,6 +1,5 @@
 import { getBuildsForVariant } from '../../../../components/game/objects/citySlice.builds.js';
 import { buildKitbashSet } from '../../../../components/game/objects/kitbash.builds.js';
-import { buildHyuugaSet } from '../../../../components/game/objects/hyuuga.builds.js';
 import { DISTRICT_DEFAULT_VARIETY_RATIO } from './constants.js';
 import { hash32 } from './utils.js';
 
@@ -13,10 +12,6 @@ export function makeTemplatePool(THREE, { source = 'mixed', paletteIndex = 0 } =
   if (source === 'kitbash' || source === 'mixed') {
     const kb = buildKitbashSet(THREE, { count: 28, paletteIndex });
     pool.push(...kb);
-  }
-  if (source === 'hyuuga') {
-    const hy = buildHyuugaSet(THREE, { count: 28, paletteIndex });
-    pool.push(...hy);
   }
   return pool;
 }

@@ -86,19 +86,21 @@ const OpenWorldGame = () => {
   };
   const keysRef = usePlayerControls(uiState);
   const joystickRef = useRef(null);
-  const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
   const { playerRef, zoomRef, cameraOrbitRef, cameraPitchRef } = useThreeScene({ mountRef, keysRef, joystickRef, setPlayerPosition, settings, setWorldObjects, isPlaying: gameState === "Playing", onReady: useCallback(() => setGameReady(true), []) });
   const musicWasPlayingRef = useRef(false);
   useEffect(() => {
     const open = () => {
       window.__gamePaused = true;
       setShowHokageOffice(true);
-      // Release pointer lock so mouse is free inside the interior UI
-      try { if (document.pointerLockElement) document.exitPointerLock(); } catch (_) {}
+      try {
+        if (document.pointerLockElement) document.exitPointerLock();
+      } catch (_) {
+      }
       try {
         musicWasPlayingRef.current = !!musicState().isPlaying;
         musicPause();
-      } catch (_) {}
+      } catch (_) {
+      }
     };
     window.addEventListener("open-hokage-office", open);
     const openKit = (e) => {
@@ -119,38 +121,36 @@ const OpenWorldGame = () => {
       await initializeAssetLoader();
       window.assetLoaderInitialized = true;
     }
-    // Map sub-progress (0..100) to segments of the total bar
     const seg = (start, span) => (p) => {
       const v = Math.max(0, Math.min(100, Number(p) || 0));
-      const mapped = Math.round(start + (v / 100) * span);
+      const mapped = Math.round(start + v / 100 * span);
       setLoadingProgress(mapped);
     };
     setLoadingProgress(0);
-    // First, prefetch the jutsu by_group assets listed in cache/by_group/location.json (0..30%)
     await prefetchLocationAssets(seg(0, 30));
-    // Then, continue with existing asset caching pipeline (30..80%)
     await startCaching(seg(30, 50));
-    // Finally, preload background music (80..100%)
-    try { await preloadMusic(seg(80, 20)); } catch (_) {}
-    // Preload static district layout JSONs so world build can use them synchronously
     try {
-      const ids = Object.keys(MAP_DEFAULT_MODEL?.districts || {}).filter(id => {
+      await preloadMusic(seg(80, 20));
+    } catch (_) {
+    }
+    try {
+      const ids = Object.keys(MAP_DEFAULT_MODEL?.districts || {}).filter((id) => {
         const low = String(id).toLowerCase();
-        return low.startsWith('district') || low.startsWith('residential') || low.startsWith('hyuuga');
+        return low.startsWith("district") || low.startsWith("residential") || low.startsWith("hyuuga");
       });
       window.__districtLayouts = window.__districtLayouts || {};
       const tryFetch = async (urls) => {
         for (const url of urls) {
           try {
-            const res = await fetch(url, { credentials: 'omit' });
+            const res = await fetch(url, { credentials: "omit" });
             if (res.ok) return res;
-          } catch (_) { /* continue */ }
+          } catch (_) {
+          }
         }
         return null;
       };
       await Promise.all(ids.map(async (id) => {
         try {
-          // Prefer new curated JSONs; try relative then absolute root to support subpath deployments
           const res = await tryFetch([
             `map/district-buildings/json/${id}.buildings.json`,
             `/map/district-buildings/json/${id}.buildings.json`,
@@ -162,16 +162,20 @@ const OpenWorldGame = () => {
             const data = await res.json();
             if (Array.isArray(data)) {
               window.__districtLayouts[id] = { entries: data };
-            } else if (data && typeof data === 'object' && Array.isArray(data.entries)) {
+            } else if (data && typeof data === "object" && Array.isArray(data.entries)) {
               window.__districtLayouts[id] = data;
             }
           }
-        } catch (_) { /* ignore */ }
+        } catch (_) {
+        }
       }));
-    } catch (_) { /* ignore */ }
+    } catch (_) {
+    }
     setGameState("Playing");
-    // Try to auto-start music; if blocked by autoplay policy, UI will show hint
-    try { musicPlay(); } catch (_) {}
+    try {
+      musicPlay();
+    } catch (_) {
+    }
   };
   return /* @__PURE__ */ jsxDEV("div", { className: "relative w-full h-screen overflow-hidden bg-black", children: [
     gameState === "MainMenu" && /* @__PURE__ */ jsxDEV(MainMenu, { version, onStart: handleStartGame, onOptions: () => setShowSettings(true), onChangelog: () => setShowChangelog(true), onCredits: () => setShowCredits(true) }, void 0, false, {
@@ -231,7 +235,7 @@ const OpenWorldGame = () => {
         setGameState("MainMenu");
       }
     }, void 0, false),
-    gameState === "Playing" && (isTouchDevice || showMobileControls) && /* @__PURE__ */ jsxDEV(MobileControls, {
+    gameState === "Playing" && showMobileControls && /* @__PURE__ */ jsxDEV(MobileControls, {
       joystickRef,
       keysRef,
       zoomRef,
@@ -321,8 +325,11 @@ const OpenWorldGame = () => {
       window.__gamePaused = false;
       setShowHokageOffice(false);
       try {
-        if (musicWasPlayingRef.current) { musicPlay(); }
-      } catch (_) {}
+        if (musicWasPlayingRef.current) {
+          musicPlay();
+        }
+      } catch (_) {
+      }
       musicWasPlayingRef.current = false;
     } }, void 0, false),
     /* NEW: Kitbash Building Modal */

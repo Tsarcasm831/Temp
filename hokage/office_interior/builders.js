@@ -1,207 +1,203 @@
 import * as THREE from "three";
+import { makeHokagePanel } from "./textures.js";
 
-// Smooth circular walls with a large window opening behind the desk.
-// Adds separate invisible box colliders so movement stays accurate without visual seams.
 export function buildWalls(scene){
+  const radius = 6.9, height = 3.0, segments = 14;
   const group = new THREE.Group();
-  group.name = "Walls";
-  scene.add(group);
 
-  const radius = 7.0;   // match floor/ceiling radius from sceneSetup
-  const height = 3.0;   // slightly below the 3.1m ceiling disc
-  const segs = 96;      // visual smoothness for curved walls
+  const wood = new THREE.MeshStandardMaterial({ color: 0xC79A62, metalness: 0.05, roughness: 0.75 });
+  const mullion = new THREE.MeshStandardMaterial({ color: 0xB98B56, metalness: 0.1, roughness: 0.6 });
+  const glassMat = new THREE.MeshPhysicalMaterial({ color: 0xFFFFFF, transmission: 0.9, opacity: 1, transparent: true, roughness: 0.1, thickness: 0.05, ior: 1.2 });
 
-  // two-tone wall (lower/upper)
-  const lowerH = 1.05;
-  const upperH = height - lowerH;
-  const lowerMat = new THREE.MeshStandardMaterial({ color: 0xe8d397, roughness: 0.95, metalness: 0.02 });
-  const upperMat = new THREE.MeshStandardMaterial({ color: 0x8a5b3f, roughness: 0.9, metalness: 0.04 });
+  for (let i=0;i<segments;i++){
+    const theta0 = (i/segments) * Math.PI*2;
+    const theta1 = ((i+1)/segments) * Math.PI*2;
+    const theta = (theta0+theta1)/2;
 
-  // Window opening centered toward -Z (behind the desk)
-  const windowCenter = Math.PI;      // -Z direction
-  const windowHalf = 0.55;           // radians (opening ~63°)
+    const isWindow = (i % 2 === 0) || (i === Math.floor(segments/2));
+    const panelWidth = 2 * Math.sin((theta1-theta0)/2) * radius;
 
-  // helper to build a curved wall arc
-  function curvedBand(h, mat, thetaStart, thetaLength){
-    const geo = new THREE.CylinderGeometry(radius, radius, h, segs, 1, true, thetaStart, thetaLength);
-    const mesh = new THREE.Mesh(geo, mat);
-    mesh.position.y = h/2;
-    mesh.castShadow = true; mesh.receiveShadow = true;
-    return mesh;
-  }
-
-  // left arc
-  const leftLen = Math.max(0, windowCenter - windowHalf);
-  if (leftLen > 0){
-    const lowerLeft = curvedBand(lowerH, lowerMat, 0, leftLen);
-    const upperLeft = curvedBand(upperH, upperMat, 0, leftLen); upperLeft.position.y = lowerH + upperH/2;
-    group.add(lowerLeft, upperLeft);
-  }
-  // right arc
-  const rightStart = windowCenter + windowHalf;
-  const rightLen = Math.max(0, Math.PI*2 - (windowCenter + windowHalf));
-  if (rightLen > 0){
-    const lowerRight = curvedBand(lowerH, lowerMat, rightStart, rightLen);
-    const upperRight = curvedBand(upperH, upperMat, rightStart, rightLen); upperRight.position.y = lowerH + upperH/2;
-    group.add(lowerRight, upperRight);
-  }
-
-  // trims (slightly offset outward to avoid z-fighting)
-  const trimMat = new THREE.MeshStandardMaterial({ color: 0x5f3a24, roughness: 0.8, metalness: 0.05, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 });
-  const trimOffset = 0.012;
-  function curvedTrim(y){
-    if (leftLen > 0){
-      const t1 = new THREE.Mesh(new THREE.CylinderGeometry(radius + trimOffset, radius + trimOffset, 0.055, segs, 1, true, 0, leftLen), trimMat);
-      t1.position.y = y; group.add(t1);
-    }
-    if (rightLen > 0){
-      const t2 = new THREE.Mesh(new THREE.CylinderGeometry(radius + trimOffset, radius + trimOffset, 0.055, segs, 1, true, rightStart, rightLen), trimMat);
-      t2.position.y = y; group.add(t2);
-    }
-  }
-  curvedTrim(lowerH + 0.001);
-  curvedTrim(height - 0.055 + 0.001);
-
-  // simple window frame across the opening (visual only)
-  const frameMat = new THREE.MeshStandardMaterial({ color: 0x3b2b1c, roughness: 0.85, metalness: 0.04 });
-  const frame = new THREE.Group(); group.add(frame);
-  const openR = radius - 0.02;
-  const w = 3.8, h = 2.1, depth = 0.06;
-  const bar = (sx, sy, sw, sh) => {
-    const m = new THREE.Mesh(new THREE.BoxGeometry(sw, sh, depth), frameMat);
-    const ang = windowCenter; // point toward -Z
-    m.position.set(Math.sin(ang) * openR, sy, Math.cos(ang) * openR);
-    // orient facing inward
-    m.lookAt(0, sy, 0); m.rotateY(Math.PI);
-    m.castShadow = true; m.receiveShadow = true;
-    m.scale.x = 1; m.scale.y = 1;
-    // offset sideways along local X for left/right pieces
-    m.translateX(sx);
-    return m;
-  };
-  // outer rectangle (top/bottom + sides) arranged around center
-  frame.add(bar(0, lowerH + upperH - h/2, w, 0.08)); // top
-  frame.add(bar(0, lowerH + 0.02, w, 0.08));         // bottom
-  frame.add(bar(-w/2 + 0.04, lowerH + upperH/2, 0.08, h)); // left
-  frame.add(bar(+w/2 - 0.04, lowerH + upperH/2, 0.08, h)); // right
-
-  // Invisible colliders approximating the walls (exclude window opening)
-  const colliderMat = new THREE.MeshBasicMaterial({ visible: false });
-  const colliderCount = 28;
-  for (let i = 0; i < colliderCount; i++){
-    const a0 = (i / colliderCount) * Math.PI * 2;
-    const a1 = ((i + 1) / colliderCount) * Math.PI * 2;
-    const aMid = (a0 + a1) * 0.5;
-    const angDiff = Math.atan2(Math.sin(aMid - windowCenter), Math.cos(aMid - windowCenter));
-    if (Math.abs(angDiff) < windowHalf) continue; // skip inside the window span
-
-    const segWidth = (a1 - a0) * radius;
-    const thickness = 0.16;
-    // lower and upper colliders (merge height into one box to reduce count)
-    const col = new THREE.Mesh(new THREE.BoxGeometry(segWidth, height, thickness), colliderMat);
-    col.position.set(Math.sin(aMid) * radius, height/2, Math.cos(aMid) * radius);
-    col.lookAt(0, col.position.y, 0);
-    col.rotateY(Math.PI);
-    col.userData = { collide: true };
+    const col = new THREE.Mesh(new THREE.BoxGeometry(0.16, height, 0.6), mullion);
+    col.position.set(Math.sin(theta0)*radius, height/2-0.02, Math.cos(theta0)*radius);
+    col.lookAt(0,col.position.y,0);
+    col.userData.collide = true;
     group.add(col);
-  }
 
-  return group;
-}
+    const col2 = col.clone();
+    col2.position.set(Math.sin(theta1)*radius, height/2-0.02, Math.cos(theta1)*radius);
+    col2.userData.collide = true;
+    group.add(col2);
 
-// Simple wooden desk with collision on the tabletop and front panel.
-export function buildDesk(){
-  const group = new THREE.Group();
-  group.name = "Desk";
+    const railTop = new THREE.Mesh(new THREE.BoxGeometry(panelWidth-0.22, 0.16, 0.5), mullion);
+    railTop.position.set(Math.sin(theta)*radius, height-0.08, Math.cos(theta)*radius);
+    railTop.lookAt(0,railTop.position.y,0);
+    railTop.userData.collide = true;
+    group.add(railTop);
 
-  const wood = new THREE.MeshStandardMaterial({ color: 0x6b5234, roughness: 0.85, metalness: 0.05 });
-  const dark = new THREE.MeshStandardMaterial({ color: 0x3a2a1c, roughness: 0.9, metalness: 0.04 });
+    const sill = railTop.clone();
+    sill.position.y = 0.9;
+    sill.userData.collide = true;
+    group.add(sill);
 
-  // desktop
-  const topW = 1.8, topD = 0.9, topT = 0.06, topY = 0.78;
-  const top = new THREE.Mesh(new THREE.BoxGeometry(topW, topT, topD), wood);
-  top.position.set(0, topY, 0);
-  top.castShadow = true; top.receiveShadow = true;
-  top.userData = { collide: true };
-  group.add(top);
-
-  // modesty/front panel
-  const panel = new THREE.Mesh(new THREE.BoxGeometry(topW - 0.12, 0.5, 0.04), dark);
-  panel.position.set(0, topY - 0.25, -topD * 0.48);
-  panel.castShadow = true; panel.receiveShadow = true;
-  panel.userData = { collide: true };
-  group.add(panel);
-
-  // legs
-  const legGeo = new THREE.BoxGeometry(0.08, topY - 0.05, 0.08);
-  const legY = (topY - 0.05) / 2;
-  for (const sx of [-1, 1]){
-    for (const sz of [-1, 1]){
-      const leg = new THREE.Mesh(legGeo, dark);
-      leg.position.set((topW * 0.5 - 0.12) * sx, legY, (topD * 0.5 - 0.12) * sz);
-      leg.castShadow = true; leg.receiveShadow = true;
-      group.add(leg);
+    if (isWindow){
+      const plane = new THREE.Mesh(new THREE.PlaneGeometry(panelWidth-0.28, height-1.06), glassMat);
+      plane.position.set(Math.sin(theta)*radius, (height-0.9)/2+0.9, Math.cos(theta)*radius);
+      plane.lookAt(0,plane.position.y,0);
+      plane.userData.collide = true;
+      group.add(plane);
+    } else {
+      const wall = new THREE.Mesh(new THREE.BoxGeometry(panelWidth-0.24, height-1.06, 0.45), wood);
+      wall.position.set(Math.sin(theta)*radius, (height-0.9)/2+0.9, Math.cos(theta)*radius);
+      wall.lookAt(0,wall.position.y,0);
+      wall.castShadow = true; wall.receiveShadow = true;
+      wall.userData.collide = true;
+      group.add(wall);
     }
   }
 
-  return group;
+  scene.add(group);
 }
 
-// Small decorative props to place on the desk (no collision).
+export function buildDesk(){
+  const g = new THREE.Group();
+
+  const base = new THREE.Mesh(
+    new THREE.CylinderGeometry(2.2, 2.2, 1.0, 48, 1, true),
+    new THREE.MeshStandardMaterial({ color: 0xD6B88A, metalness: 0.06, roughness: 0.65 })
+  );
+  base.scale.z = 0.62;
+  base.position.y = 0.5;
+  base.castShadow = true; base.receiveShadow = true;
+  base.userData.collide = true;
+  g.add(base);
+
+  const top = new THREE.Mesh(
+    new THREE.CylinderGeometry(2.3, 2.3, 0.08, 48),
+    new THREE.MeshStandardMaterial({ color: 0xE6D1A9, metalness: 0.04, roughness: 0.55 })
+  );
+  top.scale.z = 0.62;
+  top.position.y = 1.04;
+  top.castShadow = true; top.receiveShadow = true;
+  top.userData.collide = true;
+  g.add(top);
+
+  const panelTex = new THREE.CanvasTexture(makeHokagePanel(512, 256));
+  const panel = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.8, 0.9),
+    new THREE.MeshStandardMaterial({ map: panelTex, metalness: 0.0, roughness: 0.95 })
+  );
+  panel.position.set(0, 0.65, 1.35);
+  panel.rotation.y = Math.PI;
+  panel.castShadow = true;
+  panel.userData.collide = true;
+  g.add(panel);
+
+  const seat = new THREE.Mesh(
+    new THREE.BoxGeometry(0.7, 0.08, 0.6),
+    new THREE.MeshStandardMaterial({ color: 0x9DC7B8, roughness: 0.8 })
+  );
+  seat.position.set(0, 0.62, -0.25);
+  seat.castShadow = true; seat.receiveShadow = true;
+  seat.userData.collide = true;
+  g.add(seat);
+
+  const back = new THREE.Mesh(
+    new THREE.BoxGeometry(0.7, 0.9, 0.08),
+    new THREE.MeshStandardMaterial({ color: 0x9DC7B8, roughness: 0.8 })
+  );
+  back.position.set(0, 1.08, -0.55);
+  back.castShadow = true; back.receiveShadow = true;
+  back.userData.collide = true;
+  g.add(back);
+
+  return g;
+}
+
 export function buildProps(){
-  const group = new THREE.Group();
-  group.name = "Props";
+  const grp = new THREE.Group();
 
-  const matBook = new THREE.MeshStandardMaterial({ color: 0x2e3138, roughness: 0.8, metalness: 0.02 });
-  const matCup = new THREE.MeshStandardMaterial({ color: 0xcfcfcf, roughness: 0.5, metalness: 0.1 });
+  function book(w,h,d,color){
+    const m = new THREE.Mesh(new THREE.BoxGeometry(w,h,d), new THREE.MeshStandardMaterial({ color, roughness:.9, metalness:.02 }));
+    m.castShadow = true; m.receiveShadow = true; return m;
+  }
+  const colors = [0xc73f3f,0x3f7fc7,0xf2a65a,0x68a357,0x8e6cc6,0xf0c808,0x444f77];
+  function stack(x,z, n=5){
+    let y = 1.08;
+    for (let i=0;i<n;i++){
+      const w = 0.22+Math.random()*0.08, h = 0.035+Math.random()*0.01, d = 0.3+Math.random()*0.06;
+      const b = book(w,h,d, colors[Math.floor(Math.random()*colors.length)]);
+      b.position.set(x + (Math.random()*0.06-0.03), y + h/2 + i*(h+0.008), z + (Math.random()*0.06-0.03));
+      b.userData.collide = true;
+      grp.add(b);
+    }
+  }
+  stack(-0.9, 0.25, 6);
+  stack(0.95, 0.2, 5);
+  stack(1.0, -0.3, 4);
 
-  // a couple of books
-  const book1 = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.04, 0.16), matBook);
-  book1.position.set(-0.35, 0.04, 0.05);
-  book1.castShadow = true; group.add(book1);
+  function scroll(x,z){
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.04,0.04,0.35,16),
+      new THREE.MeshStandardMaterial({ color: 0xEEE7D6, roughness: .85 }));
+    body.rotation.z = Math.PI/2;
+    body.position.set(x, 1.10, z);
+    body.castShadow = true;
+    body.userData.collide = true;
+    const cap1 = new THREE.Mesh(new THREE.CylinderGeometry(0.045,0.045,0.02,12),
+      new THREE.MeshStandardMaterial({ color: 0x403832, roughness:.6 }));
+    cap1.position.set(x-0.18,1.10,z);
+    cap1.rotation.z = Math.PI/2;
+    cap1.castShadow = true;
+    cap1.userData.collide = true;
+    const cap2 = cap1.clone(); cap2.position.x = x+0.18;
+    grp.add(body, cap1, cap2);
+  }
+  scroll(-0.2, 0.4);
+  scroll(0.35, 0.15);
 
-  const book2 = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.03, 0.14), matBook);
-  book2.position.set(-0.12, 0.035, 0.09);
-  book2.rotation.y = 0.15; book2.castShadow = true; group.add(book2);
+  const ink = new THREE.Mesh(new THREE.CylinderGeometry(0.06,0.08,0.1,18),
+    new THREE.MeshStandardMaterial({ color:0x1a1a1a, roughness:.4, metalness:.1 }));
+  ink.position.set(-0.25, 1.12, 0.05); ink.castShadow = true; grp.add(ink);
+  ink.userData.collide = true;
 
-  // a cup
-  const cup = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.045, 0.09, 24), matCup);
-  cup.position.set(0.42, 0.07, -0.06);
-  cup.castShadow = true; group.add(cup);
-
-  return group;
+  return grp;
 }
 
-// Distant skyline: simple silhouettes outside the office for ambience (no collision).
 export function buildSkyline(){
-  const group = new THREE.Group();
-  group.name = "Skyline";
+  const grp = new THREE.Group();
 
-  // Cluster silhouettes only outside the window (-Z), not around the whole ring
-  const mat = new THREE.MeshStandardMaterial({ color: 0x1a212b, roughness: 1.0, metalness: 0.0 });
-  const radius = 11.5;   // outside the wall radius
-  const center = Math.PI; // -Z
-  const halfArc = 0.7;   // limit skyline to window span
+  const ground = new THREE.Mesh(
+    new THREE.CylinderGeometry(60,60,0.02,64),
+    new THREE.MeshStandardMaterial({ color:0xd7e8c5, roughness:.95 })
+  );
+  ground.position.y = -0.02; ground.receiveShadow = true; grp.add(ground);
+  ground.userData.collide = false;
 
-  for (let i = 0; i < 28; i++){
-    const t = i / 27; // 0..1
-    const a = center - halfArc + t * (halfArc * 2);
-    const w = 0.4 + Math.random() * 0.8;
-    const h = 2.6 + Math.random() * 5.2;
-    const d = 0.22 + Math.random() * 0.18;
-    const box = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
-    box.position.set(Math.sin(a) * radius, h / 2 - 0.1, Math.cos(a) * radius);
-    box.lookAt(0, box.position.y, 0); box.rotateY(Math.PI);
-    group.add(box);
+  const hillMat = new THREE.MeshStandardMaterial({ color:0x94b29b, roughness:1.0 });
+  for (let i=0;i<8;i++){
+    const r = 25 + Math.random()*12;
+    const a = (i/8)*Math.PI*2 + Math.random()*0.2;
+    const hill = new THREE.Mesh(new THREE.SphereGeometry(6+Math.random()*3, 24, 16), hillMat);
+    hill.scale.set(1.8,0.6,1.8);
+    hill.position.set(Math.sin(a)*r, 2.2, Math.cos(a)*r);
+    grp.add(hill);
+    hill.userData.collide = false;
   }
 
-  // Optional low horizon strip
-  const horizon = new THREE.Mesh(
-    new THREE.CylinderGeometry(radius, radius, 0.12, 64, 1, true, center - halfArc, halfArc * 2),
-    new THREE.MeshStandardMaterial({ color: 0x0e1319, roughness: 1.0, metalness: 0.0 })
-  );
-  horizon.position.y = 0.02;
-  group.add(horizon);
+  const bMat = new THREE.MeshStandardMaterial({ color:0xE7D7A3, roughness:.9 });
+  for (let i=0;i<14;i++){
+    const r = 18 + Math.random()*16;
+    const a = (i/14)*Math.PI*2 + Math.random()*0.15;
+    const h = 2 + Math.random()*2.5;
+    const cyl = new THREE.Mesh(new THREE.CylinderGeometry(1.2,1.2,h,24), bMat);
+    cyl.position.set(Math.sin(a)*r, h/2, Math.cos(a)*r);
+    grp.add(cyl);
+    cyl.userData.collide = false;
 
-  return group;
+    const cap = new THREE.Mesh(new THREE.CylinderGeometry(1.25,1.25,0.25,24),
+      new THREE.MeshStandardMaterial({ color:0xC7B483, roughness:.9 }));
+    cap.position.set(cyl.position.x, h+0.12, cyl.position.z);
+    grp.add(cap);
+    cap.userData.collide = false;
+  }
+  return grp;
 }

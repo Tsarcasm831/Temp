@@ -8,12 +8,10 @@ const HOSPITAL_LABEL = 'JQ150';
 /* @tweakable path(s) to the Hospital GLB model (served from site root)
    We try the canonical /src/assets first, then fall back to the websim-version path. */
 const HOSPITAL_GLB_PATHS = [
-  // Module-relative URL is most robust across subpath deployments (placements -> objects -> game -> src -> assets)
-  (() => { try { return new URL('../../../assets/Hospital.glb', import.meta.url).href; } catch(_) { return null; } })(),
-  '/src/assets/Hospital.glb',
-  '/websim-version/src/assets/Hospital.glb',
-  // External CDN fallback
-  'https://www.lordtsarcasm.com/assets/NarutoGame/Buildings/Hospital.glb'
+  '/src/assets/Hospital (1).glb',
+  '/src/assets/Hospital (2).glb',
+  (() => { try { return new URL('../../../assets/Hospital (1).glb', import.meta.url).href; } catch(_) { return null; } })(),
+  (() => { try { return new URL('../../../assets/Hospital (2).glb', import.meta.url).href; } catch(_) { return null; } })()
 ].filter(Boolean);
 /* @tweakable base scale multiplier (30% larger overall on top of fit) */
 const HOSPITAL_GLB_SCALE = 2.5;

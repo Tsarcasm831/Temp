@@ -1,11 +1,11 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
 import React from "react";
-const LATEST_VERSION = "0.002.000 [Alpha]";
-const LATEST_DATE = "2025-08-29";
+const LATEST_VERSION = "0.005.006 [Alpha]";
+const LATEST_DATE = "2025-09-06";
 const LATEST_CHANGES = [
-  "Version bump to 0.002.000 [Alpha].",
-  "Added run_me.bat (Windows) and serve.py (Python) so players can download and run locally with a single command.",
-  "Title/version now reflects the new alpha tag across the UI."
+  "Defaulted controls and UI to desktop-first experience.",
+  "Switched Hospital model to local asset to resolve CORS issues.",
+  "Updated version labels across UI for consistency."
 ];
 const changelogData = [
   { version: LATEST_VERSION, date: LATEST_DATE, changes: LATEST_CHANGES },

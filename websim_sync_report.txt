@@ -1,0 +1,28 @@
+NEW      Konoha_Academy/background.png
+NEW      Konoha_Academy/favicon.png
+UPDATED  hokage/office_interior/builders.js
+NEW      hokage/office_top_floor/src/assets/images/Namikaze_Minato.png
+NEW      hokage/office_top_floor/src/assets/images/Senju_Hashirama.png
+NEW      hokage/office_top_floor/src/assets/images/Senju_Tobirama.png
+NEW      hokage/office_top_floor/src/assets/images/Uzumaki_Naruto.png
+UPDATED  hokage/office_top_floor/src/scene/initScene.js
+UPDATED  index.html
+UPDATED  package.json
+UPDATED  serve.py
+UPDATED  src/OpenWorldGame.jsx
+NEW      src/assets/Hospital (1).glb
+NEW      src/assets/Hospital (2).glb
+NEW      src/assets/songs/DailyLife1.mp3
+NEW      src/assets/songs/KonohaTown1.mp3
+NEW      src/assets/songs/KonohaTown2.mp3
+NEW      src/assets/songs/KonohaTown3.mp3
+UPDATED  src/assets/songs/playlist.js
+UPDATED  src/components/UI/ChangelogPanel.jsx
+UPDATED  src/components/UI/KitbashBuildingModal.jsx
+UPDATED  src/components/UI/MusicPlayer.jsx
+UPDATED  src/game/objects/placements/district-fill/templates.js
+UPDATED  src/game/objects/placements/hokagePalace.js
+UPDATED  src/game/objects/placements/hospital.js
+UPDATED  src/game/objects/updateObjects.js
+UPDATED  src/utils/assetLoader.js
+UPDATED  src/utils/musicManager.js
