@@ -120,6 +120,86 @@ export function updatePlayer(player, keys, camera, light, throttledSetPlayerPosi
         player.userData.mixer.update(delta);
     }
 
+    // Auto-align camera yaw to motion after sustained movement (3rd person only)
+    try {
+        if (!isFirstPerson && cameraOrbitRef && typeof cameraOrbitRef.current === 'number') {
+            const auto = (player.userData.__autoCam || (player.userData.__autoCam = {
+                movingTime: 0,
+                lastDir: null,
+                aligning: false,
+                targetYaw: null
+            }));
+
+            const moved = !!player.userData.movedLastFrame;
+            const moveAngle = (typeof player.userData.lastWorldMoveAngle === 'number')
+                ? player.userData.lastWorldMoveAngle
+                : null;
+
+            const normalizeAngle = (a) => {
+                const twoPI = Math.PI * 2;
+                a = ((a % twoPI) + twoPI) % twoPI;
+                if (a > Math.PI) a -= twoPI;
+                return a;
+            };
+            const angleDiff = (a, b) => normalizeAngle(b - a);
+
+            const HOLD_TIME = 0.7;            // seconds to hold movement
+            const DIR_TOL = 0.35;             // ~20 deg tolerance for "same direction"
+            const CANCEL_TOL = 0.8;           // ~45 deg change cancels current alignment
+            const TURN_SPEED = 3.0;           // radians/sec smoothing toward target
+
+            // If player is manually rotating camera (Q/E), cancel auto-align immediately
+            if (keys && (keys['KeyQ'] || keys['KeyE'])) {
+                auto.movingTime = 0;
+                auto.aligning = false;
+                auto.targetYaw = null;
+                auto.lastDir = null;
+            }
+
+            // Track sustained movement in roughly same world direction
+            if (moved && moveAngle != null) {
+                if (auto.lastDir == null || Math.abs(angleDiff(auto.lastDir, moveAngle)) > DIR_TOL) {
+                    auto.lastDir = moveAngle;
+                    auto.movingTime = 0;
+                    // If direction shifts a lot mid-align, cancel and wait for hold again
+                    if (auto.aligning && Math.abs(angleDiff(auto.targetYaw ?? 0, moveAngle + Math.PI)) > CANCEL_TOL) {
+                        auto.aligning = false;
+                        auto.targetYaw = null;
+                    }
+                } else {
+                    auto.movingTime += delta;
+                }
+            } else {
+                auto.movingTime = 0;
+                auto.aligning = false;
+                auto.lastDir = null;
+                auto.targetYaw = null;
+            }
+
+            // Start alignment once the hold time is satisfied, lock target to avoid chasing
+            if (!auto.aligning && auto.movingTime >= HOLD_TIME && moveAngle != null) {
+                auto.aligning = true;
+                // Place camera behind the player (player faces moveAngle)
+                auto.targetYaw = normalizeAngle(moveAngle + Math.PI);
+            }
+
+            // Progress alignment smoothly each frame
+            if (auto.aligning && auto.targetYaw != null) {
+                const curYaw = cameraOrbitRef.current || 0;
+                const t = 1 - Math.exp(-TURN_SPEED * Math.max(0, delta));
+                const d = angleDiff(curYaw, auto.targetYaw);
+                const next = normalizeAngle(curYaw + d * t);
+                cameraOrbitRef.current = next;
+                // Finish when within small epsilon
+                if (Math.abs(angleDiff(next, auto.targetYaw)) < 0.02) {
+                    cameraOrbitRef.current = auto.targetYaw;
+                    auto.aligning = false;
+                    auto.targetYaw = null;
+                }
+            }
+        }
+    } catch (_) {}
+
     // Constrain player to world bounds
     const worldBounds = WORLD_SIZE / 2 - 10;
     player.position.x = Math.max(-worldBounds, Math.min(worldBounds, player.position.x));

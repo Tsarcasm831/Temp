@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import sys
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 
 
@@ -24,10 +25,24 @@ class Handler(SimpleHTTPRequestHandler):
         super().end_headers()
 
 
+class QuietHTTPServer(ThreadingHTTPServer):
+    """
+    Threading HTTP server that suppresses noisy BrokenPipe/connection-reset stack traces
+    that occur when a client disconnects mid-transfer (e.g., browser navigating away).
+    """
+    def handle_error(self, request, client_address):  # type: ignore[override]
+        exc = sys.exc_info()[1]
+        if isinstance(exc, (BrokenPipeError, ConnectionResetError, ConnectionAbortedError)):
+            # Swallow expected network disconnect errors silently
+            return
+        # Delegate other errors to default handler
+        return super().handle_error(request, client_address)
+
+
 def main(host: str = "127.0.0.1", port: int = 8000):
     # Serve from the directory containing this script
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
-    httpd = ThreadingHTTPServer((host, port), Handler)
+    httpd = QuietHTTPServer((host, port), Handler)
     sa = httpd.socket.getsockname()
     print(f"Serving HTTP on {sa[0]} port {sa[1]} (http://{host}:{port}/) ...")
     try:

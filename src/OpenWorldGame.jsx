@@ -2,6 +2,7 @@ import { jsxDEV } from "react/jsx-dev-runtime";
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { DEFAULT_MODEL as MAP_DEFAULT_MODEL } from "/map/defaults/full-default-model.js";
 import { initialPlayerStats, initialInventory } from "./game/initialState.js";
+import { addExperience, ensureExperienceConsistency, xpForLevel } from "./game/experience.js";
 import { useThreeScene } from "./hooks/useThreeScene.js";
 import { usePlayerControls } from "./hooks/usePlayerControls.js";
 import { initializeAssetLoader, startCaching } from "./utils/assetLoader.js";
@@ -39,7 +40,7 @@ const OpenWorldGame = () => {
     const label = OVERRIDE_VERSION != null && OVERRIDE_VERSION !== "" ? OVERRIDE_VERSION : latest ? `${VERSION_PREFIX}${latest}` : "";
     setVersion(label);
   }, []);
-  const [playerStats, setPlayerStats] = useState(initialPlayerStats);
+  const [playerStats, setPlayerStats] = useState(() => ensureExperienceConsistency(initialPlayerStats));
   const [inventory, setInventory] = useState(initialInventory);
   const [playerPosition, setPlayerPosition] = useState({ x: 0, z: 0 });
   const [worldObjects, setWorldObjects] = useState([]);
@@ -84,8 +85,15 @@ const OpenWorldGame = () => {
     /* NEW: expose pause setter to controls */
     setShowPause: setShowPauseMenu
   };
-  const keysRef = usePlayerControls(uiState);
+  const gainExperience = useCallback((amount) => {
+    setPlayerStats((prev) => {
+      const { stats } = addExperience(prev, amount);
+      return stats;
+    });
+  }, []);
+  const keysRef = usePlayerControls({ ...uiState, onGainExperience: gainExperience });
   const joystickRef = useRef(null);
+  const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
   const { playerRef, zoomRef, cameraOrbitRef, cameraPitchRef } = useThreeScene({ mountRef, keysRef, joystickRef, setPlayerPosition, settings, setWorldObjects, isPlaying: gameState === "Playing", onReady: useCallback(() => setGameReady(true), []) });
   const musicWasPlayingRef = useRef(false);
   useEffect(() => {
@@ -235,7 +243,7 @@ const OpenWorldGame = () => {
         setGameState("MainMenu");
       }
     }, void 0, false),
-    gameState === "Playing" && showMobileControls && /* @__PURE__ */ jsxDEV(MobileControls, {
+    gameState === "Playing" && (isTouchDevice || showMobileControls) && /* @__PURE__ */ jsxDEV(MobileControls, {
       joystickRef,
       keysRef,
       zoomRef,

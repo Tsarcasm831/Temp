@@ -1,12 +1,12 @@
 export const initialPlayerStats = {
-    name: 'Adventurer',
-    level: 12,
+    name: 'Kakashi',
+    level: 1,
     health: 100,
     maxHealth: 100,
     chakra: 500,
     maxChakra: 500,
-    experience: 2450,
-    maxExperience: 3000,
+    experience: 0,
+    maxExperience: 250,
     gold: 150,
 
     // Core Stats

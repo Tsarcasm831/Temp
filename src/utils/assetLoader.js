@@ -38,8 +38,9 @@ const MODEL_ASSETS = [
     // Local copies (prefer local for performance when available)
     '/src/assets/hokage_office.glb',
     '/src/assets/Hokage_Monument.glb',
-    '/src/assets/Hospital (1).glb',
-    '/src/assets/Hospital (2).glb'
+    '/src/assets/Hospital.glb',
+    // External fallback (opaque cached via no-cors)
+    'https://www.lordtsarcasm.com/assets/NarutoGame/Buildings/Hospital.glb'
 ];
 
 /**

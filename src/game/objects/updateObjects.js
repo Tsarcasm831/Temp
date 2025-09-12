@@ -37,9 +37,12 @@ import { createCentralWallWithGate } from './walls/centralWall.js';
 import { placeHokagePalace } from './placements/hokagePalace.js';
 import { placeHokageMonument } from './placements/hokageMonument.js';
 import { placeIchiraku } from './placements/ichiraku.js';
+import { placeHospital } from './placements/hospital.js';
 import { placeKonohaGates } from './placements/konohaGates.js';
 import { placeCitySlice } from './placements/citySlice.js';
 import { placeKitbash } from './placements/kitbash.js';
+// Forest placement (instanced)
+import { placeForestTrees } from './placements/forestTrees.js';
 import { fillDistrict, listDistrictIdsByPrefix } from './placements/districtFill.js';
 import { WALL_RADIUS } from '../player/movement/constants.js';
 import { parseGridLabel, posForCell } from './utils/gridLabel.js';
@@ -137,8 +140,20 @@ export function updateObjects(scene, currentObjects, settings) {
   const monument = placeHokageMonument(scene, objectGrid, worldSize, settings);
   if (monument) renderObjects.push(monument);
 
+  // Hospital (GLB)
+  const hospital = placeHospital(scene, objectGrid, worldSize, settings);
+  if (hospital) renderObjects.push(hospital);
+
   const ichiraku = placeIchiraku(scene, objectGrid, worldSize, settings);
   if (ichiraku) renderObjects.push(ichiraku);
+
+  // Populate forests from map polygons using instanced trees (semi-thick, performant)
+  try {
+    const forestGroup = placeForestTrees(scene, objectGrid, worldSize, settings, { spacing: 18 });
+    if (forestGroup) renderObjects.push(forestGroup);
+  } catch (e) {
+    console.warn('Forest instanced placement failed:', e);
+  }
 
   if (ENABLE_CITY_SLICE) {
     const citySlice = placeCitySlice(scene, objectGrid, settings);

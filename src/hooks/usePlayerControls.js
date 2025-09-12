@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export const usePlayerControls = ({ setShowCharacter, setShowInventory, setShowWorldMap, setShowSettings, setShowMobileControls, setShowAnimations, setShowJutsuModal, setShowKakashi, gameState, setSettings, setShowPause }) => {
+export const usePlayerControls = ({ setShowCharacter, setShowInventory, setShowWorldMap, setShowSettings, setShowMobileControls, setShowAnimations, setShowJutsuModal, setShowKakashi, gameState, setSettings, setShowPause, onGainExperience }) => {
     const keysRef = useRef({});
 
     useEffect(() => {
@@ -97,16 +97,36 @@ export const usePlayerControls = ({ setShowCharacter, setShowInventory, setShowW
                         setShowMobileControls(prev => !prev);
                     }
                     break;
-                case 'KeyV':
-                    // Toggle first-person view (handled in animation loop)
-                    keysRef.current['ToggleFirstPerson'] = true;
-                    const canvas = document.querySelector('canvas');
-                    if (document.pointerLockElement) {
-                        document.exitPointerLock();
-                    } else if (canvas && canvas.requestPointerLock) {
-                        canvas.requestPointerLock();
+                case 'KeyX':
+                    // Dev: grant small XP
+                    if (typeof onGainExperience === 'function' && gameState === 'Playing') {
+                        onGainExperience(100);
                     }
                     break;
+                case 'KeyK':
+                    // Dev: grant large XP
+                    if (typeof onGainExperience === 'function' && gameState === 'Playing') {
+                        onGainExperience(1000);
+                    }
+                    break;
+                case 'KeyV': {
+                    // Toggle first-person view. Prefer Pointer Lock when supported (must be called from user gesture).
+                    if (event.cancelable) event.preventDefault();
+                    const canvas = document.querySelector('canvas');
+                    const supportsPointerLock = !!(canvas && canvas.requestPointerLock);
+                    if (supportsPointerLock) {
+                        if (document.pointerLockElement === canvas) {
+                            document.exitPointerLock();
+                        } else {
+                            canvas.requestPointerLock();
+                        }
+                        // Do NOT flip FPV state here; it will sync via pointerlockchange.
+                    } else {
+                        // Fallback: no Pointer Lock available, request manual FPV toggle handled in loop
+                        keysRef.current['ToggleFirstPerson'] = true;
+                    }
+                    break;
+                }
                 case 'Equal': // '=' zoom in
                     keysRef.current['ZoomInClicked'] = true;
                     break;
@@ -156,7 +176,7 @@ export const usePlayerControls = ({ setShowCharacter, setShowInventory, setShowW
             window.removeEventListener('mousedown', handleMouseDown);
             window.removeEventListener('mouseup', handleMouseUp);
         };
-    }, [setShowCharacter, setShowInventory, setShowWorldMap, setShowSettings, setShowMobileControls, setShowAnimations, setShowJutsuModal, setShowKakashi, gameState, setSettings, setShowPause]);
+    }, [setShowCharacter, setShowInventory, setShowWorldMap, setShowSettings, setShowMobileControls, setShowAnimations, setShowJutsuModal, setShowKakashi, gameState, setSettings, setShowPause, onGainExperience]);
 
     return keysRef;
 };

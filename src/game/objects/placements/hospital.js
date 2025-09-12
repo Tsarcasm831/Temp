@@ -6,12 +6,11 @@ import { buildingToHullPoints, convexHullXZ } from '../../../components/game/obj
 /* @tweakable grid label where the Hospital is placed */
 const HOSPITAL_LABEL = 'JQ150';
 /* @tweakable path(s) to the Hospital GLB model (served from site root)
-   We try the canonical /src/assets first, then fall back to the websim-version path. */
+   Prefer module-relative URL and the canonical /src/assets filename. */
 const HOSPITAL_GLB_PATHS = [
-  '/src/assets/Hospital (1).glb',
-  '/src/assets/Hospital (2).glb',
-  (() => { try { return new URL('../../../assets/Hospital (1).glb', import.meta.url).href; } catch(_) { return null; } })(),
-  (() => { try { return new URL('../../../assets/Hospital (2).glb', import.meta.url).href; } catch(_) { return null; } })()
+  (() => { try { return new URL('../../../assets/Hospital.glb', import.meta.url).href; } catch(_) { return null; } })(),
+  '/src/assets/Hospital.glb',
+  'https://www.lordtsarcasm.com/assets/NarutoGame/Buildings/Hospital.glb'
 ].filter(Boolean);
 /* @tweakable base scale multiplier (30% larger overall on top of fit) */
 const HOSPITAL_GLB_SCALE = 2.5;

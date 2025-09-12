@@ -57,6 +57,11 @@ const ControlsInfo = () => /* @__PURE__ */ jsxDEV("div", { className: "bg-black 
       lineNumber: 16,
       columnNumber: 13
     }),
+    /* @__PURE__ */ jsxDEV("div", { children: "Q/E: Rotate Camera" }, void 0, false, {
+      fileName: "<stdin>",
+      lineNumber: 16,
+      columnNumber: 13
+    }),
     /* @__PURE__ */ jsxDEV("div", { children: "C: Character" }, void 0, false, {
       fileName: "<stdin>",
       lineNumber: 17,
@@ -77,9 +82,19 @@ const ControlsInfo = () => /* @__PURE__ */ jsxDEV("div", { className: "bg-black 
       lineNumber: 20,
       columnNumber: 13
     }),
-    /* @__PURE__ */ jsxDEV("div", { children: "Z: Toggle Mobile Controls" }, void 0, false, {
+    /* @__PURE__ */ jsxDEV("div", { children: "X: +100 XP (dev)" }, void 0, false, {
       fileName: "<stdin>",
       lineNumber: 21,
+      columnNumber: 13
+    }),
+    /* @__PURE__ */ jsxDEV("div", { children: "K: +1000 XP (dev)" }, void 0, false, {
+      fileName: "<stdin>",
+      lineNumber: 22,
+      columnNumber: 13
+    }),
+    /* @__PURE__ */ jsxDEV("div", { children: "Z: Toggle Mobile Controls" }, void 0, false, {
+      fileName: "<stdin>",
+      lineNumber: 23,
       columnNumber: 13
     }),
     /* @__PURE__ */ jsxDEV("div", { className: "text-blue-300", children: "Mobile: Use the Cam pad to rotate the camera" }, void 0, false, {

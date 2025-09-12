@@ -84,11 +84,29 @@ export function startAnimationLoop({
     document.addEventListener('mousemove', onPointerMove);
 
     const onPointerLockChange = () => {
-        if (document.pointerLockElement !== rendererRef.current?.domElement) {
-            firstPersonRef.current = false;
-        }
+        const el = rendererRef.current?.domElement;
+        const isLocked = (document.pointerLockElement === el);
+        // Sync FPV state purely from actual pointer-lock status
+        firstPersonRef.current = !!isLocked;
+
+        // Keep orientation consistent when entering/leaving FPV
+        try {
+            const model = playerRef.current?.userData?.model;
+            if (isLocked && model && cameraOrbitRef) {
+                // Entering FPV: mirror model yaw into camera orbit
+                cameraOrbitRef.current = model.rotation.y || 0;
+            } else if (!isLocked && model && cameraOrbitRef) {
+                // Leaving FPV: mirror camera orbit back into model yaw
+                model.rotation.y = cameraOrbitRef.current || 0;
+            }
+        } catch (_) {}
+    };
+    const onPointerLockError = () => {
+        // If lock fails, ensure FPV is off
+        firstPersonRef.current = false;
     };
     document.addEventListener('pointerlockchange', onPointerLockChange);
+    document.addEventListener('pointerlockerror', onPointerLockError);
 
     function setPrompt(text, visible) {
         const el = interactPromptRef?.current;
@@ -228,25 +246,22 @@ export function startAnimationLoop({
             return;
         }
 
-        // Handle first-person toggle (V)
+        // Handle first-person toggle fallback ONLY when Pointer Lock is unavailable
         if (keysRef.current['ToggleFirstPerson']) {
             keysRef.current['ToggleFirstPerson'] = false;
-            const entering = !firstPersonRef.current;
-            firstPersonRef.current = !firstPersonRef.current;
-            if (!firstPersonRef.current && document.pointerLockElement) {
-                document.exitPointerLock();
-            } else if (firstPersonRef.current && rendererRef.current?.domElement && !document.pointerLockElement) {
-                rendererRef.current.domElement.requestPointerLock?.();
+            const supportsPointerLock = !!(rendererRef.current?.domElement?.requestPointerLock);
+            if (!supportsPointerLock) {
+                const entering = !firstPersonRef.current;
+                firstPersonRef.current = !firstPersonRef.current;
+                try {
+                    const model = playerRef.current?.userData?.model;
+                    if (entering && model && cameraOrbitRef) {
+                        cameraOrbitRef.current = model.rotation.y || 0;
+                    } else if (!entering && model && cameraOrbitRef) {
+                        model.rotation.y = cameraOrbitRef.current || 0;
+                    }
+                } catch (_) {}
             }
-            // NEW: keep orientation consistent across FPV toggles
-            try {
-                const model = playerRef.current?.userData?.model;
-                if (entering && model && cameraOrbitRef) {
-                    cameraOrbitRef.current = model.rotation.y || 0;
-                } else if (!entering && model && cameraOrbitRef) {
-                    model.rotation.y = cameraOrbitRef.current || 0;
-                }
-            } catch (_) {}
         }
 
         // Handle keyboard zoom clicks ('=' to zoom in, '-' to zoom out)
@@ -341,6 +356,7 @@ export function startAnimationLoop({
         throttledSetPlayerPosition.cancel?.();
         document.removeEventListener('mousemove', onPointerMove);
         document.removeEventListener('pointerlockchange', onPointerLockChange);
+        document.removeEventListener('pointerlockerror', onPointerLockError);
         if (document.pointerLockElement) document.exitPointerLock();
     };
 }
