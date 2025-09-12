@@ -1,10 +1,11 @@
 import { useEffect, useRef } from 'react';
 import { WORLD_SIZE, TILE_SIZE, TEXTURE_WORLD_UNITS, getBiomeAt, getTerrainTextureForBiome } from '/src/scene/terrain.js';
-import { drawRiver, drawRoads, drawDistricts } from '../components/game/objects/konoha_roads.js';
+import { drawRiver, drawRoads, drawDistricts, drawGrass } from '../components/game/objects/konoha_roads.js';
 import {
     MINIMAP_DRAW_ROADS,
     MINIMAP_DRAW_RIVER,
     MINIMAP_DRAW_DISTRICTS,
+    MINIMAP_DRAW_GRASS,
     MINIMAP_ROAD_ALPHA,
     MINIMAP_W_PRIMARY,
     MINIMAP_W_SECONDARY,
@@ -112,6 +113,10 @@ export const useWorldMinimapCanvas = () => {
             const scale = 1; // 1 pixel = 1 world unit on this canvas
             const cx = worldSize / 2;
             const cy = worldSize / 2;
+            // Grass strokes first (under roads/districts)
+            if (MINIMAP_DRAW_GRASS) {
+                await drawGrass(ctx, scale, cx, cy, { alpha: 0.4, widthScale: 0.5, color: '#16a34a' });
+            }
             if (MINIMAP_DRAW_DISTRICTS) {
                 await drawDistricts(ctx, scale, cx, cy, {
                     alpha: 0.15,

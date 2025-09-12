@@ -34,6 +34,14 @@ const ENABLE_CITY_SLICE = false;
 // @tweakable enable/disable spawning Kitbash buildings
 const ENABLE_KITBASH = false;
 import { createCentralWallWithGate } from './walls/centralWall.js';
+/* @tweakable enable 3D grass clump placement */
+const ENABLE_GRASS_CLUMP = false;
+/* @tweakable grid label for the demo grass placement */
+const GRASS_DEMO_LABEL = 'LI300';
+/* @tweakable place a patch (multiple clumps) instead of a single clump */
+const GRASS_PLACE_PATCH = true;
+/* @tweakable options for clump build */
+const GRASS_OPTIONS = { blades: 160, radius: 2.6, height: { min: 1.4, max: 3.8 }, width: 0.12, color: 0x1f8a3a, colorJitter: 0.12, spread: 12 };
 import { placeHokagePalace } from './placements/hokagePalace.js';
 import { placeHokageMonument } from './placements/hokageMonument.js';
 import { placeIchiraku } from './placements/ichiraku.js';
@@ -43,6 +51,8 @@ import { placeCitySlice } from './placements/citySlice.js';
 import { placeKitbash } from './placements/kitbash.js';
 // Forest placement (instanced)
 import { placeForestTrees } from './placements/forestTrees.js';
+import { placeAutoGrass } from './placements/grass/autoFill.js';
+import { placeGrassClump, placeGrassPatch } from './placements/grass/index.js';
 import { fillDistrict, listDistrictIdsByPrefix } from './placements/districtFill.js';
 import { WALL_RADIUS } from '../player/movement/constants.js';
 import { parseGridLabel, posForCell } from './utils/gridLabel.js';
@@ -153,6 +163,31 @@ export function updateObjects(scene, currentObjects, settings) {
     if (forestGroup) renderObjects.push(forestGroup);
   } catch (e) {
     console.warn('Forest instanced placement failed:', e);
+  }
+
+  // Auto grass patches in non-district, non-road areas using map data
+  try {
+    const autoGrass = placeAutoGrass(scene, objectGrid, worldSize, settings, {
+      spacing: 70,       // grid spacing (world units) — denser coverage
+      roadBuffer: 16,    // min distance to roads (world units)
+      maxPatches: 640    // raise cap for more coverage (LOD manages perf)
+    });
+    if (autoGrass) renderObjects.push(autoGrass);
+  } catch (e) {
+    console.warn('Auto grass placement failed:', e);
+  }
+
+  // 3D Grass
+  if (ENABLE_GRASS_CLUMP) {
+    try {
+      if (GRASS_PLACE_PATCH) {
+        const patch = placeGrassPatch(scene, objectGrid, worldSize, settings, GRASS_DEMO_LABEL, 9, GRASS_OPTIONS);
+        if (patch) renderObjects.push(patch);
+      } else {
+        const clump = placeGrassClump(scene, objectGrid, worldSize, settings, GRASS_DEMO_LABEL, GRASS_OPTIONS);
+        if (clump) renderObjects.push(clump);
+      }
+    } catch (e) { console.warn('Grass placement failed:', e); }
   }
 
   if (ENABLE_CITY_SLICE) {

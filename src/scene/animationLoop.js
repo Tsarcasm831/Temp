@@ -34,6 +34,17 @@ export function startAnimationLoop({
     firstPersonRef
 }) {
     let animationId = null;
+    // Grass LOD cache and timing
+    let __grassMeshes = [];
+    let __lastGrassScan = 0;
+    let __lastGrassLOD = 0;
+    const GRASS_SCAN_MS = 2000; // rescan scene for grass every 2s
+    const GRASS_LOD_MS = 250;   // apply LOD at most 4 times per second
+    // LOD thresholds (world units)
+    const GRASS_NEAR = 160;
+    const GRASS_MID = 320;
+    const GRASS_FAR = 560;
+    const GRASS_HIDE = 900;
     const fpsIntervals = {
         'Unlimited': 0,
         '60 FPS': 1000 / 60,
@@ -344,6 +355,47 @@ export function startAnimationLoop({
             // NEW: pass first-person ref
             firstPersonRef
         );
+
+        // Grass LOD (throttled)
+        if (timestamp - __lastGrassScan > GRASS_SCAN_MS) {
+            __grassMeshes = [];
+            sceneRef.current.traverse((o) => {
+                try {
+                    if (o?.isInstancedMesh && (o.userData?.isGrass || (typeof o.name === 'string' && o.name.indexOf('Grass') !== -1))) {
+                        __grassMeshes.push(o);
+                        if (o.userData && typeof o.userData.baseCount !== 'number') {
+                            o.userData.baseCount = o.count || o.instanceMatrix?.count || 0;
+                        }
+                    }
+                } catch (_) {}
+            });
+            __lastGrassScan = timestamp;
+        }
+        if (timestamp - __lastGrassLOD > GRASS_LOD_MS && __grassMeshes.length) {
+            const pos = playerRef.current.position;
+            for (let i = 0; i < __grassMeshes.length; i++){
+                const m = __grassMeshes[i];
+                const dx = (m.position?.x || 0) - pos.x;
+                const dz = (m.position?.z || 0) - pos.z;
+                const d = Math.hypot(dx, dz);
+                const base = Math.max(1, m.userData?.baseCount || m.count || 1);
+                if (d > GRASS_HIDE) {
+                    if (m.visible) m.visible = false;
+                    continue;
+                }
+                if (!m.visible) m.visible = true;
+                let factor = 1.0;
+                if (d > GRASS_FAR) factor = 0.25;
+                else if (d > GRASS_MID) factor = 0.5;
+                else if (d > GRASS_NEAR) factor = 0.75;
+                const target = Math.max(1, Math.floor(base * factor));
+                if (m.count !== target) {
+                    m.count = target;
+                    // no need to set needsUpdate when only count changes
+                }
+            }
+            __lastGrassLOD = timestamp;
+        }
 
         rendererRef.current.render(sceneRef.current, cameraRef.current);
     }

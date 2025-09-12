@@ -74,6 +74,8 @@ function nearestBiomeAt(x, z, seeds) {
 
 // @tweakable enable or disable drawing the overworld road/river overlay
 const ROAD_OVERLAY_ENABLED = true;
+// Toggle: draw grass strokes on the terrain overlay
+const ROAD_OVERLAY_DRAW_GRASS = false;
 // @tweakable opacity of the overworld road/river overlay (0..1)
 const ROAD_OVERLAY_OPACITY = 0.75;
 // @tweakable vertical offset of the overlay above ground to avoid z-fighting
@@ -90,7 +92,7 @@ export function getTerrainTextureForBiome(biome) {
     return terrainFiles[biome] || terrainFiles.grass;
 }
 
-import { drawRoads, drawRiver, drawDistricts } from '../components/game/objects/konoha_roads.js';
+import { drawRoads, drawRiver, drawDistricts, drawGrass } from '../components/game/objects/konoha_roads.js';
 
 export function createTerrain(scene, settings) {
     const textureLoader = new THREE.TextureLoader();
@@ -140,9 +142,12 @@ export function createTerrain(scene, settings) {
                 overlayCanvas.height = worldSize;
                 const octx = overlayCanvas.getContext('2d');
                 if (!octx) return;
-                // Draw terrain-sized roads/river centered at (worldSize/2, worldSize/2), 1px == 1 world unit
+                // Draw terrain-sized overlays centered at (worldSize/2, worldSize/2), 1px == 1 world unit
                 const scale = 1, cx = worldSize / 2, cy = worldSize / 2;
-                // Districts then walls then roads
+                // Grass then districts then walls then roads
+                if (ROAD_OVERLAY_DRAW_GRASS) {
+                  await drawGrass(octx, scale, cx, cy, { alpha: 0.35, widthScale: 0.5, color: '#16a34a' });
+                }
                 await drawDistricts(octx, scale, cx, cy, {
                     alpha: 0.15,
                     stroke: '#ffffff',

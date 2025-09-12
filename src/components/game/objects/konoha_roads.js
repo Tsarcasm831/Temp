@@ -2,6 +2,7 @@
 import { DEFAULT_MODEL as MAP_DEFAULT_MODEL } from '/map/defaults/full-default-model.js';
 const DEFAULT_ROADS = (MAP_DEFAULT_MODEL?.roads) || [];
 const DEFAULT_DISTRICTS = (MAP_DEFAULT_MODEL?.districts) || {};
+const DEFAULT_GRASS = (MAP_DEFAULT_MODEL?.grass) || [];
 
 // Utility: grid label parsing and world position helper for rivers
 import { parseGridLabel, posForCell } from '../../../game/objects/utils/gridLabel.js';
@@ -30,9 +31,13 @@ export async function loadKonohaRoads() {
   const liveRoads = (USE_LIVE_MAP_DISTRICTS && __liveModelRef && Array.isArray(__liveModelRef.roads) && __liveModelRef.roads.length)
     ? __liveModelRef.roads
     : DEFAULT_ROADS;
+  const liveGrass = (USE_LIVE_MAP_DISTRICTS && __liveModelRef && Array.isArray(__liveModelRef.grass))
+    ? __liveModelRef.grass
+    : DEFAULT_GRASS;
   __roadsCache = {
     roads: { all: liveRoads },
-    districts: liveDistricts
+    districts: liveDistricts,
+    grass: liveGrass
   };
   return __roadsCache;
 }
@@ -129,6 +134,90 @@ export async function drawRoads(ctx, scale, cx, cy, options = {}) {
       ctx.strokeStyle = opt.color;
     }
     ctx.stroke();
+  }
+
+  ctx.restore();
+}
+
+// Grass strokes from map terrain (polyline strokes drawn in green)
+const GRASS_COLOR = '#16a34a';
+const GRASS_ALPHA = 0.4;
+const GRASS_WIDTH_SCALE = 0.5; // multiply map width (e.g., 50) to get canvas px
+
+/**
+ * Draw grass polylines from the map model's terrain.grass array.
+ * @param {CanvasRenderingContext2D} ctx
+ * @param {number} scale  pixels per world unit
+ * @param {number} cx     canvas x coordinate of world origin
+ * @param {number} cy     canvas y coordinate of world origin
+ * @param {Object} options { color, alpha, widthScale }
+ */
+export async function drawGrass(ctx, scale, cx, cy, options = {}) {
+  const { grass } = await loadKonohaRoads();
+  if (!Array.isArray(grass) || grass.length === 0) return;
+  const color = options.color || GRASS_COLOR;
+  const alpha = (typeof options.alpha === 'number') ? options.alpha : GRASS_ALPHA;
+
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  ctx.strokeStyle = color;
+
+  const rnd = (a,b)=>a+Math.random()*(b-a);
+
+  for (const g of grass) {
+    const pts = Array.isArray(g?.points) ? g.points : [];
+    if (pts.length === 0) continue;
+    const baseW = Math.max(10, Math.min(120, Number(g.width)||40));
+    // Keep approx 10-26px spacing in screen px: convert to world units with scale
+    const stepWorld = Math.max(2, (30 - baseW/3) / Math.max(1e-6, scale));
+    const hMinPx = Math.max(6, Math.min(28, baseW * 0.18));
+    const hMaxPx = Math.max(10, Math.min(44, baseW * 0.55));
+    const tMin = 0.8, tMax = 2.4; // px
+
+    // Convert pct to world units
+    const wp = pts.map(([x,y])=>({
+      x: (x/100)*WORLD_SIZE - WORLD_SIZE/2,
+      z: (y/100)*WORLD_SIZE - WORLD_SIZE/2
+    }));
+
+    if (wp.length === 1) {
+      // Tuft at single point
+      const c = wp[0];
+      for (let k=0;k<18;k++){
+        const ang=rnd(0,Math.PI*2), lenPx=rnd(hMinPx*0.6,hMaxPx*0.9);
+        const lenW = lenPx / Math.max(1e-6, scale);
+        const tx=c.x + Math.cos(ang)*lenW*0.5;
+        const tz=c.z + Math.sin(ang)*lenW*0.5;
+        ctx.beginPath();
+        ctx.moveTo(cx + c.x*scale, cy + c.z*scale);
+        ctx.lineTo(cx + tx*scale, cy + tz*scale);
+        ctx.lineWidth = rnd(tMin,tMax);
+        ctx.stroke();
+      }
+      continue;
+    }
+
+    for (let i=0;i<wp.length-1;i++){
+      const a=wp[i], b=wp[i+1];
+      const dx=b.x-a.x, dz=b.z-a.z; const len=Math.hypot(dx,dz)||1;
+      const ux=dx/len, uz=dz/len; const nx=-uz, nz=ux; // normal
+      for (let t=0;t<=len; t+=stepWorld){
+        const bx=a.x+ux*t + rnd(-1.5,1.5); // jitter in world units
+        const bz=a.z+uz*t + rnd(-1.5,1.5);
+        const side = Math.random()<0.5? -1: 1;
+        const ang = rnd(-0.35,0.35); const cos=Math.cos(ang), sin=Math.sin(ang);
+        const rx=nx*cos - nz*sin, rz=nx*sin + nz*cos;
+        const hPx=rnd(hMinPx,hMaxPx)*side; const hW=hPx/Math.max(1e-6, scale);
+        const tx=bx + rx*hW; const tz=bz + rz*hW;
+        ctx.beginPath();
+        ctx.moveTo(cx + bx*scale, cy + bz*scale);
+        ctx.lineTo(cx + tx*scale, cy + tz*scale);
+        ctx.lineWidth = rnd(tMin,tMax);
+        ctx.stroke();
+      }
+    }
   }
 
   ctx.restore();
@@ -268,5 +357,6 @@ export function drawRiver(ctx, scale, cx, cy, opts = {}) {
 
 export const KONOHA_ROADS = {
   get roads() { return __roadsCache?.roads || null; },
-  get districts() { return __roadsCache?.districts || null; }
+  get districts() { return __roadsCache?.districts || null; },
+  get grass() { return __roadsCache?.grass || null; }
 };

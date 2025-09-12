@@ -80,10 +80,51 @@ function drawGrass(){
   const layer = document.getElementById('grassLayer');
   clear(layer);
   if(!getToggle('toggleGrass') || !Array.isArray(MODEL.grass)) return;
-  layer.append(mk('rect',{class:'grass-base',x:0,y:0,width:W,height:H}));
+  // Parameters for blade rendering
+  const rnd = (a,b)=>a+Math.random()*(b-a);
+  const clamp=(v,min,max)=>v<min?min:v>max?max:v;
   for(const g of MODEL.grass){
-    const d=g.points.map(p=>[p[0]*W/100,p[1]*H/100].join(',')).join(' ');
-    layer.append(mk('polyline',{class:'grass',points:d,strokeWidth:g.width||50}));
+    const pts = Array.isArray(g?.points) ? g.points : [];
+    if(pts.length < 1) continue;
+    // Convert percent coords to px
+    const pxy = pts.map(([px,py])=>({x:(px/100)*W, y:(py/100)*H}));
+    const baseW = clamp(Number(g.width)||40, 10, 120);
+    const stepPx = clamp(30 - baseW/3, 6, 26); // spacing between blades
+    const hMin = clamp(baseW * 0.18, 6, 28);
+    const hMax = clamp(baseW * 0.55, 10, 44);
+    const tMin = 0.8, tMax = 2.4; // stroke widths in px
+    for(let i=0;i<pxy.length-1;i++){
+      const a=pxy[i], b=pxy[i+1];
+      const dx=b.x-a.x, dy=b.y-a.y; const len=Math.hypot(dx,dy)||1;
+      const ux=dx/len, uy=dy/len; // along-segment unit
+      // Normal (perpendicular)
+      const nx=-uy, ny=ux;
+      for(let t=0;t<=len; t+=stepPx){
+        const bx=a.x+ux*t + rnd(-2,2); // jitter along path
+        const by=a.y+uy*t + rnd(-2,2);
+        const side = Math.random()<0.5? -1: 1;
+        const ang = rnd(-0.35, 0.35); // slight bend angle in radians
+        // rotate normal slightly
+        const cos=Math.cos(ang), sin=Math.sin(ang);
+        const rx=nx*cos - ny*sin, ry=nx*sin + ny*cos;
+        const h=rnd(hMin,hMax)*side;
+        const tx=bx + rx*h;
+        const ty=by + ry*h;
+        const w=rnd(tMin,tMax);
+        layer.append(mk('line',{class:'grass-blade', x1:bx, y1:by, x2:tx, y2:ty, strokeWidth:w}));
+      }
+    }
+    if(pxy.length===1){
+      // Single point: draw a tuft
+      const c=pxy[0];
+      for(let k=0;k<18;k++){
+        const ang=rnd(0,Math.PI*2);
+        const len=rnd(hMin*0.6, hMax*0.9);
+        const tx=c.x + Math.cos(ang)*len*0.5;
+        const ty=c.y + Math.sin(ang)*len*0.5;
+        layer.append(mk('line',{class:'grass-blade', x1:c.x, y1:c.y, x2:tx, y2:ty, strokeWidth:rnd(0.8,2.2)}));
+      }
+    }
   }
 }
 

@@ -67,9 +67,10 @@ button.primary{border-color:#4f46e5}
 body[data-mode="draw-district"] svg,
 body[data-mode="draw-road"] svg{cursor:crosshair}
 @media (max-width:980px){#wrap{grid-template-columns:1fr}}
-.grass{fill:none;stroke:#16a34a;stroke-opacity:.4;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;stroke-width:50}
+.grass{display:none}
+.grass-blade{fill:none;stroke:#16a34a;stroke-opacity:.8;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .forest{fill:none;stroke:#064e3b;stroke-opacity:.85;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .mountain{fill:none;stroke:#78350f;stroke-opacity:.8;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .mountain-tri{fill:#78350f;fill-opacity:.85;stroke:#3f1d0b;stroke-width:2;vector-effect:non-scaling-stroke}
-.grass-base{fill:#16a34a;fill-opacity:.12;stroke:none}
+.grass-base{display:none}
 .forest-area{fill:#064e3b;fill-opacity:.5;stroke:#064e3b;stroke-opacity:.9;vector-effect:non-scaling-stroke}

@@ -1,6 +1,8 @@
 export const MINIMAP_DRAW_ROADS = true;
 export const MINIMAP_DRAW_RIVER = true;
 export const MINIMAP_DRAW_DISTRICTS = true;
+// Toggle for drawing grass strokes on the minimap background
+export const MINIMAP_DRAW_GRASS = false;
 export const MINIMAP_ROAD_ALPHA = 0.9;
 export const MINIMAP_W_PRIMARY = 10.0;
 export const MINIMAP_W_SECONDARY = 7.0;

@@ -54,9 +54,39 @@ export function buildExportSVG(){
     const cx=w.cx*W/100, cy=w.cy*H/100, r=w.r*W/100;
     return `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#94a3b8" stroke-width="${w.width||8}" />`;
   }).join('\n');
+  // Export grass as many thin blade lines instead of fat polylines
   const dGrass = (MODEL.grass||[]).map(g=>{
-    const pts=g.points.map(([x,y])=>[x*W/100,y*H/100].join(',')).join(' ');
-    return `<polyline points="${pts}" fill="none" stroke="#16a34a" stroke-opacity=".4" stroke-width="${g.width||50}" stroke-linecap="round" stroke-linejoin="round"/>`;
+    const pts = Array.isArray(g?.points) ? g.points : [];
+    if(pts.length === 0) return '';
+    const px = pts.map(([x,y])=>({x:x*W/100, y:y*H/100}));
+    const baseW = Math.max(10, Math.min(120, Number(g.width)||40));
+    const stepPx = Math.max(6, Math.min(26, 30 - baseW/3));
+    const hMin = Math.max(6, Math.min(28, baseW * 0.18));
+    const hMax = Math.max(10, Math.min(44, baseW * 0.55));
+    const tMin = 0.8, tMax = 2.4;
+    const rnd = (a,b)=>a+Math.random()*(b-a);
+    let out='';
+    for(let i=0;i<px.length-1;i++){
+      const a=px[i], b=px[i+1]; const dx=b.x-a.x, dy=b.y-a.y; const len=Math.hypot(dx,dy)||1;
+      const ux=dx/len, uy=dy/len; const nx=-uy, ny=ux;
+      for(let t=0;t<=len;t+=stepPx){
+        const bx=a.x+ux*t + rnd(-2,2), by=a.y+uy*t + rnd(-2,2);
+        const side = Math.random()<0.5? -1: 1;
+        const ang = rnd(-0.35,0.35); const cos=Math.cos(ang), sin=Math.sin(ang);
+        const rx=nx*cos - ny*sin, ry=nx*sin + ny*cos;
+        const h=rnd(hMin,hMax)*side; const tx=bx+rx*h, ty=by+ry*h; const w=rnd(tMin,tMax);
+        out += `<line x1="${bx}" y1="${by}" x2="${tx}" y2="${ty}" stroke="#16a34a" stroke-opacity=".8" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>\n`;
+      }
+    }
+    if(px.length===1){
+      const c=px[0];
+      for(let k=0;k<18;k++){
+        const ang=rnd(0,Math.PI*2), len=rnd(hMin*0.6,hMax*0.9);
+        const tx=c.x+Math.cos(ang)*len*0.5, ty=c.y+Math.sin(ang)*len*0.5, w=rnd(tMin,tMax);
+        out += `<line x1="${c.x}" y1="${c.y}" x2="${tx}" y2="${ty}" stroke="#16a34a" stroke-opacity=".8" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>\n`;
+      }
+    }
+    return out;
   }).join('\n');
   const dForest = (MODEL.forest||[]).map(f=>{
     const pts=f.points.map(([x,y])=>[x*W/100,y*H/100].join(',')).join(' ');
